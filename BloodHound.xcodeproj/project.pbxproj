@@ -22,6 +22,10 @@
 		FCA3FAB3193C809000390B10 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCA3FA97193C809000390B10 /* CoreData.framework */; };
 		FCA3FABB193C809000390B10 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FCA3FAB9193C809000390B10 /* InfoPlist.strings */; };
 		FCA3FABD193C809000390B10 /* BloodHoundTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA3FABC193C809000390B10 /* BloodHoundTests.m */; };
+		FCA3FACA193C896700390B10 /* SplashControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA3FAC9193C896600390B10 /* SplashControllerViewController.m */; };
+		FCA3FACC193C8A0700390B10 /* BH_Background1.png in Resources */ = {isa = PBXBuildFile; fileRef = FCA3FACB193C8A0700390B10 /* BH_Background1.png */; };
+		FCA3FACF193C8A7B00390B10 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA3FACE193C8A7B00390B10 /* MainViewController.m */; };
+		FCA3FAD2193C93DE00390B10 /* BloodHoundStoryBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCA3FAD1193C93DE00390B10 /* BloodHoundStoryBoard.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +57,12 @@
 		FCA3FAB8193C809000390B10 /* BloodHoundTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BloodHoundTests-Info.plist"; sourceTree = "<group>"; };
 		FCA3FABA193C809000390B10 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FCA3FABC193C809000390B10 /* BloodHoundTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BloodHoundTests.m; sourceTree = "<group>"; };
+		FCA3FAC8193C896600390B10 /* SplashControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplashControllerViewController.h; sourceTree = "<group>"; };
+		FCA3FAC9193C896600390B10 /* SplashControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplashControllerViewController.m; sourceTree = "<group>"; };
+		FCA3FACB193C8A0700390B10 /* BH_Background1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = BH_Background1.png; path = "../../../Downloads/Bloodhound UI_5.31/BH_Background1.png"; sourceTree = "<group>"; };
+		FCA3FACD193C8A7B00390B10 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		FCA3FACE193C8A7B00390B10 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		FCA3FAD1193C93DE00390B10 /* BloodHoundStoryBoard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BloodHoundStoryBoard.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +94,12 @@
 		FCA3FA85193C809000390B10 = {
 			isa = PBXGroup;
 			children = (
+				FCA3FAD1193C93DE00390B10 /* BloodHoundStoryBoard.storyboard */,
+				FCA3FAC8193C896600390B10 /* SplashControllerViewController.h */,
+				FCA3FAC9193C896600390B10 /* SplashControllerViewController.m */,
+				FCA3FACB193C8A0700390B10 /* BH_Background1.png */,
+				FCA3FACD193C8A7B00390B10 /* MainViewController.h */,
+				FCA3FACE193C8A7B00390B10 /* MainViewController.m */,
 				FCA3FA99193C809000390B10 /* BloodHound */,
 				FCA3FAB6193C809000390B10 /* BloodHoundTests */,
 				FCA3FA90193C809000390B10 /* Frameworks */,
@@ -229,7 +245,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				FCA3FA9E193C809000390B10 /* InfoPlist.strings in Resources */,
+				FCA3FAD2193C93DE00390B10 /* BloodHoundStoryBoard.storyboard in Resources */,
 				FCA3FAA9193C809000390B10 /* Images.xcassets in Resources */,
+				FCA3FACC193C8A0700390B10 /* BH_Background1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,6 +268,8 @@
 			files = (
 				FCA3FAA7193C809000390B10 /* BloodHound.xcdatamodeld in Sources */,
 				FCA3FAA4193C809000390B10 /* AppDelegate.m in Sources */,
+				FCA3FACA193C896700390B10 /* SplashControllerViewController.m in Sources */,
+				FCA3FACF193C8A7B00390B10 /* MainViewController.m in Sources */,
 				FCA3FAA0193C809000390B10 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -447,6 +467,7 @@
 				FCA3FAC2193C809000390B10 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FCA3FAC3193C809000390B10 /* Build configuration list for PBXNativeTarget "BloodHoundTests" */ = {
 			isa = XCConfigurationList;
@@ -455,6 +476,7 @@
 				FCA3FAC5193C809000390B10 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
