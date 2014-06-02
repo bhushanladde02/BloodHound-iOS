@@ -1,0 +1,475 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FCA3FA92193C809000390B10 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCA3FA91193C809000390B10 /* Foundation.framework */; };
+		FCA3FA94193C809000390B10 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCA3FA93193C809000390B10 /* CoreGraphics.framework */; };
+		FCA3FA96193C809000390B10 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCA3FA95193C809000390B10 /* UIKit.framework */; };
+		FCA3FA98193C809000390B10 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCA3FA97193C809000390B10 /* CoreData.framework */; };
+		FCA3FA9E193C809000390B10 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FCA3FA9C193C809000390B10 /* InfoPlist.strings */; };
+		FCA3FAA0193C809000390B10 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA3FA9F193C809000390B10 /* main.m */; };
+		FCA3FAA4193C809000390B10 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA3FAA3193C809000390B10 /* AppDelegate.m */; };
+		FCA3FAA7193C809000390B10 /* BloodHound.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FCA3FAA5193C809000390B10 /* BloodHound.xcdatamodeld */; };
+		FCA3FAA9193C809000390B10 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCA3FAA8193C809000390B10 /* Images.xcassets */; };
+		FCA3FAB0193C809000390B10 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCA3FAAF193C809000390B10 /* XCTest.framework */; };
+		FCA3FAB1193C809000390B10 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCA3FA91193C809000390B10 /* Foundation.framework */; };
+		FCA3FAB2193C809000390B10 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCA3FA95193C809000390B10 /* UIKit.framework */; };
+		FCA3FAB3193C809000390B10 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCA3FA97193C809000390B10 /* CoreData.framework */; };
+		FCA3FABB193C809000390B10 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FCA3FAB9193C809000390B10 /* InfoPlist.strings */; };
+		FCA3FABD193C809000390B10 /* BloodHoundTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA3FABC193C809000390B10 /* BloodHoundTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FCA3FAB4193C809000390B10 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FCA3FA86193C809000390B10 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FCA3FA8D193C809000390B10;
+			remoteInfo = BloodHound;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		FCA3FA8E193C809000390B10 /* BloodHound.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BloodHound.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FCA3FA91193C809000390B10 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		FCA3FA93193C809000390B10 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		FCA3FA95193C809000390B10 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		FCA3FA97193C809000390B10 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		FCA3FA9B193C809000390B10 /* BloodHound-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BloodHound-Info.plist"; sourceTree = "<group>"; };
+		FCA3FA9D193C809000390B10 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		FCA3FA9F193C809000390B10 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		FCA3FAA1193C809000390B10 /* BloodHound-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BloodHound-Prefix.pch"; sourceTree = "<group>"; };
+		FCA3FAA2193C809000390B10 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		FCA3FAA3193C809000390B10 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		FCA3FAA6193C809000390B10 /* BloodHound.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BloodHound.xcdatamodel; sourceTree = "<group>"; };
+		FCA3FAA8193C809000390B10 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		FCA3FAAE193C809000390B10 /* BloodHoundTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BloodHoundTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FCA3FAAF193C809000390B10 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		FCA3FAB8193C809000390B10 /* BloodHoundTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BloodHoundTests-Info.plist"; sourceTree = "<group>"; };
+		FCA3FABA193C809000390B10 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		FCA3FABC193C809000390B10 /* BloodHoundTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BloodHoundTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FCA3FA8B193C809000390B10 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FCA3FA94193C809000390B10 /* CoreGraphics.framework in Frameworks */,
+				FCA3FA98193C809000390B10 /* CoreData.framework in Frameworks */,
+				FCA3FA96193C809000390B10 /* UIKit.framework in Frameworks */,
+				FCA3FA92193C809000390B10 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FCA3FAAB193C809000390B10 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FCA3FAB0193C809000390B10 /* XCTest.framework in Frameworks */,
+				FCA3FAB3193C809000390B10 /* CoreData.framework in Frameworks */,
+				FCA3FAB2193C809000390B10 /* UIKit.framework in Frameworks */,
+				FCA3FAB1193C809000390B10 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FCA3FA85193C809000390B10 = {
+			isa = PBXGroup;
+			children = (
+				FCA3FA99193C809000390B10 /* BloodHound */,
+				FCA3FAB6193C809000390B10 /* BloodHoundTests */,
+				FCA3FA90193C809000390B10 /* Frameworks */,
+				FCA3FA8F193C809000390B10 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FCA3FA8F193C809000390B10 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FCA3FA8E193C809000390B10 /* BloodHound.app */,
+				FCA3FAAE193C809000390B10 /* BloodHoundTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FCA3FA90193C809000390B10 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FCA3FA91193C809000390B10 /* Foundation.framework */,
+				FCA3FA93193C809000390B10 /* CoreGraphics.framework */,
+				FCA3FA95193C809000390B10 /* UIKit.framework */,
+				FCA3FA97193C809000390B10 /* CoreData.framework */,
+				FCA3FAAF193C809000390B10 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FCA3FA99193C809000390B10 /* BloodHound */ = {
+			isa = PBXGroup;
+			children = (
+				FCA3FAA2193C809000390B10 /* AppDelegate.h */,
+				FCA3FAA3193C809000390B10 /* AppDelegate.m */,
+				FCA3FAA8193C809000390B10 /* Images.xcassets */,
+				FCA3FAA5193C809000390B10 /* BloodHound.xcdatamodeld */,
+				FCA3FA9A193C809000390B10 /* Supporting Files */,
+			);
+			path = BloodHound;
+			sourceTree = "<group>";
+		};
+		FCA3FA9A193C809000390B10 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FCA3FA9B193C809000390B10 /* BloodHound-Info.plist */,
+				FCA3FA9C193C809000390B10 /* InfoPlist.strings */,
+				FCA3FA9F193C809000390B10 /* main.m */,
+				FCA3FAA1193C809000390B10 /* BloodHound-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FCA3FAB6193C809000390B10 /* BloodHoundTests */ = {
+			isa = PBXGroup;
+			children = (
+				FCA3FABC193C809000390B10 /* BloodHoundTests.m */,
+				FCA3FAB7193C809000390B10 /* Supporting Files */,
+			);
+			path = BloodHoundTests;
+			sourceTree = "<group>";
+		};
+		FCA3FAB7193C809000390B10 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FCA3FAB8193C809000390B10 /* BloodHoundTests-Info.plist */,
+				FCA3FAB9193C809000390B10 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FCA3FA8D193C809000390B10 /* BloodHound */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FCA3FAC0193C809000390B10 /* Build configuration list for PBXNativeTarget "BloodHound" */;
+			buildPhases = (
+				FCA3FA8A193C809000390B10 /* Sources */,
+				FCA3FA8B193C809000390B10 /* Frameworks */,
+				FCA3FA8C193C809000390B10 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BloodHound;
+			productName = BloodHound;
+			productReference = FCA3FA8E193C809000390B10 /* BloodHound.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FCA3FAAD193C809000390B10 /* BloodHoundTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FCA3FAC3193C809000390B10 /* Build configuration list for PBXNativeTarget "BloodHoundTests" */;
+			buildPhases = (
+				FCA3FAAA193C809000390B10 /* Sources */,
+				FCA3FAAB193C809000390B10 /* Frameworks */,
+				FCA3FAAC193C809000390B10 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FCA3FAB5193C809000390B10 /* PBXTargetDependency */,
+			);
+			name = BloodHoundTests;
+			productName = BloodHoundTests;
+			productReference = FCA3FAAE193C809000390B10 /* BloodHoundTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FCA3FA86193C809000390B10 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Small Emperor";
+				TargetAttributes = {
+					FCA3FAAD193C809000390B10 = {
+						TestTargetID = FCA3FA8D193C809000390B10;
+					};
+				};
+			};
+			buildConfigurationList = FCA3FA89193C809000390B10 /* Build configuration list for PBXProject "BloodHound" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = FCA3FA85193C809000390B10;
+			productRefGroup = FCA3FA8F193C809000390B10 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FCA3FA8D193C809000390B10 /* BloodHound */,
+				FCA3FAAD193C809000390B10 /* BloodHoundTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FCA3FA8C193C809000390B10 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FCA3FA9E193C809000390B10 /* InfoPlist.strings in Resources */,
+				FCA3FAA9193C809000390B10 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FCA3FAAC193C809000390B10 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FCA3FABB193C809000390B10 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FCA3FA8A193C809000390B10 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FCA3FAA7193C809000390B10 /* BloodHound.xcdatamodeld in Sources */,
+				FCA3FAA4193C809000390B10 /* AppDelegate.m in Sources */,
+				FCA3FAA0193C809000390B10 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FCA3FAAA193C809000390B10 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FCA3FABD193C809000390B10 /* BloodHoundTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FCA3FAB5193C809000390B10 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FCA3FA8D193C809000390B10 /* BloodHound */;
+			targetProxy = FCA3FAB4193C809000390B10 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FCA3FA9C193C809000390B10 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FCA3FA9D193C809000390B10 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		FCA3FAB9193C809000390B10 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FCA3FABA193C809000390B10 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FCA3FABE193C809000390B10 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		FCA3FABF193C809000390B10 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FCA3FAC1193C809000390B10 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BloodHound/BloodHound-Prefix.pch";
+				INFOPLIST_FILE = "BloodHound/BloodHound-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		FCA3FAC2193C809000390B10 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BloodHound/BloodHound-Prefix.pch";
+				INFOPLIST_FILE = "BloodHound/BloodHound-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		FCA3FAC4193C809000390B10 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BloodHound.app/BloodHound";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BloodHound/BloodHound-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "BloodHoundTests/BloodHoundTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		FCA3FAC5193C809000390B10 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BloodHound.app/BloodHound";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BloodHound/BloodHound-Prefix.pch";
+				INFOPLIST_FILE = "BloodHoundTests/BloodHoundTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FCA3FA89193C809000390B10 /* Build configuration list for PBXProject "BloodHound" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FCA3FABE193C809000390B10 /* Debug */,
+				FCA3FABF193C809000390B10 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FCA3FAC0193C809000390B10 /* Build configuration list for PBXNativeTarget "BloodHound" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FCA3FAC1193C809000390B10 /* Debug */,
+				FCA3FAC2193C809000390B10 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		FCA3FAC3193C809000390B10 /* Build configuration list for PBXNativeTarget "BloodHoundTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FCA3FAC4193C809000390B10 /* Debug */,
+				FCA3FAC5193C809000390B10 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		FCA3FAA5193C809000390B10 /* BloodHound.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				FCA3FAA6193C809000390B10 /* BloodHound.xcdatamodel */,
+			);
+			currentVersion = FCA3FAA6193C809000390B10 /* BloodHound.xcdatamodel */;
+			path = BloodHound.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = FCA3FA86193C809000390B10 /* Project object */;
+}
