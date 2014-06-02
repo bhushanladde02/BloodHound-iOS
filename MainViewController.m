@@ -9,6 +9,7 @@
 #import "MainViewController.h"
 
 @interface MainViewController ()
+@property (weak, nonatomic) IBOutlet UIImageView *imageBackground;
 
 @end
 
@@ -20,13 +21,21 @@
     if (self) {
         // Custom initialization
     }
+    
     return self;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    //self.imageBackground.set
+    UIImage *backgroundImage = [UIImage imageNamed:@"BH_Background1.png"];
+    
+    UIImageView *backgroundImageView=[[UIImageView alloc]initWithFrame:self.view.frame];
+    backgroundImageView.image=backgroundImage;
+    
+    [self.view insertSubview:backgroundImageView atIndex:0];
+    
 }
 
 - (void)didReceiveMemoryWarning
