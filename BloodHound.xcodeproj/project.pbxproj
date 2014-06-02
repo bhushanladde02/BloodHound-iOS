@@ -25,6 +25,7 @@
 		FCA3FACC193C8A0700390B10 /* BH_Background1.png in Resources */ = {isa = PBXBuildFile; fileRef = FCA3FACB193C8A0700390B10 /* BH_Background1.png */; };
 		FCA3FACF193C8A7B00390B10 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA3FACE193C8A7B00390B10 /* MainViewController.m */; };
 		FCA3FAD2193C93DE00390B10 /* BloodHoundStoryBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCA3FAD1193C93DE00390B10 /* BloodHoundStoryBoard.storyboard */; };
+		FCA3FAD8193C9C8000390B10 /* BloodHoundLaunch.png in Resources */ = {isa = PBXBuildFile; fileRef = FCA3FAD7193C9C8000390B10 /* BloodHoundLaunch.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		FCA3FACD193C8A7B00390B10 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		FCA3FACE193C8A7B00390B10 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		FCA3FAD1193C93DE00390B10 /* BloodHoundStoryBoard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BloodHoundStoryBoard.storyboard; sourceTree = "<group>"; };
+		FCA3FAD7193C9C8000390B10 /* BloodHoundLaunch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = BloodHoundLaunch.png; path = ../../BloodHoundLaunch.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				FCA3FAD1193C93DE00390B10 /* BloodHoundStoryBoard.storyboard */,
+				FCA3FAD7193C9C8000390B10 /* BloodHoundLaunch.png */,
 				FCA3FACB193C8A0700390B10 /* BH_Background1.png */,
 				FCA3FACD193C8A7B00390B10 /* MainViewController.h */,
 				FCA3FACE193C8A7B00390B10 /* MainViewController.m */,
@@ -241,6 +244,7 @@
 			files = (
 				FCA3FA9E193C809000390B10 /* InfoPlist.strings in Resources */,
 				FCA3FAD2193C93DE00390B10 /* BloodHoundStoryBoard.storyboard in Resources */,
+				FCA3FAD8193C9C8000390B10 /* BloodHoundLaunch.png in Resources */,
 				FCA3FAA9193C809000390B10 /* Images.xcassets in Resources */,
 				FCA3FACC193C8A0700390B10 /* BH_Background1.png in Resources */,
 			);
