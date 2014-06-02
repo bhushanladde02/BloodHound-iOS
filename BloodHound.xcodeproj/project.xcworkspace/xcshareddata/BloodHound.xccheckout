@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>16E895ED-AFC4-4A37-9977-45A7207356B2</string>
+	<key>IDESourceControlProjectName</key>
+	<string>BloodHound</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>E30AF419-15E8-400C-8497-1A361D6C854D</key>
+		<string>https://bitbucket.org/pradeephrish/small-emperor.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>BloodHound.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>E30AF419-15E8-400C-8497-1A361D6C854D</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://bitbucket.org/pradeephrish/small-emperor.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>E30AF419-15E8-400C-8497-1A361D6C854D</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>E30AF419-15E8-400C-8497-1A361D6C854D</string>
+			<key>IDESourceControlWCCName</key>
+			<string>BloodHound</string>
+		</dict>
+	</array>
+</dict>
+</plist>
