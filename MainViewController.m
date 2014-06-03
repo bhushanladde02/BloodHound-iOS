@@ -41,18 +41,21 @@
     
     
     NSInteger yPos = 2*self.view.window.frame.size.height/3;
-    //NSInteger offset = (self.view.window.frame.size.width - 583/2);
+
+    NSLog(@"Width of the screen is  %f",self.view.window.frame.size.width);
+    
+    NSInteger offset = (320- 583/2)/2;
     
     
-     UIImageView *registerButton = [[UIImageView alloc] initWithFrame:CGRectMake(  0 , 220, 583/2, 159/2)];
+     UIImageView *registerButton = [[UIImageView alloc] initWithFrame:CGRectMake(  offset, 220, 583/2, 159/2)];
     registerButton.image  = [UIImage imageNamed:@"register.png"];
     [self.view addSubview:registerButton];
     
-    UIImageView *reportButton = [[UIImageView alloc] initWithFrame:CGRectMake(  0 , 300, 583/2, 159/2)];
+    UIImageView *reportButton = [[UIImageView alloc] initWithFrame:CGRectMake(  offset , 300, 583/2, 159/2)];
     reportButton.image  = [UIImage imageNamed:@"report.png"];
     [self.view addSubview:reportButton];
     
-    UIImageView *skipButton = [[UIImageView alloc] initWithFrame:CGRectMake(  0 , 380, 583/2, 159/2)];
+    UIImageView *skipButton = [[UIImageView alloc] initWithFrame:CGRectMake(  offset , 380, 583/2, 159/2)];
     skipButton.image  = [UIImage imageNamed:@"activeSearch.png"];
     [self.view addSubview:skipButton];
     
