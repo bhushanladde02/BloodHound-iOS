@@ -29,7 +29,7 @@
 {
     [super viewDidLoad];
     //self.imageBackground.set
-    UIImage *backgroundImage = [UIImage imageNamed:@"BH_Background1.png"];
+    UIImage *backgroundImage = [UIImage imageNamed:@"Background1.png"];
     
     UIImageView *backgroundImageView=[[UIImageView alloc]initWithFrame:self.view.frame];
     backgroundImageView.image=backgroundImage;
