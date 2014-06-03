@@ -16,6 +16,7 @@
 		FC6CAEB5193D612500FB5850 /* report.png in Resources */ = {isa = PBXBuildFile; fileRef = FC6CAEB2193D612500FB5850 /* report.png */; };
 		FC6CAEB7193D629200FB5850 /* Background1.png in Resources */ = {isa = PBXBuildFile; fileRef = FC6CAEB6193D629200FB5850 /* Background1.png */; };
 		FC6CAEB9193D654200FB5850 /* loadingScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = FC6CAEB8193D654200FB5850 /* loadingScreen.png */; };
+		FC6CAEBB193DB69300FB5850 /* bloodhoundHeader.png in Resources */ = {isa = PBXBuildFile; fileRef = FC6CAEBA193DB69300FB5850 /* bloodhoundHeader.png */; };
 		FCA3FA92193C809000390B10 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCA3FA91193C809000390B10 /* Foundation.framework */; };
 		FCA3FA94193C809000390B10 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCA3FA93193C809000390B10 /* CoreGraphics.framework */; };
 		FCA3FA96193C809000390B10 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCA3FA95193C809000390B10 /* UIKit.framework */; };
@@ -58,6 +59,7 @@
 		FC6CAEB2193D612500FB5850 /* report.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = report.png; path = "../../BloodHound Release Images/report.png"; sourceTree = "<group>"; };
 		FC6CAEB6193D629200FB5850 /* Background1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Background1.png; path = "../../BloodHound Release Images/Background1.png"; sourceTree = "<group>"; };
 		FC6CAEB8193D654200FB5850 /* loadingScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = loadingScreen.png; path = ../../../Downloads/loadingScreen.png; sourceTree = "<group>"; };
+		FC6CAEBA193DB69300FB5850 /* bloodhoundHeader.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bloodhoundHeader.png; path = ../../../Downloads/bloodhoundHeader.png; sourceTree = "<group>"; };
 		FCA3FA8E193C809000390B10 /* BloodHound.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BloodHound.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCA3FA91193C809000390B10 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FCA3FA93193C809000390B10 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -119,6 +121,7 @@
 				FCA3FAD1193C93DE00390B10 /* BloodHoundStoryBoard.storyboard */,
 				FC00EFBC193D594A00BBA864 /* RegisterViewController.h */,
 				FC00EFBD193D594A00BBA864 /* RegisterViewController.m */,
+				FC6CAEBA193DB69300FB5850 /* bloodhoundHeader.png */,
 				FCA3FAD7193C9C8000390B10 /* BloodHoundLaunch.png */,
 				FCA3FACB193C8A0700390B10 /* BH_Background1.png */,
 				FCA3FACD193C8A7B00390B10 /* MainViewController.h */,
@@ -273,6 +276,7 @@
 			files = (
 				FC6CAEB4193D612500FB5850 /* register.png in Resources */,
 				FCA3FA9E193C809000390B10 /* InfoPlist.strings in Resources */,
+				FC6CAEBB193DB69300FB5850 /* bloodhoundHeader.png in Resources */,
 				FC00EFB7193D4A9C00BBA864 /* OrangeButton.png in Resources */,
 				FC6CAEB9193D654200FB5850 /* loadingScreen.png in Resources */,
 				FC6CAEB7193D629200FB5850 /* Background1.png in Resources */,

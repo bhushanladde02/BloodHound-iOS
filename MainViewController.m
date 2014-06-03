@@ -41,7 +41,7 @@
     /*
      * turn On Off following line
      */
-    //[self.navigationController setNavigationBarHidden:YES];
+    [self.navigationController setNavigationBarHidden:YES];
 
     
     NSInteger yPos = 2*self.view.window.frame.size.height/3;

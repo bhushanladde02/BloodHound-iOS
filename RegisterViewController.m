@@ -28,6 +28,14 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     // Do any additional setup after loading the view.
+    
+    
+    UIImageView *registerButton = [[UIImageView alloc] initWithFrame:CGRectMake(  0, 0, 640/2, 120/2)];
+    registerButton.image  = [UIImage imageNamed:@"bloodhoundHeader.png"];
+    [self.view addSubview:registerButton];
+    
+    
+    
 }
 
 - (void)didReceiveMemoryWarning
