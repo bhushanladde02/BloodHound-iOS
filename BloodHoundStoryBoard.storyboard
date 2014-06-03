@@ -7,17 +7,17 @@
         <!--Main View Controller-->
         <scene sceneID="25b-ms-Ull">
             <objects>
-                <viewController id="1ub-kz-GKl" customClass="MainViewController" sceneMemberID="viewController">
+                <viewController wantsFullScreenLayout="YES" id="1ub-kz-GKl" customClass="MainViewController" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="JXF-Bw-ccu"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="woj-P1-GG0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1138" y="-159"/>
         </scene>
-        <!--View Controller-->
+        <!--Register View Controller-->
         <scene sceneID="YYJ-he-p9H">
             <objects>
-                <viewController id="zEB-mw-K6W" sceneMemberID="viewController">
+                <viewController id="zEB-mw-K6W" customClass="RegisterViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="wic-6K-Iff"/>
                         <viewControllerLayoutGuide type="bottom" id="he3-Su-YA0"/>

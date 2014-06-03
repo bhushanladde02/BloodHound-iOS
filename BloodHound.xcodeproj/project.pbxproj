@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FC00EFB7193D4A9C00BBA864 /* OrangeButton.png in Resources */ = {isa = PBXBuildFile; fileRef = FC00EFB6193D4A9C00BBA864 /* OrangeButton.png */; };
+		FC00EFB9193D4FCA00BBA864 /* WhiteButton.png in Resources */ = {isa = PBXBuildFile; fileRef = FC00EFB8193D4FCA00BBA864 /* WhiteButton.png */; };
+		FC00EFBB193D510F00BBA864 /* blueButton.png in Resources */ = {isa = PBXBuildFile; fileRef = FC00EFBA193D510F00BBA864 /* blueButton.png */; };
+		FC00EFBE193D594A00BBA864 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC00EFBD193D594A00BBA864 /* RegisterViewController.m */; };
+		FC00EFC0193D5AFF00BBA864 /* activeSearch.png in Resources */ = {isa = PBXBuildFile; fileRef = FC00EFBF193D5AFF00BBA864 /* activeSearch.png */; };
+		FC00EFC2193D5B0A00BBA864 /* register.png in Resources */ = {isa = PBXBuildFile; fileRef = FC00EFC1193D5B0A00BBA864 /* register.png */; };
+		FC00EFC4193D5B1B00BBA864 /* report.png in Resources */ = {isa = PBXBuildFile; fileRef = FC00EFC3193D5B1B00BBA864 /* report.png */; };
 		FCA3FA92193C809000390B10 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCA3FA91193C809000390B10 /* Foundation.framework */; };
 		FCA3FA94193C809000390B10 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCA3FA93193C809000390B10 /* CoreGraphics.framework */; };
 		FCA3FA96193C809000390B10 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCA3FA95193C809000390B10 /* UIKit.framework */; };
@@ -39,6 +46,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FC00EFB6193D4A9C00BBA864 /* OrangeButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = OrangeButton.png; path = "../../../Downloads/Bloodhound UI_5.31/OrangeButton.png"; sourceTree = "<group>"; };
+		FC00EFB8193D4FCA00BBA864 /* WhiteButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = WhiteButton.png; path = "../../../Downloads/Bloodhound UI_5.31/WhiteButton.png"; sourceTree = "<group>"; };
+		FC00EFBA193D510F00BBA864 /* blueButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blueButton.png; path = ../../../Downloads/blueButton.png; sourceTree = "<group>"; };
+		FC00EFBC193D594A00BBA864 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		FC00EFBD193D594A00BBA864 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		FC00EFBF193D5AFF00BBA864 /* activeSearch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = activeSearch.png; path = ../../../Downloads/activeSearch.png; sourceTree = "<group>"; };
+		FC00EFC1193D5B0A00BBA864 /* register.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = register.png; path = ../../../Downloads/register.png; sourceTree = "<group>"; };
+		FC00EFC3193D5B1B00BBA864 /* report.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = report.png; path = ../../../Downloads/report.png; sourceTree = "<group>"; };
 		FCA3FA8E193C809000390B10 /* BloodHound.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BloodHound.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCA3FA91193C809000390B10 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FCA3FA93193C809000390B10 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -94,10 +109,18 @@
 			isa = PBXGroup;
 			children = (
 				FCA3FAD1193C93DE00390B10 /* BloodHoundStoryBoard.storyboard */,
+				FC00EFBC193D594A00BBA864 /* RegisterViewController.h */,
+				FC00EFBD193D594A00BBA864 /* RegisterViewController.m */,
 				FCA3FAD7193C9C8000390B10 /* BloodHoundLaunch.png */,
 				FCA3FACB193C8A0700390B10 /* BH_Background1.png */,
 				FCA3FACD193C8A7B00390B10 /* MainViewController.h */,
 				FCA3FACE193C8A7B00390B10 /* MainViewController.m */,
+				FC00EFC3193D5B1B00BBA864 /* report.png */,
+				FC00EFC1193D5B0A00BBA864 /* register.png */,
+				FC00EFBF193D5AFF00BBA864 /* activeSearch.png */,
+				FC00EFBA193D510F00BBA864 /* blueButton.png */,
+				FC00EFB8193D4FCA00BBA864 /* WhiteButton.png */,
+				FC00EFB6193D4A9C00BBA864 /* OrangeButton.png */,
 				FCA3FA99193C809000390B10 /* BloodHound */,
 				FCA3FAB6193C809000390B10 /* BloodHoundTests */,
 				FCA3FA90193C809000390B10 /* Frameworks */,
@@ -243,10 +266,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				FCA3FA9E193C809000390B10 /* InfoPlist.strings in Resources */,
+				FC00EFB7193D4A9C00BBA864 /* OrangeButton.png in Resources */,
+				FC00EFC4193D5B1B00BBA864 /* report.png in Resources */,
+				FC00EFC2193D5B0A00BBA864 /* register.png in Resources */,
 				FCA3FAD2193C93DE00390B10 /* BloodHoundStoryBoard.storyboard in Resources */,
 				FCA3FAD8193C9C8000390B10 /* BloodHoundLaunch.png in Resources */,
+				FC00EFC0193D5AFF00BBA864 /* activeSearch.png in Resources */,
 				FCA3FAA9193C809000390B10 /* Images.xcassets in Resources */,
+				FC00EFBB193D510F00BBA864 /* blueButton.png in Resources */,
 				FCA3FACC193C8A0700390B10 /* BH_Background1.png in Resources */,
+				FC00EFB9193D4FCA00BBA864 /* WhiteButton.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,6 +294,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC00EFBE193D594A00BBA864 /* RegisterViewController.m in Sources */,
 				FCA3FAA7193C809000390B10 /* BloodHound.xcdatamodeld in Sources */,
 				FCA3FAA4193C809000390B10 /* AppDelegate.m in Sources */,
 				FCA3FACF193C8A7B00390B10 /* MainViewController.m in Sources */,

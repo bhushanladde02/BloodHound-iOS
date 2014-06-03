@@ -33,8 +33,30 @@
     
     UIImageView *backgroundImageView=[[UIImageView alloc]initWithFrame:self.view.frame];
     backgroundImageView.image=backgroundImage;
+   // backgroundImage.image
     
     [self.view insertSubview:backgroundImageView atIndex:0];
+    self.view.backgroundColor = [UIColor whiteColor];
+    [self.navigationController setNavigationBarHidden:YES];
+    
+    
+    NSInteger yPos = 2*self.view.window.frame.size.height/3;
+    //NSInteger offset = (self.view.window.frame.size.width - 583/2);
+    
+    
+     UIImageView *registerButton = [[UIImageView alloc] initWithFrame:CGRectMake(  0 , 220, 583/2, 159/2)];
+    registerButton.image  = [UIImage imageNamed:@"register.png"];
+    [self.view addSubview:registerButton];
+    
+    UIImageView *reportButton = [[UIImageView alloc] initWithFrame:CGRectMake(  0 , 300, 583/2, 159/2)];
+    reportButton.image  = [UIImage imageNamed:@"report.png"];
+    [self.view addSubview:reportButton];
+    
+    UIImageView *skipButton = [[UIImageView alloc] initWithFrame:CGRectMake(  0 , 380, 583/2, 159/2)];
+    skipButton.image  = [UIImage imageNamed:@"activeSearch.png"];
+    [self.view addSubview:skipButton];
+    
+    
     
 }
 

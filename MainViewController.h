@@ -10,4 +10,8 @@
 
 @interface MainViewController : UIViewController
 
+/*@property UIImageView *registerButton;
+@property UIImageView *reportButton;
+@property UIImageView *activeSearch;*/
+
 @end
