@@ -7,6 +7,7 @@
 //
 
 #import "MainViewController.h"
+#import "RegisterViewController.h"
 
 @interface MainViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *imageBackground;
@@ -37,8 +38,11 @@
     
     [self.view insertSubview:backgroundImageView atIndex:0];
     self.view.backgroundColor = [UIColor whiteColor];
-    [self.navigationController setNavigationBarHidden:YES];
-    
+    /*
+     * turn On Off following line
+     */
+    //[self.navigationController setNavigationBarHidden:YES];
+
     
     NSInteger yPos = 2*self.view.window.frame.size.height/3;
 
@@ -60,8 +64,22 @@
     [self.view addSubview:skipButton];
     
     
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapDetected)];
+    singleTap.numberOfTapsRequired = 1;
+    registerButton.userInteractionEnabled = YES;
+    [registerButton addGestureRecognizer:singleTap];
+    
     
 }
+
+
+-(void)tapDetected{
+    NSLog(@"single Tap on imageview register button");
+    RegisterViewController *registerViewController = [[RegisterViewController alloc] initWithNibName:nil bundle:nil];
+    [self.navigationController pushViewController:registerViewController animated:YES];
+    //[ registerViewController rel];
+}
+
 
 - (void)didReceiveMemoryWarning
 {

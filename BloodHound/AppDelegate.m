@@ -21,9 +21,14 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];*/
     
+    /*
+     *  Need to Navigation Controller in AppDelegate
+     */
+    
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"BloodHoundStoryBoard" bundle:nil];
     UINavigationController *myStoryBoardInitialViewController = [storyboard instantiateInitialViewController];
     _window.rootViewController = myStoryBoardInitialViewController;
+    
     return YES;
 }
 
