@@ -130,6 +130,30 @@
     cameraButton.image  = [UIImage imageNamed:@"camera.png"];
     [self.view addSubview:cameraButton];
     
+    CGRect calllabelFrame = CGRectMake(20,392,280,30);
+    UILabel *callLabel = [[UILabel alloc] initWithFrame:calllabelFrame];
+    //nameLabel.backgroundColor = [UIColor grayColor];  //debug point
+    callLabel.textColor = [self colorWithHexString:@"3fa69a"];
+    NSString *callText = @"Call to Action";
+    [callLabel setText: callText];
+    callLabel.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:18];
+    [self.view addSubview:callLabel];
+    
+    CGRect callInputLabelFrame = CGRectMake(20,422,280,60);
+    UITextView *callInputField = [[UITextView alloc] initWithFrame:callInputLabelFrame];
+    callInputField.text = @"What should a person do if they find your loved one?";
+    callInputField.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:16];
+    [self.view addSubview:callInputField];
+    
+    CGRect permlabelFrame = CGRectMake(20,482,280,30);
+    UILabel *permLabel = [[UILabel alloc] initWithFrame:permlabelFrame];
+    //nameLabel.backgroundColor = [UIColor grayColor];  //debug point
+    permLabel.textColor = [self colorWithHexString:@"3fa69a"];
+    NSString *permText = @"Permissions";
+    [permLabel setText: permText];
+    permLabel.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:18];
+    [self.view addSubview:permLabel];
+    
     
     
 }
