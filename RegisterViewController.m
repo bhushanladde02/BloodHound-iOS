@@ -76,7 +76,7 @@
     [self.view addSubview:registerLabel];
 
     //register Desc
-    CGRect registerDesclabelFrame = CGRectMake(20,120,280,60);
+    CGRect registerDesclabelFrame = CGRectMake(20,70,280,60);
     UILabel *registerDescLabel = [[UILabel alloc] initWithFrame:registerDesclabelFrame];
     registerDescLabel.numberOfLines = 0;
     //[registerDescLabel sizeToFit];
@@ -87,7 +87,7 @@
     registerDescLabel.textColor = [self colorWithHexString:@"242424"];
     [self.view addSubview:registerDescLabel];
 
-    CGRect namelabelFrame = CGRectMake(20,180,280,30);
+    CGRect namelabelFrame = CGRectMake(20,130,280,30);
     UILabel *nameLabel = [[UILabel alloc] initWithFrame:namelabelFrame];
     //nameLabel.backgroundColor = [UIColor grayColor];  //debug point
     nameLabel.textColor = [self colorWithHexString:@"3fa69a"];
@@ -96,7 +96,7 @@
     nameLabel.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:18];
     [self.view addSubview:nameLabel];
     
-    CGRect nameInputLabelFrame = CGRectMake(20,210,280,30);
+    CGRect nameInputLabelFrame = CGRectMake(20,160,280,30);
     UITextField *textField = [[UITextField alloc] initWithFrame:nameInputLabelFrame];
     textField.text = @"Name and Last Name";
     //textField.layer.borderWidth = 1;
@@ -104,7 +104,7 @@
     textField.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:16];
     [self.view addSubview:textField];
     
-    CGRect addresslabelFrame = CGRectMake(20,240,280,30);
+    CGRect addresslabelFrame = CGRectMake(20,190,280,30);
     UILabel *addressLabel = [[UILabel alloc] initWithFrame:addresslabelFrame];
     //nameLabel.backgroundColor = [UIColor grayColor];  //debug point
     addressLabel.textColor = [self colorWithHexString:@"3fa69a"];
@@ -113,13 +113,13 @@
     addressLabel.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:18];
     [self.view addSubview:addressLabel];
     
-    CGRect addressInputLabelFrame = CGRectMake(20,270,280,60);
+    CGRect addressInputLabelFrame = CGRectMake(20,220,280,60);
     UITextView *addressInputField = [[UITextView alloc] initWithFrame:addressInputLabelFrame];
     addressInputField.text = [NSString stringWithFormat:@"Street Address%City,State,Zip Code", (unichar)0x2028];
     addressInputField.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:16];
     [self.view addSubview:addressInputField];
     
-    CGRect photolabelFrame = CGRectMake(20,330,280,30);
+    CGRect photolabelFrame = CGRectMake(20,280,280,30);
     UILabel *photoLabel = [[UILabel alloc] initWithFrame:photolabelFrame];
     //nameLabel.backgroundColor = [UIColor grayColor];  //debug point
     photoLabel.textColor = [self colorWithHexString:@"3fa69a"];
@@ -128,15 +128,15 @@
     photoLabel.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:18];
     [self.view addSubview:photoLabel];
     
-    UIImageView *uploadButton = [[UIImageView alloc] initWithFrame:CGRectMake(  21/3, 360, 301/2, 62/2)];
+    UIImageView *uploadButton = [[UIImageView alloc] initWithFrame:CGRectMake(  21/3, 310, 301/2, 62/2)];
     uploadButton.image  = [UIImage imageNamed:@"upload.png"];
     [self.view addSubview:uploadButton];
     
-    UIImageView *cameraButton = [[UIImageView alloc] initWithFrame:CGRectMake(  42/3+301/2, 360, 301/2, 62/2)];
+    UIImageView *cameraButton = [[UIImageView alloc] initWithFrame:CGRectMake(  42/3+301/2, 310, 301/2, 62/2)];
     cameraButton.image  = [UIImage imageNamed:@"camera.png"];
     [self.view addSubview:cameraButton];
     
-    CGRect calllabelFrame = CGRectMake(20,392,280,30);
+    CGRect calllabelFrame = CGRectMake(20,341,280,30);
     UILabel *callLabel = [[UILabel alloc] initWithFrame:calllabelFrame];
     //nameLabel.backgroundColor = [UIColor grayColor];  //debug point
     callLabel.textColor = [self colorWithHexString:@"3fa69a"];
@@ -145,13 +145,13 @@
     callLabel.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:18];
     [self.view addSubview:callLabel];
     
-    CGRect callInputLabelFrame = CGRectMake(20,422,280,60);
+    CGRect callInputLabelFrame = CGRectMake(20,371,280,60);
     UITextView *callInputField = [[UITextView alloc] initWithFrame:callInputLabelFrame];
     callInputField.text = @"What should a person do if they find your loved one?";
     callInputField.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:16];
     [self.view addSubview:callInputField];
     
-    CGRect permlabelFrame = CGRectMake(20,482,280,20);
+    CGRect permlabelFrame = CGRectMake(20,431,280,20);
     UILabel *permLabel = [[UILabel alloc] initWithFrame:permlabelFrame];
     //nameLabel.backgroundColor = [UIColor grayColor];  //debug point
     permLabel.textColor = [self colorWithHexString:@"3fa69a"];
@@ -161,7 +161,7 @@
     [self.view addSubview:permLabel];
     
     //permDesc Desc
-    CGRect permDescDesclabelFrame = CGRectMake(20,502,280,60);
+    CGRect permDescDesclabelFrame = CGRectMake(20,451,280,60);
     UILabel *permDescDescLabel = [[UILabel alloc] initWithFrame:permDescDesclabelFrame];
     permDescDescLabel.numberOfLines = 0;
     //[permDescDescLabel sizeToFit];
@@ -173,7 +173,7 @@
     [self.view addSubview:permDescDescLabel];
     
     
-    CGRect acceptlabelFrame = CGRectMake(40,562,280,20);
+    CGRect acceptlabelFrame = CGRectMake(40,511,280,20);
     UILabel *acceptLabel = [[UILabel alloc] initWithFrame:acceptlabelFrame];
     //nameLabel.backgroundColor = [UIColor grayColor];  //debug point
     acceptLabel.textColor = [self colorWithHexString:@"3fa69a"];
