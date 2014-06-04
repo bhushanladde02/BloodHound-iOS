@@ -182,6 +182,13 @@
     acceptLabel.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:18];
     [self.view addSubview:acceptLabel];
     
+    
+    UIImageView *submitButton = [[UIImageView alloc] initWithFrame:CGRectMake(  (320 - 602/2)/2, 531 + 3, 602/2, 159/2)];
+    submitButton.image  = [UIImage imageNamed:@"submit.png"];
+    [self.view addSubview:submitButton];
+
+    
+    
 }
 
 -(UIColor*)colorWithHexString:(NSString*)hex
