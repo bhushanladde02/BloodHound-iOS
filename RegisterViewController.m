@@ -26,14 +26,20 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    
+    UIScrollView* scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
+    scrollView.scrollEnabled = YES;
+    scrollView.pagingEnabled = YES;
+    scrollView.showsVerticalScrollIndicator = YES;
+    scrollView.showsHorizontalScrollIndicator = YES;
+    scrollView.contentSize = CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.height);
+    //[self.view addSubview:scrollView];
+     self.view = scrollView;
+    
+
     self.view.backgroundColor = [UIColor whiteColor];
-    // Do any additional setup after loading the view.
-    
-    
-    UIImageView *registerButton = [[UIImageView alloc] initWithFrame:CGRectMake(  0, 0, 640/2, 120/2)];
-    registerButton.image  = [UIImage imageNamed:@"bloodhoundHeader.png"];
-    [self.view addSubview:registerButton];
-    
+
     
     //custom back button
     UIImage *buttonImage = [UIImage imageNamed:@"back.png"];
@@ -60,12 +66,12 @@
     
     
     //register Label
-    CGRect registerlabelFrame = CGRectMake(20,60,280,60);
+    CGRect registerlabelFrame = CGRectMake(20,10,280,60);
     UILabel *registerLabel = [[UILabel alloc] initWithFrame:registerlabelFrame];
     //registerLabel.backgroundColor = [UIColor grayColor];  //debug point
     NSString *registerText = @"Register";
     [registerLabel setText: registerText];
-    registerLabel.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:40];
+    registerLabel.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:30];
     registerLabel.textColor = [self colorWithHexString:@"3fa69a"];
     [self.view addSubview:registerLabel];
 
@@ -145,7 +151,7 @@
     callInputField.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:16];
     [self.view addSubview:callInputField];
     
-    CGRect permlabelFrame = CGRectMake(20,482,280,30);
+    CGRect permlabelFrame = CGRectMake(20,482,280,20);
     UILabel *permLabel = [[UILabel alloc] initWithFrame:permlabelFrame];
     //nameLabel.backgroundColor = [UIColor grayColor];  //debug point
     permLabel.textColor = [self colorWithHexString:@"3fa69a"];
@@ -154,7 +160,27 @@
     permLabel.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:18];
     [self.view addSubview:permLabel];
     
+    //permDesc Desc
+    CGRect permDescDesclabelFrame = CGRectMake(20,502,280,60);
+    UILabel *permDescDescLabel = [[UILabel alloc] initWithFrame:permDescDesclabelFrame];
+    permDescDescLabel.numberOfLines = 0;
+    //[permDescDescLabel sizeToFit];
+    //permDescDescLabel.backgroundColor = [UIColor greenColor];  //debug point
+    NSString *permDescDescText = @"Bloodhound requires push notifications and active bluetooth to function";
+    [permDescDescLabel setText: permDescDescText];
+    permDescDescLabel.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:16];
+    permDescDescLabel.textColor = [self colorWithHexString:@"242424"];
+    [self.view addSubview:permDescDescLabel];
     
+    
+    CGRect acceptlabelFrame = CGRectMake(40,562,280,20);
+    UILabel *acceptLabel = [[UILabel alloc] initWithFrame:acceptlabelFrame];
+    //nameLabel.backgroundColor = [UIColor grayColor];  //debug point
+    acceptLabel.textColor = [self colorWithHexString:@"3fa69a"];
+    NSString *acceptText = @"Accept";
+    [acceptLabel setText: acceptText];
+    acceptLabel.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:18];
+    [self.view addSubview:acceptLabel];
     
 }
 
