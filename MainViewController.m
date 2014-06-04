@@ -41,10 +41,10 @@
     /*
      * turn On Off following line
      */
-    [self.navigationController setNavigationBarHidden:YES];
+    //[self.navigationController setNavigationBarHidden:YES];
 
     
-    NSInteger yPos = 2*self.view.window.frame.size.height/3;
+    //NSInteger yPos = 2*self.view.window.frame.size.height/3;
 
     NSLog(@"Width of the screen is  %f",self.view.window.frame.size.width);
     
@@ -70,7 +70,25 @@
     [registerButton addGestureRecognizer:singleTap];
     
     
+/*    CGRect oldRect = self.navigationController.navigationBar.frame;
+    self.navigationController.navigationBar.frame = CGRectMake(0, 200, oldRect.size.width, oldRect.size.height); */
+
+    UIImage *headerImage = [UIImage imageNamed:@"bloodhoundHeader.png"];
+    
+    [self.navigationController.navigationBar setBackgroundImage:headerImage forBarMetrics:UIBarMetricsDefault];
+    
+    NSLog(@"width of nav bar is  %f",
+          self.navigationController.navigationBar.frame.size.width);
+    
+    NSLog(@"height of nav bar is  %f",
+          self.navigationController.navigationBar.frame.size.height);
+    
+    
+    
 }
+
+
+
 
 
 -(void)tapDetected{

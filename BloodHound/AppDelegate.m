@@ -26,7 +26,9 @@
      */
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"BloodHoundStoryBoard" bundle:nil];
+    
     UINavigationController *myStoryBoardInitialViewController = [storyboard instantiateInitialViewController];
+
     _window.rootViewController = myStoryBoardInitialViewController;
     
     return YES;

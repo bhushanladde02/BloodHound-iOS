@@ -35,8 +35,35 @@
     [self.view addSubview:registerButton];
     
     
+    //custom back button
+    UIImage *buttonImage = [UIImage imageNamed:@"back.png"];
     
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    [button setImage:buttonImage forState:UIControlStateNormal];
+    
+    
+    button.frame = CGRectMake(0, 0, buttonImage.size.width, buttonImage.size.height);
+    [button addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *customBarItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+    self.navigationItem.leftBarButtonItem = customBarItem;
+    
+    
+    
+    
+   /* CGRect labelFrame = CGRectMake(20,20,280,150);
+    UILabel *registerLabel = [[UILabel alloc] initWithFrame:labelFrame];
+    NSString *registerText = @"Register"; */
+    //*registerLabel
 }
+
+
+
+-(void)back {
+    
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 
 - (void)didReceiveMemoryWarning
 {
