@@ -48,14 +48,17 @@
     UIBarButtonItem *customBarItem = [[UIBarButtonItem alloc] initWithCustomView:button];
     self.navigationItem.leftBarButtonItem = customBarItem;
     
+    //register Label
     CGRect registerlabelFrame = CGRectMake(20,60,280,60);
     UILabel *registerLabel = [[UILabel alloc] initWithFrame:registerlabelFrame];
-    registerLabel.backgroundColor = [UIColor grayColor];  //debug point
+    //registerLabel.backgroundColor = [UIColor grayColor];  //debug point
     NSString *registerText = @"Register";
     [registerLabel setText: registerText];
     registerLabel.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:40];
+    registerLabel.textColor = [self colorWithHexString:@"3fa69a"];
     [self.view addSubview:registerLabel];
 
+    //register Desc
     CGRect registerDesclabelFrame = CGRectMake(20,120,280,60);
     UILabel *registerDescLabel = [[UILabel alloc] initWithFrame:registerDesclabelFrame];
     registerDescLabel.numberOfLines = 0;
@@ -66,6 +69,13 @@
     registerDescLabel.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:16];
     [self.view addSubview:registerDescLabel];
 
+    /*CGRect registerlabelFrame = CGRectMake(20,60,280,60);
+    UILabel *registerLabel = [[UILabel alloc] initWithFrame:registerlabelFrame];
+    registerLabel.backgroundColor = [UIColor grayColor];  //debug point
+    NSString *registerText = @"Register";
+    [registerLabel setText: registerText];
+    registerLabel.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:40];
+    [self.view addSubview:registerLabel];*/
     
     
     
@@ -81,6 +91,42 @@
     
     
     
+}
+
+-(UIColor*)colorWithHexString:(NSString*)hex
+{
+    NSString *cString = [[hex stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] uppercaseString];
+    
+    // String should be 6 or 8 characters
+    if ([cString length] < 6) return [UIColor grayColor];
+    
+    // strip 0X if it appears
+    if ([cString hasPrefix:@"0X"]) cString = [cString substringFromIndex:2];
+    
+    if ([cString length] != 6) return  [UIColor grayColor];
+    
+    // Separate into r, g, b substrings
+    NSRange range;
+    range.location = 0;
+    range.length = 2;
+    NSString *rString = [cString substringWithRange:range];
+    
+    range.location = 2;
+    NSString *gString = [cString substringWithRange:range];
+    
+    range.location = 4;
+    NSString *bString = [cString substringWithRange:range];
+    
+    // Scan values
+    unsigned int r, g, b;
+    [[NSScanner scannerWithString:rString] scanHexInt:&r];
+    [[NSScanner scannerWithString:gString] scanHexInt:&g];
+    [[NSScanner scannerWithString:bString] scanHexInt:&b];
+    
+    return [UIColor colorWithRed:((float) r / 255.0f)
+                           green:((float) g / 255.0f)
+                            blue:((float) b / 255.0f)
+                           alpha:1.0f];
 }
 
 
