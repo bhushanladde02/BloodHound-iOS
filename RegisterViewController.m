@@ -90,13 +90,28 @@
     nameLabel.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:18];
     [self.view addSubview:nameLabel];
     
+    CGRect nameInputLabelFrame = CGRectMake(20,210,280,30);
+    UITextField *textField = [[UITextField alloc] initWithFrame:nameInputLabelFrame];
+    textField.text = @"Name and Last Name";
+    //textField.layer.borderWidth = 1;
+    //textField.layer.borderColor = [[self colorWithHexString:@"242424"] CGColor ];
+    textField.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:16];
+    [self.view addSubview:textField];
     
+    CGRect addresslabelFrame = CGRectMake(20,240,280,30);
+    UILabel *addressLabel = [[UILabel alloc] initWithFrame:addresslabelFrame];
+    //nameLabel.backgroundColor = [UIColor grayColor];  //debug point
+    addressLabel.textColor = [self colorWithHexString:@"3fa69a"];
+    NSString *addressText = @"Address";
+    [addressLabel setText: addressText];
+    addressLabel.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:18];
+    [self.view addSubview:addressLabel];
     
-    
- 
-    
-    
-    
+    CGRect addressInputLabelFrame = CGRectMake(20,270,280,60);
+    UITextView *addressInputField = [[UITextView alloc] initWithFrame:addressInputLabelFrame];
+    addressInputField.text = [NSString stringWithFormat:@"Street Address%City,State,Zip Code", (unichar)0x2028];
+    addressInputField.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:16];
+    [self.view addSubview:addressInputField];
 }
 
 -(UIColor*)colorWithHexString:(NSString*)hex
