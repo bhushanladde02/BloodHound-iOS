@@ -48,6 +48,17 @@
     UIBarButtonItem *customBarItem = [[UIBarButtonItem alloc] initWithCustomView:button];
     self.navigationItem.leftBarButtonItem = customBarItem;
     
+    
+    //list all fonts for app  //debug point
+    /*NSArray *fontFamilies = [UIFont familyNames];
+     for (int i = 0; i < [fontFamilies count]; i++)
+     {
+     NSString *fontFamily = [fontFamilies objectAtIndex:i];
+     NSArray *fontNames = [UIFont fontNamesForFamilyName:[fontFamilies objectAtIndex:i]];
+     NSLog (@"%@: %@", fontFamily, fontNames);
+     }*/
+    
+    
     //register Label
     CGRect registerlabelFrame = CGRectMake(20,60,280,60);
     UILabel *registerLabel = [[UILabel alloc] initWithFrame:registerlabelFrame];
@@ -70,25 +81,19 @@
     registerDescLabel.textColor = [self colorWithHexString:@"242424"];
     [self.view addSubview:registerDescLabel];
 
-    /*CGRect registerlabelFrame = CGRectMake(20,60,280,60);
-    UILabel *registerLabel = [[UILabel alloc] initWithFrame:registerlabelFrame];
-    registerLabel.backgroundColor = [UIColor grayColor];  //debug point
-    NSString *registerText = @"Register";
-    [registerLabel setText: registerText];
-    registerLabel.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:40];
-    [self.view addSubview:registerLabel];*/
+    CGRect namelabelFrame = CGRectMake(20,180,280,30);
+    UILabel *nameLabel = [[UILabel alloc] initWithFrame:namelabelFrame];
+    //nameLabel.backgroundColor = [UIColor grayColor];  //debug point
+    nameLabel.textColor = [self colorWithHexString:@"3fa69a"];
+    NSString *nameText = @"Name";
+    [nameLabel setText: nameText];
+    nameLabel.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:18];
+    [self.view addSubview:nameLabel];
     
     
     
     
-    //list all fonts for app  //debug point
-    /*NSArray *fontFamilies = [UIFont familyNames];
-    for (int i = 0; i < [fontFamilies count]; i++)
-    {
-        NSString *fontFamily = [fontFamilies objectAtIndex:i];
-        NSArray *fontNames = [UIFont fontNamesForFamilyName:[fontFamilies objectAtIndex:i]];
-        NSLog (@"%@: %@", fontFamily, fontNames);
-    }*/
+ 
     
     
     
