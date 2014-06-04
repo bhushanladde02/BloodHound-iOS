@@ -18,6 +18,12 @@
 		FC6CAEB9193D654200FB5850 /* loadingScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = FC6CAEB8193D654200FB5850 /* loadingScreen.png */; };
 		FC6CAEBD193EDCA500FB5850 /* bloodhoundHeader.png in Resources */ = {isa = PBXBuildFile; fileRef = FC6CAEBC193EDCA500FB5850 /* bloodhoundHeader.png */; };
 		FC6CAEC5193EEC2700FB5850 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = FC6CAEC4193EEC2700FB5850 /* back.png */; };
+		FC6CAEC9193EF18F00FB5850 /* OpenSans-CondBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC6CAEC6193EF18E00FB5850 /* OpenSans-CondBold.ttf */; };
+		FC6CAECA193EF18F00FB5850 /* OpenSans-CondLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC6CAEC7193EF18F00FB5850 /* OpenSans-CondLight.ttf */; };
+		FC6CAECB193EF18F00FB5850 /* OpenSans-CondLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC6CAEC8193EF18F00FB5850 /* OpenSans-CondLightItalic.ttf */; };
+		FC6CAECC193EF1B300FB5850 /* OpenSans-CondBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC6CAEC6193EF18E00FB5850 /* OpenSans-CondBold.ttf */; };
+		FC6CAECD193EF1B300FB5850 /* OpenSans-CondLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC6CAEC7193EF18F00FB5850 /* OpenSans-CondLight.ttf */; };
+		FC6CAECE193EF1B300FB5850 /* OpenSans-CondLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC6CAEC8193EF18F00FB5850 /* OpenSans-CondLightItalic.ttf */; };
 		FCA3FA92193C809000390B10 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCA3FA91193C809000390B10 /* Foundation.framework */; };
 		FCA3FA94193C809000390B10 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCA3FA93193C809000390B10 /* CoreGraphics.framework */; };
 		FCA3FA96193C809000390B10 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCA3FA95193C809000390B10 /* UIKit.framework */; };
@@ -62,6 +68,9 @@
 		FC6CAEB8193D654200FB5850 /* loadingScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = loadingScreen.png; path = ../../../Downloads/loadingScreen.png; sourceTree = "<group>"; };
 		FC6CAEBC193EDCA500FB5850 /* bloodhoundHeader.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bloodhoundHeader.png; path = ../../bloodhoundHeader.png; sourceTree = "<group>"; };
 		FC6CAEC4193EEC2700FB5850 /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = back.png; path = ../../back.png; sourceTree = "<group>"; };
+		FC6CAEC6193EF18E00FB5850 /* OpenSans-CondBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-CondBold.ttf"; sourceTree = "<group>"; };
+		FC6CAEC7193EF18F00FB5850 /* OpenSans-CondLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-CondLight.ttf"; sourceTree = "<group>"; };
+		FC6CAEC8193EF18F00FB5850 /* OpenSans-CondLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-CondLightItalic.ttf"; sourceTree = "<group>"; };
 		FCA3FA8E193C809000390B10 /* BloodHound.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BloodHound.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCA3FA91193C809000390B10 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FCA3FA93193C809000390B10 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -116,6 +125,9 @@
 		FCA3FA85193C809000390B10 = {
 			isa = PBXGroup;
 			children = (
+				FC6CAEC6193EF18E00FB5850 /* OpenSans-CondBold.ttf */,
+				FC6CAEC7193EF18F00FB5850 /* OpenSans-CondLight.ttf */,
+				FC6CAEC8193EF18F00FB5850 /* OpenSans-CondLightItalic.ttf */,
 				FC6CAEBC193EDCA500FB5850 /* bloodhoundHeader.png */,
 				FC6CAEB6193D629200FB5850 /* Background1.png */,
 				FC6CAEB0193D612500FB5850 /* activeSearch.png */,
@@ -277,6 +289,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC6CAECB193EF18F00FB5850 /* OpenSans-CondLightItalic.ttf in Resources */,
 				FC6CAEB4193D612500FB5850 /* register.png in Resources */,
 				FCA3FA9E193C809000390B10 /* InfoPlist.strings in Resources */,
 				FC6CAEBD193EDCA500FB5850 /* bloodhoundHeader.png in Resources */,
@@ -285,8 +298,10 @@
 				FC6CAEB7193D629200FB5850 /* Background1.png in Resources */,
 				FCA3FAD2193C93DE00390B10 /* BloodHoundStoryBoard.storyboard in Resources */,
 				FCA3FAD8193C9C8000390B10 /* BloodHoundLaunch.png in Resources */,
+				FC6CAECA193EF18F00FB5850 /* OpenSans-CondLight.ttf in Resources */,
 				FCA3FAA9193C809000390B10 /* Images.xcassets in Resources */,
 				FC00EFBB193D510F00BBA864 /* blueButton.png in Resources */,
+				FC6CAEC9193EF18F00FB5850 /* OpenSans-CondBold.ttf in Resources */,
 				FCA3FACC193C8A0700390B10 /* BH_Background1.png in Resources */,
 				FC6CAEC5193EEC2700FB5850 /* back.png in Resources */,
 				FC00EFB9193D4FCA00BBA864 /* WhiteButton.png in Resources */,
@@ -299,6 +314,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC6CAECC193EF1B300FB5850 /* OpenSans-CondBold.ttf in Resources */,
+				FC6CAECD193EF1B300FB5850 /* OpenSans-CondLight.ttf in Resources */,
+				FC6CAECE193EF1B300FB5850 /* OpenSans-CondLightItalic.ttf in Resources */,
 				FCA3FABB193C809000390B10 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

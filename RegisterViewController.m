@@ -43,18 +43,31 @@
     [button setImage:buttonImage forState:UIControlStateNormal];
     
     
-    button.frame = CGRectMake(0, 0, buttonImage.size.width, buttonImage.size.height);
+    button.frame = CGRectMake(0, 0, buttonImage.size.width/5, buttonImage.size.height/5);
     [button addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *customBarItem = [[UIBarButtonItem alloc] initWithCustomView:button];
     self.navigationItem.leftBarButtonItem = customBarItem;
     
-    
-    
-    
-   /* CGRect labelFrame = CGRectMake(20,20,280,150);
+    CGRect labelFrame = CGRectMake(20,20,280,150);
     UILabel *registerLabel = [[UILabel alloc] initWithFrame:labelFrame];
-    NSString *registerText = @"Register"; */
-    //*registerLabel
+    //registerLabel.backgroundColor = [UIColor grayColor];  //debug point
+    NSString *registerText = @"Register";
+    [registerLabel setText: registerText];
+    registerLabel.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:40];
+    [self.view addSubview:registerLabel];
+    
+    
+    //list all fonts for app  //debug point
+    /*NSArray *fontFamilies = [UIFont familyNames];
+    for (int i = 0; i < [fontFamilies count]; i++)
+    {
+        NSString *fontFamily = [fontFamilies objectAtIndex:i];
+        NSArray *fontNames = [UIFont fontNamesForFamilyName:[fontFamilies objectAtIndex:i]];
+        NSLog (@"%@: %@", fontFamily, fontNames);
+    }*/
+    
+    
+    
 }
 
 
