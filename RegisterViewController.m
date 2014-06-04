@@ -112,6 +112,26 @@
     addressInputField.text = [NSString stringWithFormat:@"Street Address%City,State,Zip Code", (unichar)0x2028];
     addressInputField.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:16];
     [self.view addSubview:addressInputField];
+    
+    CGRect photolabelFrame = CGRectMake(20,330,280,30);
+    UILabel *photoLabel = [[UILabel alloc] initWithFrame:photolabelFrame];
+    //nameLabel.backgroundColor = [UIColor grayColor];  //debug point
+    photoLabel.textColor = [self colorWithHexString:@"3fa69a"];
+    NSString *photoText = @"Photo";
+    [photoLabel setText: photoText];
+    photoLabel.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:18];
+    [self.view addSubview:photoLabel];
+    
+    UIImageView *uploadButton = [[UIImageView alloc] initWithFrame:CGRectMake(  21/3, 360, 301/2, 62/2)];
+    uploadButton.image  = [UIImage imageNamed:@"upload.png"];
+    [self.view addSubview:uploadButton];
+    
+    UIImageView *cameraButton = [[UIImageView alloc] initWithFrame:CGRectMake(  42/3+301/2, 360, 301/2, 62/2)];
+    cameraButton.image  = [UIImage imageNamed:@"camera.png"];
+    [self.view addSubview:cameraButton];
+    
+    
+    
 }
 
 -(UIColor*)colorWithHexString:(NSString*)hex
