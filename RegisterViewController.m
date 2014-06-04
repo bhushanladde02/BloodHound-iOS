@@ -63,10 +63,11 @@
     UILabel *registerDescLabel = [[UILabel alloc] initWithFrame:registerDesclabelFrame];
     registerDescLabel.numberOfLines = 0;
     //[registerDescLabel sizeToFit];
-    registerDescLabel.backgroundColor = [UIColor greenColor];  //debug point
+    //registerDescLabel.backgroundColor = [UIColor greenColor];  //debug point
     NSString *registerDescText = @"Provides info on what’s protected. Provides info on what’s protected. Provides info on what’s protected.";
     [registerDescLabel setText: registerDescText];
     registerDescLabel.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:16];
+    registerDescLabel.textColor = [self colorWithHexString:@"242424"];
     [self.view addSubview:registerDescLabel];
 
     /*CGRect registerlabelFrame = CGRectMake(20,60,280,60);
