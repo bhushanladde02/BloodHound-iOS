@@ -48,13 +48,26 @@
     UIBarButtonItem *customBarItem = [[UIBarButtonItem alloc] initWithCustomView:button];
     self.navigationItem.leftBarButtonItem = customBarItem;
     
-    CGRect labelFrame = CGRectMake(20,20,280,150);
-    UILabel *registerLabel = [[UILabel alloc] initWithFrame:labelFrame];
-    //registerLabel.backgroundColor = [UIColor grayColor];  //debug point
+    CGRect registerlabelFrame = CGRectMake(20,60,280,60);
+    UILabel *registerLabel = [[UILabel alloc] initWithFrame:registerlabelFrame];
+    registerLabel.backgroundColor = [UIColor grayColor];  //debug point
     NSString *registerText = @"Register";
     [registerLabel setText: registerText];
     registerLabel.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:40];
     [self.view addSubview:registerLabel];
+
+    CGRect registerDesclabelFrame = CGRectMake(20,120,280,60);
+    UILabel *registerDescLabel = [[UILabel alloc] initWithFrame:registerDesclabelFrame];
+    registerDescLabel.numberOfLines = 0;
+    //[registerDescLabel sizeToFit];
+    registerDescLabel.backgroundColor = [UIColor greenColor];  //debug point
+    NSString *registerDescText = @"Provides info on what’s protected. Provides info on what’s protected. Provides info on what’s protected.";
+    [registerDescLabel setText: registerDescText];
+    registerDescLabel.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:16];
+    [self.view addSubview:registerDescLabel];
+
+    
+    
     
     
     //list all fonts for app  //debug point
