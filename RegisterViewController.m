@@ -14,6 +14,8 @@
 
 @implementation RegisterViewController
 
+
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -27,6 +29,8 @@
 {
     [super viewDidLoad];
     
+    checkImage = [UIImage imageNamed:@"check.png"];
+    uncheckImage = [UIImage imageNamed:@"uncheck.png"];
     
     //warn user of no camera
     /*
@@ -189,11 +193,18 @@
     [self.view addSubview:permDescDescLabel];
     
     
+    checkButton = [[UIImageView alloc] initWithFrame:CGRectMake(  20, 511, 40/2, 40/2)];
+    checkButton.image  = uncheckImage;
+    [self.view addSubview:checkButton];
+    
+    
+    
+    
     CGRect acceptlabelFrame = CGRectMake(40,511,280,20);
     UILabel *acceptLabel = [[UILabel alloc] initWithFrame:acceptlabelFrame];
     //nameLabel.backgroundColor = [UIColor grayColor];  //debug point
     acceptLabel.textColor = [self colorWithHexString:@"3fa69a"];
-    NSString *acceptText = @"Accept";
+    NSString *acceptText = @" Accept";
     [acceptLabel setText: acceptText];
     acceptLabel.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:18];
     [self.view addSubview:acceptLabel];
@@ -217,7 +228,27 @@
     cameraButton.userInteractionEnabled = YES;
     [cameraButton addGestureRecognizer:singleTapTakePhoto];
     
+    
+    
+    UITapGestureRecognizer *singleTapCheck = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(checkHandler)];
+    singleTapCheck.numberOfTapsRequired = 1;
+    checkButton.userInteractionEnabled = YES;
+    [checkButton addGestureRecognizer:singleTapCheck];
+    
 }
+
+bool *isChecked = false;
+
+- (void) checkHandler{
+    if(!isChecked){
+        isChecked = true;
+        checkButton.image =checkImage;
+    }else{
+        isChecked= false;
+        checkButton.image =uncheckImage;
+    }
+}
+
 
 - (void)takePhoto {
     
@@ -307,6 +338,13 @@
     // set URL
     [request setURL:requestURL];
 }
+
+//remove keyboard when tapped on screen
+/*- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    NSLog(@"touchesBegan:withEvent:");
+    [self.view endEditing:YES];
+    [super touchesBegan:touches withEvent:event];
+}*/
 
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {

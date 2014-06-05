@@ -12,4 +12,7 @@
 @end
 
 UIImage *chosenImage;
+UIImageView *checkButton;
+UIImage *checkImage;
+UIImage *uncheckImage;
 
