@@ -17,6 +17,8 @@
 		FC1F451E19409055006C10F8 /* ActiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC1F451D19409055006C10F8 /* ActiveViewController.m */; };
 		FC1F45201940909D006C10F8 /* background2.png in Resources */ = {isa = PBXBuildFile; fileRef = FC1F451F1940909D006C10F8 /* background2.png */; };
 		FC1F4522194094C8006C10F8 /* minimize.png in Resources */ = {isa = PBXBuildFile; fileRef = FC1F4521194094C8006C10F8 /* minimize.png */; };
+		FC1F45251940965D006C10F8 /* ReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC1F45231940965D006C10F8 /* ReportViewController.m */; };
+		FC1F4527194096BC006C10F8 /* reportAlert.png in Resources */ = {isa = PBXBuildFile; fileRef = FC1F4526194096BC006C10F8 /* reportAlert.png */; };
 		FC6CAEB3193D612500FB5850 /* activeSearch.png in Resources */ = {isa = PBXBuildFile; fileRef = FC6CAEB0193D612500FB5850 /* activeSearch.png */; };
 		FC6CAEB4193D612500FB5850 /* register.png in Resources */ = {isa = PBXBuildFile; fileRef = FC6CAEB1193D612500FB5850 /* register.png */; };
 		FC6CAEB5193D612500FB5850 /* report.png in Resources */ = {isa = PBXBuildFile; fileRef = FC6CAEB2193D612500FB5850 /* report.png */; };
@@ -75,6 +77,9 @@
 		FC1F451D19409055006C10F8 /* ActiveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActiveViewController.m; sourceTree = "<group>"; };
 		FC1F451F1940909D006C10F8 /* background2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background2.png; sourceTree = "<group>"; };
 		FC1F4521194094C8006C10F8 /* minimize.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = minimize.png; sourceTree = "<group>"; };
+		FC1F45231940965D006C10F8 /* ReportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportViewController.m; sourceTree = "<group>"; };
+		FC1F45241940965D006C10F8 /* ReportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportViewController.h; sourceTree = "<group>"; };
+		FC1F4526194096BC006C10F8 /* reportAlert.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reportAlert.png; sourceTree = "<group>"; };
 		FC6CAEB0193D612500FB5850 /* activeSearch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = activeSearch.png; path = "../../BloodHound Release Images/activeSearch.png"; sourceTree = "<group>"; };
 		FC6CAEB1193D612500FB5850 /* register.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = register.png; path = "../../BloodHound Release Images/register.png"; sourceTree = "<group>"; };
 		FC6CAEB2193D612500FB5850 /* report.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = report.png; path = "../../BloodHound Release Images/report.png"; sourceTree = "<group>"; };
@@ -140,6 +145,9 @@
 		FCA3FA85193C809000390B10 = {
 			isa = PBXGroup;
 			children = (
+				FC1F4526194096BC006C10F8 /* reportAlert.png */,
+				FC1F45231940965D006C10F8 /* ReportViewController.m */,
+				FC1F45241940965D006C10F8 /* ReportViewController.h */,
 				FC1F451C19409055006C10F8 /* ActiveViewController.h */,
 				FC1F451D19409055006C10F8 /* ActiveViewController.m */,
 				FC1F4521194094C8006C10F8 /* minimize.png */,
@@ -313,6 +321,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC6CAECB193EF18F00FB5850 /* OpenSans-CondLightItalic.ttf in Resources */,
+				FC1F4527194096BC006C10F8 /* reportAlert.png in Resources */,
 				FC1F4522194094C8006C10F8 /* minimize.png in Resources */,
 				FC6CAEB4193D612500FB5850 /* register.png in Resources */,
 				FCA3FA9E193C809000390B10 /* InfoPlist.strings in Resources */,
@@ -360,6 +369,7 @@
 				FC1F451E19409055006C10F8 /* ActiveViewController.m in Sources */,
 				FC00EFBE193D594A00BBA864 /* RegisterViewController.m in Sources */,
 				FCA3FAA7193C809000390B10 /* BloodHound.xcdatamodeld in Sources */,
+				FC1F45251940965D006C10F8 /* ReportViewController.m in Sources */,
 				FCA3FAA4193C809000390B10 /* AppDelegate.m in Sources */,
 				FCA3FACF193C8A7B00390B10 /* MainViewController.m in Sources */,
 				FCA3FAA0193C809000390B10 /* main.m in Sources */,

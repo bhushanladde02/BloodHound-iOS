@@ -9,6 +9,7 @@
 #import "MainViewController.h"
 #import "RegisterViewController.h"
 #import "ActiveViewController.h"
+#import "ReportViewController.h"
 
 @interface MainViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *imageBackground;
@@ -77,6 +78,13 @@
     [skipButton addGestureRecognizer:singleTapActive];
     
     
+    UITapGestureRecognizer *singleTapReport = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapDetectedReport)];
+    singleTapReport.numberOfTapsRequired = 1;
+    reportButton.userInteractionEnabled = YES;
+    [reportButton addGestureRecognizer:singleTapReport];
+    
+    
+    
 /*    CGRect oldRect = self.navigationController.navigationBar.frame;
     self.navigationController.navigationBar.frame = CGRectMake(0, 200, oldRect.size.width, oldRect.size.height); */
 
@@ -110,6 +118,14 @@
     ActiveViewController *activeViewController = [[ActiveViewController alloc] initWithNibName:nil bundle:nil];
     [self.navigationController pushViewController:activeViewController animated:YES];
 }
+
+
+-(void)tapDetectedReport{
+    NSLog(@"single Tap on imageview report button");
+    ReportViewController *activeViewController = [[ReportViewController alloc] initWithNibName:nil bundle:nil];
+    [self.navigationController pushViewController:activeViewController animated:YES];
+}
+
 
 
 - (void)didReceiveMemoryWarning
