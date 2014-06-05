@@ -190,11 +190,18 @@
     [self.view addSubview:submitButton];
 
     
+    //Connect Buttons to Gallery and Take Photo
     
-    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapDetected)];
-    singleTap.numberOfTapsRequired = 1;
+    UITapGestureRecognizer *singleTapUpload = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(selectPhoto)];
+    singleTapUpload.numberOfTapsRequired = 1;
+    uploadButton.userInteractionEnabled = YES;
+    [uploadButton addGestureRecognizer:singleTapUpload];
+    
+    
+    UITapGestureRecognizer *singleTapTakePhoto = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(takePhoto)];
+    singleTapTakePhoto.numberOfTapsRequired = 1;
     cameraButton.userInteractionEnabled = YES;
-    [cameraButton addGestureRecognizer:singleTap];
+    [cameraButton addGestureRecognizer:singleTapTakePhoto];
     
 }
 
@@ -203,6 +210,46 @@
     APPViewController *appViewController = [[APPViewController alloc] initWithNibName:nil bundle:nil];
     [self.navigationController pushViewController:appViewController animated:YES];
 
+}
+
+- (void)takePhoto {
+    
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    picker.allowsEditing = YES;
+    picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    
+    [self presentViewController:picker animated:YES completion:NULL];
+    
+}
+
+- (void)selectPhoto {
+    
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    picker.allowsEditing = YES;
+    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    
+    [self presentViewController:picker animated:YES completion:NULL];
+    
+    
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    
+    UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
+    
+    //display image on UI
+    //self.imageView.image = chosenImage;
+    
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+    
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+    
 }
 
 -(UIColor*)colorWithHexString:(NSString*)hex

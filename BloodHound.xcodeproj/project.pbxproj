@@ -11,7 +11,6 @@
 		FC00EFB9193D4FCA00BBA864 /* WhiteButton.png in Resources */ = {isa = PBXBuildFile; fileRef = FC00EFB8193D4FCA00BBA864 /* WhiteButton.png */; };
 		FC00EFBB193D510F00BBA864 /* blueButton.png in Resources */ = {isa = PBXBuildFile; fileRef = FC00EFBA193D510F00BBA864 /* blueButton.png */; };
 		FC00EFBE193D594A00BBA864 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC00EFBD193D594A00BBA864 /* RegisterViewController.m */; };
-		FC1F4513194049C2006C10F8 /* APPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC1F4511194049C2006C10F8 /* APPViewController.m */; };
 		FC6CAEB3193D612500FB5850 /* activeSearch.png in Resources */ = {isa = PBXBuildFile; fileRef = FC6CAEB0193D612500FB5850 /* activeSearch.png */; };
 		FC6CAEB4193D612500FB5850 /* register.png in Resources */ = {isa = PBXBuildFile; fileRef = FC6CAEB1193D612500FB5850 /* register.png */; };
 		FC6CAEB5193D612500FB5850 /* report.png in Resources */ = {isa = PBXBuildFile; fileRef = FC6CAEB2193D612500FB5850 /* report.png */; };
@@ -64,8 +63,6 @@
 		FC00EFBA193D510F00BBA864 /* blueButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blueButton.png; path = ../../../Downloads/blueButton.png; sourceTree = "<group>"; };
 		FC00EFBC193D594A00BBA864 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		FC00EFBD193D594A00BBA864 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
-		FC1F4511194049C2006C10F8 /* APPViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APPViewController.m; sourceTree = "<group>"; };
-		FC1F4512194049C2006C10F8 /* APPViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APPViewController.h; sourceTree = "<group>"; };
 		FC6CAEB0193D612500FB5850 /* activeSearch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = activeSearch.png; path = "../../BloodHound Release Images/activeSearch.png"; sourceTree = "<group>"; };
 		FC6CAEB1193D612500FB5850 /* register.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = register.png; path = "../../BloodHound Release Images/register.png"; sourceTree = "<group>"; };
 		FC6CAEB2193D612500FB5850 /* report.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = report.png; path = "../../BloodHound Release Images/report.png"; sourceTree = "<group>"; };
@@ -132,8 +129,6 @@
 		FCA3FA85193C809000390B10 = {
 			isa = PBXGroup;
 			children = (
-				FC1F4511194049C2006C10F8 /* APPViewController.m */,
-				FC1F4512194049C2006C10F8 /* APPViewController.h */,
 				FC6CAEC6193EF18E00FB5850 /* OpenSans-CondBold.ttf */,
 				FC6CAEC7193EF18F00FB5850 /* OpenSans-CondLight.ttf */,
 				FC6CAEC8193EF18F00FB5850 /* OpenSans-CondLightItalic.ttf */,
@@ -341,7 +336,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FC1F4513194049C2006C10F8 /* APPViewController.m in Sources */,
 				FC00EFBE193D594A00BBA864 /* RegisterViewController.m in Sources */,
 				FCA3FAA7193C809000390B10 /* BloodHound.xcdatamodeld in Sources */,
 				FCA3FAA4193C809000390B10 /* AppDelegate.m in Sources */,
