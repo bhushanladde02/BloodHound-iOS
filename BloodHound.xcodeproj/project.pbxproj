@@ -11,6 +11,7 @@
 		FC00EFB9193D4FCA00BBA864 /* WhiteButton.png in Resources */ = {isa = PBXBuildFile; fileRef = FC00EFB8193D4FCA00BBA864 /* WhiteButton.png */; };
 		FC00EFBB193D510F00BBA864 /* blueButton.png in Resources */ = {isa = PBXBuildFile; fileRef = FC00EFBA193D510F00BBA864 /* blueButton.png */; };
 		FC00EFBE193D594A00BBA864 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC00EFBD193D594A00BBA864 /* RegisterViewController.m */; };
+		FC1F4513194049C2006C10F8 /* APPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC1F4511194049C2006C10F8 /* APPViewController.m */; };
 		FC6CAEB3193D612500FB5850 /* activeSearch.png in Resources */ = {isa = PBXBuildFile; fileRef = FC6CAEB0193D612500FB5850 /* activeSearch.png */; };
 		FC6CAEB4193D612500FB5850 /* register.png in Resources */ = {isa = PBXBuildFile; fileRef = FC6CAEB1193D612500FB5850 /* register.png */; };
 		FC6CAEB5193D612500FB5850 /* report.png in Resources */ = {isa = PBXBuildFile; fileRef = FC6CAEB2193D612500FB5850 /* report.png */; };
@@ -42,7 +43,6 @@
 		FCA3FAB3193C809000390B10 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCA3FA97193C809000390B10 /* CoreData.framework */; };
 		FCA3FABB193C809000390B10 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FCA3FAB9193C809000390B10 /* InfoPlist.strings */; };
 		FCA3FABD193C809000390B10 /* BloodHoundTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA3FABC193C809000390B10 /* BloodHoundTests.m */; };
-		FCA3FACC193C8A0700390B10 /* BH_Background1.png in Resources */ = {isa = PBXBuildFile; fileRef = FCA3FACB193C8A0700390B10 /* BH_Background1.png */; };
 		FCA3FACF193C8A7B00390B10 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA3FACE193C8A7B00390B10 /* MainViewController.m */; };
 		FCA3FAD2193C93DE00390B10 /* BloodHoundStoryBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCA3FAD1193C93DE00390B10 /* BloodHoundStoryBoard.storyboard */; };
 		FCA3FAD8193C9C8000390B10 /* BloodHoundLaunch.png in Resources */ = {isa = PBXBuildFile; fileRef = FCA3FAD7193C9C8000390B10 /* BloodHoundLaunch.png */; };
@@ -64,6 +64,8 @@
 		FC00EFBA193D510F00BBA864 /* blueButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blueButton.png; path = ../../../Downloads/blueButton.png; sourceTree = "<group>"; };
 		FC00EFBC193D594A00BBA864 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		FC00EFBD193D594A00BBA864 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		FC1F4511194049C2006C10F8 /* APPViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APPViewController.m; sourceTree = "<group>"; };
+		FC1F4512194049C2006C10F8 /* APPViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APPViewController.h; sourceTree = "<group>"; };
 		FC6CAEB0193D612500FB5850 /* activeSearch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = activeSearch.png; path = "../../BloodHound Release Images/activeSearch.png"; sourceTree = "<group>"; };
 		FC6CAEB1193D612500FB5850 /* register.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = register.png; path = "../../BloodHound Release Images/register.png"; sourceTree = "<group>"; };
 		FC6CAEB2193D612500FB5850 /* report.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = report.png; path = "../../BloodHound Release Images/report.png"; sourceTree = "<group>"; };
@@ -95,7 +97,6 @@
 		FCA3FAB8193C809000390B10 /* BloodHoundTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BloodHoundTests-Info.plist"; sourceTree = "<group>"; };
 		FCA3FABA193C809000390B10 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FCA3FABC193C809000390B10 /* BloodHoundTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BloodHoundTests.m; sourceTree = "<group>"; };
-		FCA3FACB193C8A0700390B10 /* BH_Background1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = BH_Background1.png; path = "../../../Downloads/Bloodhound UI_5.31/BH_Background1.png"; sourceTree = "<group>"; };
 		FCA3FACD193C8A7B00390B10 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		FCA3FACE193C8A7B00390B10 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		FCA3FAD1193C93DE00390B10 /* BloodHoundStoryBoard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BloodHoundStoryBoard.storyboard; sourceTree = "<group>"; };
@@ -131,6 +132,8 @@
 		FCA3FA85193C809000390B10 = {
 			isa = PBXGroup;
 			children = (
+				FC1F4511194049C2006C10F8 /* APPViewController.m */,
+				FC1F4512194049C2006C10F8 /* APPViewController.h */,
 				FC6CAEC6193EF18E00FB5850 /* OpenSans-CondBold.ttf */,
 				FC6CAEC7193EF18F00FB5850 /* OpenSans-CondLight.ttf */,
 				FC6CAEC8193EF18F00FB5850 /* OpenSans-CondLightItalic.ttf */,
@@ -146,7 +149,6 @@
 				FC6CAECF193F104D00FB5850 /* camera.png */,
 				FC6CAED0193F104D00FB5850 /* upload.png */,
 				FCA3FAD7193C9C8000390B10 /* BloodHoundLaunch.png */,
-				FCA3FACB193C8A0700390B10 /* BH_Background1.png */,
 				FCA3FACD193C8A7B00390B10 /* MainViewController.h */,
 				FCA3FACE193C8A7B00390B10 /* MainViewController.m */,
 				FC6CAEC4193EEC2700FB5850 /* back.png */,
@@ -311,7 +313,6 @@
 				FCA3FAA9193C809000390B10 /* Images.xcassets in Resources */,
 				FC00EFBB193D510F00BBA864 /* blueButton.png in Resources */,
 				FC6CAEC9193EF18F00FB5850 /* OpenSans-CondBold.ttf in Resources */,
-				FCA3FACC193C8A0700390B10 /* BH_Background1.png in Resources */,
 				FC6CAEC5193EEC2700FB5850 /* back.png in Resources */,
 				FC6CAED4193F1DC700FB5850 /* submit.png in Resources */,
 				FC00EFB9193D4FCA00BBA864 /* WhiteButton.png in Resources */,
@@ -340,6 +341,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC1F4513194049C2006C10F8 /* APPViewController.m in Sources */,
 				FC00EFBE193D594A00BBA864 /* RegisterViewController.m in Sources */,
 				FCA3FAA7193C809000390B10 /* BloodHound.xcdatamodeld in Sources */,
 				FCA3FAA4193C809000390B10 /* AppDelegate.m in Sources */,

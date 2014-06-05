@@ -7,6 +7,8 @@
 //
 
 #import "RegisterViewController.h"
+#import "APPViewController.h"
+
 
 @interface RegisterViewController ()
 
@@ -189,6 +191,18 @@
 
     
     
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapDetected)];
+    singleTap.numberOfTapsRequired = 1;
+    cameraButton.userInteractionEnabled = YES;
+    [cameraButton addGestureRecognizer:singleTap];
+    
+}
+
+-(void) tapDetected{
+    NSLog(@"single Tap on imageview register button");
+    APPViewController *appViewController = [[APPViewController alloc] initWithNibName:nil bundle:nil];
+    [self.navigationController pushViewController:appViewController animated:YES];
+
 }
 
 -(UIColor*)colorWithHexString:(NSString*)hex
