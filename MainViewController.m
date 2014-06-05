@@ -55,11 +55,11 @@
     registerButton.image  = [UIImage imageNamed:@"register.png"];
     [self.view addSubview:registerButton];
     
-    UIImageView *reportButton = [[UIImageView alloc] initWithFrame:CGRectMake(  offset , 300, 583/2, 159/2)];
+    UIImageView *reportButton = [[UIImageView alloc] initWithFrame:CGRectMake(  offset , 310, 583/2, 159/2)];
     reportButton.image  = [UIImage imageNamed:@"report.png"];
     [self.view addSubview:reportButton];
     
-    UIImageView *skipButton = [[UIImageView alloc] initWithFrame:CGRectMake(  offset , 380, 583/2, 159/2)];
+    UIImageView *skipButton = [[UIImageView alloc] initWithFrame:CGRectMake(  offset , 400, 583/2, 159/2)];
     skipButton.image  = [UIImage imageNamed:@"activeSearch.png"];
     [self.view addSubview:skipButton];
     

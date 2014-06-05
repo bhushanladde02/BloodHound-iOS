@@ -119,6 +119,7 @@
     CGRect nameInputLabelFrame = CGRectMake(20,160,280,30);
     UITextField *textField = [[UITextField alloc] initWithFrame:nameInputLabelFrame];
     textField.text = @"Name and Last Name";
+    textField.delegate = self;  //to clear the text
     //textField.layer.borderWidth = 1;
     //textField.layer.borderColor = [[self colorWithHexString:@"242424"] CGColor ];
     textField.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:16];
@@ -136,6 +137,7 @@
     CGRect addressInputLabelFrame = CGRectMake(20,220,280,60);
     UITextView *addressInputField = [[UITextView alloc] initWithFrame:addressInputLabelFrame];
     addressInputField.text = [NSString stringWithFormat:@"Street Address%City,State,Zip Code", (unichar)0x2028];
+    addressInputField.delegate = self; //to clear text
     addressInputField.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:16];
     [self.view addSubview:addressInputField];
     
@@ -169,6 +171,7 @@
     UITextView *callInputField = [[UITextView alloc] initWithFrame:callInputLabelFrame];
     callInputField.text = @"What should a person do if they find your loved one?";
     callInputField.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:16];
+    callInputField.delegate = self; //to clear text
     [self.view addSubview:callInputField];
     
     CGRect permlabelFrame = CGRectMake(20,431,280,20);
@@ -272,6 +275,21 @@ bool *isChecked = false;
     
     
 }
+
+//clear default text before editing
+- (void)textFieldDidBeginEditing:(UITextField *)textField{
+    NSLog(@"textFieldDidBeginEditing");
+    textField.text = @"";
+}
+
+//clear default text before editing
+- (void)textViewDidBeginEditing:(UITextField *)textView{
+    NSLog(@"textViewDidBeginEditing");
+    textView.text = @"";
+}
+
+
+
 
 //sends http request
 -(void) registerUser{
