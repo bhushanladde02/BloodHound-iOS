@@ -8,6 +8,7 @@
 
 #import "MainViewController.h"
 #import "RegisterViewController.h"
+#import "ActiveViewController.h"
 
 @interface MainViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *imageBackground;
@@ -30,7 +31,7 @@
 {
     [super viewDidLoad];
     //self.imageBackground.set
-    UIImage *backgroundImage = [UIImage imageNamed:@"Background1.png"];
+    UIImage *backgroundImage = [UIImage imageNamed:@"background2.png"];
     
     UIImageView *backgroundImageView=[[UIImageView alloc]initWithFrame:self.view.frame];
     backgroundImageView.image=backgroundImage;
@@ -64,10 +65,16 @@
     [self.view addSubview:skipButton];
     
     
-    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapDetected)];
-    singleTap.numberOfTapsRequired = 1;
+    UITapGestureRecognizer *singleTapRegister = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapDetectedRegister)];
+    singleTapRegister.numberOfTapsRequired = 1;
     registerButton.userInteractionEnabled = YES;
-    [registerButton addGestureRecognizer:singleTap];
+    [registerButton addGestureRecognizer:singleTapRegister];
+    
+    
+    UITapGestureRecognizer *singleTapActive = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapDetectedActive)];
+    singleTapActive.numberOfTapsRequired = 1;
+    skipButton.userInteractionEnabled = YES;
+    [skipButton addGestureRecognizer:singleTapActive];
     
     
 /*    CGRect oldRect = self.navigationController.navigationBar.frame;
@@ -91,11 +98,17 @@
 
 
 
--(void)tapDetected{
+-(void)tapDetectedRegister{
     NSLog(@"single Tap on imageview register button");
     RegisterViewController *registerViewController = [[RegisterViewController alloc] initWithNibName:nil bundle:nil];
     [self.navigationController pushViewController:registerViewController animated:YES];
     //[ registerViewController rel];
+}
+
+-(void)tapDetectedActive{
+    NSLog(@"single Tap on imageview active button");
+    ActiveViewController *activeViewController = [[ActiveViewController alloc] initWithNibName:nil bundle:nil];
+    [self.navigationController pushViewController:activeViewController animated:YES];
 }
 
 
