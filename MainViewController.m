@@ -73,7 +73,7 @@
 /*    CGRect oldRect = self.navigationController.navigationBar.frame;
     self.navigationController.navigationBar.frame = CGRectMake(0, 200, oldRect.size.width, oldRect.size.height); */
 
-    UIImage *headerImage = [UIImage imageNamed:@"bloodhoundHeader.png"];
+    UIImage *headerImage = [UIImage imageNamed:@"navBar.png"];
     
     [self.navigationController.navigationBar setBackgroundImage:headerImage forBarMetrics:UIBarMetricsDefault];
     
