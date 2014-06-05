@@ -7,8 +7,6 @@
 //
 
 #import "RegisterViewController.h"
-#import "APPViewController.h"
-
 
 @interface RegisterViewController ()
 
@@ -28,6 +26,22 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    
+    //warn user of no camera
+    /*
+      if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+     
+     UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"Error"
+     message:@"Device has no camera"
+     delegate:nil
+     cancelButtonTitle:@"OK"
+     otherButtonTitles: nil];
+     
+     [myAlertView show];
+     
+     }
+     */
     
     
     UIScrollView* scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
@@ -203,13 +217,6 @@
     cameraButton.userInteractionEnabled = YES;
     [cameraButton addGestureRecognizer:singleTapTakePhoto];
     
-}
-
--(void) tapDetected{
-    NSLog(@"single Tap on imageview register button");
-    APPViewController *appViewController = [[APPViewController alloc] initWithNibName:nil bundle:nil];
-    [self.navigationController pushViewController:appViewController animated:YES];
-
 }
 
 - (void)takePhoto {
