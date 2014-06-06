@@ -94,9 +94,10 @@
     registerLabel.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:30];
     registerLabel.textColor = [self colorWithHexString:@"3fa69a"];
     [self.view addSubview:registerLabel];
+    
 
     //register Desc
-    CGRect registerDesclabelFrame = CGRectMake(20,70,280,60);
+    CGRect registerDesclabelFrame = CGRectMake(20,40,280,55);
     UILabel *registerDescLabel = [[UILabel alloc] initWithFrame:registerDesclabelFrame];
     registerDescLabel.numberOfLines = 0;
     //[registerDescLabel sizeToFit];
