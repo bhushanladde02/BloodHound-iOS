@@ -61,7 +61,25 @@
     minButton.image  = [UIImage imageNamed:@"minimize.png"];
     [self.view addSubview:minButton];
     
+    
+    
+    
+    UITapGestureRecognizer *singleTapSkip = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSkipButton)];
+    singleTapSkip.numberOfTapsRequired = 1;
+    minButton.userInteractionEnabled = YES;
+    [minButton addGestureRecognizer:singleTapSkip];
+
+    
 }
+
+-(void)handleSkipButton
+{
+    NSLog(@"Skip Button Pressed");
+    UIApplication *app = [UIApplication sharedApplication];
+    [app performSelector:@selector(suspend)];
+    
+}
+
 
 
 -(UIColor*)colorWithHexString:(NSString*)hex
