@@ -238,6 +238,15 @@
     checkButton.userInteractionEnabled = YES;
     [checkButton addGestureRecognizer:singleTapCheck];
     
+    
+    
+    
+    UITapGestureRecognizer *singleTapRegister = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(registerUser)];
+    singleTapRegister.numberOfTapsRequired = 1;
+    submitButton.userInteractionEnabled = YES;
+    [submitButton addGestureRecognizer:singleTapRegister];
+    
+    
 }
 
 bool *isChecked = false;
@@ -330,7 +339,7 @@ bool *isChecked = false;
     NSString* FileParamConstant = @"file";
     
     // the server url to which the image (or the media) is uploaded. Use your server url here
-    NSURL* requestURL = [NSURL URLWithString:@""];
+    NSURL* requestURL = [NSURL URLWithString:@"http://smallemperor.com:8080/BloodHoundBackend/UploadServlet"];
     
     
     
@@ -378,6 +387,20 @@ bool *isChecked = false;
     
     // set URL
     [request setURL:requestURL];
+    
+    
+    
+    //send request
+    NSURLResponse *response;
+    NSError *err;
+    NSData *returnData = [ NSURLConnection sendSynchronousRequest: request returningResponse:&response error:&err];
+    NSString *content = [NSString stringWithUTF8String:[returnData bytes]];
+    NSLog(@"responseData: %@", content);
+    
+    
+    
+    
+    
 }
 
 //remove keyboard when tapped on screen

@@ -25,14 +25,15 @@ private boolean isMultipart;
    private int maxMemSize = 100 * 1024;
    private File file ;
 
-   public void init( ){
-      // Get the file location where it would be stored.
-      filePath = 
-             getServletContext().getInitParameter("/Users/williamgrey/Desktop/upload"); 
-   }
-   public void doPost(HttpServletRequest request, 
+    public void doPost(HttpServletRequest request, 
                HttpServletResponse response)
               throws ServletException, java.io.IOException {
+	   
+	   init(); //just to set filePath
+	   
+	   filePath =  "/root/bloodhound/";
+	   
+	   
       // Check that we have a file upload request
       isMultipart = ServletFileUpload.isMultipartContent(request);
       response.setContentType("text/html");
@@ -52,7 +53,7 @@ private boolean isMultipart;
       // maximum size that will be stored in memory
       factory.setSizeThreshold(maxMemSize);
       // Location to save data that is larger than maxMemSize.
-      factory.setRepository(new File("/Users/williamgrey/Desktop/upload"));
+      factory.setRepository(new File("/root/bloodhound"));
 
       // Create a new file upload handler
       ServletFileUpload upload = new ServletFileUpload(factory);
@@ -63,7 +64,7 @@ private boolean isMultipart;
       // Parse the request to get file items.
       List fileItems = upload.parseRequest(request);
 	
-      // Process the uploaded file items
+      // Process the uploaded file items	
       Iterator i = fileItems.iterator();
 
       out.println("<html>");
