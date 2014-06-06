@@ -61,9 +61,6 @@
     minButton.image  = [UIImage imageNamed:@"minimize.png"];
     [self.view addSubview:minButton];
     
-    
-    
-    
 }
 
 
