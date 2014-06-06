@@ -107,24 +107,34 @@
     registerDescLabel.textColor = [self colorWithHexString:@"242424"];
     [self.view addSubview:registerDescLabel];
 
-    CGRect namelabelFrame = CGRectMake(20,130,280,30);
-    UILabel *nameLabel = [[UILabel alloc] initWithFrame:namelabelFrame];
-    //nameLabel.backgroundColor = [UIColor grayColor];  //debug point
-    nameLabel.textColor = [self colorWithHexString:@"3fa69a"];
-    NSString *nameText = @"Name";
-    [nameLabel setText: nameText];
-    nameLabel.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:18];
-    [self.view addSubview:nameLabel];
+    CGRect fnamelabelFrame = CGRectMake(20,130,280,30);
+    UILabel *fnameLabel = [[UILabel alloc] initWithFrame:fnamelabelFrame];
+    //fnameLabel.backgroundColor = [UIColor grayColor];  //debug point
+    fnameLabel.textColor = [self colorWithHexString:@"3fa69a"];
+    NSString *fnameText = @"First Name";
+    [fnameLabel setText: fnameText];
+    fnameLabel.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:18];
+    [self.view addSubview:fnameLabel];
     
-    CGRect nameInputLabelFrame = CGRectMake(20,160,280,30);
-    UITextField *textField = [[UITextField alloc] initWithFrame:nameInputLabelFrame];
-    textField.text = @"Name and Last Name";
+    CGRect fnameInputLabelFrame = CGRectMake(20,160,280,30);
+    UITextField *textField = [[UITextField alloc] initWithFrame:fnameInputLabelFrame];
+    textField.text = @"First Name";
     textField.delegate = self;  //to clear the text
     //textField.layer.borderWidth = 1;
     //textField.layer.borderColor = [[self colorWithHexString:@"242424"] CGColor ];
     textField.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:16];
     [self.view addSubview:textField];
     
+    CGRect lnameInputLabelFrame = CGRectMake(20,190,280,30);
+    UITextField *ltextField = [[UITextField alloc] initWithFrame:lnameInputLabelFrame];
+    ltextField.text = @"Last Name";
+    ltextField.delegate = self;  //to clear the text
+    //textField.layer.borderWidth = 1;
+    //textField.layer.borderColor = [[self colorWithHexString:@"242424"] CGColor ];
+    ltextField.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:16];
+    [self.view addSubview:ltextField];
+    
+    /*
     CGRect addresslabelFrame = CGRectMake(20,190,280,30);
     UILabel *addressLabel = [[UILabel alloc] initWithFrame:addresslabelFrame];
     //nameLabel.backgroundColor = [UIColor grayColor];  //debug point
@@ -244,7 +254,7 @@
     UITapGestureRecognizer *singleTapRegister = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(registerUser)];
     singleTapRegister.numberOfTapsRequired = 1;
     submitButton.userInteractionEnabled = YES;
-    [submitButton addGestureRecognizer:singleTapRegister];
+    [submitButton addGestureRecognizer:singleTapRegister];  */
     
     
 }
