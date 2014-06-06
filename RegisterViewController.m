@@ -100,7 +100,7 @@
     UILabel *registerDescLabel = [[UILabel alloc] initWithFrame:registerDesclabelFrame];
     registerDescLabel.numberOfLines = 0;
     //[registerDescLabel sizeToFit];
-    //registerDescLabel.backgroundColor = [UIColor greenColor];  //debug point
+    registerDescLabel.backgroundColor = [UIColor grayColor];  //debug point
     NSString *registerDescText = @"Provides info on what’s protected. Provides info on what’s protected. Provides info on what’s protected.";
     [registerDescLabel setText: registerDescText];
     registerDescLabel.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:16];
@@ -109,7 +109,7 @@
 
     CGRect fnamelabelFrame = CGRectMake(20,130,280,30);
     UILabel *fnameLabel = [[UILabel alloc] initWithFrame:fnamelabelFrame];
-    //fnameLabel.backgroundColor = [UIColor grayColor];  //debug point
+    fnameLabel.backgroundColor = [UIColor greenColor];  //debug point
     fnameLabel.textColor = [self colorWithHexString:@"3fa69a"];
     NSString *fnameText = @"First Name";
     [fnameLabel setText: fnameText];
