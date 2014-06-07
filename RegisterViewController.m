@@ -86,7 +86,7 @@
     
     
     //register Label
-    CGRect registerlabelFrame = CGRectMake(20,10,280,60);
+    CGRect registerlabelFrame = CGRectMake(20,10,280,30);
     UILabel *registerLabel = [[UILabel alloc] initWithFrame:registerlabelFrame];
     //registerLabel.backgroundColor = [UIColor grayColor];  //debug point
     NSString *registerText = @"Register";
@@ -94,49 +94,71 @@
     registerLabel.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:30];
     registerLabel.textColor = [self colorWithHexString:@"3fa69a"];
     [self.view addSubview:registerLabel];
-    
 
     //register Desc
-    CGRect registerDesclabelFrame = CGRectMake(20,40,280,55);
+    CGRect registerDesclabelFrame = CGRectMake(20,40,280,30);
     UILabel *registerDescLabel = [[UILabel alloc] initWithFrame:registerDesclabelFrame];
     registerDescLabel.numberOfLines = 0;
     //[registerDescLabel sizeToFit];
-    registerDescLabel.backgroundColor = [UIColor grayColor];  //debug point
-    NSString *registerDescText = @"Provides info on what’s protected. Provides info on what’s protected. Provides info on what’s protected.";
+    //registerDescLabel.backgroundColor = [UIColor grayColor];  //debug point
+    NSString *registerDescText = @"Provides info on what’s protected.";
     [registerDescLabel setText: registerDescText];
     registerDescLabel.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:16];
     registerDescLabel.textColor = [self colorWithHexString:@"242424"];
     [self.view addSubview:registerDescLabel];
 
-    CGRect fnamelabelFrame = CGRectMake(20,130,280,30);
-    UILabel *fnameLabel = [[UILabel alloc] initWithFrame:fnamelabelFrame];
-    fnameLabel.backgroundColor = [UIColor greenColor];  //debug point
-    fnameLabel.textColor = [self colorWithHexString:@"3fa69a"];
-    NSString *fnameText = @"First Name";
-    [fnameLabel setText: fnameText];
-    fnameLabel.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:18];
-    [self.view addSubview:fnameLabel];
+    //device Label
+    CGRect deviceLabelFrame = CGRectMake(20,130,280,30);
+    UILabel *deviceLabel = [[UILabel alloc] initWithFrame:deviceLabelFrame];
+    //deviceLabel.backgroundColor = [UIColor greenColor];  //debug point
+    deviceLabel.textColor = [self colorWithHexString:@"3fa69a"];
+    NSString *deviceText = @"Bluetooth LE Device";
+    [deviceLabel setText: deviceText];
+    deviceLabel.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:18];
+    [self.view addSubview:deviceLabel];
     
-    CGRect fnameInputLabelFrame = CGRectMake(20,160,280,30);
+    //input device id
+    CGRect deviceInputLabelFrame = CGRectMake(20,160,280,30);
+    UITextField *deviceTextField = [[UITextField alloc] initWithFrame:deviceInputLabelFrame];
+    deviceTextField.text = @"Device ID Number";
+    deviceTextField.delegate = self;  //to clear the text
+    deviceTextField.layer.borderWidth = 2;
+    deviceTextField.layer.borderColor = [[self colorWithHexString:@"3fa69a"] CGColor ];
+    deviceTextField.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:16];
+    [self.view addSubview:deviceTextField];
+    
+    //name Label
+    CGRect namelabelFrame = CGRectMake(20,190,280,30);
+    UILabel *nameLabel = [[UILabel alloc] initWithFrame:namelabelFrame];
+    //nameLabel.backgroundColor = [UIColor greenColor];  //debug point
+    nameLabel.textColor = [self colorWithHexString:@"3fa69a"];
+    NSString *nameText = @"Name";
+    [nameLabel setText: nameText];
+    nameLabel.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:18];
+    [self.view addSubview:nameLabel];
+    
+    //input first name
+    CGRect fnameInputLabelFrame = CGRectMake(20,220,280,30);
     UITextField *textField = [[UITextField alloc] initWithFrame:fnameInputLabelFrame];
     textField.text = @"First Name";
     textField.delegate = self;  //to clear the text
-    //textField.layer.borderWidth = 1;
-    //textField.layer.borderColor = [[self colorWithHexString:@"242424"] CGColor ];
+    textField.layer.borderWidth = 2;
+    textField.layer.borderColor = [[self colorWithHexString:@"3fa69a"] CGColor ];
     textField.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:16];
     [self.view addSubview:textField];
     
-    CGRect lnameInputLabelFrame = CGRectMake(20,190,280,30);
+    //input last name
+    CGRect lnameInputLabelFrame = CGRectMake(20,250,280,30);
     UITextField *ltextField = [[UITextField alloc] initWithFrame:lnameInputLabelFrame];
     ltextField.text = @"Last Name";
     ltextField.delegate = self;  //to clear the text
-    //textField.layer.borderWidth = 1;
-    //textField.layer.borderColor = [[self colorWithHexString:@"242424"] CGColor ];
+    textField.layer.borderWidth = 2;
+    textField.layer.borderColor = [[self colorWithHexString:@"3fa69a"] CGColor ];
     ltextField.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:16];
     [self.view addSubview:ltextField];
     
-    /*
-    CGRect addresslabelFrame = CGRectMake(20,190,280,30);
+    //address label
+    CGRect addresslabelFrame = CGRectMake(20,280,280,30);
     UILabel *addressLabel = [[UILabel alloc] initWithFrame:addresslabelFrame];
     //nameLabel.backgroundColor = [UIColor grayColor];  //debug point
     addressLabel.textColor = [self colorWithHexString:@"3fa69a"];
@@ -145,14 +167,34 @@
     addressLabel.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:18];
     [self.view addSubview:addressLabel];
     
-    CGRect addressInputLabelFrame = CGRectMake(20,220,280,60);
-    UITextView *addressInputField = [[UITextView alloc] initWithFrame:addressInputLabelFrame];
-    addressInputField.text = [NSString stringWithFormat:@"Street Address%City,State,Zip Code", (unichar)0x2028];
-    addressInputField.delegate = self; //to clear text
-    addressInputField.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:16];
-    [self.view addSubview:addressInputField];
+    //input street address
+    CGRect streetAddressInputLabelFrame = CGRectMake(20,310,280,30);
+    UITextView *streetAddressInputField = [[UITextView alloc] initWithFrame:streetAddressInputLabelFrame];
+    streetAddressInputField.text = [NSString stringWithFormat:@"Street Address", (unichar)0x2028];
+    streetAddressInputField.delegate = self; //to clear text
+    streetAddressInputField.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:16];
+    [self.view addSubview:streetAddressInputField];
     
-    CGRect photolabelFrame = CGRectMake(20,280,280,30);
+    //input city
+    CGRect cityInputLabelFrame = CGRectMake(20,340,280,30);
+    UITextView *cityInputField = [[UITextView alloc] initWithFrame:cityInputLabelFrame];
+    cityInputField.text = [NSString stringWithFormat:@"City", (unichar)0x2028];
+    cityInputField.delegate = self; //to clear text
+    cityInputField.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:16];
+    [self.view addSubview:cityInputField];
+    
+    //State Drop Down Field
+    
+    //input zip code
+    CGRect zipInputLabelFrame = CGRectMake(20,370,280,30);
+    UITextView *zipInputField = [[UITextView alloc] initWithFrame:zipInputLabelFrame];
+    zipInputField.text = [NSString stringWithFormat:@"Zip Code", (unichar)0x2028];
+    zipInputField.delegate = self; //to clear text
+    zipInputField.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:16];
+    [self.view addSubview:zipInputField];
+    
+    //photo label
+    CGRect photolabelFrame = CGRectMake(20,400,280,30);
     UILabel *photoLabel = [[UILabel alloc] initWithFrame:photolabelFrame];
     //nameLabel.backgroundColor = [UIColor grayColor];  //debug point
     photoLabel.textColor = [self colorWithHexString:@"3fa69a"];
@@ -161,15 +203,98 @@
     photoLabel.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:18];
     [self.view addSubview:photoLabel];
     
-    UIImageView *uploadButton = [[UIImageView alloc] initWithFrame:CGRectMake(  21/3, 310, 301/2, 62/2)];
-    uploadButton.image  = [UIImage imageNamed:@"upload.png"];
+    //select photo button
+    UIImageView *uploadButton = [[UIImageView alloc] initWithFrame:CGRectMake(  21/3, 430, 301/2, 62/2)];
+    uploadButton.image  = [UIImage imageNamed:@"selectPhoto.png"];
     [self.view addSubview:uploadButton];
     
-    UIImageView *cameraButton = [[UIImageView alloc] initWithFrame:CGRectMake(  42/3+301/2, 310, 301/2, 62/2)];
+    //camera button
+    UIImageView *cameraButton = [[UIImageView alloc] initWithFrame:CGRectMake(  42/3+301/2, 430, 301/2, 62/2)];
     cameraButton.image  = [UIImage imageNamed:@"camera.png"];
     [self.view addSubview:cameraButton];
     
-    CGRect calllabelFrame = CGRectMake(20,341,280,30);
+    //description label
+    CGRect descriptionLabelFrame = CGRectMake(20,460,280,30);
+    UILabel *descriptionLabel = [[UILabel alloc] initWithFrame:descriptionLabelFrame];
+    //fnameLabel.backgroundColor = [UIColor greenColor];  //debug point
+    descriptionLabel.textColor = [self colorWithHexString:@"3fa69a"];
+    NSString *descriptionText = @"Description";
+    [descriptionLabel setText: descriptionText];
+    descriptionLabel.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:18];
+    [self.view addSubview:descriptionLabel];
+    
+    //input age
+    CGRect ageInputLabelFrame = CGRectMake(20,490,280,30);
+    UITextField *ageTextField = [[UITextField alloc] initWithFrame:ageInputLabelFrame];
+    ageTextField.text = @"Age";
+    ageTextField.delegate = self;  //to clear the text
+    ageTextField.layer.borderWidth = 2;
+    ageTextField.layer.borderColor = [[self colorWithHexString:@"3fa69a"] CGColor ];
+    ageTextField.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:16];
+    [self.view addSubview:ageTextField];
+    
+    //input height
+    CGRect heightInputLabelFrame = CGRectMake(20,520,280,30);
+    UITextField *heightTextField = [[UITextField alloc] initWithFrame:heightInputLabelFrame];
+    heightTextField.text = @"Height";
+    heightTextField.delegate = self;  //to clear the text
+    heightTextField.layer.borderWidth = 2;
+    heightTextField.layer.borderColor = [[self colorWithHexString:@"3fa69a"] CGColor ];
+    heightTextField.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:16];
+    [self.view addSubview:heightTextField];
+    
+    //input weight
+    CGRect weightInputLabelFrame = CGRectMake(20,550,280,30);
+    UITextField *weightTextField = [[UITextField alloc] initWithFrame:weightInputLabelFrame];
+    weightTextField.text = @"Weight";
+    weightTextField.delegate = self;  //to clear the text
+    weightTextField.layer.borderWidth = 2;
+    weightTextField.layer.borderColor = [[self colorWithHexString:@"3fa69a"] CGColor ];
+    weightTextField.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:16];
+    [self.view addSubview:weightTextField];
+    
+    //input hair color
+    CGRect hairInputLabelFrame = CGRectMake(20,580,280,30);
+    UITextField *hairTextField = [[UITextField alloc] initWithFrame:hairInputLabelFrame];
+    hairTextField.text = @"Hair Color";
+    hairTextField.delegate = self;  //to clear the text
+    hairTextField.layer.borderWidth = 2;
+    hairTextField.layer.borderColor = [[self colorWithHexString:@"3fa69a"] CGColor ];
+    hairTextField.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:16];
+    [self.view addSubview:hairTextField];
+    
+    //input eye color
+    CGRect eyeInputLabelFrame = CGRectMake(20,610,280,30);
+    UITextField *eyeTextField = [[UITextField alloc] initWithFrame:eyeInputLabelFrame];
+    eyeTextField.text = @"Eye Color";
+    eyeTextField.delegate = self;  //to clear the text
+    eyeTextField.layer.borderWidth = 2;
+    eyeTextField.layer.borderColor = [[self colorWithHexString:@"3fa69a"] CGColor ];
+    eyeTextField.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:16];
+    [self.view addSubview:eyeTextField];
+    
+    //input distinguishing features
+    CGRect featuresInputLabelFrame = CGRectMake(20,640,280,30);
+    UITextField *featuresTextField = [[UITextField alloc] initWithFrame:featuresInputLabelFrame];
+    featuresTextField.text = @"Distinguishing Features";
+    featuresTextField.delegate = self;  //to clear the text
+    featuresTextField.layer.borderWidth = 2;
+    featuresTextField.layer.borderColor = [[self colorWithHexString:@"3fa69a"] CGColor ];
+    featuresTextField.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:16];
+    [self.view addSubview:featuresTextField];
+    
+    //input special notes
+    CGRect notesInputLabelFrame = CGRectMake(20,670,280,30);
+    UITextField *notesTextField = [[UITextField alloc] initWithFrame:notesInputLabelFrame];
+    notesTextField.text = @"Any specials notes including allergies, notable behavior, ect.";
+    notesTextField.delegate = self;  //to clear the text
+    notesTextField.layer.borderWidth = 2;
+    notesTextField.layer.borderColor = [[self colorWithHexString:@"3fa69a"] CGColor ];
+    notesTextField.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:16];
+    [self.view addSubview:notesTextField];
+    
+    //Call to Action label
+    CGRect calllabelFrame = CGRectMake(20,700,280,30);
     UILabel *callLabel = [[UILabel alloc] initWithFrame:calllabelFrame];
     //nameLabel.backgroundColor = [UIColor grayColor];  //debug point
     callLabel.textColor = [self colorWithHexString:@"3fa69a"];
@@ -178,14 +303,15 @@
     callLabel.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:18];
     [self.view addSubview:callLabel];
     
-    CGRect callInputLabelFrame = CGRectMake(20,371,280,60);
+    //input directions if found
+    CGRect callInputLabelFrame = CGRectMake(20,730,280,30);
     UITextView *callInputField = [[UITextView alloc] initWithFrame:callInputLabelFrame];
     callInputField.text = @"What should a person do if they find your loved one?";
     callInputField.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:16];
     callInputField.delegate = self; //to clear text
     [self.view addSubview:callInputField];
     
-    CGRect permlabelFrame = CGRectMake(20,431,280,20);
+    CGRect permlabelFrame = CGRectMake(20,790,280,20);
     UILabel *permLabel = [[UILabel alloc] initWithFrame:permlabelFrame];
     //nameLabel.backgroundColor = [UIColor grayColor];  //debug point
     permLabel.textColor = [self colorWithHexString:@"3fa69a"];
@@ -195,7 +321,7 @@
     [self.view addSubview:permLabel];
     
     //permDesc Desc
-    CGRect permDescDesclabelFrame = CGRectMake(20,451,280,60);
+    CGRect permDescDesclabelFrame = CGRectMake(20,810,280,60);
     UILabel *permDescDescLabel = [[UILabel alloc] initWithFrame:permDescDesclabelFrame];
     permDescDescLabel.numberOfLines = 0;
     //[permDescDescLabel sizeToFit];
@@ -207,14 +333,14 @@
     [self.view addSubview:permDescDescLabel];
     
     
-    checkButton = [[UIImageView alloc] initWithFrame:CGRectMake(  20, 511, 40/2, 40/2)];
+    checkButton = [[UIImageView alloc] initWithFrame:CGRectMake(  20, 870, 40/2, 40/2)];
     checkButton.image  = uncheckImage;
     [self.view addSubview:checkButton];
     
     
     
     
-    CGRect acceptlabelFrame = CGRectMake(40,511,280,20);
+    CGRect acceptlabelFrame = CGRectMake(40,890,280,20);
     UILabel *acceptLabel = [[UILabel alloc] initWithFrame:acceptlabelFrame];
     //nameLabel.backgroundColor = [UIColor grayColor];  //debug point
     acceptLabel.textColor = [self colorWithHexString:@"3fa69a"];
@@ -224,7 +350,7 @@
     [self.view addSubview:acceptLabel];
     
     
-    UIImageView *submitButton = [[UIImageView alloc] initWithFrame:CGRectMake(  (320 - 602/2)/2, 531 + 3, 602/2, 159/2)];
+    UIImageView *submitButton = [[UIImageView alloc] initWithFrame:CGRectMake(  (320 - 602/2)/2, 910, 602/2, 159/2)];
     submitButton.image  = [UIImage imageNamed:@"submit.png"];
     [self.view addSubview:submitButton];
 
@@ -255,7 +381,7 @@
     UITapGestureRecognizer *singleTapRegister = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(registerUser)];
     singleTapRegister.numberOfTapsRequired = 1;
     submitButton.userInteractionEnabled = YES;
-    [submitButton addGestureRecognizer:singleTapRegister];  */
+    [submitButton addGestureRecognizer:singleTapRegister];
     
     
 }
