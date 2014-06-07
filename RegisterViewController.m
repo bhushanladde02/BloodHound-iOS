@@ -62,14 +62,14 @@
 
     
     //custom back button
-    UIImage *buttonImage = [UIImage imageNamed:@"back.png"];
+    UIImage *buttonImage = [UIImage imageNamed:@"backButton.png"];
     
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     
     [button setImage:buttonImage forState:UIControlStateNormal];
     
     
-    button.frame = CGRectMake(0, 0, buttonImage.size.width/5, buttonImage.size.height/5);
+    button.frame = CGRectMake(0, 0, buttonImage.size.width, buttonImage.size.height);
     [button addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *customBarItem = [[UIBarButtonItem alloc] initWithCustomView:button];
     self.navigationItem.leftBarButtonItem = customBarItem;

@@ -95,8 +95,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "264"
             endingLineNumber = "264"
-            landmarkName = "-checkHandler"
-            landmarkType = "5">
+            landmarkName = "@implementation RegisterViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -111,7 +111,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "268"
             endingLineNumber = "268"
-            landmarkName = "-checkHandler"
+            landmarkName = "-takePhoto"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

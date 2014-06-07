@@ -19,6 +19,7 @@
 		FC1F4522194094C8006C10F8 /* minimize.png in Resources */ = {isa = PBXBuildFile; fileRef = FC1F4521194094C8006C10F8 /* minimize.png */; };
 		FC1F45251940965D006C10F8 /* ReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC1F45231940965D006C10F8 /* ReportViewController.m */; };
 		FC1F4527194096BC006C10F8 /* reportAlert.png in Resources */ = {isa = PBXBuildFile; fileRef = FC1F4526194096BC006C10F8 /* reportAlert.png */; };
+		FC1F45291943BF6E006C10F8 /* backButton.png in Resources */ = {isa = PBXBuildFile; fileRef = FC1F45281943BF6E006C10F8 /* backButton.png */; };
 		FC6CAEB3193D612500FB5850 /* activeSearch.png in Resources */ = {isa = PBXBuildFile; fileRef = FC6CAEB0193D612500FB5850 /* activeSearch.png */; };
 		FC6CAEB4193D612500FB5850 /* register.png in Resources */ = {isa = PBXBuildFile; fileRef = FC6CAEB1193D612500FB5850 /* register.png */; };
 		FC6CAEB5193D612500FB5850 /* report.png in Resources */ = {isa = PBXBuildFile; fileRef = FC6CAEB2193D612500FB5850 /* report.png */; };
@@ -80,6 +81,7 @@
 		FC1F45231940965D006C10F8 /* ReportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportViewController.m; sourceTree = "<group>"; };
 		FC1F45241940965D006C10F8 /* ReportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportViewController.h; sourceTree = "<group>"; };
 		FC1F4526194096BC006C10F8 /* reportAlert.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reportAlert.png; sourceTree = "<group>"; };
+		FC1F45281943BF6E006C10F8 /* backButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backButton.png; sourceTree = "<group>"; };
 		FC6CAEB0193D612500FB5850 /* activeSearch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = activeSearch.png; path = "../../BloodHound Release Images/activeSearch.png"; sourceTree = "<group>"; };
 		FC6CAEB1193D612500FB5850 /* register.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = register.png; path = "../../BloodHound Release Images/register.png"; sourceTree = "<group>"; };
 		FC6CAEB2193D612500FB5850 /* report.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = report.png; path = "../../BloodHound Release Images/report.png"; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 		FCA3FA85193C809000390B10 = {
 			isa = PBXGroup;
 			children = (
+				FC1F45281943BF6E006C10F8 /* backButton.png */,
 				FC1F4526194096BC006C10F8 /* reportAlert.png */,
 				FC1F45231940965D006C10F8 /* ReportViewController.m */,
 				FC1F45241940965D006C10F8 /* ReportViewController.h */,
@@ -342,6 +345,7 @@
 				FC00EFB9193D4FCA00BBA864 /* WhiteButton.png in Resources */,
 				FC6CAED1193F104D00FB5850 /* camera.png in Resources */,
 				FC6CAEB3193D612500FB5850 /* activeSearch.png in Resources */,
+				FC1F45291943BF6E006C10F8 /* backButton.png in Resources */,
 				FC6CAED2193F104D00FB5850 /* upload.png in Resources */,
 				FC6CAEB5193D612500FB5850 /* report.png in Resources */,
 				FC1F45201940909D006C10F8 /* background2.png in Resources */,

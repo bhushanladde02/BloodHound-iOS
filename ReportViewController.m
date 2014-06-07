@@ -26,6 +26,22 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    //custom back button
+    UIImage *buttonImage = [UIImage imageNamed:@"backButton.png"];
+    
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    [button setImage:buttonImage forState:UIControlStateNormal];
+    
+    
+    button.frame = CGRectMake(0, 0, buttonImage.size.width, buttonImage.size.height);
+    [button addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *customBarItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+    self.navigationItem.leftBarButtonItem = customBarItem;
+    
+    
+    
     // Do any additional setup after loading the view.
     //self.imageBackground.set
     UIImage *backgroundImage = [UIImage imageNamed:@"background2.png"];
@@ -64,7 +80,16 @@
     
     
     
+    
+    
 }
+
+
+-(void)back {
+    
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 
 
 -(UIColor*)colorWithHexString:(NSString*)hex
