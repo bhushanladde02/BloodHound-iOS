@@ -127,6 +127,7 @@
     deviceTextField.text = @"ID Number";
     deviceTextField.delegate = self;  //to clear the text
     deviceTextField.layer.borderWidth = 2;
+    deviceTextField.tag = 2;
     deviceTextField.layer.cornerRadius = 3;
     deviceTextField.layer.borderColor = [[self colorWithHexString:@"3fa69a"] CGColor ];
     deviceTextField.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:16];
@@ -146,6 +147,7 @@
     CGRect fnameInputLabelFrame = CGRectMake(20,170,130,30);
     SUITextField *textField = [[SUITextField alloc] initWithFrame:fnameInputLabelFrame];
     textField.text = @"First Name";
+    textField.tag = 4;
     textField.delegate = self;  //to clear the text
     textField.layer.borderWidth = 2;
     textField.layer.cornerRadius = 3;
@@ -157,6 +159,7 @@
     CGRect lnameInputLabelFrame = CGRectMake(20,210,130,30);
     SUITextField *ltextField = [[SUITextField alloc] initWithFrame:lnameInputLabelFrame];
     ltextField.text = @"Last Name";
+    ltextField.tag = 6;
     ltextField.delegate = self;  //to clear the text
     ltextField.layer.borderWidth = 2;
     ltextField.layer.cornerRadius = 3;
@@ -211,6 +214,7 @@
     streetAddressInputField.text = [NSString stringWithFormat:@"Street Address", (unichar)0x2028];
     streetAddressInputField.delegate = self; //to clear text
     streetAddressInputField.layer.borderWidth = 2;
+    streetAddressInputField.tag = 8;
     streetAddressInputField.layer.cornerRadius = 3;
     streetAddressInputField.layer.borderColor = [[self colorWithHexString:@"3fa69a"] CGColor ];
     streetAddressInputField.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:16];
@@ -222,6 +226,7 @@
     cityInputField.text = [NSString stringWithFormat:@"City", (unichar)0x2028];
     cityInputField.delegate = self; //to clear text
     cityInputField.layer.borderWidth = 2;
+    cityInputField.tag = 10;
     cityInputField.layer.cornerRadius = 3;
     cityInputField.layer.borderColor = [[self colorWithHexString:@"3fa69a"] CGColor ];
     cityInputField.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:16];
@@ -235,6 +240,7 @@
     stateInputField.text = [NSString stringWithFormat:@"AZ", (unichar)0x2028];
     stateInputField.delegate = self; //to clear text
     stateInputField.layer.borderWidth = 2;
+    stateInputField.tag= 12;
     stateInputField.layer.cornerRadius = 3;
     stateInputField.layer.borderColor = [[self colorWithHexString:@"3fa69a"] CGColor ];
     stateInputField.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:16];
@@ -246,6 +252,7 @@
     zipInputField.text = [NSString stringWithFormat:@"Zip Code", (unichar)0x2028];
     zipInputField.delegate = self; //to clear text
     zipInputField.layer.borderWidth = 2;
+    zipInputField.tag = 14;
     zipInputField.layer.cornerRadius = 3;
     zipInputField.layer.borderColor = [[self colorWithHexString:@"3fa69a"] CGColor ];
     zipInputField.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:16];
@@ -266,6 +273,7 @@
     SUITextField *ageTextField = [[SUITextField alloc] initWithFrame:ageInputLabelFrame];
     ageTextField.text = @"Age";
     ageTextField.delegate = self;  //to clear the text
+    ageTextField.tag = 16;
     ageTextField.layer.borderWidth = 2;
     ageTextField.layer.cornerRadius = 3;
     ageTextField.layer.borderColor = [[self colorWithHexString:@"3fa69a"] CGColor ];
@@ -278,6 +286,7 @@
     heightTextField.text = @"Height";
     heightTextField.delegate = self;  //to clear the text
     heightTextField.layer.borderWidth = 2;
+    heightTextField.tag = 18;
     heightTextField.layer.cornerRadius = 3;
     heightTextField.layer.borderColor = [[self colorWithHexString:@"3fa69a"] CGColor ];
     heightTextField.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:16];
@@ -290,6 +299,7 @@
     weightTextField.delegate = self;  //to clear the text
     weightTextField.layer.borderWidth = 2;
     weightTextField.layer.cornerRadius = 3;
+    weightTextField.tag = 20;
     weightTextField.layer.borderColor = [[self colorWithHexString:@"3fa69a"] CGColor ];
     weightTextField.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:16];
     [self.view addSubview:weightTextField];
@@ -301,6 +311,7 @@
     hairTextField.delegate = self;  //to clear the text
     hairTextField.layer.borderWidth = 2;
     hairTextField.layer.cornerRadius = 3;
+    hairTextField.tag = 22;
     hairTextField.layer.borderColor = [[self colorWithHexString:@"3fa69a"] CGColor ];
     hairTextField.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:16];
     [self.view addSubview:hairTextField];
@@ -312,6 +323,7 @@
     eyeTextField.delegate = self;  //to clear the text
     eyeTextField.layer.borderWidth = 2;
     eyeTextField.layer.cornerRadius = 3;
+    eyeTextField.tag = 24;
     eyeTextField.layer.borderColor = [[self colorWithHexString:@"3fa69a"] CGColor ];
     eyeTextField.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:16];
     [self.view addSubview:eyeTextField];
@@ -323,6 +335,7 @@
     featuresTextField.delegate = self;  //to clear the text
     featuresTextField.layer.borderWidth = 2;
     featuresTextField.layer.cornerRadius = 3;
+    featuresTextField.tag = 26;
     featuresTextField.layer.borderColor = [[self colorWithHexString:@"3fa69a"] CGColor ];
     featuresTextField.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:16];
     [self.view addSubview:featuresTextField];
@@ -334,6 +347,7 @@
     notesTextField.delegate = self;  //to clear the text
     notesTextField.layer.borderWidth = 2;
     notesTextField.layer.cornerRadius = 3;
+    notesTextField.tag = 28;
     notesTextField.layer.borderColor = [[self colorWithHexString:@"3fa69a"] CGColor ];
     notesTextField.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:16];
     [self.view addSubview:notesTextField];
@@ -355,6 +369,7 @@
     callInputField.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:16];
     callInputField.layer.borderWidth = 2;
     callInputField.layer.cornerRadius = 3;
+    callInputField.tag = 30;
     callInputField.layer.borderColor = [[self colorWithHexString:@"3fa69a"] CGColor ];
     callInputField.delegate = self; //to clear text
     [self.view addSubview:callInputField];
@@ -472,9 +487,16 @@ bool *isChecked = false;
 
 //clear default text before editing
 - (void)textFieldDidBeginEditing:(SUITextField *)textField{
+    
+    
     NSLog(@"textFieldDidBeginEditing");
-    textField.text = @"";
-    [self animateTextField: textField up:YES];
+    
+    //allow clearing text first time when user enters info
+    if(textField.tag % 2 == 0 ){
+        textField.text = @"";
+        [self animateTextField: textField up:YES];
+        textField.tag = textField.tag + 1;
+    }
     
     //make text color little lighter - currently making red
     textField.textColor = [self colorWithHexString:@"ff0000"];
