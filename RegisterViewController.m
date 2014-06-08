@@ -90,7 +90,7 @@
     
     
     //register Label
-    CGRect registerlabelFrame = CGRectMake(20,70,280,30);
+    CGRect registerlabelFrame = CGRectMake(20,10,280,40);
     UILabel *registerLabel = [[UILabel alloc] initWithFrame:registerlabelFrame];
     //registerLabel.backgroundColor = [UIColor grayColor];  //debug point
     NSString *registerText = @"Register";
@@ -100,7 +100,7 @@
     [self.view addSubview:registerLabel];
 
     //register Desc
-    CGRect registerDesclabelFrame = CGRectMake(20,100,280,30);
+    CGRect registerDesclabelFrame = CGRectMake(20,50,280,30);
     UILabel *registerDescLabel = [[UILabel alloc] initWithFrame:registerDesclabelFrame];
     registerDescLabel.numberOfLines = 0;
     //[registerDescLabel sizeToFit];
@@ -112,7 +112,7 @@
     [self.view addSubview:registerDescLabel];
 
     //device Label
-    CGRect deviceLabelFrame = CGRectMake(20,130,280,30);
+    CGRect deviceLabelFrame = CGRectMake(20,80,280,30);
     UILabel *deviceLabel = [[UILabel alloc] initWithFrame:deviceLabelFrame];
     //deviceLabel.backgroundColor = [UIColor greenColor];  //debug point
     deviceLabel.textColor = [self colorWithHexString:@"3fa69a"];
@@ -122,7 +122,7 @@
     [self.view addSubview:deviceLabel];
     
     //input id number
-    CGRect deviceInputLabelFrame = CGRectMake(20,160,280,30);
+    CGRect deviceInputLabelFrame = CGRectMake(20,110,280,30);
     SUITextField *deviceTextField = [[SUITextField alloc] initWithFrame:deviceInputLabelFrame];
     deviceTextField.text = @"ID Number";
     deviceTextField.delegate = self;  //to clear the text
@@ -133,7 +133,7 @@
     [self.view addSubview:deviceTextField];
     
     //name Label
-    CGRect namelabelFrame = CGRectMake(20,190,130,30);
+    CGRect namelabelFrame = CGRectMake(20,140,130,30);
     UILabel *nameLabel = [[UILabel alloc] initWithFrame:namelabelFrame];
     //nameLabel.backgroundColor = [UIColor greenColor];  //debug point
     nameLabel.textColor = [self colorWithHexString:@"3fa69a"];
@@ -143,7 +143,7 @@
     [self.view addSubview:nameLabel];
     
     //input first name
-    CGRect fnameInputLabelFrame = CGRectMake(20,220,130,30);
+    CGRect fnameInputLabelFrame = CGRectMake(20,170,130,30);
     SUITextField *textField = [[SUITextField alloc] initWithFrame:fnameInputLabelFrame];
     textField.text = @"First Name";
     textField.delegate = self;  //to clear the text
@@ -154,7 +154,7 @@
     [self.view addSubview:textField];
     
     //input last name
-    CGRect lnameInputLabelFrame = CGRectMake(20,250,130,30);
+    CGRect lnameInputLabelFrame = CGRectMake(20,210,130,30);
     SUITextField *ltextField = [[SUITextField alloc] initWithFrame:lnameInputLabelFrame];
     ltextField.text = @"Last Name";
     ltextField.delegate = self;  //to clear the text
@@ -166,7 +166,7 @@
     
     //photo thumbnail
     //placeholder
-    CGRect thumbInputLabelFrame = CGRectMake(170,190,130,130);
+    CGRect thumbInputLabelFrame = CGRectMake(170,150,130,130);
     SUITextField *thumbField = [[SUITextField alloc] initWithFrame:thumbInputLabelFrame];
     thumbField.text = @"Photo Thumbnail";
     thumbField.delegate = self;  //to clear the text
@@ -176,7 +176,7 @@
     [self.view addSubview:thumbField];
     
     //photo label
-    CGRect photolabelFrame = CGRectMake(20,280,130,30);
+    CGRect photolabelFrame = CGRectMake(20,260,130,30);
     UILabel *photoLabel = [[UILabel alloc] initWithFrame:photolabelFrame];
     //nameLabel.backgroundColor = [UIColor grayColor];  //debug point
     photoLabel.textColor = [self colorWithHexString:@"3fa69a"];
@@ -186,17 +186,17 @@
     [self.view addSubview:photoLabel];
     
     //select photo button
-    UIImageView *uploadButton = [[UIImageView alloc] initWithFrame:CGRectMake(  21/3, 310, 301/2, 62/2)];
+    UIImageView *uploadButton = [[UIImageView alloc] initWithFrame:CGRectMake(  21/3, 290, 301/2, 62/2)];
     uploadButton.image  = [UIImage imageNamed:@"selectPhoto.png"];
     [self.view addSubview:uploadButton];
     
     //camera button
-    UIImageView *cameraButton = [[UIImageView alloc] initWithFrame:CGRectMake(  42/3+301/2, 310, 301/2, 62/2)];
+    UIImageView *cameraButton = [[UIImageView alloc] initWithFrame:CGRectMake(  42/3+301/2, 290, 301/2, 62/2)];
     cameraButton.image  = [UIImage imageNamed:@"camera.png"];
     [self.view addSubview:cameraButton];
     
     //address label
-    CGRect addresslabelFrame = CGRectMake(20,340,280,30);
+    CGRect addresslabelFrame = CGRectMake(20,321,280,30);
     UILabel *addressLabel = [[UILabel alloc] initWithFrame:addresslabelFrame];
     //nameLabel.backgroundColor = [UIColor grayColor];  //debug point
     addressLabel.textColor = [self colorWithHexString:@"3fa69a"];
@@ -206,7 +206,7 @@
     [self.view addSubview:addressLabel];
     
     //input street address
-    CGRect streetAddressInputLabelFrame = CGRectMake(20,370,280,30);
+    CGRect streetAddressInputLabelFrame = CGRectMake(20,351,280,30);
     UITextView *streetAddressInputField = [[UITextView alloc] initWithFrame:streetAddressInputLabelFrame];
     streetAddressInputField.text = [NSString stringWithFormat:@"Street Address", (unichar)0x2028];
     streetAddressInputField.delegate = self; //to clear text
@@ -217,7 +217,7 @@
     [self.view addSubview:streetAddressInputField];
     
     //input city
-    CGRect cityInputLabelFrame = CGRectMake(20,400,130,30);
+    CGRect cityInputLabelFrame = CGRectMake(20,391,130,30);
     UITextView *cityInputField = [[UITextView alloc] initWithFrame:cityInputLabelFrame];
     cityInputField.text = [NSString stringWithFormat:@"City", (unichar)0x2028];
     cityInputField.delegate = self; //to clear text
@@ -230,7 +230,7 @@
     //placeholder
     //needs drop down menu
     //input state
-    CGRect stateInputLabelFrame = CGRectMake(170,400,30,30);
+    CGRect stateInputLabelFrame = CGRectMake(170,391,30,30);
     UITextView *stateInputField = [[UITextView alloc] initWithFrame:stateInputLabelFrame];
     stateInputField.text = [NSString stringWithFormat:@"AZ", (unichar)0x2028];
     stateInputField.delegate = self; //to clear text
@@ -241,7 +241,7 @@
     [self.view addSubview:stateInputField];
     
     //input zip code
-    CGRect zipInputLabelFrame = CGRectMake(220,400,60,30);
+    CGRect zipInputLabelFrame = CGRectMake(220,391,60,30);
     UITextView *zipInputField = [[UITextView alloc] initWithFrame:zipInputLabelFrame];
     zipInputField.text = [NSString stringWithFormat:@"Zip Code", (unichar)0x2028];
     zipInputField.delegate = self; //to clear text
@@ -252,7 +252,7 @@
     [self.view addSubview:zipInputField];
     
     //description label
-    CGRect descriptionLabelFrame = CGRectMake(20,430,280,30);
+    CGRect descriptionLabelFrame = CGRectMake(20,421,280,30);
     UILabel *descriptionLabel = [[UILabel alloc] initWithFrame:descriptionLabelFrame];
     //fnameLabel.backgroundColor = [UIColor greenColor];  //debug point
     descriptionLabel.textColor = [self colorWithHexString:@"3fa69a"];
@@ -262,7 +262,7 @@
     [self.view addSubview:descriptionLabel];
     
     //input age
-    CGRect ageInputLabelFrame = CGRectMake(20,460,80,30);
+    CGRect ageInputLabelFrame = CGRectMake(20,450,80,30);
     SUITextField *ageTextField = [[SUITextField alloc] initWithFrame:ageInputLabelFrame];
     ageTextField.text = @"Age";
     ageTextField.delegate = self;  //to clear the text
@@ -273,7 +273,7 @@
     [self.view addSubview:ageTextField];
     
     //input height
-    CGRect heightInputLabelFrame = CGRectMake(120,460,80,30);
+    CGRect heightInputLabelFrame = CGRectMake(120,450,80,30);
     SUITextField *heightTextField = [[SUITextField alloc] initWithFrame:heightInputLabelFrame];
     heightTextField.text = @"Height";
     heightTextField.delegate = self;  //to clear the text
@@ -284,7 +284,7 @@
     [self.view addSubview:heightTextField];
     
     //input weight
-    CGRect weightInputLabelFrame = CGRectMake(220,460,80,30);
+    CGRect weightInputLabelFrame = CGRectMake(220,450,80,30);
     SUITextField *weightTextField = [[SUITextField alloc] initWithFrame:weightInputLabelFrame];
     weightTextField.text = @"Weight";
     weightTextField.delegate = self;  //to clear the text
@@ -317,7 +317,7 @@
     [self.view addSubview:eyeTextField];
     
     //input distinguishing features
-    CGRect featuresInputLabelFrame = CGRectMake(20,520,280,60);
+    CGRect featuresInputLabelFrame = CGRectMake(20,530,280,60);
     SUITextField *featuresTextField = [[SUITextField alloc] initWithFrame:featuresInputLabelFrame];
     featuresTextField.text = @"Distinguishing Features";
     featuresTextField.delegate = self;  //to clear the text
@@ -328,7 +328,7 @@
     [self.view addSubview:featuresTextField];
     
     //input special notes
-    CGRect notesInputLabelFrame = CGRectMake(20,550,280,60);
+    CGRect notesInputLabelFrame = CGRectMake(20,600,280,60);
     SUITextField *notesTextField = [[SUITextField alloc] initWithFrame:notesInputLabelFrame];
     notesTextField.text = @"Any specials notes including allergies, notable behavior, ect.";
     notesTextField.delegate = self;  //to clear the text
@@ -339,7 +339,7 @@
     [self.view addSubview:notesTextField];
     
     //Call to Action label
-    CGRect calllabelFrame = CGRectMake(20,580,280,30);
+    CGRect calllabelFrame = CGRectMake(20,660,280,30);
     UILabel *callLabel = [[UILabel alloc] initWithFrame:calllabelFrame];
     //nameLabel.backgroundColor = [UIColor grayColor];  //debug point
     callLabel.textColor = [self colorWithHexString:@"3fa69a"];
@@ -349,7 +349,7 @@
     [self.view addSubview:callLabel];
     
     //input directions if found
-    CGRect callInputLabelFrame = CGRectMake(20,610,280,60);
+    CGRect callInputLabelFrame = CGRectMake(20,690,280,60);
     UITextView *callInputField = [[UITextView alloc] initWithFrame:callInputLabelFrame];
     callInputField.text = @"What should a person do if they find your loved one?";
     callInputField.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:16];
@@ -359,7 +359,7 @@
     callInputField.delegate = self; //to clear text
     [self.view addSubview:callInputField];
     
-    CGRect permlabelFrame = CGRectMake(20,670,280,30);
+    CGRect permlabelFrame = CGRectMake(20,750,280,30);
     UILabel *permLabel = [[UILabel alloc] initWithFrame:permlabelFrame];
     //nameLabel.backgroundColor = [UIColor grayColor];  //debug point
     permLabel.textColor = [self colorWithHexString:@"3fa69a"];
@@ -369,7 +369,7 @@
     [self.view addSubview:permLabel];
     
     //permDesc Desc
-    CGRect permDescDesclabelFrame = CGRectMake(20,700,280,60);
+    CGRect permDescDesclabelFrame = CGRectMake(20,780,280,60);
     UILabel *permDescDescLabel = [[UILabel alloc] initWithFrame:permDescDesclabelFrame];
     permDescDescLabel.numberOfLines = 0;
     //[permDescDescLabel sizeToFit];
@@ -381,14 +381,14 @@
     [self.view addSubview:permDescDescLabel];
     
     
-    checkButton = [[UIImageView alloc] initWithFrame:CGRectMake(  20, 760, 40/2, 40/2)];
+    checkButton = [[UIImageView alloc] initWithFrame:CGRectMake(  20, 840, 40/2, 40/2)];
     checkButton.image  = uncheckImage;
     [self.view addSubview:checkButton];
     
     
     
     
-    CGRect acceptlabelFrame = CGRectMake(40,760,260,20);
+    CGRect acceptlabelFrame = CGRectMake(40,840,260,20);
     UILabel *acceptLabel = [[UILabel alloc] initWithFrame:acceptlabelFrame];
     //nameLabel.backgroundColor = [UIColor grayColor];  //debug point
     acceptLabel.textColor = [self colorWithHexString:@"3fa69a"];
@@ -398,7 +398,7 @@
     [self.view addSubview:acceptLabel];
     
     
-    UIImageView *submitButton = [[UIImageView alloc] initWithFrame:CGRectMake(  (320 - 602/2)/2, 800, 602/2, 159/2)];
+    UIImageView *submitButton = [[UIImageView alloc] initWithFrame:CGRectMake(  (320 - 602/2)/2, 870, 602/2, 159/2)];
     submitButton.image  = [UIImage imageNamed:@"submit.png"];
     [self.view addSubview:submitButton];
 
@@ -630,7 +630,7 @@ bool *isChecked = false;
     [picker dismissViewControllerAnimated:YES completion:NULL];
     
     //set thumbnail
-    UIImageView *picture = [[UIImageView alloc] initWithFrame:CGRectMake(170,190,130,130)];
+    UIImageView *picture = [[UIImageView alloc] initWithFrame:CGRectMake(170,150,130,130)];
     picture.image  = chosenImage;
     [self.view addSubview:picture];
 
