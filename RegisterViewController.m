@@ -8,6 +8,7 @@
 
 #import "RegisterViewController.h"
 #import <QuartzCore/QuartzCore.h>
+#import "SUITextField.h"
 
 @interface RegisterViewController ()
 
@@ -54,7 +55,7 @@
     scrollView.pagingEnabled = YES;
     scrollView.showsVerticalScrollIndicator = YES;
     scrollView.showsHorizontalScrollIndicator = YES;
-    scrollView.contentSize = CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.height);
+    scrollView.contentSize = CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.height*2);
     //[self.view addSubview:scrollView];
      self.view = scrollView;
     
@@ -120,7 +121,7 @@
     
     //input id number
     CGRect deviceInputLabelFrame = CGRectMake(20,160,280,30);
-    UITextField *deviceTextField = [[UITextField alloc] initWithFrame:deviceInputLabelFrame];
+    SUITextField *deviceTextField = [[SUITextField alloc] initWithFrame:deviceInputLabelFrame];
     deviceTextField.text = @"ID Number";
     deviceTextField.delegate = self;  //to clear the text
     deviceTextField.layer.borderWidth = 2;
@@ -141,7 +142,7 @@
     
     //input first name
     CGRect fnameInputLabelFrame = CGRectMake(20,220,130,30);
-    UITextField *textField = [[UITextField alloc] initWithFrame:fnameInputLabelFrame];
+    SUITextField *textField = [[SUITextField alloc] initWithFrame:fnameInputLabelFrame];
     textField.text = @"First Name";
     textField.delegate = self;  //to clear the text
     textField.layer.borderWidth = 2;
@@ -152,7 +153,7 @@
     
     //input last name
     CGRect lnameInputLabelFrame = CGRectMake(20,250,130,30);
-    UITextField *ltextField = [[UITextField alloc] initWithFrame:lnameInputLabelFrame];
+    SUITextField *ltextField = [[SUITextField alloc] initWithFrame:lnameInputLabelFrame];
     ltextField.text = @"Last Name";
     ltextField.delegate = self;  //to clear the text
     ltextField.layer.borderWidth = 2;
@@ -164,7 +165,7 @@
     //photo thumbnail
     //placeholder
     CGRect thumbInputLabelFrame = CGRectMake(170,190,130,130);
-    UITextField *thumbField = [[UITextField alloc] initWithFrame:thumbInputLabelFrame];
+    SUITextField *thumbField = [[SUITextField alloc] initWithFrame:thumbInputLabelFrame];
     thumbField.text = @"Photo Thumbnail";
     thumbField.delegate = self;  //to clear the text
     thumbField.backgroundColor = [UIColor grayColor];
@@ -260,7 +261,7 @@
     
     //input age
     CGRect ageInputLabelFrame = CGRectMake(20,460,80,30);
-    UITextField *ageTextField = [[UITextField alloc] initWithFrame:ageInputLabelFrame];
+    SUITextField *ageTextField = [[SUITextField alloc] initWithFrame:ageInputLabelFrame];
     ageTextField.text = @"Age";
     ageTextField.delegate = self;  //to clear the text
     ageTextField.layer.borderWidth = 2;
@@ -271,7 +272,7 @@
     
     //input height
     CGRect heightInputLabelFrame = CGRectMake(120,460,80,30);
-    UITextField *heightTextField = [[UITextField alloc] initWithFrame:heightInputLabelFrame];
+    SUITextField *heightTextField = [[SUITextField alloc] initWithFrame:heightInputLabelFrame];
     heightTextField.text = @"Height";
     heightTextField.delegate = self;  //to clear the text
     heightTextField.layer.borderWidth = 2;
@@ -282,7 +283,7 @@
     
     //input weight
     CGRect weightInputLabelFrame = CGRectMake(220,460,80,30);
-    UITextField *weightTextField = [[UITextField alloc] initWithFrame:weightInputLabelFrame];
+    SUITextField *weightTextField = [[SUITextField alloc] initWithFrame:weightInputLabelFrame];
     weightTextField.text = @"Weight";
     weightTextField.delegate = self;  //to clear the text
     weightTextField.layer.borderWidth = 2;
@@ -293,7 +294,7 @@
     
     //input hair color
     CGRect hairInputLabelFrame = CGRectMake(20,490,130,30);
-    UITextField *hairTextField = [[UITextField alloc] initWithFrame:hairInputLabelFrame];
+    SUITextField *hairTextField = [[SUITextField alloc] initWithFrame:hairInputLabelFrame];
     hairTextField.text = @"Hair Color";
     hairTextField.delegate = self;  //to clear the text
     hairTextField.layer.borderWidth = 2;
@@ -304,7 +305,7 @@
     
     //input eye color
     CGRect eyeInputLabelFrame = CGRectMake(170,490,130,30);
-    UITextField *eyeTextField = [[UITextField alloc] initWithFrame:eyeInputLabelFrame];
+    SUITextField *eyeTextField = [[SUITextField alloc] initWithFrame:eyeInputLabelFrame];
     eyeTextField.text = @"Eye Color";
     eyeTextField.delegate = self;  //to clear the text
     eyeTextField.layer.borderWidth = 2;
@@ -315,7 +316,7 @@
     
     //input distinguishing features
     CGRect featuresInputLabelFrame = CGRectMake(20,520,280,60);
-    UITextField *featuresTextField = [[UITextField alloc] initWithFrame:featuresInputLabelFrame];
+    SUITextField *featuresTextField = [[SUITextField alloc] initWithFrame:featuresInputLabelFrame];
     featuresTextField.text = @"Distinguishing Features";
     featuresTextField.delegate = self;  //to clear the text
     featuresTextField.layer.borderWidth = 2;
@@ -326,7 +327,7 @@
     
     //input special notes
     CGRect notesInputLabelFrame = CGRectMake(20,550,280,60);
-    UITextField *notesTextField = [[UITextField alloc] initWithFrame:notesInputLabelFrame];
+    SUITextField *notesTextField = [[SUITextField alloc] initWithFrame:notesInputLabelFrame];
     notesTextField.text = @"Any specials notes including allergies, notable behavior, ect.";
     notesTextField.delegate = self;  //to clear the text
     notesTextField.layer.borderWidth = 2;
@@ -468,26 +469,26 @@ bool *isChecked = false;
 }
 
 //clear default text before editing
-- (void)textFieldDidBeginEditing:(UITextField *)textField{
+- (void)textFieldDidBeginEditing:(SUITextField *)textField{
     NSLog(@"textFieldDidBeginEditing");
     textField.text = @"";
     [self animateTextField: textField up:YES];
 }
 
 
-- (void)textFieldDidEndEditing:(UITextField *)textField
+- (void)textFieldDidEndEditing:(SUITextField *)textField
 {
     [self animateTextField: textField up: NO];
 }
 
 
 //clear default text before editing
-- (void)textViewDidBeginEditing:(UITextField *)textView{
+- (void)textViewDidBeginEditing:(SUITextField *)textView{
     NSLog(@"textViewDidBeginEditing");
     textView.text = @"";
 }
 
-- (void) animateTextField: (UITextField*) textField up: (BOOL) up
+- (void) animateTextField: (SUITextField*) textField up: (BOOL) up
 {
     const int movementDistance = 80; // tweak as needed
     const float movementDuration = 0.3f; // tweak as needed
