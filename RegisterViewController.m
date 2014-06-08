@@ -747,12 +747,32 @@ bool *isChecked = false;
         NSString *content = [NSString stringWithUTF8String:[_responseData bytes]];
         NSLog(@"responseData: %@", content);
         [newImageView removeFromSuperview];
+    
+    
+    UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"Success"
+                                                          message:@"Registration Successful"
+                                                         delegate:nil
+                                                cancelButtonTitle:@"OK"
+                                                otherButtonTitles: nil];
+    
+    [myAlertView show];
+    
 
 }
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
     // The request has failed for some reason!
     // Check the error var
+    
+    UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                          message:@"Registration Failed, Please try later"
+                                                         delegate:nil
+                                                cancelButtonTitle:@"OK"
+                                                otherButtonTitles: nil];
+    
+    [myAlertView show];
+    
+    
 }
 
 
