@@ -629,6 +629,14 @@ bool *isChecked = false;
     
     [picker dismissViewControllerAnimated:YES completion:NULL];
     
+    //set thumbnail
+    UIImageView *picture = [[UIImageView alloc] initWithFrame:CGRectMake(170,190,130,130)];
+    picture.image  = chosenImage;
+    [self.view addSubview:picture];
+
+    
+    
+    
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
