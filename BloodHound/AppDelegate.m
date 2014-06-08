@@ -8,11 +8,15 @@
 
 #import "AppDelegate.h"
 
+
 @implementation AppDelegate
 
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
+
+static sqlite3 *database = nil;
+NSString *databasePath;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -31,8 +35,56 @@
 
     _window.rootViewController = myStoryBoardInitialViewController;
     
+    [self createDB];
+    
     return YES;
 }
+
+-(BOOL)createDB{
+    NSString *docsDir;
+    NSArray *dirPaths;
+    // Get the documents directory
+    dirPaths = NSSearchPathForDirectoriesInDomains
+    (NSDocumentDirectory, NSUserDomainMask, YES);
+    docsDir = dirPaths[0];
+    // Build the path to the database file
+    databasePath = [[NSString alloc] initWithString:
+                    [docsDir stringByAppendingPathComponent: @"tagsDatabase.db"]];
+    BOOL isSuccess = YES;
+    NSFileManager *filemgr = [NSFileManager defaultManager];
+    if ([filemgr fileExistsAtPath: databasePath ] == NO)
+    {
+        const char *dbpath = [databasePath UTF8String];
+        if (sqlite3_open(dbpath, &database) == SQLITE_OK)
+        {
+            char *errMsg;
+            const char *sql_stmt =
+            "CREATE TABLE IF NOT EXISTS LOST (BEACONID TEXT PRIMARY KEY,FNAME TEXT,LNAME TEXT,IMGURL TEXT,STREET TEXT,CITY TEXT,STATE TEXT,ZIP TEXT,AGE TEXT,HEIGHT TEXT,WEIGHT TEXT,HCOLOR TEXT, ECOLOR TEXT, FEATURE TEXT,SPECIAL TEXT,ACTION TEXT)";
+            
+            if (sqlite3_exec(database, sql_stmt, NULL, NULL, &errMsg)
+                != SQLITE_OK)
+            {
+                isSuccess = NO;
+                NSLog(@"Failed to create table LOST");
+            }else{
+                isSuccess = YES;
+                NSLog(@"Success creating table LOST");
+            }
+            
+            sqlite3_close(database);
+            return  isSuccess;
+        }
+        
+        else
+        {
+            isSuccess = NO;
+            NSLog(@"Failed to open/create database");
+        }
+    }
+    return isSuccess;
+}
+
+
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {

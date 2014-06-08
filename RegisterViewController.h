@@ -19,3 +19,5 @@ UIImage *uncheckImage;
 
 NSMutableData *_responseData;
 UIImageView *newImageView;
+NSURL *imgURL;  //image url in media
+

@@ -52,6 +52,7 @@
 		FCAA7A1B19440F5B00010866 /* ajax-loader.gif in Resources */ = {isa = PBXBuildFile; fileRef = FCAA7A1A19440F5B00010866 /* ajax-loader.gif */; };
 		FCAA7A271944663000010866 /* SUITextField.m in Sources */ = {isa = PBXBuildFile; fileRef = FCAA7A261944663000010866 /* SUITextField.m */; };
 		FCAA7A291944663700010866 /* selectPhoto.png in Resources */ = {isa = PBXBuildFile; fileRef = FCAA7A281944663700010866 /* selectPhoto.png */; };
+		FCAA7A2B19452ECD00010866 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FCAA7A2A19452ECD00010866 /* libsqlite3.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,6 +118,7 @@
 		FCAA7A251944663000010866 /* SUITextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUITextField.h; sourceTree = "<group>"; };
 		FCAA7A261944663000010866 /* SUITextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUITextField.m; sourceTree = "<group>"; };
 		FCAA7A281944663700010866 /* selectPhoto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = selectPhoto.png; sourceTree = "<group>"; };
+		FCAA7A2A19452ECD00010866 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCAA7A2B19452ECD00010866 /* libsqlite3.dylib in Frameworks */,
 				FCA3FA94193C809000390B10 /* CoreGraphics.framework in Frameworks */,
 				FCA3FA98193C809000390B10 /* CoreData.framework in Frameworks */,
 				FCA3FA96193C809000390B10 /* UIKit.framework in Frameworks */,
@@ -201,6 +204,7 @@
 		FCA3FA90193C809000390B10 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FCAA7A2A19452ECD00010866 /* libsqlite3.dylib */,
 				FCA3FA91193C809000390B10 /* Foundation.framework */,
 				FCA3FA93193C809000390B10 /* CoreGraphics.framework */,
 				FCA3FA95193C809000390B10 /* UIKit.framework */,
