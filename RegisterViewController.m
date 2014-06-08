@@ -7,6 +7,8 @@
 //
 
 #import "RegisterViewController.h"
+#import "AnimatedGif.h"
+#import "UIImageView+AnimatedGif.h"
 
 @interface RegisterViewController ()
 
@@ -389,18 +391,28 @@ bool *isChecked = false;
     [request setURL:requestURL];
     
     
+    NSData * animationData = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"ajax-loader.gif" ofType:nil]];
+    AnimatedGif * animation = [AnimatedGif getAnimationForGifWithData:animationData];
+    UIImageView * newImageView = [[UIImageView alloc] initWithFrame:CGRectMake(100, 200, 16, 16)];
+   // newImageView setani
+    [newImageView setAnimatedGif:animation startImmediately:YES];
+    [self.view addSubview:newImageView];
     
+    
+    self.view.backgroundColor = [self colorWithHexString:@"cccccc"];
+
+    
+  
     //send request
     NSURLResponse *response;
     NSError *err;
-    NSData *returnData = [ NSURLConnection sendSynchronousRequest: request returningResponse:&response error:&err];
+    NSData *returnData = [ NSURLConnection se sendSynchronousRequest: request returningResponse:&response error:&err];
     NSString *content = [NSString stringWithUTF8String:[returnData bytes]];
     NSLog(@"responseData: %@", content);
     
-    
-    
-    
-    
+    //remove loading
+    [newImageView removeFromSuperview];
+    self.view.backgroundColor = [UIColor whiteColor];
 }
 
 //remove keyboard when tapped on screen
