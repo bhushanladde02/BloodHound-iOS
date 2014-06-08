@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RegisterViewController : UIViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface RegisterViewController : UIViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate, NSURLConnectionDelegate>
 @end
 
 UIImage *chosenImage;
@@ -16,3 +16,6 @@ UIImageView *checkButton;
 UIImage *checkImage;
 UIImage *uncheckImage;
 
+
+NSMutableData *_responseData;
+UIImageView *newImageView;

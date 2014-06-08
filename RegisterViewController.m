@@ -391,28 +391,34 @@ bool *isChecked = false;
     [request setURL:requestURL];
     
     
-    NSData * animationData = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"ajax-loader.gif" ofType:nil]];
+    NSData * animationData = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"ajax-loader-bar.gif" ofType:nil]];
     AnimatedGif * animation = [AnimatedGif getAnimationForGifWithData:animationData];
-    UIImageView * newImageView = [[UIImageView alloc] initWithFrame:CGRectMake(100, 200, 16, 16)];
+    newImageView = [[UIImageView alloc] initWithFrame:CGRectMake((320-220)/2, 240, 220, 19)];
+    
    // newImageView setani
     [newImageView setAnimatedGif:animation startImmediately:YES];
     [self.view addSubview:newImageView];
     
+    //[self.view setUserInteractionEnabled:NO];
     
-    self.view.backgroundColor = [self colorWithHexString:@"cccccc"];
-
-    
+    self.view.backgroundColor =  [self colorWithHexString:@"cccccc"];
+   
+    // Create url connection and fire request
+    NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
   
     //send request
-    NSURLResponse *response;
+   /* NSURLResponse *response;
     NSError *err;
-    NSData *returnData = [ NSURLConnection se sendSynchronousRequest: request returningResponse:&response error:&err];
-    NSString *content = [NSString stringWithUTF8String:[returnData bytes]];
-    NSLog(@"responseData: %@", content);
+    NSData *returnData = [ NSURLConnection sendSynchronousRequest: request returningResponse:&response error:&err];
     
-    //remove loading
-    [newImageView removeFromSuperview];
-    self.view.backgroundColor = [UIColor whiteColor];
+    if(nil == err){
+        //handle data here for synchronous
+        self.view.backgroundColor =  [self colorWithHexString:@"ffffff"];
+        NSString *content = [NSString stringWithUTF8String:[returnData bytes]];
+        NSLog(@"responseData: %@", content);
+        [newImageView removeFromSuperview];
+    }*/
+    
 }
 
 //remove keyboard when tapped on screen
@@ -490,6 +496,46 @@ bool *isChecked = false;
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+#pragma mark NSURLConnection Delegate Methods
+
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
+    // A response has been received, this is where we initialize the instance var you created
+    // so that we can append data to it in the didReceiveData method
+    // Furthermore, this method is called each time there is a redirect so reinitializing it
+    // also serves to clear it
+    _responseData = [[NSMutableData alloc] init];
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
+    // Append the new data to the instance variable you declared
+    [_responseData appendData:data];
+}
+
+- (NSCachedURLResponse *)connection:(NSURLConnection *)connection
+                  willCacheResponse:(NSCachedURLResponse*)cachedResponse {
+    // Return nil to indicate not necessary to store a cached response for this connection
+    return nil;
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+    // The request is complete and data has been received
+    // You can parse the stuff in your instance variable now
+
+        self.view.backgroundColor =  [self colorWithHexString:@"ffffff"];
+        NSString *content = [NSString stringWithUTF8String:[_responseData bytes]];
+        NSLog(@"responseData: %@", content);
+        [newImageView removeFromSuperview];
+
+}
+
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
+    // The request has failed for some reason!
+    // Check the error var
+}
+
+
 
 /*
 #pragma mark - Navigation
