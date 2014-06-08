@@ -473,6 +473,9 @@ bool *isChecked = false;
     NSLog(@"textFieldDidBeginEditing");
     textField.text = @"";
     [self animateTextField: textField up:YES];
+    
+    //make text color little lighter - currently making red
+    textField.textColor = [self colorWithHexString:@"ff0000"];
 }
 
 
@@ -485,7 +488,11 @@ bool *isChecked = false;
 //clear default text before editing
 - (void)textViewDidBeginEditing:(SUITextField *)textView{
     NSLog(@"textViewDidBeginEditing");
+    //this clear text before editing
     textView.text = @"";
+    //make text color little lighter
+    textView.textColor = [self colorWithHexString:@"ff0000"];
+    
 }
 
 - (void) animateTextField: (SUITextField*) textField up: (BOOL) up
