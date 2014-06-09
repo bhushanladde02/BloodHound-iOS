@@ -49,10 +49,10 @@
 		FCA3FAD2193C93DE00390B10 /* BloodHoundStoryBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCA3FAD1193C93DE00390B10 /* BloodHoundStoryBoard.storyboard */; };
 		FCAA7A1619440D6600010866 /* AnimatedGif.m in Sources */ = {isa = PBXBuildFile; fileRef = FCAA7A0F19440D6500010866 /* AnimatedGif.m */; };
 		FCAA7A1919440D6600010866 /* UIImageView+AnimatedGif.m in Sources */ = {isa = PBXBuildFile; fileRef = FCAA7A1519440D6600010866 /* UIImageView+AnimatedGif.m */; };
-		FCAA7A1B19440F5B00010866 /* ajax-loader.gif in Resources */ = {isa = PBXBuildFile; fileRef = FCAA7A1A19440F5B00010866 /* ajax-loader.gif */; };
 		FCAA7A271944663000010866 /* SUITextField.m in Sources */ = {isa = PBXBuildFile; fileRef = FCAA7A261944663000010866 /* SUITextField.m */; };
 		FCAA7A291944663700010866 /* selectPhoto.png in Resources */ = {isa = PBXBuildFile; fileRef = FCAA7A281944663700010866 /* selectPhoto.png */; };
 		FCAA7A2B19452ECD00010866 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FCAA7A2A19452ECD00010866 /* libsqlite3.dylib */; };
+		FCAF95921946417600662414 /* FoundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCAF95911946417600662414 /* FoundViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,11 +114,12 @@
 		FCAA7A0F19440D6500010866 /* AnimatedGif.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimatedGif.m; sourceTree = "<group>"; };
 		FCAA7A1419440D6600010866 /* UIImageView+AnimatedGif.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AnimatedGif.h"; sourceTree = "<group>"; };
 		FCAA7A1519440D6600010866 /* UIImageView+AnimatedGif.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AnimatedGif.m"; sourceTree = "<group>"; };
-		FCAA7A1A19440F5B00010866 /* ajax-loader.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "ajax-loader.gif"; sourceTree = "<group>"; };
 		FCAA7A251944663000010866 /* SUITextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUITextField.h; sourceTree = "<group>"; };
 		FCAA7A261944663000010866 /* SUITextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUITextField.m; sourceTree = "<group>"; };
 		FCAA7A281944663700010866 /* selectPhoto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = selectPhoto.png; sourceTree = "<group>"; };
 		FCAA7A2A19452ECD00010866 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		FCAF95901946417600662414 /* FoundViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoundViewController.h; sourceTree = "<group>"; };
+		FCAF95911946417600662414 /* FoundViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoundViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +152,8 @@
 		FCA3FA85193C809000390B10 = {
 			isa = PBXGroup;
 			children = (
+				FCAF95901946417600662414 /* FoundViewController.h */,
+				FCAF95911946417600662414 /* FoundViewController.m */,
 				FCAA7A281944663700010866 /* selectPhoto.png */,
 				FCAA7A251944663000010866 /* SUITextField.h */,
 				FCAA7A261944663000010866 /* SUITextField.m */,
@@ -173,7 +176,6 @@
 				FCA3FAD1193C93DE00390B10 /* BloodHoundStoryBoard.storyboard */,
 				FC00EFBC193D594A00BBA864 /* RegisterViewController.h */,
 				FC00EFBD193D594A00BBA864 /* RegisterViewController.m */,
-				FCAA7A1A19440F5B00010866 /* ajax-loader.gif */,
 				FC6CAED3193F1DC700FB5850 /* submit.png */,
 				FC6CAECF193F104D00FB5850 /* camera.png */,
 				FC6CAED0193F104D00FB5850 /* upload.png */,
@@ -340,7 +342,6 @@
 				FCA3FAD2193C93DE00390B10 /* BloodHoundStoryBoard.storyboard in Resources */,
 				FC1F451619406560006C10F8 /* check.png in Resources */,
 				FC6CAECA193EF18F00FB5850 /* OpenSans-CondLight.ttf in Resources */,
-				FCAA7A1B19440F5B00010866 /* ajax-loader.gif in Resources */,
 				FC1F451719406560006C10F8 /* uncheck.png in Resources */,
 				FCA3FAA9193C809000390B10 /* Images.xcassets in Resources */,
 				FC00EFBB193D510F00BBA864 /* blueButton.png in Resources */,
@@ -374,6 +375,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FCAA7A1919440D6600010866 /* UIImageView+AnimatedGif.m in Sources */,
+				FCAF95921946417600662414 /* FoundViewController.m in Sources */,
 				FC1F451E19409055006C10F8 /* ActiveViewController.m in Sources */,
 				FCAA7A1619440D6600010866 /* AnimatedGif.m in Sources */,
 				FCAA7A271944663000010866 /* SUITextField.m in Sources */,

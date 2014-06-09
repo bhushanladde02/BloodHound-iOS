@@ -10,7 +10,6 @@
 #import "AnimatedGif.h"
 #import "UIImageView+AnimatedGif.h"
 #import <QuartzCore/QuartzCore.h>
-#import "SUITextField.h"
 
 @interface RegisterViewController ()
 
@@ -123,7 +122,7 @@
     
     //input id number
     CGRect deviceInputLabelFrame = CGRectMake(20,110,280,30);
-    SUITextField *deviceTextField = [[SUITextField alloc] initWithFrame:deviceInputLabelFrame];
+    deviceTextField = [[SUITextField alloc] initWithFrame:deviceInputLabelFrame];
     deviceTextField.text = @"ID Number";
     deviceTextField.delegate = self;  //to clear the text
     deviceTextField.layer.borderWidth = 2;
@@ -145,7 +144,7 @@
     
     //input first name
     CGRect fnameInputLabelFrame = CGRectMake(20,170,130,30);
-    SUITextField *textField = [[SUITextField alloc] initWithFrame:fnameInputLabelFrame];
+    textField = [[SUITextField alloc] initWithFrame:fnameInputLabelFrame];
     textField.text = @"First Name";
     textField.tag = 4;
     textField.delegate = self;  //to clear the text
@@ -157,7 +156,7 @@
     
     //input last name
     CGRect lnameInputLabelFrame = CGRectMake(20,210,130,30);
-    SUITextField *ltextField = [[SUITextField alloc] initWithFrame:lnameInputLabelFrame];
+    ltextField = [[SUITextField alloc] initWithFrame:lnameInputLabelFrame];
     ltextField.text = @"Last Name";
     ltextField.tag = 6;
     ltextField.delegate = self;  //to clear the text
@@ -170,7 +169,7 @@
     //photo thumbnail
     //placeholder
     CGRect thumbInputLabelFrame = CGRectMake(170,150,130,130);
-    SUITextField *thumbField = [[SUITextField alloc] initWithFrame:thumbInputLabelFrame];
+    thumbField = [[SUITextField alloc] initWithFrame:thumbInputLabelFrame];
     thumbField.text = @"Photo Thumbnail";
     thumbField.delegate = self;  //to clear the text
     thumbField.backgroundColor = [UIColor grayColor];
@@ -210,7 +209,7 @@
     
     //input street address
     CGRect streetAddressInputLabelFrame = CGRectMake(20,351,280,30);
-    UITextView *streetAddressInputField = [[UITextView alloc] initWithFrame:streetAddressInputLabelFrame];
+    streetAddressInputField = [[UITextView alloc] initWithFrame:streetAddressInputLabelFrame];
     streetAddressInputField.text = [NSString stringWithFormat:@"Street Address", (unichar)0x2028];
     streetAddressInputField.delegate = self; //to clear text
     streetAddressInputField.layer.borderWidth = 2;
@@ -222,7 +221,7 @@
     
     //input city
     CGRect cityInputLabelFrame = CGRectMake(20,391,130,30);
-    UITextView *cityInputField = [[UITextView alloc] initWithFrame:cityInputLabelFrame];
+    cityInputField = [[UITextView alloc] initWithFrame:cityInputLabelFrame];
     cityInputField.text = [NSString stringWithFormat:@"City", (unichar)0x2028];
     cityInputField.delegate = self; //to clear text
     cityInputField.layer.borderWidth = 2;
@@ -236,7 +235,7 @@
     //needs drop down menu
     //input state
     CGRect stateInputLabelFrame = CGRectMake(170,391,30,30);
-    UITextView *stateInputField = [[UITextView alloc] initWithFrame:stateInputLabelFrame];
+    stateInputField = [[UITextView alloc] initWithFrame:stateInputLabelFrame];
     stateInputField.text = [NSString stringWithFormat:@"AZ", (unichar)0x2028];
     stateInputField.delegate = self; //to clear text
     stateInputField.layer.borderWidth = 2;
@@ -248,7 +247,7 @@
     
     //input zip code
     CGRect zipInputLabelFrame = CGRectMake(220,391,60,30);
-    UITextView *zipInputField = [[UITextView alloc] initWithFrame:zipInputLabelFrame];
+    zipInputField = [[UITextView alloc] initWithFrame:zipInputLabelFrame];
     zipInputField.text = [NSString stringWithFormat:@"Zip Code", (unichar)0x2028];
     zipInputField.delegate = self; //to clear text
     zipInputField.layer.borderWidth = 2;
@@ -270,7 +269,7 @@
     
     //input age
     CGRect ageInputLabelFrame = CGRectMake(20,450,80,30);
-    SUITextField *ageTextField = [[SUITextField alloc] initWithFrame:ageInputLabelFrame];
+    ageTextField = [[SUITextField alloc] initWithFrame:ageInputLabelFrame];
     ageTextField.text = @"Age";
     ageTextField.delegate = self;  //to clear the text
     ageTextField.tag = 16;
@@ -282,7 +281,7 @@
     
     //input height
     CGRect heightInputLabelFrame = CGRectMake(120,450,80,30);
-    SUITextField *heightTextField = [[SUITextField alloc] initWithFrame:heightInputLabelFrame];
+    heightTextField = [[SUITextField alloc] initWithFrame:heightInputLabelFrame];
     heightTextField.text = @"Height";
     heightTextField.delegate = self;  //to clear the text
     heightTextField.layer.borderWidth = 2;
@@ -294,7 +293,7 @@
     
     //input weight
     CGRect weightInputLabelFrame = CGRectMake(220,450,80,30);
-    SUITextField *weightTextField = [[SUITextField alloc] initWithFrame:weightInputLabelFrame];
+    weightTextField = [[SUITextField alloc] initWithFrame:weightInputLabelFrame];
     weightTextField.text = @"Weight";
     weightTextField.delegate = self;  //to clear the text
     weightTextField.layer.borderWidth = 2;
@@ -306,7 +305,7 @@
     
     //input hair color
     CGRect hairInputLabelFrame = CGRectMake(20,490,130,30);
-    SUITextField *hairTextField = [[SUITextField alloc] initWithFrame:hairInputLabelFrame];
+    hairTextField = [[SUITextField alloc] initWithFrame:hairInputLabelFrame];
     hairTextField.text = @"Hair Color";
     hairTextField.delegate = self;  //to clear the text
     hairTextField.layer.borderWidth = 2;
@@ -318,7 +317,7 @@
     
     //input eye color
     CGRect eyeInputLabelFrame = CGRectMake(170,490,130,30);
-    SUITextField *eyeTextField = [[SUITextField alloc] initWithFrame:eyeInputLabelFrame];
+    eyeTextField = [[SUITextField alloc] initWithFrame:eyeInputLabelFrame];
     eyeTextField.text = @"Eye Color";
     eyeTextField.delegate = self;  //to clear the text
     eyeTextField.layer.borderWidth = 2;
@@ -330,7 +329,7 @@
     
     //input distinguishing features
     CGRect featuresInputLabelFrame = CGRectMake(20,530,280,60);
-    SUITextField *featuresTextField = [[SUITextField alloc] initWithFrame:featuresInputLabelFrame];
+    featuresTextField = [[SUITextField alloc] initWithFrame:featuresInputLabelFrame];
     featuresTextField.text = @"Distinguishing Features";
     featuresTextField.delegate = self;  //to clear the text
     featuresTextField.layer.borderWidth = 2;
@@ -342,7 +341,7 @@
     
     //input special notes
     CGRect notesInputLabelFrame = CGRectMake(20,600,280,60);
-    SUITextField *notesTextField = [[SUITextField alloc] initWithFrame:notesInputLabelFrame];
+    notesTextField = [[SUITextField alloc] initWithFrame:notesInputLabelFrame];
     notesTextField.text = @"Any specials notes including allergies, notable behavior, ect.";
     notesTextField.delegate = self;  //to clear the text
     notesTextField.layer.borderWidth = 2;
@@ -364,7 +363,7 @@
     
     //input directions if found
     CGRect callInputLabelFrame = CGRectMake(20,690,280,60);
-    UITextView *callInputField = [[UITextView alloc] initWithFrame:callInputLabelFrame];
+    callInputField = [[UITextView alloc] initWithFrame:callInputLabelFrame];
     callInputField.text = @"What should a person do if they find your loved one?";
     callInputField.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:16];
     callInputField.layer.borderWidth = 2;
@@ -534,7 +533,47 @@ bool *isChecked = false;
 }
 
 
+-(BOOL) validateInput{
+    //validate input
+    return FALSE;
+}
 
+
+-(void) insertLostLocal{
+    
+    beaconID = deviceTextField.text;
+    fname = textField.text;
+    lname = ltextField.text;
+    age = ageTextField.text;
+    height= heightTextField.text;
+    weight = weightTextField.text;
+    hcolor = hairTextField.text;
+    ecolor = eyeTextField.text;
+    feature = featuresTextField.text;
+    street = streetAddressInputField.text;
+    zip = zipInputField.text;
+    //special= sp.text;
+    
+    
+    
+    //(BEACONID ,FNAME ,LNAME ,IMGURL ,STREET ,CITY ,STATE ,ZIP ,AGE ,HEIGHT ,WEIGHT ,HCOLOR , ECOLOR , FEATURE ,SPECIAL ,ACTION )
+    NSString *insertLostSQL = [NSString stringWithFormat:@"INSERT INTO LOST (BEACONID ,FNAME ,LNAME ,IMGURL ,STREET ,CITY ,STATE ,ZIP ,AGE ,HEIGHT ,WEIGHT ,HCOLOR , ECOLOR , FEATURE ,SPECIAL ,ACTION ) VALUES (\"%@\",\"%@\" ,\"%@\",\"%@\",\"%@\" ,\"%@\",\"%@\",\"%@\" ,\"%@\",\"%@\",\"%@\" ,\"%@\",\"%@\",\"%@\" ,\"%@\",\"%@\")", recordID, self.imgURLString, [self getPhotoLocation]];
+    
+    //without city
+    //  NSString *insertMappingSQL = [NSString stringWithFormat:@"INSERT INTO MAPPINGS (PERSONID, IMG_URL) VALUES (\"%d\",\"%@\")", recordID, self.imgURL];
+    
+    insert_stmt = [insertMappingSQL UTF8String];
+    
+    if (sqlite3_exec(database, insert_stmt, NULL, NULL, &error) == SQLITE_OK) {
+        NSLog(@"insterted mapping");
+    }
+    else
+    {
+        NSLog(@"error %s", error);
+    }
+     
+     */
+}
 
 
 //sends http request
