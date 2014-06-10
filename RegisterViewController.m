@@ -498,13 +498,15 @@ bool *isChecked = false;
     }
     
     //make text color little lighter - currently making red
-    textField.textColor = [self colorWithHexString:@"ff0000"];
+    textField.textColor = [self colorWithHexString:@"00ff00"];
 }
 
 
 - (void)textFieldDidEndEditing:(SUITextField *)textField
 {
    // [self animateTextField: textField up: NO];
+    //make text color little lighter - currently making red
+    textField.textColor = [self colorWithHexString:@"ff0000"];
 }
 
 
