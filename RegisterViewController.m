@@ -124,10 +124,11 @@
     //input id number
     CGRect deviceInputLabelFrame = CGRectMake(20,110,280,30);
     deviceTextField = [[SUITextField alloc] initWithFrame:deviceInputLabelFrame];
-    deviceTextField.text = @"ID Number";
+    deviceTextField.placeholder = @"ID Number";
     deviceTextField.delegate = self;  //to clear the text
-    deviceTextField.layer.borderWidth = 2;
+    deviceTextField.layer.borderWidth = 1;
     deviceTextField.tag = 2;
+    deviceTextField.tintColor = [self colorWithHexString:@"3fa69a"];
     deviceTextField.layer.cornerRadius = 3;
     deviceTextField.layer.borderColor = [[self colorWithHexString:@"3fa69a"] CGColor ];
     deviceTextField.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:16];
@@ -146,10 +147,11 @@
     //input first name
     CGRect fnameInputLabelFrame = CGRectMake(20,170,130,30);
     textField = [[SUITextField alloc] initWithFrame:fnameInputLabelFrame];
-    textField.text = @"First Name";
+    textField.placeholder = @"First Name";
     textField.tag = 4;
+    textField.tintColor = [self colorWithHexString:@"3fa69a"];
     textField.delegate = self;  //to clear the text
-    textField.layer.borderWidth = 2;
+    textField.layer.borderWidth = 1;
     textField.layer.cornerRadius = 3;
     textField.layer.borderColor = [[self colorWithHexString:@"3fa69a"] CGColor ];
     textField.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:16];
@@ -158,10 +160,11 @@
     //input last name
     CGRect lnameInputLabelFrame = CGRectMake(20,210,130,30);
     ltextField = [[SUITextField alloc] initWithFrame:lnameInputLabelFrame];
-    ltextField.text = @"Last Name";
+    ltextField.placeholder = @"Last Name";
     ltextField.tag = 6;
+    ltextField.tintColor = [self colorWithHexString:@"3fa69a"];
     ltextField.delegate = self;  //to clear the text
-    ltextField.layer.borderWidth = 2;
+    ltextField.layer.borderWidth = 1;
     ltextField.layer.cornerRadius = 3;
     ltextField.layer.borderColor = [[self colorWithHexString:@"3fa69a"] CGColor ];
     ltextField.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:16];
@@ -171,7 +174,7 @@
     //placeholder
     CGRect thumbInputLabelFrame = CGRectMake(170,150,130,130);
     thumbField = [[SUITextField alloc] initWithFrame:thumbInputLabelFrame];
-    thumbField.text = @"Photo Thumbnail";
+    thumbField.placeholder = @"Photo Thumbnail";
     thumbField.delegate = self;  //to clear the text
     thumbField.backgroundColor = [UIColor grayColor];
     thumbField.layer.borderColor = [[self colorWithHexString:@"3fa69a"] CGColor ];
@@ -210,11 +213,11 @@
     
     //input street address
     CGRect streetAddressInputLabelFrame = CGRectMake(20,351,280,30);
-    streetAddressInputField = [[UITextView alloc] initWithFrame:streetAddressInputLabelFrame];
-    streetAddressInputField.text = [NSString stringWithFormat:@"Street Address", (unichar)0x2028];
-    streetAddressInputField.delegate = self; //to clear text
-    streetAddressInputField.layer.borderWidth = 2;
-    streetAddressInputField.tag = 8;
+    streetAddressInputField = [[SUITextField alloc] initWithFrame:streetAddressInputLabelFrame];
+    streetAddressInputField.placeholder = @"Street Address";
+    streetAddressInputField.tag = 4;
+    streetAddressInputField.tintColor = [self colorWithHexString:@"3fa69a"];
+    streetAddressInputField.layer.borderWidth = 1;
     streetAddressInputField.layer.cornerRadius = 3;
     streetAddressInputField.layer.borderColor = [[self colorWithHexString:@"3fa69a"] CGColor ];
     streetAddressInputField.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:16];
@@ -222,11 +225,11 @@
     
     //input city
     CGRect cityInputLabelFrame = CGRectMake(20,391,130,30);
-    cityInputField = [[UITextView alloc] initWithFrame:cityInputLabelFrame];
-    cityInputField.text = [NSString stringWithFormat:@"City", (unichar)0x2028];
-    cityInputField.delegate = self; //to clear text
-    cityInputField.layer.borderWidth = 2;
+    cityInputField = [[SUITextField alloc] initWithFrame:cityInputLabelFrame];
+    cityInputField.placeholder = @"City";
+    cityInputField.layer.borderWidth = 1;
     cityInputField.tag = 10;
+    cityInputField.tintColor = [self colorWithHexString:@"3fa69a"];
     cityInputField.layer.cornerRadius = 3;
     cityInputField.layer.borderColor = [[self colorWithHexString:@"3fa69a"] CGColor ];
     cityInputField.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:16];
@@ -236,10 +239,9 @@
     //needs drop down menu
     //input state
     CGRect stateInputLabelFrame = CGRectMake(170,391,30,30);
-    stateInputField = [[UITextView alloc] initWithFrame:stateInputLabelFrame];
-    stateInputField.text = [NSString stringWithFormat:@"AZ", (unichar)0x2028];
-    stateInputField.delegate = self; //to clear text
-    stateInputField.layer.borderWidth = 2;
+    stateInputField = [[SUITextField alloc] initWithFrame:stateInputLabelFrame];
+    stateInputField.placeholder = @"AZ";
+    stateInputField.layer.borderWidth = 1;
     stateInputField.tag= 12;
     stateInputField.layer.cornerRadius = 3;
     stateInputField.layer.borderColor = [[self colorWithHexString:@"3fa69a"] CGColor ];
@@ -248,10 +250,9 @@
     
     //input zip code
     CGRect zipInputLabelFrame = CGRectMake(220,391,60,30);
-    zipInputField = [[UITextView alloc] initWithFrame:zipInputLabelFrame];
-    zipInputField.text = [NSString stringWithFormat:@"Zip Code", (unichar)0x2028];
-    zipInputField.delegate = self; //to clear text
-    zipInputField.layer.borderWidth = 2;
+    zipInputField = [[SUITextField alloc] initWithFrame:zipInputLabelFrame];
+    zipInputField.placeholder = @"Zip Code";
+    zipInputField.layer.borderWidth = 1;
     zipInputField.tag = 14;
     zipInputField.layer.cornerRadius = 3;
     zipInputField.layer.borderColor = [[self colorWithHexString:@"3fa69a"] CGColor ];
@@ -274,7 +275,7 @@
     ageTextField.text = @"Age";
     ageTextField.delegate = self;  //to clear the text
     ageTextField.tag = 16;
-    ageTextField.layer.borderWidth = 2;
+    ageTextField.layer.borderWidth = 1;
     ageTextField.layer.cornerRadius = 3;
     ageTextField.layer.borderColor = [[self colorWithHexString:@"3fa69a"] CGColor ];
     ageTextField.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:16];
@@ -285,7 +286,7 @@
     heightTextField = [[SUITextField alloc] initWithFrame:heightInputLabelFrame];
     heightTextField.text = @"Height";
     heightTextField.delegate = self;  //to clear the text
-    heightTextField.layer.borderWidth = 2;
+    heightTextField.layer.borderWidth = 1;
     heightTextField.tag = 18;
     heightTextField.layer.cornerRadius = 3;
     heightTextField.layer.borderColor = [[self colorWithHexString:@"3fa69a"] CGColor ];
@@ -297,7 +298,7 @@
     weightTextField = [[SUITextField alloc] initWithFrame:weightInputLabelFrame];
     weightTextField.text = @"Weight";
     weightTextField.delegate = self;  //to clear the text
-    weightTextField.layer.borderWidth = 2;
+    weightTextField.layer.borderWidth = 1;
     weightTextField.layer.cornerRadius = 3;
     weightTextField.tag = 20;
     weightTextField.layer.borderColor = [[self colorWithHexString:@"3fa69a"] CGColor ];
@@ -309,7 +310,7 @@
     hairTextField = [[SUITextField alloc] initWithFrame:hairInputLabelFrame];
     hairTextField.text = @"Hair Color";
     hairTextField.delegate = self;  //to clear the text
-    hairTextField.layer.borderWidth = 2;
+    hairTextField.layer.borderWidth = 1;
     hairTextField.layer.cornerRadius = 3;
     hairTextField.tag = 22;
     hairTextField.layer.borderColor = [[self colorWithHexString:@"3fa69a"] CGColor ];
@@ -321,7 +322,7 @@
     eyeTextField = [[SUITextField alloc] initWithFrame:eyeInputLabelFrame];
     eyeTextField.text = @"Eye Color";
     eyeTextField.delegate = self;  //to clear the text
-    eyeTextField.layer.borderWidth = 2;
+    eyeTextField.layer.borderWidth = 1;
     eyeTextField.layer.cornerRadius = 3;
     eyeTextField.tag = 24;
     eyeTextField.layer.borderColor = [[self colorWithHexString:@"3fa69a"] CGColor ];
@@ -331,9 +332,8 @@
     //input distinguishing features
     CGRect featuresInputLabelFrame = CGRectMake(20,530,280,60);
     featuresTextField = [[SUITextField alloc] initWithFrame:featuresInputLabelFrame];
-    featuresTextField.text = @"Distinguishing Features";
-    featuresTextField.delegate = self;  //to clear the text
-    featuresTextField.layer.borderWidth = 2;
+    featuresTextField.placeholder = @"Distinguishing Features";
+    featuresTextField.layer.borderWidth = 1;
     featuresTextField.layer.cornerRadius = 3;
     featuresTextField.tag = 26;
     featuresTextField.layer.borderColor = [[self colorWithHexString:@"3fa69a"] CGColor ];
@@ -341,16 +341,16 @@
     [self.view addSubview:featuresTextField];
     
     //input special notes
-    CGRect notesInputLabelFrame = CGRectMake(20,600,280,60);
+    CGRect notesInputLabelFrame = CGRectMake(20, 600, 280, 60);
     notesTextField = [[SUITextField alloc] initWithFrame:notesInputLabelFrame];
-    notesTextField.text = @"Any specials notes including allergies, notable behavior, ect.";
-    notesTextField.delegate = self;  //to clear the text
-    notesTextField.layer.borderWidth = 2;
+    notesTextField.placeholder = @"Any special notes...";
+    notesTextField.layer.borderWidth = 1;
     notesTextField.layer.cornerRadius = 3;
     notesTextField.tag = 28;
-    notesTextField.layer.borderColor = [[self colorWithHexString:@"3fa69a"] CGColor ];
+    notesTextField.layer.borderColor = [[self colorWithHexString:@"3fa69a"] CGColor];
     notesTextField.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:16];
     [self.view addSubview:notesTextField];
+    
     
     //Call to Action label
     CGRect calllabelFrame = CGRectMake(20,660,280,30);
@@ -364,10 +364,10 @@
     
     //input directions if found
     CGRect callInputLabelFrame = CGRectMake(20,690,280,60);
-    callInputField = [[UITextView alloc] initWithFrame:callInputLabelFrame];
-    callInputField.text = @"What should a person do if they find your loved one?";
+    callInputField = [[SUITextField alloc] initWithFrame:callInputLabelFrame];
+    callInputField.placeholder = @"What should a person do if they find your loved one?";
     callInputField.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:16];
-    callInputField.layer.borderWidth = 2;
+    callInputField.layer.borderWidth = 1;
     callInputField.layer.cornerRadius = 3;
     callInputField.tag = 30;
     callInputField.layer.borderColor = [[self colorWithHexString:@"3fa69a"] CGColor ];
@@ -484,6 +484,7 @@ bool *isChecked = false;
     
 }
 
+/*
 //clear default text before editing
 - (void)textFieldDidBeginEditing:(SUITextField *)textField{
     
@@ -501,13 +502,13 @@ bool *isChecked = false;
     textField.textColor = [self colorWithHexString:@"00ff00"];
 }
 
-
 - (void)textFieldDidEndEditing:(SUITextField *)textField
 {
    // [self animateTextField: textField up: NO];
     //make text color little lighter - currently making red
     textField.textColor = [self colorWithHexString:@"ff0000"];
 }
+*/
 
 
 //clear default text before editing

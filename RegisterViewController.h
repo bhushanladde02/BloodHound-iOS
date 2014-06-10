@@ -23,10 +23,7 @@ NSMutableData *_responseData;
 UIImageView *newImageView;
 NSURL *imgURL;  //image url in media
 
-UITextView *streetAddressInputField,*cityInputField,*stateInputField,*zipInputField,*callInputField;
-
-
-SUITextField *deviceTextField, *textField, *ltextField, *thumbField,*ageTextField,*heightTextField,*weightTextField,*hairTextField,*eyeTextField,*featuresTextField,*notesTextField;
+SUITextField *deviceTextField, *textField, *ltextField, *thumbField,*ageTextField,*heightTextField,*weightTextField,*hairTextField,*eyeTextField,*featuresTextField,*notesTextField,*streetAddressInputField,*cityInputField,*stateInputField,*zipInputField,*callInputField;
 
 //(BEACONID ,FNAME ,LNAME ,IMGURL ,STREET ,CITY ,STATE ,ZIP ,AGE ,HEIGHT ,WEIGHT ,HCOLOR , ECOLOR , FEATURE ,SPECIAL ,ACTION )
 NSString *beaconID, *fname, *lname, *imgurl, *street, *city,*state, *zip, *age, *height, *weight, *weight, *hcolor, *ecolor, *feature, *special, *action;
