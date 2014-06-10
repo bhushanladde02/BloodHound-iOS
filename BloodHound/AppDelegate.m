@@ -49,10 +49,10 @@ NSString *databasePath;
     docsDir = dirPaths[0];
     // Build the path to the database file
     databasePath = [[NSString alloc] initWithString:
-                    [docsDir stringByAppendingPathComponent: @"tagsDatabase.db"]];
+                    [docsDir stringByAppendingPathComponent: @"lostDatabase.db"]];
     BOOL isSuccess = YES;
     NSFileManager *filemgr = [NSFileManager defaultManager];
-    if ([filemgr fileExistsAtPath: databasePath ] == NO)
+    if ([filemgr fileExistsAtPath: databasePath ] == YES)
     {
         const char *dbpath = [databasePath UTF8String];
         if (sqlite3_open(dbpath, &database) == SQLITE_OK)

@@ -10,6 +10,7 @@
 #import "AnimatedGif.h"
 #import "UIImageView+AnimatedGif.h"
 #import <QuartzCore/QuartzCore.h>
+#import "TPKeyboardAvoidingScrollView.h"
 
 @interface RegisterViewController ()
 
@@ -51,14 +52,14 @@
      */
     
     
-    UIScrollView* scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
+    TPKeyboardAvoidingScrollView* scrollView = [[TPKeyboardAvoidingScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
     scrollView.scrollEnabled = YES;
-    scrollView.pagingEnabled = YES;
-    scrollView.showsVerticalScrollIndicator = YES;
-    scrollView.showsHorizontalScrollIndicator = YES;
-    scrollView.contentSize = CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.height*2);
-    //[self.view addSubview:scrollView];
-     self.view = scrollView;
+   //scrollView.pagingEnabled = YES;
+   scrollView.showsVerticalScrollIndicator = YES;
+   scrollView.showsHorizontalScrollIndicator = YES;
+   //scrollView.contentSize = CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.height);
+   //[self.view addSubview:scrollView];
+   self.view = scrollView;
     
 
     self.view.backgroundColor = [UIColor whiteColor];
@@ -445,7 +446,6 @@
     submitButton.userInteractionEnabled = YES;
     [submitButton addGestureRecognizer:singleTapRegister];
     
-    
 }
 
 bool *isChecked = false;
@@ -493,7 +493,7 @@ bool *isChecked = false;
     //allow clearing text first time when user enters info
     if(textField.tag % 2 == 0 ){
         textField.text = @"";
-        [self animateTextField: textField up:YES];
+    //    [self animateTextField: textField up:YES];
         textField.tag = textField.tag + 1;
     }
     
@@ -504,7 +504,7 @@ bool *isChecked = false;
 
 - (void)textFieldDidEndEditing:(SUITextField *)textField
 {
-    [self animateTextField: textField up: NO];
+   // [self animateTextField: textField up: NO];
 }
 
 
@@ -516,20 +516,6 @@ bool *isChecked = false;
     //make text color little lighter
     textView.textColor = [self colorWithHexString:@"ff0000"];
     
-}
-
-- (void) animateTextField: (SUITextField*) textField up: (BOOL) up
-{
-    const int movementDistance = 80; // tweak as needed
-    const float movementDuration = 0.3f; // tweak as needed
-    
-    int movement = (up ? -movementDistance : movementDistance);
-    
-    [UIView beginAnimations: @"anim" context: nil];
-    [UIView setAnimationBeginsFromCurrentState: YES];
-    [UIView setAnimationDuration: movementDuration];
-    self.view.frame = CGRectOffset(self.view.frame, 0, movement);
-    [UIView commitAnimations];
 }
 
 
@@ -552,32 +538,50 @@ bool *isChecked = false;
     feature = featuresTextField.text;
     street = streetAddressInputField.text;
     zip = zipInputField.text;
-    //special= sp.text;
+    special= notesTextField.text;
+    action = callInputField.text;
     
-    
-    
+  
     //(BEACONID ,FNAME ,LNAME ,IMGURL ,STREET ,CITY ,STATE ,ZIP ,AGE ,HEIGHT ,WEIGHT ,HCOLOR , ECOLOR , FEATURE ,SPECIAL ,ACTION )
-    NSString *insertLostSQL = [NSString stringWithFormat:@"INSERT INTO LOST (BEACONID ,FNAME ,LNAME ,IMGURL ,STREET ,CITY ,STATE ,ZIP ,AGE ,HEIGHT ,WEIGHT ,HCOLOR , ECOLOR , FEATURE ,SPECIAL ,ACTION ) VALUES (\"%@\",\"%@\" ,\"%@\",\"%@\",\"%@\" ,\"%@\",\"%@\",\"%@\" ,\"%@\",\"%@\",\"%@\" ,\"%@\",\"%@\",\"%@\" ,\"%@\",\"%@\")", recordID, self.imgURLString, [self getPhotoLocation]];
+    NSString *insertLostSQL = [NSString stringWithFormat:@"INSERT INTO LOST (BEACONID ,FNAME ,LNAME ,IMGURL ,STREET ,CITY ,STATE ,ZIP ,AGE ,HEIGHT ,WEIGHT ,HCOLOR , ECOLOR , FEATURE ,SPECIAL ,ACTION ) VALUES (\"%@\",\"%@\" ,\"%@\",\"%@\",\"%@\" ,\"%@\",\"%@\",\"%@\" ,\"%@\",\"%@\",\"%@\" ,\"%@\",\"%@\",\"%@\" ,\"%@\",\"%@\")", beaconID, fname, lname,imgURL,street,city,state,zip,age,height,weight,hcolor,ecolor,feature,special,action];
     
-    //without city
-    //  NSString *insertMappingSQL = [NSString stringWithFormat:@"INSERT INTO MAPPINGS (PERSONID, IMG_URL) VALUES (\"%d\",\"%@\")", recordID, self.imgURL];
+    char *errMsg;
+    const char *insert_stmt;
     
-    insert_stmt = [insertMappingSQL UTF8String];
-    
-    if (sqlite3_exec(database, insert_stmt, NULL, NULL, &error) == SQLITE_OK) {
-        NSLog(@"insterted mapping");
-    }
-    else
-    {
-        NSLog(@"error %s", error);
-    }
-     
-     */
+    static sqlite3 *database = nil;
+    NSString *databasePath;
+    NSString *docsDir;
+    NSArray *dirPaths;
+    // Get the documents directory
+    dirPaths = NSSearchPathForDirectoriesInDomains
+    (NSDocumentDirectory, NSUserDomainMask, YES);
+    docsDir = dirPaths[0];
+    // Build the path to the database file
+    databasePath = [[NSString alloc] initWithString:
+                    [docsDir stringByAppendingPathComponent: @"lostDatabase.db"]];
+        const char *dbpath = [databasePath UTF8String];
+        if (sqlite3_open(dbpath, &database) == SQLITE_OK)
+        {
+                insert_stmt = [insertLostSQL UTF8String];
+            if (sqlite3_exec(database, insert_stmt, NULL, NULL, &errMsg) == SQLITE_OK) {
+                NSLog(@"insert into lost table");
+            }
+            else
+            {
+                NSLog(@"failed insertation %s", errMsg);
+            }
+        }
 }
 
 
 //sends http request
 -(void) registerUser{
+    
+    
+    //insert to local database
+    [self insertLostLocal];
+    
+    
     
     // Dictionary that holds post parameters. You can set your post parameters that your server accepts or programmed to accept.
     NSMutableDictionary* _params = [[NSMutableDictionary alloc] init];
@@ -683,7 +687,8 @@ bool *isChecked = false;
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     
     chosenImage = info[UIImagePickerControllerEditedImage];
-    
+    //imgURL
+    imgURL = [info objectForKey:UIImagePickerControllerReferenceURL];
     
     //display image on UI
     //self.imageView.image = chosenImage;

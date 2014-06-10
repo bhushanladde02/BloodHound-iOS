@@ -20,6 +20,8 @@
 		FC1F45251940965D006C10F8 /* ReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC1F45231940965D006C10F8 /* ReportViewController.m */; };
 		FC1F4527194096BC006C10F8 /* reportAlert.png in Resources */ = {isa = PBXBuildFile; fileRef = FC1F4526194096BC006C10F8 /* reportAlert.png */; };
 		FC1F45291943BF6E006C10F8 /* backButton.png in Resources */ = {isa = PBXBuildFile; fileRef = FC1F45281943BF6E006C10F8 /* backButton.png */; };
+		FC2934B11947248800DF1087 /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC2934B01947248800DF1087 /* TPKeyboardAvoidingScrollView.m */; };
+		FC2934B41947252A00DF1087 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = FC2934B31947252A00DF1087 /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
 		FC6CAEB9193D654200FB5850 /* loadingScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = FC6CAEB8193D654200FB5850 /* loadingScreen.png */; };
 		FC6CAEC9193EF18F00FB5850 /* OpenSans-CondBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC6CAEC6193EF18E00FB5850 /* OpenSans-CondBold.ttf */; };
 		FC6CAECA193EF18F00FB5850 /* OpenSans-CondLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC6CAEC7193EF18F00FB5850 /* OpenSans-CondLight.ttf */; };
@@ -82,6 +84,10 @@
 		FC1F45241940965D006C10F8 /* ReportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportViewController.h; sourceTree = "<group>"; };
 		FC1F4526194096BC006C10F8 /* reportAlert.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reportAlert.png; sourceTree = "<group>"; };
 		FC1F45281943BF6E006C10F8 /* backButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backButton.png; sourceTree = "<group>"; };
+		FC2934AF1947248800DF1087 /* TPKeyboardAvoidingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPKeyboardAvoidingScrollView.h; path = "../../../Downloads/TPKeyboardAvoiding-master 2/TPKeyboardAvoiding/TPKeyboardAvoidingScrollView.h"; sourceTree = "<group>"; };
+		FC2934B01947248800DF1087 /* TPKeyboardAvoidingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TPKeyboardAvoidingScrollView.m; path = "../../../Downloads/TPKeyboardAvoiding-master 2/TPKeyboardAvoiding/TPKeyboardAvoidingScrollView.m"; sourceTree = "<group>"; };
+		FC2934B21947252A00DF1087 /* UIScrollView+TPKeyboardAvoidingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIScrollView+TPKeyboardAvoidingAdditions.h"; path = "../../../Downloads/TPKeyboardAvoiding-master/TPKeyboardAvoiding/UIScrollView+TPKeyboardAvoidingAdditions.h"; sourceTree = "<group>"; };
+		FC2934B31947252A00DF1087 /* UIScrollView+TPKeyboardAvoidingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIScrollView+TPKeyboardAvoidingAdditions.m"; path = "../../../Downloads/TPKeyboardAvoiding-master/TPKeyboardAvoiding/UIScrollView+TPKeyboardAvoidingAdditions.m"; sourceTree = "<group>"; };
 		FC6CAEB8193D654200FB5850 /* loadingScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = loadingScreen.png; path = ../../../Downloads/loadingScreen.png; sourceTree = "<group>"; };
 		FC6CAEC6193EF18E00FB5850 /* OpenSans-CondBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-CondBold.ttf"; sourceTree = "<group>"; };
 		FC6CAEC7193EF18F00FB5850 /* OpenSans-CondLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-CondLight.ttf"; sourceTree = "<group>"; };
@@ -152,6 +158,10 @@
 		FCA3FA85193C809000390B10 = {
 			isa = PBXGroup;
 			children = (
+				FC2934B21947252A00DF1087 /* UIScrollView+TPKeyboardAvoidingAdditions.h */,
+				FC2934B31947252A00DF1087 /* UIScrollView+TPKeyboardAvoidingAdditions.m */,
+				FC2934AF1947248800DF1087 /* TPKeyboardAvoidingScrollView.h */,
+				FC2934B01947248800DF1087 /* TPKeyboardAvoidingScrollView.m */,
 				FCAF95901946417600662414 /* FoundViewController.h */,
 				FCAF95911946417600662414 /* FoundViewController.m */,
 				FCAA7A281944663700010866 /* selectPhoto.png */,
@@ -377,12 +387,14 @@
 				FCAA7A1919440D6600010866 /* UIImageView+AnimatedGif.m in Sources */,
 				FCAF95921946417600662414 /* FoundViewController.m in Sources */,
 				FC1F451E19409055006C10F8 /* ActiveViewController.m in Sources */,
+				FC2934B41947252A00DF1087 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				FCAA7A1619440D6600010866 /* AnimatedGif.m in Sources */,
 				FCAA7A271944663000010866 /* SUITextField.m in Sources */,
 				FC00EFBE193D594A00BBA864 /* RegisterViewController.m in Sources */,
 				FCA3FAA7193C809000390B10 /* BloodHound.xcdatamodeld in Sources */,
 				FC1F45251940965D006C10F8 /* ReportViewController.m in Sources */,
 				FCA3FAA4193C809000390B10 /* AppDelegate.m in Sources */,
+				FC2934B11947248800DF1087 /* TPKeyboardAvoidingScrollView.m in Sources */,
 				FCA3FACF193C8A7B00390B10 /* MainViewController.m in Sources */,
 				FCA3FAA0193C809000390B10 /* main.m in Sources */,
 			);
