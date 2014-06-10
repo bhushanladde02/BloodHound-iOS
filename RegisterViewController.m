@@ -100,7 +100,7 @@
     [self.view addSubview:registerLabel];
 
     //register Desc
-    CGRect registerDesclabelFrame = CGRectMake(20,50,280,30);
+    CGRect registerDesclabelFrame = CGRectMake(20,50,280,20);
     UILabel *registerDescLabel = [[UILabel alloc] initWithFrame:registerDesclabelFrame];
     registerDescLabel.numberOfLines = 0;
     //[registerDescLabel sizeToFit];
@@ -125,7 +125,6 @@
     CGRect deviceInputLabelFrame = CGRectMake(20,110,280,30);
     deviceTextField = [[SUITextField alloc] initWithFrame:deviceInputLabelFrame];
     deviceTextField.placeholder = @"ID Number";
-    deviceTextField.delegate = self;  //to clear the text
     deviceTextField.layer.borderWidth = 1;
     deviceTextField.tag = 2;
     deviceTextField.tintColor = [self colorWithHexString:@"3fa69a"];
@@ -135,7 +134,7 @@
     [self.view addSubview:deviceTextField];
     
     //name Label
-    CGRect namelabelFrame = CGRectMake(20,140,130,30);
+    CGRect namelabelFrame = CGRectMake(20,150,130,30);
     UILabel *nameLabel = [[UILabel alloc] initWithFrame:namelabelFrame];
     //nameLabel.backgroundColor = [UIColor greenColor];  //debug point
     nameLabel.textColor = [self colorWithHexString:@"3fa69a"];
@@ -145,12 +144,11 @@
     [self.view addSubview:nameLabel];
     
     //input first name
-    CGRect fnameInputLabelFrame = CGRectMake(20,170,130,30);
+    CGRect fnameInputLabelFrame = CGRectMake(20,180,165,30);
     textField = [[SUITextField alloc] initWithFrame:fnameInputLabelFrame];
     textField.placeholder = @"First Name";
     textField.tag = 4;
     textField.tintColor = [self colorWithHexString:@"3fa69a"];
-    textField.delegate = self;  //to clear the text
     textField.layer.borderWidth = 1;
     textField.layer.cornerRadius = 3;
     textField.layer.borderColor = [[self colorWithHexString:@"3fa69a"] CGColor ];
@@ -158,12 +156,11 @@
     [self.view addSubview:textField];
     
     //input last name
-    CGRect lnameInputLabelFrame = CGRectMake(20,210,130,30);
+    CGRect lnameInputLabelFrame = CGRectMake(20,215,165,30);
     ltextField = [[SUITextField alloc] initWithFrame:lnameInputLabelFrame];
     ltextField.placeholder = @"Last Name";
     ltextField.tag = 6;
     ltextField.tintColor = [self colorWithHexString:@"3fa69a"];
-    ltextField.delegate = self;  //to clear the text
     ltextField.layer.borderWidth = 1;
     ltextField.layer.cornerRadius = 3;
     ltextField.layer.borderColor = [[self colorWithHexString:@"3fa69a"] CGColor ];
@@ -172,17 +169,16 @@
     
     //photo thumbnail
     //placeholder
-    CGRect thumbInputLabelFrame = CGRectMake(170,150,130,130);
+    CGRect thumbInputLabelFrame = CGRectMake(200,160,100,100);
     thumbField = [[SUITextField alloc] initWithFrame:thumbInputLabelFrame];
     thumbField.placeholder = @"Photo Thumbnail";
-    thumbField.delegate = self;  //to clear the text
     thumbField.backgroundColor = [UIColor grayColor];
     thumbField.layer.borderColor = [[self colorWithHexString:@"3fa69a"] CGColor ];
     thumbField.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:16];
     [self.view addSubview:thumbField];
     
     //photo label
-    CGRect photolabelFrame = CGRectMake(20,260,130,30);
+    CGRect photolabelFrame = CGRectMake(20,255,130,30);
     UILabel *photoLabel = [[UILabel alloc] initWithFrame:photolabelFrame];
     //nameLabel.backgroundColor = [UIColor grayColor];  //debug point
     photoLabel.textColor = [self colorWithHexString:@"3fa69a"];
@@ -192,12 +188,12 @@
     [self.view addSubview:photoLabel];
     
     //select photo button
-    UIImageView *uploadButton = [[UIImageView alloc] initWithFrame:CGRectMake(  21/3, 290, 301/2, 62/2)];
+    UIImageView *uploadButton = [[UIImageView alloc] initWithFrame:CGRectMake(  12, 285, 301/2, 62/2)];
     uploadButton.image  = [UIImage imageNamed:@"selectPhoto.png"];
     [self.view addSubview:uploadButton];
     
     //camera button
-    UIImageView *cameraButton = [[UIImageView alloc] initWithFrame:CGRectMake(  42/3+301/2, 290, 301/2, 62/2)];
+    UIImageView *cameraButton = [[UIImageView alloc] initWithFrame:CGRectMake(  157, 285, 301/2, 62/2)];
     cameraButton.image  = [UIImage imageNamed:@"camera.png"];
     [self.view addSubview:cameraButton];
     
@@ -224,7 +220,7 @@
     [self.view addSubview:streetAddressInputField];
     
     //input city
-    CGRect cityInputLabelFrame = CGRectMake(20,391,130,30);
+    CGRect cityInputLabelFrame = CGRectMake(20,386,140,30);
     cityInputField = [[SUITextField alloc] initWithFrame:cityInputLabelFrame];
     cityInputField.placeholder = @"City";
     cityInputField.layer.borderWidth = 1;
@@ -238,29 +234,31 @@
     //placeholder
     //needs drop down menu
     //input state
-    CGRect stateInputLabelFrame = CGRectMake(170,391,30,30);
+    CGRect stateInputLabelFrame = CGRectMake(170,386,40,30);
     stateInputField = [[SUITextField alloc] initWithFrame:stateInputLabelFrame];
     stateInputField.placeholder = @"AZ";
     stateInputField.layer.borderWidth = 1;
     stateInputField.tag= 12;
+    stateInputField.tintColor = [self colorWithHexString:@"3fa69a"];
     stateInputField.layer.cornerRadius = 3;
     stateInputField.layer.borderColor = [[self colorWithHexString:@"3fa69a"] CGColor ];
     stateInputField.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:16];
     [self.view addSubview:stateInputField];
     
     //input zip code
-    CGRect zipInputLabelFrame = CGRectMake(220,391,60,30);
+    CGRect zipInputLabelFrame = CGRectMake(220,386,80,30);
     zipInputField = [[SUITextField alloc] initWithFrame:zipInputLabelFrame];
     zipInputField.placeholder = @"Zip Code";
     zipInputField.layer.borderWidth = 1;
     zipInputField.tag = 14;
+    zipInputField.tintColor = [self colorWithHexString:@"3fa69a"];
     zipInputField.layer.cornerRadius = 3;
     zipInputField.layer.borderColor = [[self colorWithHexString:@"3fa69a"] CGColor ];
     zipInputField.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:16];
     [self.view addSubview:zipInputField];
     
     //description label
-    CGRect descriptionLabelFrame = CGRectMake(20,421,280,30);
+    CGRect descriptionLabelFrame = CGRectMake(20,426,280,30);
     UILabel *descriptionLabel = [[UILabel alloc] initWithFrame:descriptionLabelFrame];
     //fnameLabel.backgroundColor = [UIColor greenColor];  //debug point
     descriptionLabel.textColor = [self colorWithHexString:@"3fa69a"];
@@ -270,11 +268,11 @@
     [self.view addSubview:descriptionLabel];
     
     //input age
-    CGRect ageInputLabelFrame = CGRectMake(20,450,80,30);
+    CGRect ageInputLabelFrame = CGRectMake(20,456,80,30);
     ageTextField = [[SUITextField alloc] initWithFrame:ageInputLabelFrame];
-    ageTextField.text = @"Age";
-    ageTextField.delegate = self;  //to clear the text
+    ageTextField.placeholder = @"Age";
     ageTextField.tag = 16;
+    ageTextField.tintColor = [self colorWithHexString:@"3fa69a"];
     ageTextField.layer.borderWidth = 1;
     ageTextField.layer.cornerRadius = 3;
     ageTextField.layer.borderColor = [[self colorWithHexString:@"3fa69a"] CGColor ];
@@ -282,78 +280,80 @@
     [self.view addSubview:ageTextField];
     
     //input height
-    CGRect heightInputLabelFrame = CGRectMake(120,450,80,30);
+    CGRect heightInputLabelFrame = CGRectMake(110,456,90,30);
     heightTextField = [[SUITextField alloc] initWithFrame:heightInputLabelFrame];
-    heightTextField.text = @"Height";
-    heightTextField.delegate = self;  //to clear the text
+    heightTextField.placeholder = @"Height";
     heightTextField.layer.borderWidth = 1;
     heightTextField.tag = 18;
+    heightTextField.tintColor = [self colorWithHexString:@"3fa69a"];
     heightTextField.layer.cornerRadius = 3;
     heightTextField.layer.borderColor = [[self colorWithHexString:@"3fa69a"] CGColor ];
     heightTextField.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:16];
     [self.view addSubview:heightTextField];
     
     //input weight
-    CGRect weightInputLabelFrame = CGRectMake(220,450,80,30);
+    CGRect weightInputLabelFrame = CGRectMake(210,456,90,30);
     weightTextField = [[SUITextField alloc] initWithFrame:weightInputLabelFrame];
-    weightTextField.text = @"Weight";
-    weightTextField.delegate = self;  //to clear the text
+    weightTextField.placeholder = @"Weight";
     weightTextField.layer.borderWidth = 1;
     weightTextField.layer.cornerRadius = 3;
     weightTextField.tag = 20;
+    weightTextField.tintColor = [self colorWithHexString:@"3fa69a"];
     weightTextField.layer.borderColor = [[self colorWithHexString:@"3fa69a"] CGColor ];
     weightTextField.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:16];
     [self.view addSubview:weightTextField];
     
     //input hair color
-    CGRect hairInputLabelFrame = CGRectMake(20,490,130,30);
+    CGRect hairInputLabelFrame = CGRectMake(20,491,135,30);
     hairTextField = [[SUITextField alloc] initWithFrame:hairInputLabelFrame];
-    hairTextField.text = @"Hair Color";
-    hairTextField.delegate = self;  //to clear the text
+    hairTextField.placeholder = @"Hair Color";
     hairTextField.layer.borderWidth = 1;
     hairTextField.layer.cornerRadius = 3;
     hairTextField.tag = 22;
+    hairTextField.tintColor = [self colorWithHexString:@"3fa69a"];
     hairTextField.layer.borderColor = [[self colorWithHexString:@"3fa69a"] CGColor ];
     hairTextField.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:16];
     [self.view addSubview:hairTextField];
     
     //input eye color
-    CGRect eyeInputLabelFrame = CGRectMake(170,490,130,30);
+    CGRect eyeInputLabelFrame = CGRectMake(165,491,135,30);
     eyeTextField = [[SUITextField alloc] initWithFrame:eyeInputLabelFrame];
-    eyeTextField.text = @"Eye Color";
-    eyeTextField.delegate = self;  //to clear the text
+    eyeTextField.placeholder = @"Eye Color";
     eyeTextField.layer.borderWidth = 1;
     eyeTextField.layer.cornerRadius = 3;
     eyeTextField.tag = 24;
+    eyeTextField.tintColor = [self colorWithHexString:@"3fa69a"];
     eyeTextField.layer.borderColor = [[self colorWithHexString:@"3fa69a"] CGColor ];
     eyeTextField.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:16];
     [self.view addSubview:eyeTextField];
     
     //input distinguishing features
-    CGRect featuresInputLabelFrame = CGRectMake(20,530,280,60);
+    CGRect featuresInputLabelFrame = CGRectMake(20,526,280,60);
     featuresTextField = [[SUITextField alloc] initWithFrame:featuresInputLabelFrame];
     featuresTextField.placeholder = @"Distinguishing Features";
     featuresTextField.layer.borderWidth = 1;
     featuresTextField.layer.cornerRadius = 3;
     featuresTextField.tag = 26;
+    featuresTextField.tintColor = [self colorWithHexString:@"3fa69a"];
     featuresTextField.layer.borderColor = [[self colorWithHexString:@"3fa69a"] CGColor ];
     featuresTextField.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:16];
     [self.view addSubview:featuresTextField];
     
     //input special notes
-    CGRect notesInputLabelFrame = CGRectMake(20, 600, 280, 60);
+    CGRect notesInputLabelFrame = CGRectMake(20, 591, 280, 60);
     notesTextField = [[SUITextField alloc] initWithFrame:notesInputLabelFrame];
     notesTextField.placeholder = @"Any special notes...";
     notesTextField.layer.borderWidth = 1;
     notesTextField.layer.cornerRadius = 3;
     notesTextField.tag = 28;
+    notesTextField.tintColor = [self colorWithHexString:@"3fa69a"];
     notesTextField.layer.borderColor = [[self colorWithHexString:@"3fa69a"] CGColor];
     notesTextField.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:16];
     [self.view addSubview:notesTextField];
     
     
     //Call to Action label
-    CGRect calllabelFrame = CGRectMake(20,660,280,30);
+    CGRect calllabelFrame = CGRectMake(20,661,280,30);
     UILabel *callLabel = [[UILabel alloc] initWithFrame:calllabelFrame];
     //nameLabel.backgroundColor = [UIColor grayColor];  //debug point
     callLabel.textColor = [self colorWithHexString:@"3fa69a"];
@@ -363,18 +363,18 @@
     [self.view addSubview:callLabel];
     
     //input directions if found
-    CGRect callInputLabelFrame = CGRectMake(20,690,280,60);
+    CGRect callInputLabelFrame = CGRectMake(20,691,280,60);
     callInputField = [[SUITextField alloc] initWithFrame:callInputLabelFrame];
     callInputField.placeholder = @"What should a person do if they find your loved one?";
     callInputField.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:16];
     callInputField.layer.borderWidth = 1;
     callInputField.layer.cornerRadius = 3;
     callInputField.tag = 30;
+    callInputField.tintColor = [self colorWithHexString:@"3fa69a"];
     callInputField.layer.borderColor = [[self colorWithHexString:@"3fa69a"] CGColor ];
-    callInputField.delegate = self; //to clear text
     [self.view addSubview:callInputField];
     
-    CGRect permlabelFrame = CGRectMake(20,750,280,30);
+    CGRect permlabelFrame = CGRectMake(20,761,280,20);
     UILabel *permLabel = [[UILabel alloc] initWithFrame:permlabelFrame];
     //nameLabel.backgroundColor = [UIColor grayColor];  //debug point
     permLabel.textColor = [self colorWithHexString:@"3fa69a"];
@@ -384,26 +384,26 @@
     [self.view addSubview:permLabel];
     
     //permDesc Desc
-    CGRect permDescDesclabelFrame = CGRectMake(20,780,280,60);
+    CGRect permDescDesclabelFrame = CGRectMake(20,781,280,45);
     UILabel *permDescDescLabel = [[UILabel alloc] initWithFrame:permDescDesclabelFrame];
     permDescDescLabel.numberOfLines = 0;
     //[permDescDescLabel sizeToFit];
     //permDescDescLabel.backgroundColor = [UIColor greenColor];  //debug point
-    NSString *permDescDescText = @"Bloodhound requires push notifications and active bluetooth to function";
+    NSString *permDescDescText = @"Bloodhound requires push notifications and active bluetooth to function.";
     [permDescDescLabel setText: permDescDescText];
     permDescDescLabel.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:16];
     permDescDescLabel.textColor = [self colorWithHexString:@"242424"];
     [self.view addSubview:permDescDescLabel];
     
     
-    checkButton = [[UIImageView alloc] initWithFrame:CGRectMake(  20, 840, 40/2, 40/2)];
+    checkButton = [[UIImageView alloc] initWithFrame:CGRectMake(  20, 836, 40/2, 40/2)];
     checkButton.image  = uncheckImage;
     [self.view addSubview:checkButton];
     
     
     
     
-    CGRect acceptlabelFrame = CGRectMake(40,840,260,20);
+    CGRect acceptlabelFrame = CGRectMake(40,836,260,20);
     UILabel *acceptLabel = [[UILabel alloc] initWithFrame:acceptlabelFrame];
     //nameLabel.backgroundColor = [UIColor grayColor];  //debug point
     acceptLabel.textColor = [self colorWithHexString:@"3fa69a"];
@@ -413,7 +413,7 @@
     [self.view addSubview:acceptLabel];
     
     
-    UIImageView *submitButton = [[UIImageView alloc] initWithFrame:CGRectMake(  (320 - 602/2)/2, 870, 602/2, 159/2)];
+    UIImageView *submitButton = [[UIImageView alloc] initWithFrame:CGRectMake(  (320 - 602/2)/2, 875, 602/2, 159/2)];
     submitButton.image  = [UIImage imageNamed:@"submit.png"];
     [self.view addSubview:submitButton];
 
