@@ -562,17 +562,22 @@ bool *isChecked = false;
     databasePath = [[NSString alloc] initWithString:
                     [docsDir stringByAppendingPathComponent: @"lostDatabase.db"]];
         const char *dbpath = [databasePath UTF8String];
+    
+    
         if (sqlite3_open(dbpath, &database) == SQLITE_OK)
         {
                 insert_stmt = [insertLostSQL UTF8String];
             if (sqlite3_exec(database, insert_stmt, NULL, NULL, &errMsg) == SQLITE_OK) {
+                //close the database
                 NSLog(@"insert into lost table");
             }
             else
             {
                 NSLog(@"failed insertation %s", errMsg);
             }
-        }
+
+      }
+   sqlite3_close(database); //close the database
 }
 
 
@@ -676,6 +681,12 @@ bool *isChecked = false;
         [newImageView removeFromSuperview];
     }*/
     
+}
+
+//lock bc rotation
+- (BOOL)shouldAutorotate
+{
+    return NO;
 }
 
 //remove keyboard when tapped on screen
