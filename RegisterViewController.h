@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "SUITextField.h"
+#import <sqlite3.h>
 
 @interface RegisterViewController : UIViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate, NSURLConnectionDelegate>
 @end
@@ -28,4 +29,4 @@ UITextView *streetAddressInputField,*cityInputField,*stateInputField,*zipInputFi
 SUITextField *deviceTextField, *textField, *ltextField, *thumbField,*ageTextField,*heightTextField,*weightTextField,*hairTextField,*eyeTextField,*featuresTextField,*notesTextField;
 
 //(BEACONID ,FNAME ,LNAME ,IMGURL ,STREET ,CITY ,STATE ,ZIP ,AGE ,HEIGHT ,WEIGHT ,HCOLOR , ECOLOR , FEATURE ,SPECIAL ,ACTION )
-NSString *beaconID, *fname, *lname, *imgurl, *street, *city, *zip, *age, *height, *weight, *weight, *hcolor, *ecolor, *feature, *special, *action;
+NSString *beaconID, *fname, *lname, *imgurl, *street, *city,*state, *zip, *age, *height, *weight, *weight, *hcolor, *ecolor, *feature, *special, *action;

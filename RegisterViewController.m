@@ -552,32 +552,58 @@ bool *isChecked = false;
     feature = featuresTextField.text;
     street = streetAddressInputField.text;
     zip = zipInputField.text;
-    //special= sp.text;
+    special= notesTextField.text;
+    action = callInputField.text;
     
-    
-    
+  
     //(BEACONID ,FNAME ,LNAME ,IMGURL ,STREET ,CITY ,STATE ,ZIP ,AGE ,HEIGHT ,WEIGHT ,HCOLOR , ECOLOR , FEATURE ,SPECIAL ,ACTION )
-    NSString *insertLostSQL = [NSString stringWithFormat:@"INSERT INTO LOST (BEACONID ,FNAME ,LNAME ,IMGURL ,STREET ,CITY ,STATE ,ZIP ,AGE ,HEIGHT ,WEIGHT ,HCOLOR , ECOLOR , FEATURE ,SPECIAL ,ACTION ) VALUES (\"%@\",\"%@\" ,\"%@\",\"%@\",\"%@\" ,\"%@\",\"%@\",\"%@\" ,\"%@\",\"%@\",\"%@\" ,\"%@\",\"%@\",\"%@\" ,\"%@\",\"%@\")", recordID, self.imgURLString, [self getPhotoLocation]];
+    NSString *insertLostSQL = [NSString stringWithFormat:@"INSERT INTO LOST (BEACONID ,FNAME ,LNAME ,IMGURL ,STREET ,CITY ,STATE ,ZIP ,AGE ,HEIGHT ,WEIGHT ,HCOLOR , ECOLOR , FEATURE ,SPECIAL ,ACTION ) VALUES (\"%@\",\"%@\" ,\"%@\",\"%@\",\"%@\" ,\"%@\",\"%@\",\"%@\" ,\"%@\",\"%@\",\"%@\" ,\"%@\",\"%@\",\"%@\" ,\"%@\",\"%@\")", beaconID, fname, lname,imgURL,street,city,state,zip,age,height,weight,hcolor,ecolor,feature,special,action];
     
     //without city
     //  NSString *insertMappingSQL = [NSString stringWithFormat:@"INSERT INTO MAPPINGS (PERSONID, IMG_URL) VALUES (\"%d\",\"%@\")", recordID, self.imgURL];
     
-    insert_stmt = [insertMappingSQL UTF8String];
+    char *errMsg;
+    const char *insert_stmt;
     
-    if (sqlite3_exec(database, insert_stmt, NULL, NULL, &error) == SQLITE_OK) {
-        NSLog(@"insterted mapping");
-    }
-    else
+    static sqlite3 *database = nil;
+    NSString *databasePath;
+    NSString *docsDir;
+    NSArray *dirPaths;
+    // Get the documents directory
+    dirPaths = NSSearchPathForDirectoriesInDomains
+    (NSDocumentDirectory, NSUserDomainMask, YES);
+    docsDir = dirPaths[0];
+    // Build the path to the database file
+    databasePath = [[NSString alloc] initWithString:
+                    [docsDir stringByAppendingPathComponent: @"lostDatabase.db"]];
+    NSFileManager *filemgr = [NSFileManager defaultManager];
+    if ([filemgr fileExistsAtPath: databasePath ] == YES)
     {
-        NSLog(@"error %s", error);
+        const char *dbpath = [databasePath UTF8String];
+        if (sqlite3_open(dbpath, &database) == SQLITE_OK)
+        {
+                insert_stmt = [insertLostSQL UTF8String];
+            if (sqlite3_exec(database, insert_stmt, NULL, NULL, &errMsg) == SQLITE_OK) {
+                NSLog(@"insert into lost table");
+            }
+            else
+            {
+                NSLog(@"failed insertation %s", errMsg);
+            }
+        }
     }
-     
-     */
+    
 }
 
 
 //sends http request
 -(void) registerUser{
+    
+    
+    //insert to local database
+    [self insertLostLocal];
+    
+    
     
     // Dictionary that holds post parameters. You can set your post parameters that your server accepts or programmed to accept.
     NSMutableDictionary* _params = [[NSMutableDictionary alloc] init];
@@ -683,7 +709,8 @@ bool *isChecked = false;
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     
     chosenImage = info[UIImagePickerControllerEditedImage];
-    
+    //imgURL
+    imgURL = [info objectForKey:UIImagePickerControllerReferenceURL];
     
     //display image on UI
     //self.imageView.image = chosenImage;
