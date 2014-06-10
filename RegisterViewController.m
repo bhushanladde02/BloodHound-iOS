@@ -559,9 +559,6 @@ bool *isChecked = false;
     //(BEACONID ,FNAME ,LNAME ,IMGURL ,STREET ,CITY ,STATE ,ZIP ,AGE ,HEIGHT ,WEIGHT ,HCOLOR , ECOLOR , FEATURE ,SPECIAL ,ACTION )
     NSString *insertLostSQL = [NSString stringWithFormat:@"INSERT INTO LOST (BEACONID ,FNAME ,LNAME ,IMGURL ,STREET ,CITY ,STATE ,ZIP ,AGE ,HEIGHT ,WEIGHT ,HCOLOR , ECOLOR , FEATURE ,SPECIAL ,ACTION ) VALUES (\"%@\",\"%@\" ,\"%@\",\"%@\",\"%@\" ,\"%@\",\"%@\",\"%@\" ,\"%@\",\"%@\",\"%@\" ,\"%@\",\"%@\",\"%@\" ,\"%@\",\"%@\")", beaconID, fname, lname,imgURL,street,city,state,zip,age,height,weight,hcolor,ecolor,feature,special,action];
     
-    //without city
-    //  NSString *insertMappingSQL = [NSString stringWithFormat:@"INSERT INTO MAPPINGS (PERSONID, IMG_URL) VALUES (\"%d\",\"%@\")", recordID, self.imgURL];
-    
     char *errMsg;
     const char *insert_stmt;
     
@@ -576,9 +573,6 @@ bool *isChecked = false;
     // Build the path to the database file
     databasePath = [[NSString alloc] initWithString:
                     [docsDir stringByAppendingPathComponent: @"lostDatabase.db"]];
-    NSFileManager *filemgr = [NSFileManager defaultManager];
-    if ([filemgr fileExistsAtPath: databasePath ] == YES)
-    {
         const char *dbpath = [databasePath UTF8String];
         if (sqlite3_open(dbpath, &database) == SQLITE_OK)
         {
@@ -591,8 +585,6 @@ bool *isChecked = false;
                 NSLog(@"failed insertation %s", errMsg);
             }
         }
-    }
-    
 }
 
 

@@ -79,7 +79,7 @@
     
     
     
-    
+    [self selectLostObject];
     
     
 }
@@ -90,6 +90,43 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+
+-(void) selectLostObject{
+    sqlite3* d = nil;
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *path = [documentsDirectory stringByAppendingPathComponent: @"lostDatabase.db"];
+    
+    if (sqlite3_open([path UTF8String], &d) != SQLITE_OK) {
+        // Even though the open failed, call close to properly clean up resources.
+        sqlite3_close(d);
+        NSAssert1(0, @"Failed to open database with message '%s'.", sqlite3_errmsg(d));
+        // Additional error handling, as appropriate...
+    }
+    
+    sqlite3_stmt *sqlstmt;
+    char *sql = "select * from LOST;";
+    int ret;
+    ret = sqlite3_prepare_v2(d, sql, -1, &sqlstmt, NULL);
+    if (ret == SQLITE_OK) {
+        NSLog(@"*** SQLITE_OK");
+        if(SQLITE_ROW == sqlite3_step(sqlstmt)){
+            NSLog(@"%s",sqlite3_column_text(sqlstmt,0));
+            NSLog(@"%s",sqlite3_column_text(sqlstmt,1));
+            NSLog(@"%s",sqlite3_column_text(sqlstmt,2));
+            NSLog(@"%s",sqlite3_column_text(sqlstmt,3));
+            NSLog(@"%s",sqlite3_column_text(sqlstmt,4));
+            NSLog(@"%s",sqlite3_column_text(sqlstmt,5));
+            NSLog(@"%s",sqlite3_column_text(sqlstmt,6));
+            NSLog(@"%s",sqlite3_column_text(sqlstmt,7));
+            NSLog(@"%s",sqlite3_column_text(sqlstmt,8));
+            NSLog(@"%s",sqlite3_column_text(sqlstmt,9));
+            NSLog(@"%s",sqlite3_column_text(sqlstmt,10));q
+            NSLog(@"%s",sqlite3_column_text(sqlstmt,11));
+        }
+    }
+
+}
 
 
 -(UIColor*)colorWithHexString:(NSString*)hex
