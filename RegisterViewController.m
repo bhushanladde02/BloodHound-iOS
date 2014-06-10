@@ -10,6 +10,7 @@
 #import "AnimatedGif.h"
 #import "UIImageView+AnimatedGif.h"
 #import <QuartzCore/QuartzCore.h>
+#import "TPKeyboardAvoidingScrollView.h"
 
 @interface RegisterViewController ()
 
@@ -51,14 +52,14 @@
      */
     
     
-    UIScrollView* scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
+    TPKeyboardAvoidingScrollView* scrollView = [[TPKeyboardAvoidingScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
     scrollView.scrollEnabled = YES;
-    scrollView.pagingEnabled = YES;
-    scrollView.showsVerticalScrollIndicator = YES;
-    scrollView.showsHorizontalScrollIndicator = YES;
-    scrollView.contentSize = CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.height*2);
-    //[self.view addSubview:scrollView];
-     self.view = scrollView;
+   //scrollView.pagingEnabled = YES;
+   scrollView.showsVerticalScrollIndicator = YES;
+   scrollView.showsHorizontalScrollIndicator = YES;
+   //scrollView.contentSize = CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.height);
+   //[self.view addSubview:scrollView];
+   self.view = scrollView;
     
 
     self.view.backgroundColor = [UIColor whiteColor];
@@ -445,7 +446,6 @@
     submitButton.userInteractionEnabled = YES;
     [submitButton addGestureRecognizer:singleTapRegister];
     
-    
 }
 
 bool *isChecked = false;
@@ -493,7 +493,7 @@ bool *isChecked = false;
     //allow clearing text first time when user enters info
     if(textField.tag % 2 == 0 ){
         textField.text = @"";
-        [self animateTextField: textField up:YES];
+    //    [self animateTextField: textField up:YES];
         textField.tag = textField.tag + 1;
     }
     
@@ -504,7 +504,7 @@ bool *isChecked = false;
 
 - (void)textFieldDidEndEditing:(SUITextField *)textField
 {
-    [self animateTextField: textField up: NO];
+   // [self animateTextField: textField up: NO];
 }
 
 
@@ -516,20 +516,6 @@ bool *isChecked = false;
     //make text color little lighter
     textView.textColor = [self colorWithHexString:@"ff0000"];
     
-}
-
-- (void) animateTextField: (SUITextField*) textField up: (BOOL) up
-{
-    const int movementDistance = 80; // tweak as needed
-    const float movementDuration = 0.3f; // tweak as needed
-    
-    int movement = (up ? -movementDistance : movementDistance);
-    
-    [UIView beginAnimations: @"anim" context: nil];
-    [UIView setAnimationBeginsFromCurrentState: YES];
-    [UIView setAnimationDuration: movementDuration];
-    self.view.frame = CGRectOffset(self.view.frame, 0, movement);
-    [UIView commitAnimations];
 }
 
 

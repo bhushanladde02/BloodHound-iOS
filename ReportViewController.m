@@ -121,7 +121,7 @@
             NSLog(@"%s",sqlite3_column_text(sqlstmt,7));
             NSLog(@"%s",sqlite3_column_text(sqlstmt,8));
             NSLog(@"%s",sqlite3_column_text(sqlstmt,9));
-            NSLog(@"%s",sqlite3_column_text(sqlstmt,10));q
+            NSLog(@"%s",sqlite3_column_text(sqlstmt,10));
             NSLog(@"%s",sqlite3_column_text(sqlstmt,11));
         }
     }
