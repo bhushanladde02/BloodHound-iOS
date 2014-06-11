@@ -7,6 +7,7 @@
 //
 
 #import "ReportViewController.h"
+#import "UIImageView+WebCache.h"
 
 @interface ReportViewController ()
 
@@ -122,7 +123,9 @@ NSInteger offset = 0;
     //to get image from rackspace server
    // UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:MyURL]]];
     
-    thumbnail.image = [UIImage imageNamed:@"selectPhoto.png"];
+    [thumbnail setImageWithURL:@"http://smallemperor.com:8080/image.jpg"];
+    
+    //thumbnail.image = [UIImage imageNamed:@"selectPhoto.png"];
     [self.view addSubview:thumbnail];
     
     UILabel *viewCellLabel = [[UILabel alloc] initWithFrame: CGRectMake(110, 50+offset, 200, 50)];
