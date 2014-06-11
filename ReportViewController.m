@@ -14,6 +14,7 @@
 @end
 
 NSInteger offset = 0;
+NSInteger height  = 0;
 
 @implementation ReportViewController
 
@@ -90,19 +91,24 @@ NSInteger offset = 0;
     [self.view addSubview:secondHeaderLabel];
     
     
+    height = 0;
     
-    UIImageView *minButton = [[UIImageView alloc] initWithFrame:CGRectMake(  (320-602/2)/2, 400, 602/2, 159/2)];
+    [self selectLostObject];
+    
+    
+    scrollView.contentSize = CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.height*(((height+480)/480)+0.2));
+    
+    
+    UIImageView *minButton = [[UIImageView alloc] initWithFrame:CGRectMake(  (320-602/2)/2, self.view.bounds.size.height*(((height+480)/480)), 602/2, 159/2)];
     minButton.image  = [UIImage imageNamed:@"reportAlert.png"];
     [self.view addSubview:minButton];
     
     
     
-    [self selectLostObject];
-    
     CGRect registerlabelFrame = CGRectMake(20,10,280,40);
     UILabel *registerLabel = [[UILabel alloc] initWithFrame:registerlabelFrame];
     //registerLabel.backgroundColor = [UIColor grayColor];  //debug point
-    NSString *registerText = @"Who is missing";
+    NSString *registerText = @"Who is missing?";
     [registerLabel setText: registerText];
     registerLabel.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:30];
     registerLabel.textColor = [self colorWithHexString:@"3fa69a"];
@@ -114,27 +120,30 @@ NSInteger offset = 0;
 
 -(void) addRow:(NSString*) name
 {
-    UIImageView *checkButton = [[UIImageView alloc] initWithFrame:CGRectMake(  25, 60+offset, 40/2, 40/2)];
+    UIImageView *checkButton = [[UIImageView alloc] initWithFrame:CGRectMake(  278, 75+offset, 40/2, 40/2)];
     checkButton.image  = uncheckImage;
     [self.view addSubview:checkButton];
     
-    UIImageView *thumbnail = [[UIImageView alloc] initWithFrame:CGRectMake(  50, 50+offset, 50, 50)];
+    UIImageView *thumbnail = [[UIImageView alloc] initWithFrame:CGRectMake(  20, 60+offset, 50, 50)];
     
     //to get image from rackspace server
    // UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:MyURL]]];
     
     [thumbnail setImageWithURL:@"http://smallemperor.com:8080/image.jpg"];
     
-    //thumbnail.image = [UIImage imageNamed:@"selectPhoto.png"];
     [self.view addSubview:thumbnail];
+    thumbnail.backgroundColor = [self colorWithHexString:@"3fa69a"]; //testing point
     
-    UILabel *viewCellLabel = [[UILabel alloc] initWithFrame: CGRectMake(110, 50+offset, 200, 50)];
-    viewCellLabel.backgroundColor = [self colorWithHexString:@"ffff00"];
+     
+    UILabel *viewCellLabel = [[UILabel alloc] initWithFrame: CGRectMake(80, 60+offset, 200, 50)];
+    //viewCellLabel.backgroundColor = [self colorWithHexString:@"ffff00"];
     viewCellLabel.text = name;
+    viewCellLabel.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:16];
 
     [self.view addSubview:viewCellLabel];
     
     offset=offset+60;
+    height=height+50;
 }
 
 
@@ -173,10 +182,18 @@ NSInteger offset = 0;
             }else
                  name = @"Not a valid string";
             
-            [self addRow:name];
+            
+            const char *_lname = (char *)sqlite3_column_text(sqlstmt,2);
+            NSString *lname;
+            
+            if(_lname){
+                lname = _lname == NULL?@"Validation":[[NSString alloc] initWithUTF8String:_lname];
+            }else
+                lname = @"Not a valid string";
             
             
-            NSLog(@"%s",sqlite3_column_text(sqlstmt,2));
+            [self addRow:[NSString stringWithFormat:@"%@ %@", name, lname]];
+            
             NSLog(@"%s",sqlite3_column_text(sqlstmt,3));
             NSLog(@"%s",sqlite3_column_text(sqlstmt,4));
             NSLog(@"%s",sqlite3_column_text(sqlstmt,5));
