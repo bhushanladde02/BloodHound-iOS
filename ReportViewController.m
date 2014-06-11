@@ -12,6 +12,8 @@
 
 @end
 
+NSInteger offset = 0;
+
 @implementation ReportViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -26,6 +28,21 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    TPKeyboardAvoidingScrollView* scrollView = [[TPKeyboardAvoidingScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
+    scrollView.scrollEnabled = YES;
+    //scrollView.pagingEnabled = YES;
+    scrollView.showsVerticalScrollIndicator = YES;
+    scrollView.showsHorizontalScrollIndicator = YES;
+    //scrollView.contentSize = CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.height);
+    //[self.view addSubview:scrollView];
+    self.view = scrollView;
+    
+    
+    
+    
+    checkImage = [UIImage imageNamed:@"check.png"];
+    uncheckImage = [UIImage imageNamed:@"uncheck.png"];
     
     //custom back button
     UIImage *buttonImage = [UIImage imageNamed:@"backButton.png"];
@@ -44,12 +61,12 @@
     
     // Do any additional setup after loading the view.
     //self.imageBackground.set
-    UIImage *backgroundImage = [UIImage imageNamed:@"background2.png"];
+    //UIImage *backgroundImage = [UIImage imageNamed:@"background2.png"];
     
-    UIImageView *backgroundImageView=[[UIImageView alloc]initWithFrame:self.view.frame];
-    backgroundImageView.image=backgroundImage;
+    //UIImageView *backgroundImageView=[[UIImageView alloc]initWithFrame:self.view.frame];
+    //backgroundImageView.image=backgroundImage;
     
-    [self.view insertSubview:backgroundImageView atIndex:0];
+   // [self.view insertSubview:backgroundImageView atIndex:0];
     self.view.backgroundColor = [UIColor whiteColor];
     
     //register Label
@@ -81,7 +98,36 @@
     
     [self selectLostObject];
     
+    CGRect registerlabelFrame = CGRectMake(20,10,280,40);
+    UILabel *registerLabel = [[UILabel alloc] initWithFrame:registerlabelFrame];
+    //registerLabel.backgroundColor = [UIColor grayColor];  //debug point
+    NSString *registerText = @"Who is missing";
+    [registerLabel setText: registerText];
+    registerLabel.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:30];
+    registerLabel.textColor = [self colorWithHexString:@"3fa69a"];
+    [self.view addSubview:registerLabel];
     
+    
+}
+
+
+-(void) addRow:(NSString*) name
+{
+    UIImageView *checkButton = [[UIImageView alloc] initWithFrame:CGRectMake(  25, 60+offset, 40/2, 40/2)];
+    checkButton.image  = uncheckImage;
+    [self.view addSubview:checkButton];
+    
+    UIImageView *thumbnail = [[UIImageView alloc] initWithFrame:CGRectMake(  50, 50+offset, 50, 50)];
+    thumbnail.image = [UIImage imageNamed:@"selectPhoto.png"];
+    [self.view addSubview:thumbnail];
+    
+    UILabel *viewCellLabel = [[UILabel alloc] initWithFrame: CGRectMake(110, 50+offset, 200, 50)];
+    viewCellLabel.backgroundColor = [self colorWithHexString:@"ffff00"];
+    viewCellLabel.text = name;
+
+    [self.view addSubview:viewCellLabel];
+    
+    offset=offset+60;
 }
 
 
@@ -110,9 +156,19 @@
     ret = sqlite3_prepare_v2(d, sql, -1, &sqlstmt, NULL);
     if (ret == SQLITE_OK) {
         NSLog(@"*** SQLITE_OK");
-        if(SQLITE_ROW == sqlite3_step(sqlstmt)){
+        while(SQLITE_ROW == sqlite3_step(sqlstmt)){
             NSLog(@"%s",sqlite3_column_text(sqlstmt,0));
-            NSLog(@"%s",sqlite3_column_text(sqlstmt,1));
+            //NSLog(@"%s",sqlite3_column_text(sqlstmt,1));
+             const char *_name = (char *)sqlite3_column_text(sqlstmt,1);
+            NSString *name;
+            if(_name){
+                name = _name == NULL?@"Validation":[[NSString alloc] initWithUTF8String:_name];
+            }else
+                 name = @"Not a valid string";
+            
+            [self addRow:name];
+            
+            
             NSLog(@"%s",sqlite3_column_text(sqlstmt,2));
             NSLog(@"%s",sqlite3_column_text(sqlstmt,3));
             NSLog(@"%s",sqlite3_column_text(sqlstmt,4));
@@ -125,7 +181,8 @@
             NSLog(@"%s",sqlite3_column_text(sqlstmt,11));
         }
     }
-
+    sqlite3_finalize(sqlstmt);
+    sqlite3_close(d);  //close database
 }
 
 
