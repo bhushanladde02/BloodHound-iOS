@@ -90,7 +90,7 @@ NSInteger offset = 0;
     
     
     
-    UIImageView *minButton = [[UIImageView alloc] initWithFrame:CGRectMake(  (320-602/2)/2, 400, 602/2, 159/2)];
+    UIImageView *minButton = [[UIImageView alloc] initWithFrame:CGRectMake(  (320-602/2)/2, 415, 602/2, 159/2)];
     minButton.image  = [UIImage imageNamed:@"reportAlert.png"];
     [self.view addSubview:minButton];
     
@@ -101,7 +101,7 @@ NSInteger offset = 0;
     CGRect registerlabelFrame = CGRectMake(20,10,280,40);
     UILabel *registerLabel = [[UILabel alloc] initWithFrame:registerlabelFrame];
     //registerLabel.backgroundColor = [UIColor grayColor];  //debug point
-    NSString *registerText = @"Who is missing";
+    NSString *registerText = @"Who is missing?";
     [registerLabel setText: registerText];
     registerLabel.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:30];
     registerLabel.textColor = [self colorWithHexString:@"3fa69a"];
@@ -113,21 +113,25 @@ NSInteger offset = 0;
 
 -(void) addRow:(NSString*) name
 {
-    UIImageView *checkButton = [[UIImageView alloc] initWithFrame:CGRectMake(  25, 60+offset, 40/2, 40/2)];
+    UIImageView *checkButton = [[UIImageView alloc] initWithFrame:CGRectMake(  278, 75+offset, 40/2, 40/2)];
     checkButton.image  = uncheckImage;
     [self.view addSubview:checkButton];
     
-    UIImageView *thumbnail = [[UIImageView alloc] initWithFrame:CGRectMake(  50, 50+offset, 50, 50)];
+    UIImageView *thumbnail = [[UIImageView alloc] initWithFrame:CGRectMake(  20, 60+offset, 50, 50)];
     
     //to get image from rackspace server
    // UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:MyURL]]];
     
+    
     thumbnail.image = [UIImage imageNamed:@"selectPhoto.png"];
     [self.view addSubview:thumbnail];
+    thumbnail.backgroundColor = [self colorWithHexString:@"3fa69a"]; //testing point
     
-    UILabel *viewCellLabel = [[UILabel alloc] initWithFrame: CGRectMake(110, 50+offset, 200, 50)];
-    viewCellLabel.backgroundColor = [self colorWithHexString:@"ffff00"];
+     
+    UILabel *viewCellLabel = [[UILabel alloc] initWithFrame: CGRectMake(80, 60+offset, 200, 50)];
+    //viewCellLabel.backgroundColor = [self colorWithHexString:@"ffff00"];
     viewCellLabel.text = name;
+    viewCellLabel.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:16];
 
     [self.view addSubview:viewCellLabel];
     
