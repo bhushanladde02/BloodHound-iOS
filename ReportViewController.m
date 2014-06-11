@@ -107,7 +107,7 @@ NSInteger offset = 0;
     registerLabel.textColor = [self colorWithHexString:@"3fa69a"];
     [self.view addSubview:registerLabel];
     
-    
+    offset = 0;
 }
 
 
@@ -118,6 +118,10 @@ NSInteger offset = 0;
     [self.view addSubview:checkButton];
     
     UIImageView *thumbnail = [[UIImageView alloc] initWithFrame:CGRectMake(  50, 50+offset, 50, 50)];
+    
+    //to get image from rackspace server
+   // UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:MyURL]]];
+    
     thumbnail.image = [UIImage imageNamed:@"selectPhoto.png"];
     [self.view addSubview:thumbnail];
     
