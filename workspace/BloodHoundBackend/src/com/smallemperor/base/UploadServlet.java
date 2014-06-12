@@ -31,7 +31,7 @@ private boolean isMultipart;
 	   
 	   init(); //just to set filePath
 	   
-	   filePath =  "/root/bloodhound/";
+	   filePath =  "/var/lib/tomcat7/webapps/ROOT/images/";
 	   
 	   
       // Check that we have a file upload request
@@ -53,7 +53,9 @@ private boolean isMultipart;
       // maximum size that will be stored in memory
       factory.setSizeThreshold(maxMemSize);
       // Location to save data that is larger than maxMemSize.
-      factory.setRepository(new File("/root/bloodhound"));
+      //factory.setRepository(new File("/root/bloodhound"));
+      
+      factory.setRepository(new File("/var/lib/tomcat7/webapps/ROOT/images/"));
 
       // Create a new file upload handler
       ServletFileUpload upload = new ServletFileUpload(factory);

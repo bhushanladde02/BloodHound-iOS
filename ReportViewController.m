@@ -72,7 +72,7 @@ NSInteger height  = 0;
     self.view.backgroundColor = [UIColor whiteColor];
     
     //register Label
-    CGRect firstHeader = CGRectMake(65,220,280,60);
+   /* CGRect firstHeader = CGRectMake(65,220,280,60);
     UILabel *firstHeaderLabel = [[UILabel alloc] initWithFrame:firstHeader];
     //registerLabel.backgroundColor = [UIColor grayColor];  //debug point
     NSString *fTextOne = @"Send an alert for";
@@ -88,7 +88,7 @@ NSInteger height  = 0;
     [secondHeaderLabel setText: fTextOne];
     secondHeaderLabel.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:50];
     secondHeaderLabel.textColor = [self colorWithHexString:@"ffffff"];
-    [self.view addSubview:secondHeaderLabel];
+    [self.view addSubview:secondHeaderLabel]; */
     
     
     height = 0;
@@ -118,7 +118,7 @@ NSInteger height  = 0;
 }
 
 
--(void) addRow:(NSString*) name
+-(void) addRow:(NSString*) name : (NSString*) imgURL
 {
     UIImageView *checkButton = [[UIImageView alloc] initWithFrame:CGRectMake(  278, 75+offset, 40/2, 40/2)];
     checkButton.image  = uncheckImage;
@@ -129,7 +129,12 @@ NSInteger height  = 0;
     //to get image from rackspace server
    // UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:MyURL]]];
     
-    [thumbnail setImageWithURL:@"http://smallemperor.com:8080/image.jpg"];
+    imgURL = [NSString stringWithFormat:@"%@%@",@"http://smallemperor.com:8080/images/",imgURL];
+    
+    NSLog(@"img url is ");
+    NSLog(imgURL);
+    
+    [thumbnail setImageWithURL:imgURL];
     
     [self.view addSubview:thumbnail];
     thumbnail.backgroundColor = [self colorWithHexString:@"3fa69a"]; //testing point
@@ -173,7 +178,17 @@ NSInteger height  = 0;
     if (ret == SQLITE_OK) {
         NSLog(@"*** SQLITE_OK");
         while(SQLITE_ROW == sqlite3_step(sqlstmt)){
-            NSLog(@"%s",sqlite3_column_text(sqlstmt,0));
+            //NSLog(@"%s",sqlite3_column_text(sqlstmt,0));
+            
+            const char *_beaconID = (char*)sqlite3_column_text(sqlstmt,0);
+            NSString *beaconId;
+            if(_beaconID){
+                beaconId = _beaconID == NULL?@"Validation":[[NSString alloc] initWithUTF8String:_beaconID];
+            }else
+                beaconId = @"error";
+            
+            
+            
             //NSLog(@"%s",sqlite3_column_text(sqlstmt,1));
              const char *_name = (char *)sqlite3_column_text(sqlstmt,1);
             NSString *name;
@@ -192,7 +207,7 @@ NSInteger height  = 0;
                 lname = @"Not a valid string";
             
             
-            [self addRow:[NSString stringWithFormat:@"%@ %@", name, lname]];
+            [self addRow:[NSString stringWithFormat:@"%@ %@", name, lname]:[NSString stringWithFormat:@"%@%@%@", @"image", beaconId,@".png"]];
             
             NSLog(@"%s",sqlite3_column_text(sqlstmt,3));
             NSLog(@"%s",sqlite3_column_text(sqlstmt,4));
