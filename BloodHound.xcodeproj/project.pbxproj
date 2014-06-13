@@ -70,6 +70,16 @@
 		FCAA7A291944663700010866 /* selectPhoto.png in Resources */ = {isa = PBXBuildFile; fileRef = FCAA7A281944663700010866 /* selectPhoto.png */; };
 		FCAA7A2B19452ECD00010866 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FCAA7A2A19452ECD00010866 /* libsqlite3.dylib */; };
 		FCAD82F8194AD4E100D0608F /* ajax-loader-bar.gif in Resources */ = {isa = PBXBuildFile; fileRef = FCAD82F7194AD4E100D0608F /* ajax-loader-bar.gif */; };
+		FCAD8339194AE97300D0608F /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCAD8334194AE97300D0608F /* CoreBluetooth.framework */; };
+		FCAD833A194AE97300D0608F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCAD8335194AE97300D0608F /* CoreLocation.framework */; };
+		FCAD833B194AE97300D0608F /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FCAD8336194AE97300D0608F /* libz.dylib */; };
+		FCAD833C194AE97300D0608F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCAD8337194AE97300D0608F /* MapKit.framework */; };
+		FCAD833D194AE97300D0608F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCAD8338194AE97300D0608F /* Security.framework */; };
+		FCAD8343194AE99400D0608F /* FYX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCAD833E194AE99400D0608F /* FYX.framework */; };
+		FCAD8344194AE99400D0608F /* NetworkServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCAD833F194AE99400D0608F /* NetworkServices.framework */; };
+		FCAD8345194AE99400D0608F /* ContextLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCAD8340194AE99400D0608F /* ContextLocation.framework */; };
+		FCAD8346194AE99400D0608F /* Common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCAD8341194AE99400D0608F /* Common.framework */; };
+		FCAD8347194AE99400D0608F /* ContextCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCAD8342194AE99400D0608F /* ContextCore.framework */; };
 		FCAF95921946417600662414 /* FoundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCAF95911946417600662414 /* FoundViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -172,6 +182,16 @@
 		FCAA7A281944663700010866 /* selectPhoto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = selectPhoto.png; sourceTree = "<group>"; };
 		FCAA7A2A19452ECD00010866 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		FCAD82F7194AD4E100D0608F /* ajax-loader-bar.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "ajax-loader-bar.gif"; sourceTree = "<group>"; };
+		FCAD8334194AE97300D0608F /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		FCAD8335194AE97300D0608F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		FCAD8336194AE97300D0608F /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		FCAD8337194AE97300D0608F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		FCAD8338194AE97300D0608F /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		FCAD833E194AE99400D0608F /* FYX.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FYX.framework; path = FrameworkLibs/FYX.framework; sourceTree = "<group>"; };
+		FCAD833F194AE99400D0608F /* NetworkServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkServices.framework; path = FrameworkLibs/NetworkServices.embeddedframework/NetworkServices.framework; sourceTree = "<group>"; };
+		FCAD8340194AE99400D0608F /* ContextLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ContextLocation.framework; path = FrameworkLibs/ContextLocation.embeddedframework/ContextLocation.framework; sourceTree = "<group>"; };
+		FCAD8341194AE99400D0608F /* Common.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Common.framework; path = FrameworkLibs/Common.embeddedframework/Common.framework; sourceTree = "<group>"; };
+		FCAD8342194AE99400D0608F /* ContextCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ContextCore.framework; path = FrameworkLibs/ContextCore.embeddedframework/ContextCore.framework; sourceTree = "<group>"; };
 		FCAF95901946417600662414 /* FoundViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoundViewController.h; sourceTree = "<group>"; };
 		FCAF95911946417600662414 /* FoundViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoundViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -181,9 +201,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCAD8343194AE99400D0608F /* FYX.framework in Frameworks */,
+				FCAD8344194AE99400D0608F /* NetworkServices.framework in Frameworks */,
+				FCAD8345194AE99400D0608F /* ContextLocation.framework in Frameworks */,
+				FCAD8346194AE99400D0608F /* Common.framework in Frameworks */,
+				FCAD8347194AE99400D0608F /* ContextCore.framework in Frameworks */,
+				FCAD8339194AE97300D0608F /* CoreBluetooth.framework in Frameworks */,
+				FCAD833A194AE97300D0608F /* CoreLocation.framework in Frameworks */,
+				FCAD833B194AE97300D0608F /* libz.dylib in Frameworks */,
+				FCAD833C194AE97300D0608F /* MapKit.framework in Frameworks */,
+				FCAD833D194AE97300D0608F /* Security.framework in Frameworks */,
+				FCA3FA98193C809000390B10 /* CoreData.framework in Frameworks */,
 				FCAA7A2B19452ECD00010866 /* libsqlite3.dylib in Frameworks */,
 				FCA3FA94193C809000390B10 /* CoreGraphics.framework in Frameworks */,
-				FCA3FA98193C809000390B10 /* CoreData.framework in Frameworks */,
 				FCA3FA96193C809000390B10 /* UIKit.framework in Frameworks */,
 				FCA3FA92193C809000390B10 /* Foundation.framework in Frameworks */,
 			);
@@ -305,6 +335,16 @@
 		FCA3FA90193C809000390B10 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FCAD833E194AE99400D0608F /* FYX.framework */,
+				FCAD833F194AE99400D0608F /* NetworkServices.framework */,
+				FCAD8340194AE99400D0608F /* ContextLocation.framework */,
+				FCAD8341194AE99400D0608F /* Common.framework */,
+				FCAD8342194AE99400D0608F /* ContextCore.framework */,
+				FCAD8334194AE97300D0608F /* CoreBluetooth.framework */,
+				FCAD8335194AE97300D0608F /* CoreLocation.framework */,
+				FCAD8336194AE97300D0608F /* libz.dylib */,
+				FCAD8337194AE97300D0608F /* MapKit.framework */,
+				FCAD8338194AE97300D0608F /* Security.framework */,
 				FCAA7A2A19452ECD00010866 /* libsqlite3.dylib */,
 				FCA3FA91193C809000390B10 /* Foundation.framework */,
 				FCA3FA93193C809000390B10 /* CoreGraphics.framework */,
@@ -618,6 +658,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/FrameworkLibs",
+					"$(PROJECT_DIR)/FrameworkLibs/NetworkServices.embeddedframework",
+					"$(PROJECT_DIR)/FrameworkLibs/ContextLocation.embeddedframework",
+					"$(PROJECT_DIR)/FrameworkLibs/Common.embeddedframework",
+					"$(PROJECT_DIR)/FrameworkLibs/ContextCore.embeddedframework",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BloodHound/BloodHound-Prefix.pch";
 				INFOPLIST_FILE = "BloodHound/BloodHound-Info.plist";
@@ -631,6 +679,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/FrameworkLibs",
+					"$(PROJECT_DIR)/FrameworkLibs/NetworkServices.embeddedframework",
+					"$(PROJECT_DIR)/FrameworkLibs/ContextLocation.embeddedframework",
+					"$(PROJECT_DIR)/FrameworkLibs/Common.embeddedframework",
+					"$(PROJECT_DIR)/FrameworkLibs/ContextCore.embeddedframework",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BloodHound/BloodHound-Prefix.pch";
 				INFOPLIST_FILE = "BloodHound/BloodHound-Info.plist";

@@ -37,6 +37,12 @@ NSString *databasePath;
     
     [self createDB];
     
+    [FYX setAppId:@"a1b02ba0ceff8e732577743c829be1b589eb52741b0daa6492b35b24ccdd3377" appSecret:@"2a2b939eee6010f331cd09f3f97e36e949d68bca4fa38778bd5e554adc5fcd92" callbackUrl:@"comsmallemperor://authcode"];
+    [FYX startService:self];
+    self.visitManager = [FYXVisitManager new];
+    self.visitManager.delegate = self;
+    [self.visitManager start];
+    
     return YES;
 }
 
@@ -82,6 +88,75 @@ NSString *databasePath;
         }
     }
     return isSuccess;
+}
+
+
+- (void)didArrive:(FYXVisit *)visit;
+{
+    // this will be invoked when an authorized transmitter is sighted for the first time
+    NSLog(@"I arrived at a Gimbal Beacon!!! %@", visit.transmitter.name);
+    
+}
+- (void)receivedSighting:(FYXVisit *)visit updateTime:(NSDate *)updateTime RSSI:(NSNumber *)RSSI;
+{
+    
+    // this will be invoked when an authorized transmitter is sighted during an on-going visit
+    NSLog(@"I received a sighting!!! %@", visit.transmitter.name);
+    NSLog(@"Gimbal Beacon Value!!! %@", visit.transmitter.ownerId);
+    if([[UIApplication sharedApplication] applicationState] != UIApplicationStateActive) {
+        NSLog(@"Application status is in background %@",visit.transmitter.battery);
+        
+        if(_count < 2){
+            ++_count;
+            
+            //Logging slows down remove
+            // NSString *string = [NSString stringWithFormat:@"%d", _count];
+            // NSLog(@"Notification count is %@",string);
+            
+            UILocalNotification *localNotif = [[UILocalNotification alloc] init];
+            if (localNotif) {
+                localNotif.alertBody = @"SCOTTSDALE, AZ - Police are searching for a missing Scottsdale man.Scottsdale police say 65-year-old Raymond Grey was last seen around 5:30 p.m. on Sunday in the area of 94th Street and Sweetwater Avenue with his medium sized, brown and white colored dog.";
+                localNotif.alertAction = NSLocalizedString(@"Read Message", nil);
+                
+                //Just to switch screen to new development
+                /*RegisterController *registerC = [[RegisterController alloc] init];
+                 [self.window setRootViewController:registerC];*/
+                
+                //RegisterController *registerC = [[RegisterController alloc] init];
+                //[self.window setRootViewController:registerC];
+                
+                //localNotif.soundName = @"bloodhound.caf";
+                localNotif.applicationIconBadgeNumber = 0;
+                [[UIApplication sharedApplication] scheduleLocalNotification:localNotif];
+            }
+        }else{
+            NSLog(@"I am done with Notifications !!! %@", visit.transmitter.name);
+            exit(0);
+        }
+    }
+    
+}
+
+
+
+
+- (void)didDepart:(FYXVisit *)visit;
+{
+    // this will be invoked when an authorized transmitter has not been sighted for some time
+    NSLog(@"I left the proximity of a Gimbal Beacon!!!! %@", visit.transmitter.name);
+    NSLog(@"I was around the beacon for %f seconds", visit.dwellTime);
+}
+
+- (void)serviceStarted
+{
+    // this will be invoked if the service has successfully started
+    // bluetooth scanning will be started at this point.
+    NSLog(@"FYX Service Successfully Started");
+}
+- (void)startServiceFailed:(NSError *)error
+{
+    // this will be called if the service has failed to start
+    NSLog(@"%@", error);
 }
 
 
