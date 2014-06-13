@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "FoundViewController.h"
 
 
 @implementation AppDelegate
@@ -102,12 +103,19 @@ NSString *databasePath;
     
     // this will be invoked when an authorized transmitter is sighted during an on-going visit
     NSLog(@"I received a sighting!!! %@", visit.transmitter.name);
+     NSLog(@"I received a identifier!!! %@", visit.transmitter.identifier);
+    
+    //visit.transmitter.identifier
+    //Use this identifier to pull data from server  -- this is beaconID
+    
+    
+    
     NSLog(@"Gimbal Beacon Value!!! %@", visit.transmitter.ownerId);
     if([[UIApplication sharedApplication] applicationState] != UIApplicationStateActive) {
         NSLog(@"Application status is in background %@",visit.transmitter.battery);
         
-        if(_count < 2){
-            ++_count;
+        //if(_count < 100){
+         //   ++_count;
             
             //Logging slows down remove
             // NSString *string = [NSString stringWithFormat:@"%d", _count];
@@ -119,20 +127,17 @@ NSString *databasePath;
                 localNotif.alertAction = NSLocalizedString(@"Read Message", nil);
                 
                 //Just to switch screen to new development
-                /*RegisterController *registerC = [[RegisterController alloc] init];
-                 [self.window setRootViewController:registerC];*/
-                
-                //RegisterController *registerC = [[RegisterController alloc] init];
-                //[self.window setRootViewController:registerC];
+                FoundViewController *foundViewController = [[FoundViewController alloc] init];
+                 [self.window setRootViewController:foundViewController];
                 
                 localNotif.soundName = @"alarmsound.caf";
                 localNotif.applicationIconBadgeNumber = 0;
                 [[UIApplication sharedApplication] scheduleLocalNotification:localNotif];
             }
-        }else{
-            NSLog(@"I am done with Notifications !!! %@", visit.transmitter.name);
-            exit(0);
-        }
+       // }else{
+       //     NSLog(@"I am done with Notifications !!! %@", visit.transmitter.name);
+       //     exit(0);
+        //}
     }
     
 }
