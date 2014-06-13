@@ -10,6 +10,7 @@
 #import "RegisterViewController.h"
 #import "ActiveViewController.h"
 #import "ReportViewController.h"
+#import "FoundViewController.h"
 
 @interface MainViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *imageBackground;
@@ -66,6 +67,11 @@
     [self.view addSubview:skipButton];
     
     
+    UIImageView *skipButton1 = [[UIImageView alloc] initWithFrame:CGRectMake(  offset , 480, 583/2, 159/2)];
+    skipButton1.image  = [UIImage imageNamed:@"activeSearch.png"];
+    [self.view addSubview:skipButton1];
+    
+    
     UITapGestureRecognizer *singleTapRegister = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapDetectedRegister)];
     singleTapRegister.numberOfTapsRequired = 1;
     registerButton.userInteractionEnabled = YES;
@@ -82,6 +88,11 @@
     singleTapReport.numberOfTapsRequired = 1;
     reportButton.userInteractionEnabled = YES;
     [reportButton addGestureRecognizer:singleTapReport];
+    
+    UITapGestureRecognizer *singleTapFound = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapDetectedFound)];
+    singleTapFound.numberOfTapsRequired = 1;
+    skipButton1.userInteractionEnabled = YES;
+    [skipButton1 addGestureRecognizer:singleTapFound];
     
     
     
@@ -112,6 +123,15 @@
     [self.navigationController pushViewController:registerViewController animated:YES];
     //[ registerViewController rel];
 }
+
+-(void)tapDetectedFound{
+    NSLog(@"single Tap on imageview found button");
+    FoundViewController *foundViewController = [[FoundViewController alloc] initWithNibName:nil bundle:nil];
+    [self.navigationController pushViewController:foundViewController animated:YES];
+    //[ registerViewController rel];
+}
+
+
 
 -(void)tapDetectedActive{
     NSLog(@"single Tap on imageview active button");
