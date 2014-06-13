@@ -69,6 +69,7 @@
 		FCAA7A271944663000010866 /* SUITextField.m in Sources */ = {isa = PBXBuildFile; fileRef = FCAA7A261944663000010866 /* SUITextField.m */; };
 		FCAA7A291944663700010866 /* selectPhoto.png in Resources */ = {isa = PBXBuildFile; fileRef = FCAA7A281944663700010866 /* selectPhoto.png */; };
 		FCAA7A2B19452ECD00010866 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FCAA7A2A19452ECD00010866 /* libsqlite3.dylib */; };
+		FCAD82F8194AD4E100D0608F /* ajax-loader-bar.gif in Resources */ = {isa = PBXBuildFile; fileRef = FCAD82F7194AD4E100D0608F /* ajax-loader-bar.gif */; };
 		FCAF95921946417600662414 /* FoundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCAF95911946417600662414 /* FoundViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -170,6 +171,7 @@
 		FCAA7A261944663000010866 /* SUITextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUITextField.m; sourceTree = "<group>"; };
 		FCAA7A281944663700010866 /* selectPhoto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = selectPhoto.png; sourceTree = "<group>"; };
 		FCAA7A2A19452ECD00010866 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		FCAD82F7194AD4E100D0608F /* ajax-loader-bar.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "ajax-loader-bar.gif"; sourceTree = "<group>"; };
 		FCAF95901946417600662414 /* FoundViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoundViewController.h; sourceTree = "<group>"; };
 		FCAF95911946417600662414 /* FoundViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoundViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -243,6 +245,7 @@
 		FCA3FA85193C809000390B10 = {
 			isa = PBXGroup;
 			children = (
+				FCAD82F7194AD4E100D0608F /* ajax-loader-bar.gif */,
 				FC2934B21947252A00DF1087 /* UIScrollView+TPKeyboardAvoidingAdditions.h */,
 				FC2934B31947252A00DF1087 /* UIScrollView+TPKeyboardAvoidingAdditions.m */,
 				FC2934AF1947248800DF1087 /* TPKeyboardAvoidingScrollView.h */,
@@ -437,6 +440,7 @@
 				FC1F451B19406E34006C10F8 /* navBar.png in Resources */,
 				FCA3FAD2193C93DE00390B10 /* BloodHoundStoryBoard.storyboard in Resources */,
 				FC1F451619406560006C10F8 /* check.png in Resources */,
+				FCAD82F8194AD4E100D0608F /* ajax-loader-bar.gif in Resources */,
 				FC6CAECA193EF18F00FB5850 /* OpenSans-CondLight.ttf in Resources */,
 				FC1F451719406560006C10F8 /* uncheck.png in Resources */,
 				FCA3FAA9193C809000390B10 /* Images.xcassets in Resources */,

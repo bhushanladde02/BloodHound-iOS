@@ -401,8 +401,6 @@
     [self.view addSubview:checkButton];
     
     
-    
-    
     CGRect acceptlabelFrame = CGRectMake(40,836,260,20);
     UILabel *acceptLabel = [[UILabel alloc] initWithFrame:acceptlabelFrame];
     //nameLabel.backgroundColor = [UIColor grayColor];  //debug point
@@ -657,34 +655,26 @@ bool *isChecked = false;
     [request setURL:requestURL];
     
     
-    NSData * animationData = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"ajax-loader-bar.gif" ofType:nil]];
+    /*NSData * animationData = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"ajax-loader-bar.gif" ofType:nil]];
     AnimatedGif * animation = [AnimatedGif getAnimationForGifWithData:animationData];
-    newImageView = [[UIImageView alloc] initWithFrame:CGRectMake((320-220)/2, 240, 220, 19)];
+    newImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 220, 19)];
     
    // newImageView setani
-    [newImageView setAnimatedGif:animation startImmediately:YES];
-    [self.view addSubview:newImageView];
+    [newImageView setAnimatedGif:animation startImmediately:YES];*/
+   // [self.view addSubview:newImageView];
     
     //[self.view setUserInteractionEnabled:NO];
     
-    self.view.backgroundColor =  [self colorWithHexString:@"cccccc"];
+    //self.view.backgroundColor =  [self colorWithHexString:@"cccccc"];
    
     // Create url connection and fire request
     NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
-  
-    //send request
-   /* NSURLResponse *response;
-    NSError *err;
-    NSData *returnData = [ NSURLConnection sendSynchronousRequest: request returningResponse:&response error:&err];
+    av = [[UIAlertView alloc] initWithTitle:@"Processing..." message:@"" delegate:nil cancelButtonTitle:nil otherButtonTitles:nil];
+    //pv = [[UIProgressView alloc] initWithProgressViewStyle:UIProgressViewStyleBar];
+    //pv.progress = 5.0;
     
-    if(nil == err){
-        //handle data here for synchronous
-        self.view.backgroundColor =  [self colorWithHexString:@"ffffff"];
-        NSString *content = [NSString stringWithUTF8String:[returnData bytes]];
-        NSLog(@"responseData: %@", content);
-        [newImageView removeFromSuperview];
-    }*/
-    
+    [av addSubview:newImageView];
+    [av show];
 }
 
 //lock bc rotation
@@ -781,6 +771,9 @@ bool *isChecked = false;
 
 #pragma mark NSURLConnection Delegate Methods
 
+UIAlertView *av;
+
+
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
     // A response has been received, this is where we initialize the instance var you created
     // so that we can append data to it in the didReceiveData method
@@ -791,6 +784,7 @@ bool *isChecked = false;
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
     // Append the new data to the instance variable you declared
+    NSLog(@"Received data:%@",data);
     [_responseData appendData:data];
 }
 
@@ -804,6 +798,8 @@ bool *isChecked = false;
     // The request is complete and data has been received
     // You can parse the stuff in your instance variable now
 
+    [av dismissWithClickedButtonIndex:0 animated:NO];
+    
         self.view.backgroundColor =  [self colorWithHexString:@"ffffff"];
         NSString *content = [NSString stringWithUTF8String:[_responseData bytes]];
         NSLog(@"responseData: %@", content);
@@ -814,6 +810,7 @@ bool *isChecked = false;
                                                           message:@"Registration Successful"
                                                          delegate:nil
                                                 cancelButtonTitle:@"OK"
+    
                                                 otherButtonTitles: nil];
     
     [myAlertView show];
@@ -824,6 +821,8 @@ bool *isChecked = false;
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
     // The request has failed for some reason!
     // Check the error var
+    
+    [av dismissWithClickedButtonIndex:0 animated:NO];
     
     UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"Error"
                                                           message:@"Registration Failed, Please try later"
