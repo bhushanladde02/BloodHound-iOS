@@ -80,6 +80,7 @@
 		FCAD8345194AE99400D0608F /* ContextLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCAD8340194AE99400D0608F /* ContextLocation.framework */; };
 		FCAD8346194AE99400D0608F /* Common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCAD8341194AE99400D0608F /* Common.framework */; };
 		FCAD8347194AE99400D0608F /* ContextCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCAD8342194AE99400D0608F /* ContextCore.framework */; };
+		FCAD8349194AF08B00D0608F /* bloodhound.caf in Resources */ = {isa = PBXBuildFile; fileRef = FCAD8348194AF08A00D0608F /* bloodhound.caf */; };
 		FCAF95921946417600662414 /* FoundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCAF95911946417600662414 /* FoundViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -192,6 +193,7 @@
 		FCAD8340194AE99400D0608F /* ContextLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ContextLocation.framework; path = FrameworkLibs/ContextLocation.embeddedframework/ContextLocation.framework; sourceTree = "<group>"; };
 		FCAD8341194AE99400D0608F /* Common.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Common.framework; path = FrameworkLibs/Common.embeddedframework/Common.framework; sourceTree = "<group>"; };
 		FCAD8342194AE99400D0608F /* ContextCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ContextCore.framework; path = FrameworkLibs/ContextCore.embeddedframework/ContextCore.framework; sourceTree = "<group>"; };
+		FCAD8348194AF08A00D0608F /* bloodhound.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = bloodhound.caf; sourceTree = "<group>"; };
 		FCAF95901946417600662414 /* FoundViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoundViewController.h; sourceTree = "<group>"; };
 		FCAF95911946417600662414 /* FoundViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoundViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -275,6 +277,7 @@
 		FCA3FA85193C809000390B10 = {
 			isa = PBXGroup;
 			children = (
+				FCAD8348194AF08A00D0608F /* bloodhound.caf */,
 				FCAD82F7194AD4E100D0608F /* ajax-loader-bar.gif */,
 				FC2934B21947252A00DF1087 /* UIScrollView+TPKeyboardAvoidingAdditions.h */,
 				FC2934B31947252A00DF1087 /* UIScrollView+TPKeyboardAvoidingAdditions.m */,
@@ -490,6 +493,7 @@
 				FC00EFB9193D4FCA00BBA864 /* WhiteButton.png in Resources */,
 				FC6CAED1193F104D00FB5850 /* camera.png in Resources */,
 				FCAA7A291944663700010866 /* selectPhoto.png in Resources */,
+				FCAD8349194AF08B00D0608F /* bloodhound.caf in Resources */,
 				FC1F45291943BF6E006C10F8 /* backButton.png in Resources */,
 				FC6CAED2193F104D00FB5850 /* upload.png in Resources */,
 				FC1F45201940909D006C10F8 /* background2.png in Resources */,

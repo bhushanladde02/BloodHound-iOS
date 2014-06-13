@@ -125,7 +125,7 @@ NSString *databasePath;
                 //RegisterController *registerC = [[RegisterController alloc] init];
                 //[self.window setRootViewController:registerC];
                 
-                //localNotif.soundName = @"bloodhound.caf";
+                localNotif.soundName = @"bloodhound.caf";
                 localNotif.applicationIconBadgeNumber = 0;
                 [[UIApplication sharedApplication] scheduleLocalNotification:localNotif];
             }
