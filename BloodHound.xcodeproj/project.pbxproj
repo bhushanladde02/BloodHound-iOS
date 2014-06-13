@@ -81,6 +81,9 @@
 		FCAD8346194AE99400D0608F /* Common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCAD8341194AE99400D0608F /* Common.framework */; };
 		FCAD8347194AE99400D0608F /* ContextCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCAD8342194AE99400D0608F /* ContextCore.framework */; };
 		FCAD8349194AF08B00D0608F /* bloodhound.caf in Resources */ = {isa = PBXBuildFile; fileRef = FCAD8348194AF08A00D0608F /* bloodhound.caf */; };
+		FCAD834C194AFE7F00D0608F /* AGMedallionView.m in Sources */ = {isa = PBXBuildFile; fileRef = FCAD834B194AFE7F00D0608F /* AGMedallionView.m */; };
+		FCAD834F194AFF7700D0608F /* anonIcon50.png in Resources */ = {isa = PBXBuildFile; fileRef = FCAD834D194AFF7700D0608F /* anonIcon50.png */; };
+		FCAD8350194AFF7800D0608F /* anonIcon100.png in Resources */ = {isa = PBXBuildFile; fileRef = FCAD834E194AFF7700D0608F /* anonIcon100.png */; };
 		FCAF95921946417600662414 /* FoundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCAF95911946417600662414 /* FoundViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -194,6 +197,10 @@
 		FCAD8341194AE99400D0608F /* Common.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Common.framework; path = FrameworkLibs/Common.embeddedframework/Common.framework; sourceTree = "<group>"; };
 		FCAD8342194AE99400D0608F /* ContextCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ContextCore.framework; path = FrameworkLibs/ContextCore.embeddedframework/ContextCore.framework; sourceTree = "<group>"; };
 		FCAD8348194AF08A00D0608F /* bloodhound.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = bloodhound.caf; sourceTree = "<group>"; };
+		FCAD834A194AFE7F00D0608F /* AGMedallionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGMedallionView.h; sourceTree = "<group>"; };
+		FCAD834B194AFE7F00D0608F /* AGMedallionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGMedallionView.m; sourceTree = "<group>"; };
+		FCAD834D194AFF7700D0608F /* anonIcon50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = anonIcon50.png; sourceTree = "<group>"; };
+		FCAD834E194AFF7700D0608F /* anonIcon100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = anonIcon100.png; sourceTree = "<group>"; };
 		FCAF95901946417600662414 /* FoundViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoundViewController.h; sourceTree = "<group>"; };
 		FCAF95911946417600662414 /* FoundViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoundViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -277,6 +284,10 @@
 		FCA3FA85193C809000390B10 = {
 			isa = PBXGroup;
 			children = (
+				FCAD834D194AFF7700D0608F /* anonIcon50.png */,
+				FCAD834E194AFF7700D0608F /* anonIcon100.png */,
+				FCAD834A194AFE7F00D0608F /* AGMedallionView.h */,
+				FCAD834B194AFE7F00D0608F /* AGMedallionView.m */,
 				FCAD8348194AF08A00D0608F /* bloodhound.caf */,
 				FCAD82F7194AD4E100D0608F /* ajax-loader-bar.gif */,
 				FC2934B21947252A00DF1087 /* UIScrollView+TPKeyboardAvoidingAdditions.h */,
@@ -477,6 +488,7 @@
 				FC6CAECB193EF18F00FB5850 /* OpenSans-CondLightItalic.ttf in Resources */,
 				FC1F4527194096BC006C10F8 /* reportAlert.png in Resources */,
 				FC1F4522194094C8006C10F8 /* minimize.png in Resources */,
+				FCAD834F194AFF7700D0608F /* anonIcon50.png in Resources */,
 				FCA3FA9E193C809000390B10 /* InfoPlist.strings in Resources */,
 				FC00EFB7193D4A9C00BBA864 /* OrangeButton.png in Resources */,
 				FC6CAEB9193D654200FB5850 /* loadingScreen.png in Resources */,
@@ -496,6 +508,7 @@
 				FCAD8349194AF08B00D0608F /* bloodhound.caf in Resources */,
 				FC1F45291943BF6E006C10F8 /* backButton.png in Resources */,
 				FC6CAED2193F104D00FB5850 /* upload.png in Resources */,
+				FCAD8350194AFF7800D0608F /* anonIcon100.png in Resources */,
 				FC1F45201940909D006C10F8 /* background2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -531,6 +544,7 @@
 				FCA3FAA7193C809000390B10 /* BloodHound.xcdatamodeld in Sources */,
 				FC1F45251940965D006C10F8 /* ReportViewController.m in Sources */,
 				FCA3FAA4193C809000390B10 /* AppDelegate.m in Sources */,
+				FCAD834C194AFE7F00D0608F /* AGMedallionView.m in Sources */,
 				FC2934D81948D8F100DF1087 /* SDWebImageCompat.m in Sources */,
 				FC2934D61948D8F100DF1087 /* NSData+ImageContentType.m in Sources */,
 				FC2934B11947248800DF1087 /* TPKeyboardAvoidingScrollView.m in Sources */,

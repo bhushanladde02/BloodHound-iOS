@@ -128,7 +128,7 @@ NSString *databasePath;
                 
                 //Just to switch screen to new development
                 FoundViewController *foundViewController = [[FoundViewController alloc] init];
-                 [self.window setRootViewController:foundViewController];
+                [(UINavigationController*)self.window.rootViewController pushViewController:foundViewController animated:nil];
                 
                 localNotif.soundName = @"alarmsound.caf";
                 localNotif.applicationIconBadgeNumber = 0;
