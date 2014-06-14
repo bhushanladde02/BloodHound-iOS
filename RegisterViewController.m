@@ -580,6 +580,12 @@ bool *isChecked = false;
 }
 
 
+- (NSUInteger)supportedInterfaceOrientations{
+    return UIInterfaceOrientationMaskPortrait;
+}
+
+
+
 //sends http request
 -(void) registerUser{
     

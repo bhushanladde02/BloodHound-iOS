@@ -104,6 +104,10 @@
     
 }
 
+- (NSUInteger)supportedInterfaceOrientations{
+    return UIInterfaceOrientationMaskPortrait;
+}
+
 
 
 -(UIColor*)colorWithHexString:(NSString*)hex

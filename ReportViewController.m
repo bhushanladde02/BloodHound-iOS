@@ -224,6 +224,10 @@ NSInteger height  = 0;
     sqlite3_close(d);  //close database
 }
 
+- (NSUInteger)supportedInterfaceOrientations{
+    return UIInterfaceOrientationMaskPortrait;
+}
+
 
 -(UIColor*)colorWithHexString:(NSString*)hex
 {

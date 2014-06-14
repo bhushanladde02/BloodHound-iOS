@@ -68,6 +68,12 @@
     
 }
 
+
+- (NSUInteger)supportedInterfaceOrientations{
+    return UIInterfaceOrientationMaskPortrait;
+}
+
+
 -(void)back {
     
     [self.navigationController popViewControllerAnimated:YES];
