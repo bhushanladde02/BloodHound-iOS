@@ -170,11 +170,10 @@
     //photo thumbnail
     //placeholder
     CGRect thumbInputLabelFrame = CGRectMake(200,160,100,100);
-    thumbField = [[SUITextField alloc] initWithFrame:thumbInputLabelFrame];
-    thumbField.placeholder = @"Photo Thumbnail";
-    thumbField.backgroundColor = [UIColor grayColor];
+    thumbField = [[UIImageView alloc] initWithFrame:thumbInputLabelFrame];
+     thumbField.backgroundColor = [UIColor grayColor];
+    thumbField.image = [UIImage imageNamed:@"anonIcon100.png"];
     thumbField.layer.borderColor = [[self colorWithHexString:@"3fa69a"] CGColor ];
-    thumbField.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:16];
     [self.view addSubview:thumbField];
     
     //photo label
@@ -709,7 +708,7 @@ bool *isChecked = false;
     [picker dismissViewControllerAnimated:YES completion:NULL];
     
     //set thumbnail
-    UIImageView *picture = [[UIImageView alloc] initWithFrame:CGRectMake(170,150,130,130)];
+    UIImageView *picture = [[UIImageView alloc] initWithFrame:CGRectMake(200,160,100,100)];
     picture.image  = chosenImage;
     [self.view addSubview:picture];
 

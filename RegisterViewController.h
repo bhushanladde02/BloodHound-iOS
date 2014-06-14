@@ -25,8 +25,9 @@ UIImageView *newImageView;
 NSURL *imgURL;  //image url in media
 
 UIPlaceHolderTextView *featuresTextField,*notesTextField,*callInputField;
+UIImageView *thumbField;
 
-SUITextField *deviceTextField, *textField, *ltextField, *thumbField,*ageTextField,*heightTextField,*weightTextField,*hairTextField,*eyeTextField,*streetAddressInputField,*cityInputField,*stateInputField,*zipInputField;
+SUITextField *deviceTextField, *textField, *ltextField,*ageTextField,*heightTextField,*weightTextField,*hairTextField,*eyeTextField,*streetAddressInputField,*cityInputField,*stateInputField,*zipInputField;
 
 //(BEACONID ,FNAME ,LNAME ,IMGURL ,STREET ,CITY ,STATE ,ZIP ,AGE ,HEIGHT ,WEIGHT ,HCOLOR , ECOLOR , FEATURE ,SPECIAL ,ACTION )
 NSString *beaconID, *fname, *lname, *imgurl, *street, *city,*state, *zip, *age, *height, *weight, *weight, *hcolor, *ecolor, *feature, *special, *action;
