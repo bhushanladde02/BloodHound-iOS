@@ -85,6 +85,7 @@
 		FCAD837E194B836E00D0608F /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = FCAD836E194B836E00D0608F /* UIImageView+HighlightedWebCache.m */; };
 		FCAD837F194B836E00D0608F /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = FCAD8370194B836E00D0608F /* UIImageView+WebCache.m */; };
 		FCAF95921946417600662414 /* FoundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCAF95911946417600662414 /* FoundViewController.m */; };
+		FCB18F52194C56CC00A3345F /* UIPlaceHolderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB18F51194C56CC00A3345F /* UIPlaceHolderTextView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -203,6 +204,8 @@
 		FCAD8370194B836E00D0608F /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		FCAF95901946417600662414 /* FoundViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoundViewController.h; sourceTree = "<group>"; };
 		FCAF95911946417600662414 /* FoundViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoundViewController.m; sourceTree = "<group>"; };
+		FCB18F50194C56CC00A3345F /* UIPlaceHolderTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIPlaceHolderTextView.h; sourceTree = "<group>"; };
+		FCB18F51194C56CC00A3345F /* UIPlaceHolderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIPlaceHolderTextView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -245,6 +248,8 @@
 		FCA3FA85193C809000390B10 = {
 			isa = PBXGroup;
 			children = (
+				FCB18F50194C56CC00A3345F /* UIPlaceHolderTextView.h */,
+				FCB18F51194C56CC00A3345F /* UIPlaceHolderTextView.m */,
 				FCAD8351194B836E00D0608F /* SDWebImage */,
 				FCAD834D194AFF7700D0608F /* anonIcon50.png */,
 				FCAD834E194AFF7700D0608F /* anonIcon100.png */,
@@ -537,6 +542,7 @@
 				FCAF95921946417600662414 /* FoundViewController.m in Sources */,
 				FC1F451E19409055006C10F8 /* ActiveViewController.m in Sources */,
 				FC2934B41947252A00DF1087 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
+				FCB18F52194C56CC00A3345F /* UIPlaceHolderTextView.m in Sources */,
 				FCAD8376194B836E00D0608F /* SDWebImageDownloader.m in Sources */,
 				FCAA7A1619440D6600010866 /* AnimatedGif.m in Sources */,
 				FCAA7A271944663000010866 /* SUITextField.m in Sources */,

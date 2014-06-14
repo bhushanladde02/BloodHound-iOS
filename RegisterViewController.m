@@ -329,7 +329,7 @@
     
     //input distinguishing features
     CGRect featuresInputLabelFrame = CGRectMake(20,526,280,60);
-    featuresTextField = [[SUITextField alloc] initWithFrame:featuresInputLabelFrame];
+    featuresTextField = [[UIPlaceHolderTextView alloc] initWithFrame:featuresInputLabelFrame];
     featuresTextField.placeholder = @"Distinguishing Features";
     featuresTextField.layer.borderWidth = 1;
     featuresTextField.layer.cornerRadius = 3;
@@ -341,7 +341,7 @@
     
     //input special notes
     CGRect notesInputLabelFrame = CGRectMake(20, 591, 280, 60);
-    notesTextField = [[SUITextField alloc] initWithFrame:notesInputLabelFrame];
+    notesTextField = [[UIPlaceHolderTextView alloc] initWithFrame:notesInputLabelFrame];
     notesTextField.placeholder = @"Any special notes...";
     notesTextField.layer.borderWidth = 1;
     notesTextField.layer.cornerRadius = 3;
@@ -364,7 +364,7 @@
     
     //input directions if found
     CGRect callInputLabelFrame = CGRectMake(20,691,280,60);
-    callInputField = [[SUITextField alloc] initWithFrame:callInputLabelFrame];
+    callInputField = [[UIPlaceHolderTextView alloc] initWithFrame:callInputLabelFrame];
     callInputField.placeholder = @"What should a person do if they find your loved one?";
     callInputField.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:16];
     callInputField.layer.borderWidth = 1;

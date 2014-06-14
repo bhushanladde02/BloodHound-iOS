@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "SUITextField.h"
 #import <sqlite3.h>
+#import "UIPlaceHolderTextView.h"
 
 @interface RegisterViewController : UIViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate, NSURLConnectionDelegate>
 @end
@@ -23,7 +24,9 @@ NSMutableData *_responseData;
 UIImageView *newImageView;
 NSURL *imgURL;  //image url in media
 
-SUITextField *deviceTextField, *textField, *ltextField, *thumbField,*ageTextField,*heightTextField,*weightTextField,*hairTextField,*eyeTextField,*featuresTextField,*notesTextField,*streetAddressInputField,*cityInputField,*stateInputField,*zipInputField,*callInputField;
+UIPlaceHolderTextView *featuresTextField,*notesTextField,*callInputField;
+
+SUITextField *deviceTextField, *textField, *ltextField, *thumbField,*ageTextField,*heightTextField,*weightTextField,*hairTextField,*eyeTextField,*streetAddressInputField,*cityInputField,*stateInputField,*zipInputField;
 
 //(BEACONID ,FNAME ,LNAME ,IMGURL ,STREET ,CITY ,STATE ,ZIP ,AGE ,HEIGHT ,WEIGHT ,HCOLOR , ECOLOR , FEATURE ,SPECIAL ,ACTION )
 NSString *beaconID, *fname, *lname, *imgurl, *street, *city,*state, *zip, *age, *height, *weight, *weight, *hcolor, *ecolor, *feature, *special, *action;
