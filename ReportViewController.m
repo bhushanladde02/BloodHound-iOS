@@ -134,10 +134,10 @@ NSInteger height  = 0;
     NSLog(@"img url is ");
     NSLog(imgURL);
     
-    [thumbnail setImageWithURL:imgURL];
+    [thumbnail setImageWithURL:imgURL placeholderImage:[UIImage imageNamed:@"anonIcon50.png"]];
     
     [self.view addSubview:thumbnail];
-    thumbnail.backgroundColor = [self colorWithHexString:@"3fa69a"]; //testing point
+    //thumbnail.backgroundColor = [self colorWithHexString:@"3fa69a"]; //testing point
     
      
     UILabel *viewCellLabel = [[UILabel alloc] initWithFrame: CGRectMake(80, 60+offset, 200, 50)];
