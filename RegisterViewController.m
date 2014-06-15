@@ -11,6 +11,7 @@
 #import "UIImageView+AnimatedGif.h"
 #import <QuartzCore/QuartzCore.h>
 #import "TPKeyboardAvoidingScrollView.h"
+#import <AdSupport/ASIdentifierManager.h>
 
 @interface RegisterViewController ()
 
@@ -443,6 +444,9 @@
     submitButton.userInteractionEnabled = YES;
     [submitButton addGestureRecognizer:singleTapRegister];
     
+    adID = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
+    NSLog(@"Ad ID is %@", adID); //this will be used as unique ID
+    
 }
 
 bool *isChecked = false;
@@ -635,6 +639,22 @@ bool *isChecked = false;
     // Dictionary that holds post parameters. You can set your post parameters that your server accepts or programmed to accept.
     NSMutableDictionary* _params = [[NSMutableDictionary alloc] init];
     [_params setObject:@"en" forKey:@"lan"];
+    [_params setObject:beaconID  forKey:@"deviceID"];
+    [_params setObject:fname  forKey:@"firstname"];
+    [_params setObject:lname  forKey:@"lastname"];
+    [_params setObject:age  forKey:@"age"];
+    [_params setObject:height  forKey:@"height"];
+    [_params setObject:weight  forKey:@"weight"];
+    [_params setObject:hcolor  forKey:@"hcolor"];
+    [_params setObject:ecolor  forKey:@"ecolor"];
+    [_params setObject:feature  forKey:@"feature"];
+    [_params setObject:street  forKey:@"street"];
+    [_params setObject:zip  forKey:@"zip"];
+    [_params setObject:special  forKey:@"special"];
+    [_params setObject:action  forKey:@"action"];
+    [_params setObject:adID  forKey:@"uniqueID"]; //uniqueID for device
+
+
     //[_params setObject:[NSString stringWithFormat:@"%d", userId] forKey:[NSString stringWithString:@"userId"]];
     //[_params setObject:[NSString stringWithFormat:@"%@",title] forKey:@"title"];
     

@@ -31,3 +31,6 @@ SUITextField *deviceTextField, *textField, *ltextField,*ageTextField,*heightText
 
 //(BEACONID ,FNAME ,LNAME ,IMGURL ,STREET ,CITY ,STATE ,ZIP ,AGE ,HEIGHT ,WEIGHT ,HCOLOR , ECOLOR , FEATURE ,SPECIAL ,ACTION )
 NSString *beaconID, *fname, *lname, *imgurl, *street, *city,*state, *zip, *age, *height, *weight, *weight, *hcolor, *ecolor, *feature, *special, *action;
+
+//AD ID from System
+NSString *adID;

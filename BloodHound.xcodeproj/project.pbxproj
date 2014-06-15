@@ -86,6 +86,7 @@
 		FCAD837F194B836E00D0608F /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = FCAD8370194B836E00D0608F /* UIImageView+WebCache.m */; };
 		FCAF95921946417600662414 /* FoundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCAF95911946417600662414 /* FoundViewController.m */; };
 		FCB18F52194C56CC00A3345F /* UIPlaceHolderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB18F51194C56CC00A3345F /* UIPlaceHolderTextView.m */; };
+		FCB18F62194DA70000A3345F /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCB18F61194DA70000A3345F /* AdSupport.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -206,6 +207,7 @@
 		FCAF95911946417600662414 /* FoundViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoundViewController.m; sourceTree = "<group>"; };
 		FCB18F50194C56CC00A3345F /* UIPlaceHolderTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIPlaceHolderTextView.h; sourceTree = "<group>"; };
 		FCB18F51194C56CC00A3345F /* UIPlaceHolderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIPlaceHolderTextView.m; sourceTree = "<group>"; };
+		FCB18F61194DA70000A3345F /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,6 +215,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCB18F62194DA70000A3345F /* AdSupport.framework in Frameworks */,
 				FCAD8343194AE99400D0608F /* FYX.framework in Frameworks */,
 				FCAD8344194AE99400D0608F /* NetworkServices.framework in Frameworks */,
 				FCAD8345194AE99400D0608F /* ContextLocation.framework in Frameworks */,
@@ -315,6 +318,7 @@
 		FCA3FA90193C809000390B10 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FCB18F61194DA70000A3345F /* AdSupport.framework */,
 				FCAD833E194AE99400D0608F /* FYX.framework */,
 				FCAD833F194AE99400D0608F /* NetworkServices.framework */,
 				FCAD8340194AE99400D0608F /* ContextLocation.framework */,
@@ -693,6 +697,7 @@
 				GCC_PREFIX_HEADER = "BloodHound/BloodHound-Prefix.pch";
 				INFOPLIST_FILE = "BloodHound/BloodHound-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -714,6 +719,7 @@
 				GCC_PREFIX_HEADER = "BloodHound/BloodHound-Prefix.pch";
 				INFOPLIST_FILE = "BloodHound/BloodHound-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

@@ -13,6 +13,9 @@ import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
+import com.smallemperor.db.Lost;
+import com.smallemperor.db.LostDAO;
+
 public class UploadServlet extends HttpServlet {
    
    /**
@@ -30,6 +33,89 @@ private boolean isMultipart;
               throws ServletException, java.io.IOException {
 	   
 	   init(); //just to set filePath
+	  
+	    String beaconID= (String) request.getAttribute("deviceID");
+	    String fname= (String) request.getAttribute("firstname");
+	    String lname= (String) request.getAttribute("lastname");
+	    String age= (String) request.getAttribute("age");
+	    String height= (String) request.getAttribute("height");
+	    String weight= (String) request.getAttribute("weight");
+	    String hcolor= (String) request.getAttribute("hcolor");
+	    String ecolor= (String) request.getAttribute("ecolor");
+	    String feature= (String) request.getAttribute("feature");
+	    String street= (String) request.getAttribute("street");
+	    String zip= (String) request.getAttribute("zip");
+	    String special= (String) request.getAttribute("special");
+	    String action= (String) request.getAttribute("action");
+	    String adID = (String)request.getAttribute("uniqueID");
+	   
+	    beaconID = beaconID==null?"":beaconID;
+	    fname = fname==null?"":fname;
+	    lname = lname==null?"":lname;
+	    age = age==null?"":age;
+	    height = height==null?"":height;
+	    weight = weight==null?"":weight;
+	    hcolor = hcolor==null?"":hcolor;
+	    ecolor = ecolor==null?"":ecolor;
+	    feature = feature==null?"":feature;
+	    street = street==null?"":street;
+	    zip = zip==null?"":zip;
+	    special= special==null?"":special;
+	    action= action==null?"":action;
+	    
+	   
+	   Lost lost = new Lost();
+	   lost.setBeaconId(beaconID);
+	   lost.setFirstname(fname);
+	   lost.setLastname(lname);
+	   lost.setCol0(age);
+	   lost.setCol1(height);
+	   lost.setCol2(weight);
+	   lost.setHaircolor(hcolor);
+	   lost.setEyecolor(ecolor);
+	   lost.setCol3(feature);
+	   lost.setAddress(street);
+	   lost.setCol4(zip);
+	   lost.setCol5(special);
+	   lost.setCol6(action);
+	   lost.setCol7("false"); //isReported field - Col7 - set to false
+	   lost.setCol8(adID);  //unique deviceID
+	   
+	  
+	   //insert to lost db
+	   LostDAO lostDAO = new LostDAO();
+	   lostDAO.insertToDB(lost);	   
+	   
+	   
+	   
+	   
+	   /*
+	    *  [_params setObject:beaconID  forKey:@"deviceID"];
+    [_params setObject:fname  forKey:@"firstname"];
+    [_params setObject:lname  forKey:@"lastname"];
+    [_params setObject:age  forKey:@"age"];
+    [_params setObject:height  forKey:@"height"];
+    [_params setObject:weight  forKey:@"weight"];
+    [_params setObject:hcolor  forKey:@"hcolor"];
+    [_params setObject:ecolor  forKey:@"ecolor"];
+    [_params setObject:feature  forKey:@"feature"];
+    [_params setObject:street  forKey:@"street"];
+    [_params setObject:zip  forKey:@"zip"];
+    [_params setObject:special  forKey:@"special"];
+    [_params setObject:action  forKey:@"action"];
+    [_params setObject:adID  forKey:@"uniqueID"]; //unique ID for device
+	    */
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
 	   
 	   filePath =  "/var/lib/tomcat7/webapps/ROOT/images/";
 	   
@@ -98,6 +184,7 @@ private boolean isMultipart;
             out.println("Uploaded Filename: " + fileName + "<br>");
          }
       }
+      out.println("Success Inserting to Database");
       out.println("</body>");
       out.println("</html>");
    }catch(Exception ex) {
