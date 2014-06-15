@@ -521,7 +521,23 @@ bool *isChecked = false;
 
 -(BOOL) validateInput{
     //validate input
-    return FALSE;
+    if([deviceTextField.text isEqualToString:@""]){
+        [self alertUser: @"Required" : @"Device ID Missing"];
+        return NO;
+    }
+    
+    return TRUE;
+}
+
+
+-(void) alertUser:(NSString*) header : (NSString*) message {
+    UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:header
+                                                          message:message
+                                                         delegate:nil
+                                                cancelButtonTitle:@"OK"
+                                
+                                                otherButtonTitles: nil];
+    [myAlertView show];
 }
 
 
@@ -587,6 +603,12 @@ bool *isChecked = false;
 
 //sends http request
 -(void) registerUser{
+    
+    //validate first
+    BOOL validate = [self validateInput];
+    
+    if(!validate)
+        return;
     
     
     //insert to local database
