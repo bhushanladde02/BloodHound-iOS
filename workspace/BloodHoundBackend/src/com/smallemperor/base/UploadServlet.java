@@ -36,24 +36,27 @@ private boolean isMultipart;
    private int maxMemSize = 100 * 1024;
    private File file ;
    private LostDAO lostDAO;
-   private Gson gson;
-   
+
    @Override
 	public void init() throws ServletException {
 		// TODO Auto-generated method stub
 		super.init();
 		lostDAO = new LostDAO();
-		gson = new Gson();
 	}
 
     public void doPost(HttpServletRequest request, 
                HttpServletResponse response)
               throws ServletException, java.io.IOException {
 	   
-	   init(); //just to set filePath
+	  // init(); //just to set filePath
 	   
-	   String jsonString = getBody(request);
+    	
+    	
+	 
+	  String jsonString = request.getHeader("jsonString"); //not sure - this shouldn't be passed in header 
 	   
+    //String jsonString = getBody(request);
+    	
 	   System.out.println(jsonString);
 	   
 	   JsonElement jelement = new JsonParser().parse(jsonString);
@@ -202,6 +205,7 @@ private boolean isMultipart;
       out.println("</html>");
    }catch(Exception ex) {
        System.out.println(ex);
+       ex.printStackTrace();
    }
    }
    
