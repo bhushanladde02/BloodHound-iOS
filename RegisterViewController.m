@@ -170,11 +170,10 @@
     //photo thumbnail
     //placeholder
     CGRect thumbInputLabelFrame = CGRectMake(200,160,100,100);
-    thumbField = [[SUITextField alloc] initWithFrame:thumbInputLabelFrame];
-    thumbField.placeholder = @"Photo Thumbnail";
-    thumbField.backgroundColor = [UIColor grayColor];
+    thumbField = [[UIImageView alloc] initWithFrame:thumbInputLabelFrame];
+     thumbField.backgroundColor = [UIColor grayColor];
+    thumbField.image = [UIImage imageNamed:@"anonIcon100.png"];
     thumbField.layer.borderColor = [[self colorWithHexString:@"3fa69a"] CGColor ];
-    thumbField.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:16];
     [self.view addSubview:thumbField];
     
     //photo label
@@ -329,7 +328,7 @@
     
     //input distinguishing features
     CGRect featuresInputLabelFrame = CGRectMake(20,526,280,60);
-    featuresTextField = [[SUITextField alloc] initWithFrame:featuresInputLabelFrame];
+    featuresTextField = [[UIPlaceHolderTextView alloc] initWithFrame:featuresInputLabelFrame];
     featuresTextField.placeholder = @"Distinguishing Features";
     featuresTextField.layer.borderWidth = 1;
     featuresTextField.layer.cornerRadius = 3;
@@ -341,7 +340,7 @@
     
     //input special notes
     CGRect notesInputLabelFrame = CGRectMake(20, 591, 280, 60);
-    notesTextField = [[SUITextField alloc] initWithFrame:notesInputLabelFrame];
+    notesTextField = [[UIPlaceHolderTextView alloc] initWithFrame:notesInputLabelFrame];
     notesTextField.placeholder = @"Any special notes...";
     notesTextField.layer.borderWidth = 1;
     notesTextField.layer.cornerRadius = 3;
@@ -364,7 +363,7 @@
     
     //input directions if found
     CGRect callInputLabelFrame = CGRectMake(20,691,280,60);
-    callInputField = [[SUITextField alloc] initWithFrame:callInputLabelFrame];
+    callInputField = [[UIPlaceHolderTextView alloc] initWithFrame:callInputLabelFrame];
     callInputField.placeholder = @"What should a person do if they find your loved one?";
     callInputField.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:16];
     callInputField.layer.borderWidth = 1;
@@ -522,7 +521,23 @@ bool *isChecked = false;
 
 -(BOOL) validateInput{
     //validate input
-    return FALSE;
+    if([deviceTextField.text isEqualToString:@""]){
+        [self alertUser: @"Required" : @"Device ID Missing"];
+        return NO;
+    }
+    
+    return TRUE;
+}
+
+
+-(void) alertUser:(NSString*) header : (NSString*) message {
+    UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:header
+                                                          message:message
+                                                         delegate:nil
+                                                cancelButtonTitle:@"OK"
+                                
+                                                otherButtonTitles: nil];
+    [myAlertView show];
 }
 
 
@@ -580,8 +595,20 @@ bool *isChecked = false;
 }
 
 
+- (NSUInteger)supportedInterfaceOrientations{
+    return UIInterfaceOrientationMaskPortrait;
+}
+
+
+
 //sends http request
 -(void) registerUser{
+    
+    //validate first
+    BOOL validate = [self validateInput];
+    
+    if(!validate)
+        return;
     
     
     //insert to local database
@@ -703,7 +730,7 @@ bool *isChecked = false;
     [picker dismissViewControllerAnimated:YES completion:NULL];
     
     //set thumbnail
-    UIImageView *picture = [[UIImageView alloc] initWithFrame:CGRectMake(170,150,130,130)];
+    UIImageView *picture = [[UIImageView alloc] initWithFrame:CGRectMake(200,160,100,100)];
     picture.image  = chosenImage;
     [self.view addSubview:picture];
 
