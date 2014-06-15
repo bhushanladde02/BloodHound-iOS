@@ -48,7 +48,7 @@ public class FindPeople extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		String beaconId = (String) request.getAttribute("deviceID");
+		String beaconId = (String) request.getParameter("deviceID");
 		Gson gson = new Gson();
 		 LostDAO lostDAO = new LostDAO();
 		Lost lostObject = lostDAO.getLostDetails(beaconId);

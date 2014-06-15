@@ -1,6 +1,10 @@
 package com.smallemperor.base;
 // Import required java libraries
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.Iterator;
 import java.util.List;
 
@@ -13,6 +17,10 @@ import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import com.smallemperor.db.Lost;
 import com.smallemperor.db.LostDAO;
 
@@ -27,41 +35,47 @@ private boolean isMultipart;
    private int maxFileSize = 500 * 1024;
    private int maxMemSize = 100 * 1024;
    private File file ;
+   private LostDAO lostDAO;
+   private Gson gson;
+   
+   @Override
+	public void init() throws ServletException {
+		// TODO Auto-generated method stub
+		super.init();
+		lostDAO = new LostDAO();
+		gson = new Gson();
+	}
 
     public void doPost(HttpServletRequest request, 
                HttpServletResponse response)
               throws ServletException, java.io.IOException {
 	   
 	   init(); //just to set filePath
-	  
-	    String beaconID= (String) request.getAttribute("deviceID");
-	    String fname= (String) request.getAttribute("firstname");
-	    String lname= (String) request.getAttribute("lastname");
-	    String age= (String) request.getAttribute("age");
-	    String height= (String) request.getAttribute("height");
-	    String weight= (String) request.getAttribute("weight");
-	    String hcolor= (String) request.getAttribute("hcolor");
-	    String ecolor= (String) request.getAttribute("ecolor");
-	    String feature= (String) request.getAttribute("feature");
-	    String street= (String) request.getAttribute("street");
-	    String zip= (String) request.getAttribute("zip");
-	    String special= (String) request.getAttribute("special");
-	    String action= (String) request.getAttribute("action");
-	    String adID = (String)request.getAttribute("uniqueID");
 	   
-	    beaconID = beaconID==null?"":beaconID;
-	    fname = fname==null?"":fname;
-	    lname = lname==null?"":lname;
-	    age = age==null?"":age;
-	    height = height==null?"":height;
-	    weight = weight==null?"":weight;
-	    hcolor = hcolor==null?"":hcolor;
-	    ecolor = ecolor==null?"":ecolor;
-	    feature = feature==null?"":feature;
-	    street = street==null?"":street;
-	    zip = zip==null?"":zip;
-	    special= special==null?"":special;
-	    action= action==null?"":action;
+	   String jsonString = getBody(request);
+	   
+	   System.out.println(jsonString);
+	   
+	   JsonElement jelement = new JsonParser().parse(jsonString);
+	   JsonObject  jobject = jelement.getAsJsonObject();
+	   
+	  // request.get
+	  
+	    String beaconID= jobject.get("deviceID").toString();
+	    String fname= jobject.get("firstname").toString();
+	    String lname= jobject.get("lastname").toString();
+	    String imgURL = jobject.get("imgURL").toString();
+	    String age= jobject.get("age").toString();
+	    String height= jobject.get("height").toString();
+	    String weight= jobject.get("weight").toString();
+	    String hcolor= jobject.get("hcolor").toString();
+	    String ecolor= jobject.get("ecolor").toString();
+	    String feature= jobject.get("feature").toString();
+	    String street= jobject.get("street").toString();
+	    String zip= jobject.get("zip").toString();
+	    String special= jobject.get("special").toString();
+	    String action= jobject.get("action").toString();
+	    String adID = jobject.get("uniqueID").toString();
 	    
 	   
 	   Lost lost = new Lost();
@@ -80,10 +94,9 @@ private boolean isMultipart;
 	   lost.setCol6(action);
 	   lost.setCol7("false"); //isReported field - Col7 - set to false
 	   lost.setCol8(adID);  //unique deviceID
+	   lost.setCol9(imgURL);
 	   
-	  
-	   //insert to lost db
-	   LostDAO lostDAO = new LostDAO();
+	 
 	   lostDAO.insertToDB(lost);	   
 	   
 	   
@@ -191,6 +204,44 @@ private boolean isMultipart;
        System.out.println(ex);
    }
    }
+   
+    
+    public static String getBody(HttpServletRequest request) throws IOException {
+
+        String body = null;
+        StringBuilder stringBuilder = new StringBuilder();
+        BufferedReader bufferedReader = null;
+
+        
+        try {
+            InputStream inputStream = request.getInputStream();
+            if (inputStream != null) {
+                bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+                char[] charBuffer = new char[128];
+                int bytesRead = -1;
+                while ((bytesRead = bufferedReader.read(charBuffer)) > 0) {
+                    stringBuilder.append(charBuffer, 0, bytesRead);
+                }
+            } else {
+                stringBuilder.append("");
+            }
+        } catch (IOException ex) {
+            throw ex;
+        } finally {
+            if (bufferedReader != null) {
+                try {
+                    bufferedReader.close();
+                } catch (IOException ex) {
+                    throw ex;
+                }
+            }
+        }
+
+        body = stringBuilder.toString();
+        return body;
+    }
+    
+    
    public void doGet(HttpServletRequest request, 
                        HttpServletResponse response)
         throws ServletException, java.io.IOException {

@@ -635,10 +635,11 @@ bool *isChecked = false;
     [self insertLostLocal];
     
     
+    NSString *imageNameURL = [NSString stringWithFormat:@"image%@.png", beaconID];
     
     // Dictionary that holds post parameters. You can set your post parameters that your server accepts or programmed to accept.
-    NSMutableDictionary* _params = [[NSMutableDictionary alloc] init];
-    [_params setObject:@"en" forKey:@"lan"];
+    //NSMutableDictionary* _params = [[NSMutableDictionary alloc] init];
+    /*[_params setObject:@"en" forKey:@"lan"];
     [_params setObject:beaconID  forKey:@"deviceID"];
     [_params setObject:fname  forKey:@"firstname"];
     [_params setObject:lname  forKey:@"lastname"];
@@ -652,20 +653,19 @@ bool *isChecked = false;
     [_params setObject:zip  forKey:@"zip"];
     [_params setObject:special  forKey:@"special"];
     [_params setObject:action  forKey:@"action"];
-    [_params setObject:adID  forKey:@"uniqueID"]; //uniqueID for device
+    [_params setObject:adID  forKey:@"uniqueID"]; //uniqueID for device */
+    
+    
+    NSString *jsonString = [NSString stringWithFormat:@"{\"deviceID\":\"%@\",\"firstname\":\"%@\",\"lastname\":\"%@\",\"imgURL\":\"%@\",\"age\":\"%@\",\"height\":\"%@\",\"weight\":\"%@\",\"hcolor\":\"%@\",\"ecolor\":\"%@\",\"feature\":\"%@\",\"street\":\"%@\",\"zip\":\"%@\",\"special\":\"%@\",\"action\":\"%@\",\"uniqueID\":\"%@\"}",beaconID,fname,lname,imageNameURL,age,height,weight,hcolor,ecolor,feature,street,zip,special,action,adID];
+    
+    NSLog(jsonString);
 
 
-    //[_params setObject:[NSString stringWithFormat:@"%d", userId] forKey:[NSString stringWithString:@"userId"]];
-    //[_params setObject:[NSString stringWithFormat:@"%@",title] forKey:@"title"];
-    
-    // the boundary string : a random string, that will not repeat in post data, to separate post data fields.
-    NSString *BoundaryConstant  = @"----------V2ymHFg03ehbqgZCaKO6jy";
-    
     // string constant for the post parameter 'file'. My server uses this name: `file`. Your's may differ
     NSString* FileParamConstant = @"file";
     
     // the server url to which the image (or the media) is uploaded. Use your server url here
-    NSURL* requestURL = [NSURL URLWithString:@"http://smallemperor.com:8080/BloodHoundBackend/UploadServlet"];
+    NSURL* requestURL = [NSURL URLWithString:@"http://localhost:8080/BloodHoundBackend/UploadServlet"];
     
     
     
@@ -679,36 +679,29 @@ bool *isChecked = false;
     [request setHTTPMethod:@"POST"];
     
     // set Content-Type in HTTP header
-    NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@", BoundaryConstant];
+    NSString *contentType = [NSString stringWithFormat:@"multipart/form-data"];
     [request setValue:contentType forHTTPHeaderField: @"Content-Type"];
     
     // post body
     NSMutableData *body = [NSMutableData data];
     
-    // add params (all params are strings)
-    for (NSString *param in _params) {
-        [body appendData:[[NSString stringWithFormat:@"--%@\r\n", BoundaryConstant] dataUsingEncoding:NSUTF8StringEncoding]];
-        [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"\r\n\r\n", param] dataUsingEncoding:NSUTF8StringEncoding]];
-        [body appendData:[[NSString stringWithFormat:@"%@\r\n", [_params objectForKey:param]] dataUsingEncoding:NSUTF8StringEncoding]];
-    }
+    [body appendData:[jsonString dataUsingEncoding:NSUTF8StringEncoding]];
     
-    NSString *imageNameURL = [NSString stringWithFormat:@"image%@.png", beaconID];
     
     
     // add image data
     NSData *imageData = UIImageJPEGRepresentation(chosenImage, 1.0);
     if (imageData) {
-        [body appendData:[[NSString stringWithFormat:@"--%@\r\n", BoundaryConstant] dataUsingEncoding:NSUTF8StringEncoding]];
         [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"; filename=\"%@\"\r\n", FileParamConstant, imageNameURL] dataUsingEncoding:NSUTF8StringEncoding]];
         [body appendData:[@"Content-Type: image/jpeg\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
         [body appendData:imageData];
         [body appendData:[[NSString stringWithFormat:@"\r\n"] dataUsingEncoding:NSUTF8StringEncoding]];
     }
     
-    [body appendData:[[NSString stringWithFormat:@"--%@--\r\n", BoundaryConstant] dataUsingEncoding:NSUTF8StringEncoding]];
-    
     // setting the body of the post to the reqeust
     [request setHTTPBody:body];
+    
+
     
     // set the content-length
     NSString *postLength = [NSString stringWithFormat:@"%d", [body length]];

@@ -75,7 +75,7 @@ public class LostDAO {
 	
 	public static void main(String[] args) {
 		 Lost lost = new Lost();
-		 lost.setBeaconId("William's Phone");
+		 lost.setBeaconId("A");
 		 lost.setAddress("Address");
 		 lost.setCol0("Col0");
 		 LostDAO lostDAO = new LostDAO();
