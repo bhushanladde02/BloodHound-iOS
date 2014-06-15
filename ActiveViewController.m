@@ -53,19 +53,21 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
     //register Label
-    CGRect firstHeader = CGRectMake(65,220,280,60);
+    CGRect firstHeader = CGRectMake(20,275,280,34);
     UILabel *firstHeaderLabel = [[UILabel alloc] initWithFrame:firstHeader];
     //registerLabel.backgroundColor = [UIColor grayColor];  //debug point
     NSString *fTextOne = @"Bloodhound is";
     [firstHeaderLabel setText: fTextOne];
+    firstHeaderLabel.textAlignment = NSTextAlignmentCenter;
     firstHeaderLabel.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:30];
     firstHeaderLabel.textColor = [self colorWithHexString:@"ffffff"];
     [self.view addSubview:firstHeaderLabel];
     
-    CGRect secondHeader = CGRectMake(90,262,280,60);
+    CGRect secondHeader = CGRectMake(20,304,280,60);
     UILabel *secondHeaderLabel = [[UILabel alloc] initWithFrame:secondHeader];
     //registerLabel.backgroundColor = [UIColor grayColor];  //debug point
     fTextOne = @"Active";
+    secondHeaderLabel.textAlignment = NSTextAlignmentCenter;
     [secondHeaderLabel setText: fTextOne];
     secondHeaderLabel.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:50];
     secondHeaderLabel.textColor = [self colorWithHexString:@"ffffff"];
@@ -73,7 +75,7 @@
     
     
     
-    UIImageView *minButton = [[UIImageView alloc] initWithFrame:CGRectMake(  (320-602/2)/2, 400, 602/2, 159/2)];
+    UIImageView *minButton = [[UIImageView alloc] initWithFrame:CGRectMake(  (320-602/2)/2, 475, 602/2, 159/2)];
     minButton.image  = [UIImage imageNamed:@"minimize.png"];
     [self.view addSubview:minButton];
     
