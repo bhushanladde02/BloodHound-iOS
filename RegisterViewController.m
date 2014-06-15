@@ -526,6 +526,22 @@ bool *isChecked = false;
         return NO;
     }
     
+    if([textField.text isEqualToString:@""]){
+        [self alertUser: @"Required" : @"First Name Missing"];
+        return NO;
+    }
+    
+    if([callInputField.text isEqualToString:@""]){
+        [self alertUser: @"Required" : @"Call to Action Missing"];
+        return NO;
+    }
+    
+    if(!isChecked){
+        [self alertUser: @"Required" : @"Should Accept terms"];
+        return NO;
+    }
+    
+    
     return TRUE;
 }
 
