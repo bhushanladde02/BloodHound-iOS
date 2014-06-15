@@ -648,9 +648,7 @@ bool *isChecked = false;
     NSString* FileParamConstant = @"file";
     
     // the server url to which the image (or the media) is uploaded. Use your server url here
-    NSURL* requestURL = [NSURL URLWithString:@"http://localhost:8080/BloodHoundBackend/UploadServlet"];
-    
-    
+    NSURL* requestURL = [NSURL URLWithString:@"http://smallemperor.com:8080/BloodHoundBackend/UploadServlet"];
     
     
     
