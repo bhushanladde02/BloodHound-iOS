@@ -96,10 +96,10 @@ NSInteger height  = 0;
     [self selectLostObject];
     
     
-    scrollView.contentSize = CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.height*(((height+480)/480)+0.2));
+    scrollView.contentSize = CGSizeMake(self.view.bounds.size.width, (height+170));
     
     
-    UIImageView *minButton = [[UIImageView alloc] initWithFrame:CGRectMake(  (320-602/2)/2, self.view.bounds.size.height*(((height+480)/480)), 602/2, 159/2)];
+    UIImageView *minButton = [[UIImageView alloc] initWithFrame:CGRectMake(  (320-602/2)/2,(height+80), 602/2, 159/2)];
     minButton.image  = [UIImage imageNamed:@"reportAlert.png"];
     [self.view addSubview:minButton];
     
@@ -148,7 +148,7 @@ NSInteger height  = 0;
     [self.view addSubview:viewCellLabel];
     
     offset=offset+60;
-    height=height+50;
+    height=height+60;
 }
 
 
