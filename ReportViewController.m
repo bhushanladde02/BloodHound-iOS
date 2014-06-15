@@ -93,6 +93,9 @@ NSInteger height  = 0;
     
     height = 0;
     
+    checkFlags = [[NSMutableArray alloc] init];
+    beaconIds = [[NSMutableArray alloc] init];
+    
     [self selectLostObject];
     
     
@@ -118,11 +121,28 @@ NSInteger height  = 0;
 }
 
 
--(void) addRow:(NSString*) name : (NSString*) imgURL
+NSMutableArray *checkFlags;
+NSMutableArray *beaconIds;
+NSInteger counter = 0;
+
+-(void) addRow:(NSString*) name : (NSString*) imgURL : (NSString*)beaconId
 {
-    UIImageView *checkButton = [[UIImageView alloc] initWithFrame:CGRectMake(  278, 75+offset, 40/2, 40/2)];
-    checkButton.image  = uncheckImage;
-    [self.view addSubview:checkButton];
+    
+    
+    UIButton *checkImageView = [[UIButton alloc] initWithFrame:CGRectMake(  278, 75+offset, 40/2, 40/2)];
+    checkImageView.tag = counter; //acts as index for NSMutableArray
+    ++counter;
+    
+    [checkImageView setImage:uncheckImage forState:UIControlStateNormal];
+    
+    [checkImageView addTarget:self action:@selector(checkHandler:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.view addSubview:checkImageView];
+    
+    NSNumber* checkFlag= [NSNumber numberWithBool:NO];
+    [checkFlags addObject:checkFlag];
+    [beaconIds addObject:beaconId];
+    
     
     UIImageView *thumbnail = [[UIImageView alloc] initWithFrame:CGRectMake(  20, 60+offset, 50, 50)];
     
@@ -207,7 +227,7 @@ NSInteger height  = 0;
                 lname = @"Not a valid string";
             
             
-            [self addRow:[NSString stringWithFormat:@"%@ %@", name, lname]:[NSString stringWithFormat:@"%@%@%@", @"image", beaconId,@".png"]];
+            [self addRow:[NSString stringWithFormat:@"%@ %@", name, lname]:[NSString stringWithFormat:@"%@%@%@", @"image", beaconId,@".png"]:beaconId];
             
             NSLog(@"%s",sqlite3_column_text(sqlstmt,3));
             NSLog(@"%s",sqlite3_column_text(sqlstmt,4));
@@ -264,6 +284,27 @@ NSInteger height  = 0;
                             blue:((float) b / 255.0f)
                            alpha:1.0f];
 }
+
+
+- (void) checkHandler: (id) sender{
+    UIButton *buttonView = (UIButton*)sender;
+    NSInteger index = buttonView.tag;
+    NSString *beaconId = [beaconIds objectAtIndex:index];
+    NSLog(@"Beacon Id is %@",beaconId);
+    NSNumber *checkFlag = [checkFlags objectAtIndex:index];
+    
+    bool flag = ([checkFlag boolValue]==YES)? YES : NO;
+    if(!flag){
+        checkFlag = [NSNumber numberWithBool:YES];
+        [checkFlags setObject:checkFlag atIndexedSubscript:index];
+        [buttonView setImage:checkImage forState:UIControlStateNormal];
+    }else{
+        checkFlag= [NSNumber numberWithBool:NO];
+        [checkFlags setObject:checkFlag atIndexedSubscript:index];
+        [buttonView setImage:uncheckImage forState:UIControlStateNormal];
+    }
+}
+
 
 
 
