@@ -144,6 +144,14 @@ NSInteger height  = 0;
     }
     
     [self updateReportingStatus:jsonString];
+    
+    //if udpate is success, update local database
+    NSUInteger count = 0;
+    for (NSString *element in checkFlags) {
+        [self updateLocalDatabase:[beaconIds objectAtIndex:count ] :element ];
+        ++count;
+    }
+    
 }
 
 -(void)updateReportingStatus :(NSString*) jsonString{
@@ -174,6 +182,10 @@ NSInteger height  = 0;
     NSError *localError = nil;
     NSDictionary *parsedObject = [NSJSONSerialization JSONObjectWithData:result options:0 error:&localError];
     
+    
+    
+    [av dismissWithClickedButtonIndex:0 animated:NO];
+    
     if (localError != nil) {
         UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"Success"
                                                               message:@"Reporting Successful"
@@ -194,7 +206,6 @@ NSInteger height  = 0;
         [myAlertView show];
     }
 
-     [av dismissWithClickedButtonIndex:0 animated:NO];
 }
 
 
@@ -209,14 +220,17 @@ NSInteger counter = 0;
     UIButton *checkImageView = [[UIButton alloc] initWithFrame:CGRectMake(  278, 75+offset, 40/2, 40/2)];
     checkImageView.tag = counter; //acts as index for NSMutableArray
     ++counter;
-    
-    [checkImageView setImage:uncheckImage forState:UIControlStateNormal];
+     
+     BOOL flag = [isReported isEqualToString:@"false"]? NO:YES;
+     
+     UIImage *image = flag==NO?uncheckImage:checkImage;
+     
+    [checkImageView setImage:image forState:UIControlStateNormal];
     
     [checkImageView addTarget:self action:@selector(checkHandler:) forControlEvents:UIControlEventTouchUpInside];
     
     [self.view addSubview:checkImageView];
      
-    BOOL flag = [isReported isEqualToString:@"false"]? NO:YES;
     NSNumber* checkFlag= [NSNumber numberWithBool:flag];
     [checkFlags addObject:checkFlag];
     [beaconIds addObject:beaconId];
@@ -260,6 +274,48 @@ NSInteger counter = 0;
 }
 
 
+-(void)updateLocalDatabase:(NSString*) beaconID :(NSNumber*) flagN{
+    static sqlite3 *database = nil;
+    NSString *databasePath;
+    NSString *docsDir;
+    NSArray *dirPaths;
+    // Get the documents directory
+    dirPaths = NSSearchPathForDirectoriesInDomains
+    (NSDocumentDirectory, NSUserDomainMask, YES);
+    docsDir = dirPaths[0];
+    // Build the path to the database file
+    databasePath = [[NSString alloc] initWithString:
+                    [docsDir stringByAppendingPathComponent: @"lostDatabase.db"]];
+    const char *dbpath = [databasePath UTF8String];
+    
+    static sqlite3_stmt *compiledStatement;
+    
+     NSString *flagS = ([flagN boolValue]==YES)? @"true" : @"false";
+    
+    if (sqlite3_open(dbpath, &database) == SQLITE_OK)
+    {
+    const char *sqlStatement = [[NSString stringWithFormat:@"UPDATE LOST SET REPORT = \"%@\" where BEACONID = \"%@\"",flagS,beaconID] UTF8String];
+    
+        int result = sqlite3_prepare_v2(database, sqlStatement, -1, &compiledStatement, NULL);
+    if(result == SQLITE_OK) {
+        if(SQLITE_DONE != sqlite3_step(compiledStatement))
+            NSAssert1(0, @"Error while updating. '%s'", sqlite3_errmsg(database));
+        sqlite3_reset(compiledStatement);
+    }else{
+        if(result != SQLITE_OK) {
+            NSLog(@"Prepare-error #%i: %s", result, sqlite3_errmsg(database));
+        }
+    }
+        
+    }
+
+    // Release the compiled statement from memory
+    sqlite3_finalize(compiledStatement);
+    sqlite3_close(database); //close the database
+
+}
+
+
 -(void) selectLostObject{
     sqlite3* d = nil;
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -289,7 +345,7 @@ NSInteger counter = 0;
             }else
                 beaconId = @"error";
             
-            
+            NSLog(beaconId);
             
             //NSLog(@"%s",sqlite3_column_text(sqlstmt,1));
              const char *_name = (char *)sqlite3_column_text(sqlstmt,1);
