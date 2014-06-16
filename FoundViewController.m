@@ -12,6 +12,7 @@
 #import "GlobalVars.h"
 #import "UIImageView+WebCache.h"
 
+
 @interface FoundViewController ()
 
 @end
@@ -125,10 +126,14 @@
     foundButton.image  = [UIImage imageNamed:@"found.png"];
     [self.view addSubview:foundButton];
     
+    UITapGestureRecognizer *singleTapFound = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapDetectedFound)];
+    singleTapFound.numberOfTapsRequired = 1;
+    foundButton.userInteractionEnabled = YES;
+    [foundButton addGestureRecognizer:singleTapFound];
     
     //clear the notification from alertDS
     
-    NSString *beaconId = [foundData objectForKey:@"beaconId"];
+    beaconId = [foundData objectForKey:@"beaconId"];
     beaconId = [NSString stringWithFormat:@"%@",beaconId];
     
     beaconId = [beaconId stringByReplacingOccurrencesOfString:@"\"" withString:@""];
@@ -138,6 +143,133 @@
     [[UIApplication sharedApplication] setApplicationIconBadgeNumber: 0];
     [[UIApplication sharedApplication] cancelAllLocalNotifications];
  
+}
+
+UIAlertView *av;
+
+-(void)tapDetectedFound{ //flag will always be true
+    //show alert processing
+    
+    NSLog(@"single Tap on tap detected report button");
+    
+   
+    
+    NSMutableDictionary *jsonDictionary = [[NSMutableDictionary alloc] init];
+    [jsonDictionary setValue:@"false" forKey:beaconId];
+    
+    NSError *error;
+    NSString *jsonString;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:jsonDictionary
+                                                       options:0 // Pass 0 if you don't care about the readability of the generated string
+                                                         error:&error];
+    if (! jsonData) {
+        NSLog(@"Got an error: %@", error);
+    } else {
+        jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    }
+    
+    av = [[UIAlertView alloc] initWithTitle:@"Processing..." message:@"" delegate:nil cancelButtonTitle:nil otherButtonTitles:nil];
+    [av show];
+    
+    
+    
+    [self updateReportingStatus:jsonString];
+    
+
+    [self updateLocalDatabase:beaconId :@"false"];
+    
+    [av dismissWithClickedButtonIndex:0 animated:NO];
+    
+}
+
+
+-(void)updateLocalDatabase:(NSString*) beaconID :(NSString*) flagN{
+    static sqlite3 *database = nil;
+    NSString *databasePath;
+    NSString *docsDir;
+    NSArray *dirPaths;
+    // Get the documents directory
+    dirPaths = NSSearchPathForDirectoriesInDomains
+    (NSDocumentDirectory, NSUserDomainMask, YES);
+    docsDir = dirPaths[0];
+    // Build the path to the database file
+    databasePath = [[NSString alloc] initWithString:
+                    [docsDir stringByAppendingPathComponent: @"lostDatabase.db"]];
+    const char *dbpath = [databasePath UTF8String];
+    
+    static sqlite3_stmt *compiledStatement;
+    
+    if (sqlite3_open(dbpath, &database) == SQLITE_OK)
+    {
+        const char *sqlStatement = [[NSString stringWithFormat:@"UPDATE LOST SET REPORT = \"%@\" where BEACONID = \"%@\"",flagN,beaconID] UTF8String];
+        
+        int result = sqlite3_prepare_v2(database, sqlStatement, -1, &compiledStatement, NULL);
+        if(result == SQLITE_OK) {
+            if(SQLITE_DONE != sqlite3_step(compiledStatement))
+                NSAssert1(0, @"Error while updating. '%s'", sqlite3_errmsg(database));
+            sqlite3_reset(compiledStatement);
+        }else{
+            if(result != SQLITE_OK) {
+                NSLog(@"Prepare-error #%i: %s", result, sqlite3_errmsg(database));
+            }
+        }
+        
+    }
+    
+    // Release the compiled statement from memory
+    sqlite3_finalize(compiledStatement);
+    sqlite3_close(database); //close the database
+    
+}
+
+
+-(void)updateReportingStatus :(NSString*) jsonString{
+    
+    
+    //pass two array to post request, reporting flags and corresponding beacon Id
+    NSString *post = [NSString stringWithFormat:@"jsonData=%@",jsonString];
+    NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+    
+    NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
+    
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    [request setURL:[NSURL URLWithString:@"http://localhost:8080/BloodHoundBackend/ReportPeople"]];
+    [request setHTTPMethod:@"POST"];
+    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPBody:postData];
+    
+    NSURLResponse* response;
+    NSError* error = nil;
+    
+    NSData* result = [NSURLConnection sendSynchronousRequest:request  returningResponse:&response error:&error];
+    NSString *content = [NSString stringWithUTF8String:[result bytes]];
+    NSLog(@"responseData: %@", content);
+    
+    NSError *localError = nil;
+    NSDictionary *parsedObject = [NSJSONSerialization JSONObjectWithData:result options:0 error:&localError];
+    
+    
+    if (localError != nil) {
+        UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"Success"
+                                                              message:@"Reporting Successful"
+                                                             delegate:nil
+                                                    cancelButtonTitle:@"OK"
+                                                    otherButtonTitles: nil];
+        
+        [myAlertView show];
+        
+    }else{
+        //success
+        UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                              message:@"Reporting Failed, Please try later"
+                                                             delegate:nil
+                                                    cancelButtonTitle:@"OK"
+                                                    otherButtonTitles: nil];
+        
+        [myAlertView show];
+    }
+    
 }
 
 -(UIColor*)colorWithHexString:(NSString*)hex

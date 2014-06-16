@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <sqlite3.h>
 
 @interface FoundViewController : UIViewController
 
 @end
+
+NSString *beaconId;
