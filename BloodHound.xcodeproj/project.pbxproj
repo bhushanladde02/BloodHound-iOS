@@ -88,6 +88,7 @@
 		FCB18F52194C56CC00A3345F /* UIPlaceHolderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB18F51194C56CC00A3345F /* UIPlaceHolderTextView.m */; };
 		FCB18F62194DA70000A3345F /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCB18F61194DA70000A3345F /* AdSupport.framework */; };
 		FCB18F65194ED39200A3345F /* GlobalVars.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB18F64194ED39200A3345F /* GlobalVars.m */; };
+		FCB18F67194EF94F00A3345F /* found.png in Resources */ = {isa = PBXBuildFile; fileRef = FCB18F66194EF94F00A3345F /* found.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -211,6 +212,7 @@
 		FCB18F61194DA70000A3345F /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		FCB18F63194ED39200A3345F /* GlobalVars.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalVars.h; sourceTree = "<group>"; };
 		FCB18F64194ED39200A3345F /* GlobalVars.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalVars.m; sourceTree = "<group>"; };
+		FCB18F66194EF94F00A3345F /* found.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = found.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -271,6 +273,7 @@
 				FC2934B01947248800DF1087 /* TPKeyboardAvoidingScrollView.m */,
 				FCAF95901946417600662414 /* FoundViewController.h */,
 				FCAF95911946417600662414 /* FoundViewController.m */,
+				FCB18F66194EF94F00A3345F /* found.png */,
 				FCAA7A281944663700010866 /* selectPhoto.png */,
 				FCAA7A251944663000010866 /* SUITextField.h */,
 				FCAA7A261944663000010866 /* SUITextField.m */,
@@ -510,6 +513,7 @@
 				FC1F451619406560006C10F8 /* check.png in Resources */,
 				FCAD82F8194AD4E100D0608F /* ajax-loader-bar.gif in Resources */,
 				FC6CAECA193EF18F00FB5850 /* OpenSans-CondLight.ttf in Resources */,
+				FCB18F67194EF94F00A3345F /* found.png in Resources */,
 				FC1F451719406560006C10F8 /* uncheck.png in Resources */,
 				FCA3FAA9193C809000390B10 /* Images.xcassets in Resources */,
 				FC00EFBB193D510F00BBA864 /* blueButton.png in Resources */,
