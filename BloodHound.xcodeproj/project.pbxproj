@@ -7,22 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FC00EFB7193D4A9C00BBA864 /* OrangeButton.png in Resources */ = {isa = PBXBuildFile; fileRef = FC00EFB6193D4A9C00BBA864 /* OrangeButton.png */; };
-		FC00EFB9193D4FCA00BBA864 /* WhiteButton.png in Resources */ = {isa = PBXBuildFile; fileRef = FC00EFB8193D4FCA00BBA864 /* WhiteButton.png */; };
-		FC00EFBB193D510F00BBA864 /* blueButton.png in Resources */ = {isa = PBXBuildFile; fileRef = FC00EFBA193D510F00BBA864 /* blueButton.png */; };
+		BEE6FCBC194D951100693BC2 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE6FCB9194D951100693BC2 /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
+		BEE6FCBD194D951100693BC2 /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE6FCBB194D951100693BC2 /* TPKeyboardAvoidingScrollView.m */; };
+		BEE6FCBF194D953900693BC2 /* AGMedallionView in Resources */ = {isa = PBXBuildFile; fileRef = BEE6FCBE194D953800693BC2 /* AGMedallionView */; };
+		BEE6FCC3194F895800693BC2 /* background2.png in Resources */ = {isa = PBXBuildFile; fileRef = BEE6FCC2194F895800693BC2 /* background2.png */; };
 		FC00EFBE193D594A00BBA864 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC00EFBD193D594A00BBA864 /* RegisterViewController.m */; };
 		FC1F451619406560006C10F8 /* check.png in Resources */ = {isa = PBXBuildFile; fileRef = FC1F451419406560006C10F8 /* check.png */; };
 		FC1F451719406560006C10F8 /* uncheck.png in Resources */ = {isa = PBXBuildFile; fileRef = FC1F451519406560006C10F8 /* uncheck.png */; };
 		FC1F451B19406E34006C10F8 /* navBar.png in Resources */ = {isa = PBXBuildFile; fileRef = FC1F451A19406E34006C10F8 /* navBar.png */; };
 		FC1F451E19409055006C10F8 /* ActiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC1F451D19409055006C10F8 /* ActiveViewController.m */; };
-		FC1F45201940909D006C10F8 /* background2.png in Resources */ = {isa = PBXBuildFile; fileRef = FC1F451F1940909D006C10F8 /* background2.png */; };
 		FC1F4522194094C8006C10F8 /* minimize.png in Resources */ = {isa = PBXBuildFile; fileRef = FC1F4521194094C8006C10F8 /* minimize.png */; };
 		FC1F45251940965D006C10F8 /* ReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC1F45231940965D006C10F8 /* ReportViewController.m */; };
 		FC1F4527194096BC006C10F8 /* reportAlert.png in Resources */ = {isa = PBXBuildFile; fileRef = FC1F4526194096BC006C10F8 /* reportAlert.png */; };
 		FC1F45291943BF6E006C10F8 /* backButton.png in Resources */ = {isa = PBXBuildFile; fileRef = FC1F45281943BF6E006C10F8 /* backButton.png */; };
-		FC2934B11947248800DF1087 /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC2934B01947248800DF1087 /* TPKeyboardAvoidingScrollView.m */; };
-		FC2934B41947252A00DF1087 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = FC2934B31947252A00DF1087 /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
-		FC6CAEB9193D654200FB5850 /* loadingScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = FC6CAEB8193D654200FB5850 /* loadingScreen.png */; };
 		FC6CAEC9193EF18F00FB5850 /* OpenSans-CondBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC6CAEC6193EF18E00FB5850 /* OpenSans-CondBold.ttf */; };
 		FC6CAECA193EF18F00FB5850 /* OpenSans-CondLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC6CAEC7193EF18F00FB5850 /* OpenSans-CondLight.ttf */; };
 		FC6CAECB193EF18F00FB5850 /* OpenSans-CondLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC6CAEC8193EF18F00FB5850 /* OpenSans-CondLightItalic.ttf */; };
@@ -99,9 +96,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		FC00EFB6193D4A9C00BBA864 /* OrangeButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = OrangeButton.png; path = "../../../Downloads/Bloodhound UI_5.31/OrangeButton.png"; sourceTree = "<group>"; };
-		FC00EFB8193D4FCA00BBA864 /* WhiteButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = WhiteButton.png; path = "../../../Downloads/Bloodhound UI_5.31/WhiteButton.png"; sourceTree = "<group>"; };
-		FC00EFBA193D510F00BBA864 /* blueButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blueButton.png; path = ../../../Downloads/blueButton.png; sourceTree = "<group>"; };
+		BEE6FCB8194D951100693BC2 /* UIScrollView+TPKeyboardAvoidingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TPKeyboardAvoidingAdditions.h"; sourceTree = "<group>"; };
+		BEE6FCB9194D951100693BC2 /* UIScrollView+TPKeyboardAvoidingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+TPKeyboardAvoidingAdditions.m"; sourceTree = "<group>"; };
+		BEE6FCBA194D951100693BC2 /* TPKeyboardAvoidingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingScrollView.h; sourceTree = "<group>"; };
+		BEE6FCBB194D951100693BC2 /* TPKeyboardAvoidingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingScrollView.m; sourceTree = "<group>"; };
+		BEE6FCBE194D953800693BC2 /* AGMedallionView */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AGMedallionView; sourceTree = "<group>"; };
+		BEE6FCC2194F895800693BC2 /* background2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background2.png; sourceTree = "<group>"; };
 		FC00EFBC193D594A00BBA864 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		FC00EFBD193D594A00BBA864 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		FC1F451419406560006C10F8 /* check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check.png; sourceTree = "<group>"; };
@@ -109,17 +109,11 @@
 		FC1F451A19406E34006C10F8 /* navBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navBar.png; sourceTree = "<group>"; };
 		FC1F451C19409055006C10F8 /* ActiveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActiveViewController.h; sourceTree = "<group>"; };
 		FC1F451D19409055006C10F8 /* ActiveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActiveViewController.m; sourceTree = "<group>"; };
-		FC1F451F1940909D006C10F8 /* background2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background2.png; sourceTree = "<group>"; };
 		FC1F4521194094C8006C10F8 /* minimize.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = minimize.png; sourceTree = "<group>"; };
 		FC1F45231940965D006C10F8 /* ReportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportViewController.m; sourceTree = "<group>"; };
 		FC1F45241940965D006C10F8 /* ReportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportViewController.h; sourceTree = "<group>"; };
 		FC1F4526194096BC006C10F8 /* reportAlert.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reportAlert.png; sourceTree = "<group>"; };
 		FC1F45281943BF6E006C10F8 /* backButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backButton.png; sourceTree = "<group>"; };
-		FC2934AF1947248800DF1087 /* TPKeyboardAvoidingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPKeyboardAvoidingScrollView.h; path = "../../../Downloads/TPKeyboardAvoiding-master 2/TPKeyboardAvoiding/TPKeyboardAvoidingScrollView.h"; sourceTree = "<group>"; };
-		FC2934B01947248800DF1087 /* TPKeyboardAvoidingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TPKeyboardAvoidingScrollView.m; path = "../../../Downloads/TPKeyboardAvoiding-master 2/TPKeyboardAvoiding/TPKeyboardAvoidingScrollView.m"; sourceTree = "<group>"; };
-		FC2934B21947252A00DF1087 /* UIScrollView+TPKeyboardAvoidingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIScrollView+TPKeyboardAvoidingAdditions.h"; path = "../../../Downloads/TPKeyboardAvoiding-master/TPKeyboardAvoiding/UIScrollView+TPKeyboardAvoidingAdditions.h"; sourceTree = "<group>"; };
-		FC2934B31947252A00DF1087 /* UIScrollView+TPKeyboardAvoidingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIScrollView+TPKeyboardAvoidingAdditions.m"; path = "../../../Downloads/TPKeyboardAvoiding-master/TPKeyboardAvoiding/UIScrollView+TPKeyboardAvoidingAdditions.m"; sourceTree = "<group>"; };
-		FC6CAEB8193D654200FB5850 /* loadingScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = loadingScreen.png; path = ../../../Downloads/loadingScreen.png; sourceTree = "<group>"; };
 		FC6CAEC6193EF18E00FB5850 /* OpenSans-CondBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-CondBold.ttf"; sourceTree = "<group>"; };
 		FC6CAEC7193EF18F00FB5850 /* OpenSans-CondLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-CondLight.ttf"; sourceTree = "<group>"; };
 		FC6CAEC8193EF18F00FB5850 /* OpenSans-CondLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-CondLightItalic.ttf"; sourceTree = "<group>"; };
@@ -248,6 +242,11 @@
 		FCA3FA85193C809000390B10 = {
 			isa = PBXGroup;
 			children = (
+				BEE6FCC2194F895800693BC2 /* background2.png */,
+				BEE6FCB8194D951100693BC2 /* UIScrollView+TPKeyboardAvoidingAdditions.h */,
+				BEE6FCB9194D951100693BC2 /* UIScrollView+TPKeyboardAvoidingAdditions.m */,
+				BEE6FCBA194D951100693BC2 /* TPKeyboardAvoidingScrollView.h */,
+				BEE6FCBB194D951100693BC2 /* TPKeyboardAvoidingScrollView.m */,
 				FCB18F50194C56CC00A3345F /* UIPlaceHolderTextView.h */,
 				FCB18F51194C56CC00A3345F /* UIPlaceHolderTextView.m */,
 				FCAD8351194B836E00D0608F /* SDWebImage */,
@@ -255,12 +254,9 @@
 				FCAD834E194AFF7700D0608F /* anonIcon100.png */,
 				FCAD834A194AFE7F00D0608F /* AGMedallionView.h */,
 				FCAD834B194AFE7F00D0608F /* AGMedallionView.m */,
+				BEE6FCBE194D953800693BC2 /* AGMedallionView */,
 				FCAD8348194AF08A00D0608F /* bloodhound.caf */,
 				FCAD82F7194AD4E100D0608F /* ajax-loader-bar.gif */,
-				FC2934B21947252A00DF1087 /* UIScrollView+TPKeyboardAvoidingAdditions.h */,
-				FC2934B31947252A00DF1087 /* UIScrollView+TPKeyboardAvoidingAdditions.m */,
-				FC2934AF1947248800DF1087 /* TPKeyboardAvoidingScrollView.h */,
-				FC2934B01947248800DF1087 /* TPKeyboardAvoidingScrollView.m */,
 				FCAF95901946417600662414 /* FoundViewController.h */,
 				FCAF95911946417600662414 /* FoundViewController.m */,
 				FCAA7A281944663700010866 /* selectPhoto.png */,
@@ -290,12 +286,7 @@
 				FC6CAED0193F104D00FB5850 /* upload.png */,
 				FCA3FACD193C8A7B00390B10 /* MainViewController.h */,
 				FCA3FACE193C8A7B00390B10 /* MainViewController.m */,
-				FC1F451F1940909D006C10F8 /* background2.png */,
 				FC1F451A19406E34006C10F8 /* navBar.png */,
-				FC6CAEB8193D654200FB5850 /* loadingScreen.png */,
-				FC00EFBA193D510F00BBA864 /* blueButton.png */,
-				FC00EFB8193D4FCA00BBA864 /* WhiteButton.png */,
-				FC00EFB6193D4A9C00BBA864 /* OrangeButton.png */,
 				FCA3FA99193C809000390B10 /* BloodHound */,
 				FCA3FAB6193C809000390B10 /* BloodHoundTests */,
 				FCA3FA90193C809000390B10 /* Frameworks */,
@@ -494,8 +485,6 @@
 				FC1F4522194094C8006C10F8 /* minimize.png in Resources */,
 				FCAD834F194AFF7700D0608F /* anonIcon50.png in Resources */,
 				FCA3FA9E193C809000390B10 /* InfoPlist.strings in Resources */,
-				FC00EFB7193D4A9C00BBA864 /* OrangeButton.png in Resources */,
-				FC6CAEB9193D654200FB5850 /* loadingScreen.png in Resources */,
 				FC1F451B19406E34006C10F8 /* navBar.png in Resources */,
 				FCA3FAD2193C93DE00390B10 /* BloodHoundStoryBoard.storyboard in Resources */,
 				FC1F451619406560006C10F8 /* check.png in Resources */,
@@ -503,17 +492,16 @@
 				FC6CAECA193EF18F00FB5850 /* OpenSans-CondLight.ttf in Resources */,
 				FC1F451719406560006C10F8 /* uncheck.png in Resources */,
 				FCA3FAA9193C809000390B10 /* Images.xcassets in Resources */,
-				FC00EFBB193D510F00BBA864 /* blueButton.png in Resources */,
+				BEE6FCC3194F895800693BC2 /* background2.png in Resources */,
 				FC6CAEC9193EF18F00FB5850 /* OpenSans-CondBold.ttf in Resources */,
 				FC6CAED4193F1DC700FB5850 /* submit.png in Resources */,
-				FC00EFB9193D4FCA00BBA864 /* WhiteButton.png in Resources */,
 				FC6CAED1193F104D00FB5850 /* camera.png in Resources */,
+				BEE6FCBF194D953900693BC2 /* AGMedallionView in Resources */,
 				FCAA7A291944663700010866 /* selectPhoto.png in Resources */,
 				FCAD8349194AF08B00D0608F /* bloodhound.caf in Resources */,
 				FC1F45291943BF6E006C10F8 /* backButton.png in Resources */,
 				FC6CAED2193F104D00FB5850 /* upload.png in Resources */,
 				FCAD8350194AFF7800D0608F /* anonIcon100.png in Resources */,
-				FC1F45201940909D006C10F8 /* background2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -540,8 +528,8 @@
 				FCAA7A1919440D6600010866 /* UIImageView+AnimatedGif.m in Sources */,
 				FCAD8378194B836E00D0608F /* SDWebImageManager.m in Sources */,
 				FCAF95921946417600662414 /* FoundViewController.m in Sources */,
+				BEE6FCBC194D951100693BC2 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				FC1F451E19409055006C10F8 /* ActiveViewController.m in Sources */,
-				FC2934B41947252A00DF1087 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				FCB18F52194C56CC00A3345F /* UIPlaceHolderTextView.m in Sources */,
 				FCAD8376194B836E00D0608F /* SDWebImageDownloader.m in Sources */,
 				FCAA7A1619440D6600010866 /* AnimatedGif.m in Sources */,
@@ -556,10 +544,10 @@
 				FCA3FAA4193C809000390B10 /* AppDelegate.m in Sources */,
 				FCAD8379194B836E00D0608F /* SDWebImagePrefetcher.m in Sources */,
 				FCAD8375194B836E00D0608F /* SDWebImageDecoder.m in Sources */,
+				BEE6FCBD194D951100693BC2 /* TPKeyboardAvoidingScrollView.m in Sources */,
 				FCAD8373194B836E00D0608F /* SDImageCache.m in Sources */,
 				FCAD8374194B836E00D0608F /* SDWebImageCompat.m in Sources */,
 				FCAD834C194AFE7F00D0608F /* AGMedallionView.m in Sources */,
-				FC2934B11947248800DF1087 /* TPKeyboardAvoidingScrollView.m in Sources */,
 				FCAD8377194B836E00D0608F /* SDWebImageDownloaderOperation.m in Sources */,
 				FCA3FACF193C8A7B00390B10 /* MainViewController.m in Sources */,
 				FCAD837F194B836E00D0608F /* UIImageView+WebCache.m in Sources */,

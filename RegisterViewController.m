@@ -100,12 +100,12 @@
     [self.view addSubview:registerLabel];
 
     //register Desc
-    CGRect registerDesclabelFrame = CGRectMake(20,50,280,20);
+    CGRect registerDesclabelFrame = CGRectMake(20,50,280,32);
     UILabel *registerDescLabel = [[UILabel alloc] initWithFrame:registerDesclabelFrame];
     registerDescLabel.numberOfLines = 0;
     //[registerDescLabel sizeToFit];
     //registerDescLabel.backgroundColor = [UIColor grayColor];  //debug point
-    NSString *registerDescText = @"Provides info on what’s protected.";
+    NSString *registerDescText = @"Please provide details on who will be BLE protected. Be as detailed as possible.";
     [registerDescLabel setText: registerDescText];
     registerDescLabel.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:16];
     registerDescLabel.textColor = [self colorWithHexString:@"242424"];
@@ -173,7 +173,6 @@
     thumbField = [[UIImageView alloc] initWithFrame:thumbInputLabelFrame];
      thumbField.backgroundColor = [UIColor grayColor];
     thumbField.image = [UIImage imageNamed:@"anonIcon100.png"];
-    thumbField.layer.borderColor = [[self colorWithHexString:@"3fa69a"] CGColor ];
     [self.view addSubview:thumbField];
     
     //photo label

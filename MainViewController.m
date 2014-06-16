@@ -54,20 +54,20 @@
     NSInteger offset = (320- 583/2)/2;
     
     
-     UIImageView *registerButton = [[UIImageView alloc] initWithFrame:CGRectMake(  offset, 265, 583/2, 159/2)];
+     UIImageView *registerButton = [[UIImageView alloc] initWithFrame:CGRectMake(  offset, 205, 583/2, 159/2)];
     registerButton.image  = [UIImage imageNamed:@"register.png"];
     [self.view addSubview:registerButton];
     
-    UIImageView *reportButton = [[UIImageView alloc] initWithFrame:CGRectMake(  offset , 355, 583/2, 159/2)];
+    UIImageView *reportButton = [[UIImageView alloc] initWithFrame:CGRectMake(  offset , 295, 583/2, 159/2)];
     reportButton.image  = [UIImage imageNamed:@"report.png"];
     [self.view addSubview:reportButton];
     
-    UIImageView *skipButton = [[UIImageView alloc] initWithFrame:CGRectMake(  offset , 445, 583/2, 159/2)];
+    UIImageView *skipButton = [[UIImageView alloc] initWithFrame:CGRectMake(  offset , 385, 583/2, 159/2)];
     skipButton.image  = [UIImage imageNamed:@"activeSearch.png"];
     [self.view addSubview:skipButton];
     
     
-    UIImageView *skipButton1 = [[UIImageView alloc] initWithFrame:CGRectMake(  offset , 480, 583/2, 159/2)];
+    UIImageView *skipButton1 = [[UIImageView alloc] initWithFrame:CGRectMake(  offset , 420, 583/2, 159/2)];
     skipButton1.image  = [UIImage imageNamed:@"activeSearch.png"];
     [self.view addSubview:skipButton1];
     

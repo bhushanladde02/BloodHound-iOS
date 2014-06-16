@@ -119,7 +119,7 @@
         scalingFactor=_image.size.width/_image.size.height;
     }*/
     
-    return [self initWithFrame:CGRectMake(60, 75, 200.f, 200.f)];
+    return [self initWithFrame:CGRectMake(60, 80, 200.f, 200.f)];
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder

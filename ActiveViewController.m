@@ -53,7 +53,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
     //register Label
-    CGRect firstHeader = CGRectMake(20,275,280,34);
+    CGRect firstHeader = CGRectMake(20,215,280,34);
     UILabel *firstHeaderLabel = [[UILabel alloc] initWithFrame:firstHeader];
     //registerLabel.backgroundColor = [UIColor grayColor];  //debug point
     NSString *fTextOne = @"Bloodhound is";
@@ -63,7 +63,7 @@
     firstHeaderLabel.textColor = [self colorWithHexString:@"ffffff"];
     [self.view addSubview:firstHeaderLabel];
     
-    CGRect secondHeader = CGRectMake(20,304,280,60);
+    CGRect secondHeader = CGRectMake(20,244,280,60);
     UILabel *secondHeaderLabel = [[UILabel alloc] initWithFrame:secondHeader];
     //registerLabel.backgroundColor = [UIColor grayColor];  //debug point
     fTextOne = @"Active";
@@ -75,7 +75,7 @@
     
     
     
-    UIImageView *minButton = [[UIImageView alloc] initWithFrame:CGRectMake(  (320-602/2)/2, 475, 602/2, 159/2)];
+    UIImageView *minButton = [[UIImageView alloc] initWithFrame:CGRectMake(  (320-602/2)/2, 415, 602/2, 159/2)];
     minButton.image  = [UIImage imageNamed:@"minimize.png"];
     [self.view addSubview:minButton];
     

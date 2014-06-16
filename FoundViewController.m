@@ -57,7 +57,7 @@
     CGRect vicinitylabelFrame = CGRectMake(20,10,280,22);
     UILabel *vicinityLabel = [[UILabel alloc] initWithFrame:vicinitylabelFrame];
     //vicinityLabel.backgroundColor = [UIColor grayColor];  //debug point
-    NSString *vicinityText = @"You are in the vicinity of";
+    NSString *vicinityText = @"You are currently in the vicinity of";
     vicinityLabel.textAlignment = NSTextAlignmentCenter;
     [vicinityLabel setText: vicinityText];
     vicinityLabel.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:18];
@@ -81,11 +81,49 @@
     medallionView.image = [UIImage imageNamed:@"anonIcon100.png"];
     [self.view addSubview:medallionView];
     
+    //distinguish Label
+    CGRect distinguishLabelFrame = CGRectMake(20,290,280,30);
+    UILabel *distinguishLabel = [[UILabel alloc] initWithFrame:distinguishLabelFrame];
+    NSString *distinguishText = @"Distinguishing Features";
+    [distinguishLabel setText: distinguishText];
+    distinguishLabel.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:18];
+    distinguishLabel.textColor = [self colorWithHexString:@"3fa69a"];
+    [self.view addSubview:distinguishLabel];
+    
+    //distinguish Desc
+    //populated from registration page
+    CGRect distinguishDescLabelFrame = CGRectMake(20,320,280,20);
+    UILabel *distinguishDescLabel = [[UILabel alloc] initWithFrame:distinguishDescLabelFrame];
+    NSString *distinguishDescText = @"John has green hair and a purple tongue.";
+    [distinguishDescLabel setText: distinguishDescText];
+    distinguishDescLabel.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:16];
+    distinguishDescLabel.textColor = [self colorWithHexString:@"242424"];
+    [self.view addSubview:distinguishDescLabel];
+    
+    //special notes Label
+    CGRect specialLabelFrame = CGRectMake(20,350,280,30);
+    UILabel *specialLabel = [[UILabel alloc] initWithFrame:specialLabelFrame];
+    NSString *specialText = @"Special Notes";
+    [specialLabel setText: specialText];
+    specialLabel.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:18];
+    specialLabel.textColor = [self colorWithHexString:@"3fa69a"];
+    [self.view addSubview:specialLabel];
+    
+    //special notes Desc
+    //populated from registration page
+    CGRect specialDesclabelFrame = CGRectMake(20,380,280,20);
+    UILabel *specialDescLabel = [[UILabel alloc] initWithFrame:specialDesclabelFrame];
+    NSString *specialDescText = @"John Doe is allergic to the medications Suprax and Sulpha. He does not respond well to physical confinement.";
+    [specialDescLabel setText: specialDescText];
+    specialDescLabel.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:16];
+    specialDescLabel.textColor = [self colorWithHexString:@"242424"];
+    [self.view addSubview:specialDescLabel];
+    
     //directions Label
-    CGRect directionsLabelFrame = CGRectMake(20,290,280,20);
+    CGRect directionsLabelFrame = CGRectMake(20,410,280,30);
     UILabel *directionsLabel = [[UILabel alloc] initWithFrame:directionsLabelFrame];
     //directionsLabel.backgroundColor = [UIColor grayColor];  //debug point
-    NSString *directionsText = @"Directions if found:";
+    NSString *directionsText = @"Directions if Found";
     [directionsLabel setText: directionsText];
     directionsLabel.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:18];
     directionsLabel.textColor = [self colorWithHexString:@"3fa69a"];
@@ -93,10 +131,8 @@
     
     //directions Desc
     //populated from registration page
-    CGRect directionsDesclabelFrame = CGRectMake(20,310,280,32);
+    CGRect directionsDesclabelFrame = CGRectMake(20,440,280,20);
     UILabel *directionsDescLabel = [[UILabel alloc] initWithFrame:directionsDesclabelFrame];
-    directionsDescLabel.lineBreakMode = UILineBreakModeWordWrap;
-    directionsDescLabel.numberOfLines = 0;
     //[directionsDescLabel sizeToFit];
     //directionsDescLabel.backgroundColor = [UIColor grayColor];  //debug point
     NSString *directionsDescText = @"Please call John's wife, Jane Doe, at (999) 888-7777 to inform her of her husband's current location.";
@@ -108,7 +144,7 @@
     // [self.view insertSubview:backgroundImageView atIndex:0];
     self.view.backgroundColor = [UIColor whiteColor];
     
-    UIImageView *foundButton = [[UIImageView alloc] initWithFrame:CGRectMake(  (320-602/2)/2, 415, 602/2, 159/2)];
+    UIImageView *foundButton = [[UIImageView alloc] initWithFrame:CGRectMake(  (320-602/2)/2, 470, 602/2, 159/2)];
     foundButton.image  = [UIImage imageNamed:@"found.png"];
     [self.view addSubview:foundButton];
     
