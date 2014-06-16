@@ -173,7 +173,7 @@ NSString *databasePath;
             [self fetchDetails:beaconId];
             alertDS = globals.notificationDS;
             foundData = globals.foundData; //get updated ds
-            [alertDS setObject:@"On" forKey:[foundData objectForKey:@"beaconId"]]; //alert is On for same ID
+            [alertDS setObject:@"On" forKey:beaconId]; //alert is On for same ID
         }
         
         

@@ -85,6 +85,7 @@
     //Should get data from server
     
     NSString *imgURL = [foundData objectForKey:@"col9"];
+    imgURL = [imgURL stringByReplacingOccurrencesOfString:@"\"" withString:@""];
     NSString *url = [NSString stringWithFormat:@"http://smallemperor.com:8080/images/%@",imgURL];
     
     NSLog([NSString stringWithFormat:@"Img url is %@",url]);
@@ -128,7 +129,9 @@
     //clear the notification from alertDS
     
     NSString *beaconId = [foundData objectForKey:@"beaconId"];
-
+    beaconId = [NSString stringWithFormat:@"%@",beaconId];
+    
+    beaconId = [beaconId stringByReplacingOccurrencesOfString:@"\"" withString:@""];
     //remove the beacon Id
     [alertDS removeObjectForKey:beaconId];
 }
