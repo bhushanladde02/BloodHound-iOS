@@ -135,7 +135,7 @@ NSInteger height  = 0;
     NSError *error;
     NSString *jsonString;
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:jsonDictionary
-                                                       options:NSJSONWritingPrettyPrinted // Pass 0 if you don't care about the readability of the generated string
+                                                       options:0 // Pass 0 if you don't care about the readability of the generated string
                                                          error:&error];
     if (! jsonData) {
         NSLog(@"Got an error: %@", error);
@@ -160,7 +160,7 @@ NSInteger height  = 0;
     [av show];
     
     //pass two array to post request, reporting flags and corresponding beacon Id
-    NSString *post = [NSString stringWithFormat:@"jsonData=\"%@\"",jsonString];
+    NSString *post = [NSString stringWithFormat:@"jsonData=%@",jsonString];
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     
     NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
