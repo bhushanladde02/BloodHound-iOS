@@ -44,6 +44,10 @@ NSString *databasePath;
     self.visitManager.delegate = self;
     [self.visitManager start];
     
+    
+    //testing remove line
+    [self fetchDetails:@""];
+    
     return YES;
 }
 
@@ -90,6 +94,28 @@ NSString *databasePath;
     }
     return isSuccess;
 }
+
+- (void) fetchDetails:(NSString*) beaconId{
+    NSString *post = @"deviceID=\"48384\"";
+    NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+    
+    NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
+    
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    [request setURL:[NSURL URLWithString:@"http://localhost:8080/BloodHoundBackend/FindPeople"]];
+    [request setHTTPMethod:@"POST"];
+    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPBody:postData];
+    
+    NSURLResponse* response;
+    NSError* error = nil;
+    
+    NSData* result = [NSURLConnection sendSynchronousRequest:request  returningResponse:&response error:&error];
+    NSString *content = [NSString stringWithUTF8String:[result bytes]];
+    NSLog(@"responseData: %@", content);
+}
+
 
 
 - (void)didArrive:(FYXVisit *)visit;
@@ -299,5 +325,30 @@ NSString *databasePath;
 {
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
+
+
+
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
+    
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
+      NSLog(@"Received data:%@",data);
+}
+
+- (NSCachedURLResponse *)connection:(NSURLConnection *)connection
+                  willCacheResponse:(NSCachedURLResponse*)cachedResponse {
+    // Return nil to indicate not necessary to store a cached response for this connection
+    return nil;
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+}
+
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
+    
+}
+
+
 
 @end

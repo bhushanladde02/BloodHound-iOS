@@ -12,7 +12,7 @@
 #import <FYX/FYXVisitManager.h>
 #import <FYX/FYXTransmitter.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate,FYXVisitDelegate,FYXServiceDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate,FYXVisitDelegate,FYXServiceDelegate,NSURLConnectionDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
@@ -22,8 +22,10 @@
 @property (nonatomic) FYXVisitManager *visitManager;
 @property (nonatomic) NSInteger count;
 
+
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 
-
 @end
+
+NSMutableData *_responseData;
