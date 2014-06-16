@@ -143,6 +143,11 @@ NSInteger height  = 0;
         jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
     }
     
+    av = [[UIAlertView alloc] initWithTitle:@"Processing..." message:@"" delegate:nil cancelButtonTitle:nil otherButtonTitles:nil];
+    [av show];
+    
+    
+    
     [self updateReportingStatus:jsonString];
     
     //if udpate is success, update local database
@@ -152,13 +157,13 @@ NSInteger height  = 0;
         ++count;
     }
     
+     [av dismissWithClickedButtonIndex:0 animated:NO];
+    
 }
 
 -(void)updateReportingStatus :(NSString*) jsonString{
     
-     UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Processing..." message:@"" delegate:nil cancelButtonTitle:nil otherButtonTitles:nil];
-    [av show];
-    
+ 
     //pass two array to post request, reporting flags and corresponding beacon Id
     NSString *post = [NSString stringWithFormat:@"jsonData=%@",jsonString];
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
@@ -166,7 +171,7 @@ NSInteger height  = 0;
     NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
     
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-    [request setURL:[NSURL URLWithString:@"http://localhost:8080/BloodHoundBackend/ReportPeople"]];
+    [request setURL:[NSURL URLWithString:@"http://smallemperor.com:8080/BloodHoundBackend/ReportPeople"]];
     [request setHTTPMethod:@"POST"];
     [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
     [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
@@ -184,7 +189,7 @@ NSInteger height  = 0;
     
     
     
-    [av dismissWithClickedButtonIndex:0 animated:NO];
+   
     
     if (localError != nil) {
         UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"Success"
@@ -332,6 +337,7 @@ NSInteger counter = 0;
     sqlite3_stmt *sqlstmt;
     char *sql = "select * from LOST;";
     int ret;
+    counter= 0;
     ret = sqlite3_prepare_v2(d, sql, -1, &sqlstmt, NULL);
     if (ret == SQLITE_OK) {
         NSLog(@"*** SQLITE_OK");

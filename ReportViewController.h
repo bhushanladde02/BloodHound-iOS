@@ -15,3 +15,4 @@
 
 UIImage *uncheckImage;
 UIImage *checkImage;
+UIAlertView *av;

@@ -81,7 +81,7 @@ public class LostDAO {
 		try {
 			EntityTransaction entr = em.getTransaction();
 			entr.begin();
-			Lost lost = this.getLostDetails(lostObject.getBeaconId());
+			Lost lost = this.getLostDetails("\""+lostObject.getBeaconId()+"\"");
 			lost.setCol7(lostObject.getCol7());
 			em.merge(lost); // works as save or update
 			entr.commit();
