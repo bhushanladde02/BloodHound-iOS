@@ -9,6 +9,8 @@
 #import "FoundViewController.h"
 #import  "AGMedallionView.h"
 #import "TPKeyboardAvoidingScrollView.h"
+#import "GlobalVars.h"
+#import "UIImageView+WebCache.h"
 
 @interface FoundViewController ()
 
@@ -29,6 +31,10 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    GlobalVars *globals = [GlobalVars sharedInstance];
+    NSDictionary *foundData = globals.foundData;
+    NSMutableDictionary *alertDS = globals.notificationDS;
     
     
     TPKeyboardAvoidingScrollView* scrollView = [[TPKeyboardAvoidingScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
@@ -77,8 +83,14 @@
     [self.view addSubview:fullNameLabel];
     
     //Should get data from server
+    
+    NSString *imgURL = [foundData objectForKey:@"col9"];
+    NSString *url = [NSString stringWithFormat:@"http://smallemperor.com:8080/images/%@",imgURL];
+    
+    NSLog([NSString stringWithFormat:@"Img url is %@",url]);
+    
     AGMedallionView *medallionView = [[AGMedallionView alloc] init];
-    medallionView.image = [UIImage imageNamed:@"anonIcon100.png"];
+    medallionView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:url]]];
     [self.view addSubview:medallionView];
     
     //directions Label
@@ -113,6 +125,12 @@
     [self.view addSubview:foundButton];
     
     
+    //clear the notification from alertDS
+    
+    NSString *beaconId = [foundData objectForKey:@"beaconId"];
+
+    //remove the beacon Id
+    [alertDS removeObjectForKey:beaconId];
 }
 
 -(UIColor*)colorWithHexString:(NSString*)hex

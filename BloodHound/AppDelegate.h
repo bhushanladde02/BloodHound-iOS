@@ -11,6 +11,8 @@
 #import  <FYX/FYX.h>
 #import <FYX/FYXVisitManager.h>
 #import <FYX/FYXTransmitter.h>
+#import "GlobalVars.h"
+
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate,FYXVisitDelegate,FYXServiceDelegate,NSURLConnectionDelegate>
 
@@ -29,3 +31,6 @@
 @end
 
 NSMutableData *_responseData;
+GlobalVars *globals;
+NSMutableDictionary *alertDS;
+NSDictionary *foundData;

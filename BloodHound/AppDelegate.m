@@ -46,7 +46,10 @@ NSString *databasePath;
     
     
     //testing remove line
-    [self fetchDetails:@""];
+    //[self fetchDetails:@""];
+    
+    globals = [GlobalVars sharedInstance];
+    
     
     return YES;
 }
@@ -96,13 +99,13 @@ NSString *databasePath;
 }
 
 - (void) fetchDetails:(NSString*) beaconId{
-    NSString *post = @"deviceID=\"48384\"";
+    NSString *post = [NSString stringWithFormat:@"deviceID=\"%@\"",beaconId];
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     
     NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
     
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-    [request setURL:[NSURL URLWithString:@"http://localhost:8080/BloodHoundBackend/FindPeople"]];
+    [request setURL:[NSURL URLWithString:@"http://smallemperor.com:8080/BloodHoundBackend/FindPeople"]];
     [request setHTTPMethod:@"POST"];
     [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
     [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
@@ -114,6 +117,24 @@ NSString *databasePath;
     NSData* result = [NSURLConnection sendSynchronousRequest:request  returningResponse:&response error:&error];
     NSString *content = [NSString stringWithUTF8String:[result bytes]];
     NSLog(@"responseData: %@", content);
+    
+    NSError *localError = nil;
+    NSDictionary *parsedObject = [NSJSONSerialization JSONObjectWithData:result options:0 error:&localError];
+    
+    if (localError != nil) {
+      //  *error = localError;
+      //  return nil;
+    }
+    
+    /*NSString *deviceID = [parsedObject objectForKey:@"beaconId"];
+    NSString *address = [parsedObject objectForKey:@"address"];
+    NSString *col0 = [parsedObject objectForKey:@"col0"];
+    
+    NSLog([NSString stringWithFormat:@"%@", deviceID]);
+    NSLog([NSString stringWithFormat:@"%@", address]);
+    NSLog([NSString stringWithFormat:@"%@", col0]);*/
+ 
+    globals.foundData = parsedObject;
 }
 
 
@@ -131,25 +152,36 @@ NSString *databasePath;
     NSLog(@"I received a sighting!!! %@", visit.transmitter.name);
      NSLog(@"I received a identifier!!! %@", visit.transmitter.identifier);
     
-    //visit.transmitter.identifier
-    //Use this identifier to pull data from server  -- this is beaconID
     
+    
+    NSString *beaconId = visit.transmitter.identifier;
+
     
     
     NSLog(@"Gimbal Beacon Value!!! %@", visit.transmitter.ownerId);
     if([[UIApplication sharedApplication] applicationState] != UIApplicationStateActive) {
         NSLog(@"Application status is in background %@",visit.transmitter.battery);
         
-        //if(_count < 100){
-         //   ++_count;
-            
-            //Logging slows down remove
-            // NSString *string = [NSString stringWithFormat:@"%d", _count];
-            // NSLog(@"Notification count is %@",string);
-            
+        foundData = globals.foundData;
+        alertDS = globals.notificationDS;
+        
+        if([alertDS objectForKey:beaconId]){
+            //forget it  -alert is already there
+            //object is already set
+            return;
+        }else{
+            [self fetchDetails:beaconId];
+            alertDS = globals.notificationDS;
+            foundData = globals.foundData; //get updated ds
+            [alertDS setObject:@"On" forKey:[foundData objectForKey:@"beaconId"]]; //alert is On for same ID
+        }
+        
+        
+        NSString *uniqueID = [foundData objectForKey:@"col8"];
+        
             UILocalNotification *localNotif = [[UILocalNotification alloc] init];
             if (localNotif) {
-                localNotif.alertBody = @"SCOTTSDALE, AZ - Police are searching for a missing Scottsdale man.Scottsdale police say 65-year-old Raymond Grey was last seen around 5:30 p.m. on Sunday in the area of 94th Street and Sweetwater Avenue with his medium sized, brown and white colored dog.";
+                localNotif.alertBody = uniqueID==nil?@"Error":uniqueID;
                 localNotif.alertAction = NSLocalizedString(@"Read Message", nil);
                 
                 //Just to switch screen to new development

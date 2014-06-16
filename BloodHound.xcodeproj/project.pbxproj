@@ -87,6 +87,7 @@
 		FCAF95921946417600662414 /* FoundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCAF95911946417600662414 /* FoundViewController.m */; };
 		FCB18F52194C56CC00A3345F /* UIPlaceHolderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB18F51194C56CC00A3345F /* UIPlaceHolderTextView.m */; };
 		FCB18F62194DA70000A3345F /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCB18F61194DA70000A3345F /* AdSupport.framework */; };
+		FCB18F65194ED39200A3345F /* GlobalVars.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB18F64194ED39200A3345F /* GlobalVars.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -208,6 +209,8 @@
 		FCB18F50194C56CC00A3345F /* UIPlaceHolderTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIPlaceHolderTextView.h; sourceTree = "<group>"; };
 		FCB18F51194C56CC00A3345F /* UIPlaceHolderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIPlaceHolderTextView.m; sourceTree = "<group>"; };
 		FCB18F61194DA70000A3345F /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		FCB18F63194ED39200A3345F /* GlobalVars.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalVars.h; sourceTree = "<group>"; };
+		FCB18F64194ED39200A3345F /* GlobalVars.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalVars.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -251,6 +254,8 @@
 		FCA3FA85193C809000390B10 = {
 			isa = PBXGroup;
 			children = (
+				FCB18F63194ED39200A3345F /* GlobalVars.h */,
+				FCB18F64194ED39200A3345F /* GlobalVars.m */,
 				FCB18F50194C56CC00A3345F /* UIPlaceHolderTextView.h */,
 				FCB18F51194C56CC00A3345F /* UIPlaceHolderTextView.m */,
 				FCAD8351194B836E00D0608F /* SDWebImage */,
@@ -559,6 +564,7 @@
 				FCAD837A194B836E00D0608F /* UIButton+WebCache.m in Sources */,
 				FCA3FAA4193C809000390B10 /* AppDelegate.m in Sources */,
 				FCAD8379194B836E00D0608F /* SDWebImagePrefetcher.m in Sources */,
+				FCB18F65194ED39200A3345F /* GlobalVars.m in Sources */,
 				FCAD8375194B836E00D0608F /* SDWebImageDecoder.m in Sources */,
 				FCAD8373194B836E00D0608F /* SDImageCache.m in Sources */,
 				FCAD8374194B836E00D0608F /* SDWebImageCompat.m in Sources */,
