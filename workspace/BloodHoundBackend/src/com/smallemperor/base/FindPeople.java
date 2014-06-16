@@ -18,12 +18,13 @@ import com.smallemperor.db.LostDAO;
 
 public class FindPeople extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+    private LostDAO lostDAO;  
     /**
      * @see HttpServlet#HttpServlet()
      */
     public FindPeople() {
         super();
+        lostDAO = new LostDAO();
         // TODO Auto-generated constructor stub
     }
 
@@ -53,8 +54,7 @@ public class FindPeople extends HttpServlet {
 		
 		String beaconId = (String) request.getParameter("deviceID");
 		System.out.println(beaconId);
-		Gson gson = new Gson();
-		 LostDAO lostDAO = new LostDAO();
+		Gson gson = new Gson();	
 		Lost lostObject = lostDAO.getLostDetails(beaconId);
 		System.out.println(lostObject.getAddress());
 		System.out.println(gson.toJson(lostObject));

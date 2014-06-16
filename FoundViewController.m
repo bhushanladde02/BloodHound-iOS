@@ -150,8 +150,8 @@ UIAlertView *av;
 -(void)tapDetectedFound{ //flag will always be true
     //show alert processing
     
-    NSLog(@"single Tap on tap detected report button");
-    
+    NSLog(@"single Tap on tap detected found button");
+    NSLog([NSString stringWithFormat:@"beacon id is %@",beaconId ]);
    
     
     NSMutableDictionary *jsonDictionary = [[NSMutableDictionary alloc] init];
@@ -233,7 +233,7 @@ UIAlertView *av;
     NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
     
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-    [request setURL:[NSURL URLWithString:@"http://localhost:8080/BloodHoundBackend/ReportPeople"]];
+    [request setURL:[NSURL URLWithString:@"http://smallemperor.com:8080/BloodHoundBackend/ReportPeople"]];
     [request setHTTPMethod:@"POST"];
     [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
     [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
