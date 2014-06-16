@@ -16,4 +16,12 @@
     <servlet-name>FindPeople</servlet-name>
     <url-pattern>/FindPeople</url-pattern>
   </servlet-mapping>
+   <servlet>
+    <servlet-name>ReportPeople</servlet-name>
+    <servlet-class>com.smallemperor.base.ReportPeople</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ReportPeople</servlet-name>
+    <url-pattern>/ReportPeople</url-pattern>
+  </servlet-mapping>
 </web-app>

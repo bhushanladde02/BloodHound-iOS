@@ -73,7 +73,9 @@ NSString *databasePath;
         {
             char *errMsg;
             const char *sql_stmt =
-            "CREATE TABLE IF NOT EXISTS LOST (BEACONID TEXT PRIMARY KEY,FNAME TEXT,LNAME TEXT,IMGURL TEXT,STREET TEXT,CITY TEXT,STATE TEXT,ZIP TEXT,AGE TEXT,HEIGHT TEXT,WEIGHT TEXT,HCOLOR TEXT, ECOLOR TEXT, FEATURE TEXT,SPECIAL TEXT,ACTION TEXT)";
+            "CREATE TABLE IF NOT EXISTS LOST (BEACONID TEXT PRIMARY KEY,FNAME TEXT,LNAME TEXT,IMGURL TEXT,STREET TEXT,CITY TEXT,STATE TEXT,ZIP TEXT,AGE TEXT,HEIGHT TEXT,WEIGHT TEXT,HCOLOR TEXT, ECOLOR TEXT, FEATURE TEXT,SPECIAL TEXT,ACTION TEXT,REPORT TEXT)";
+            
+            //report field for isReported corresponds to col7 on server
             
             if (sqlite3_exec(database, sql_stmt, NULL, NULL, &errMsg)
                 != SQLITE_OK)
@@ -99,6 +101,8 @@ NSString *databasePath;
 }
 
 - (void) fetchDetails:(NSString*) beaconId{
+    
+    
     NSString *post = [NSString stringWithFormat:@"deviceID=\"%@\"",beaconId];
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     
