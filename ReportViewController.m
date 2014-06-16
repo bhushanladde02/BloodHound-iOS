@@ -117,7 +117,18 @@ NSInteger height  = 0;
     registerLabel.textColor = [self colorWithHexString:@"3fa69a"];
     [self.view addSubview:registerLabel];
     
+    UITapGestureRecognizer *singleTapReport = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapDetectedReport)];
+    singleTapReport.numberOfTapsRequired = 1;
+    minButton.userInteractionEnabled = YES;
+    [minButton addGestureRecognizer:singleTapReport];
+    
+    
     offset = 0;
+}
+
+-(void)tapDetectedReport{
+    NSLog(@"single Tap on tap detected report button");
+    
 }
 
 

@@ -189,13 +189,9 @@ NSString *databasePath;
                 [(UINavigationController*)self.window.rootViewController pushViewController:foundViewController animated:nil];
                 
                 localNotif.soundName = @"alarmsound.caf";
-                localNotif.applicationIconBadgeNumber = 0;
+                localNotif.applicationIconBadgeNumber = 1;
                 [[UIApplication sharedApplication] scheduleLocalNotification:localNotif];
             }
-       // }else{
-       //     NSLog(@"I am done with Notifications !!! %@", visit.transmitter.name);
-       //     exit(0);
-        //}
     }
     
 }

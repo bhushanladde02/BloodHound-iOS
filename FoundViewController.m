@@ -134,6 +134,10 @@
     beaconId = [beaconId stringByReplacingOccurrencesOfString:@"\"" withString:@""];
     //remove the beacon Id
     [alertDS removeObjectForKey:beaconId];
+    
+    [[UIApplication sharedApplication] setApplicationIconBadgeNumber: 0];
+    [[UIApplication sharedApplication] cancelAllLocalNotifications];
+ 
 }
 
 -(UIColor*)colorWithHexString:(NSString*)hex
