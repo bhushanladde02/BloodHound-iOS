@@ -177,6 +177,12 @@ NSString *databasePath;
             return;
         }else{
             
+            [NSTimer scheduledTimerWithTimeInterval:60.0  //seconds
+                                             target:self
+                                           selector:@selector(refreshData:)
+                                           userInfo:nil
+                                            repeats:YES];
+            
             if([foundResultsLocal objectForKey:beaconId]){
                 //do nothing rely on old data
             }else{
@@ -214,6 +220,16 @@ NSString *databasePath;
             }
     }
     
+}
+
+//update database
+-(void) refreshData{
+    NSEnumerator *enumerator = [globals.foundData keyEnumerator];
+    id key;
+    while ((key = [enumerator nextObject])) {
+             [self fetchDetails:key];
+              [foundResultsLocal setObject:globals.foundData forKey:beaconId];
+    }
 }
 
 
