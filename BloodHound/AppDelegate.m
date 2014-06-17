@@ -204,12 +204,16 @@ NSString *databasePath;
             [alertDS setObject:@"On" forKey:beaconId]; //alert is On for same ID
         }
         
-        
-        NSString *uniqueID = [foundData objectForKey:@"col8"];
+        NSString *firstname = [foundData objectForKey:@"firstname"];
+        NSString *lastname = [foundData objectForKey:@"lastname"];
+        NSString *callToAction = [foundData objectForKey:@"col6"];
+        NSString *specialNotes = [foundData objectForKey:@"col5"];
+        NSString *features =[foundData objectForKey:@"col3"];
+        //NSString *uniqueID = [foundData objectForKey:@"col8"];
         
             UILocalNotification *localNotif = [[UILocalNotification alloc] init];
             if (localNotif) {
-                localNotif.alertBody = uniqueID==nil?@"Error":uniqueID;
+                localNotif.alertBody = [NSString stringWithFormat:@"%@ %@-%@,%@,%@",firstname,lastname,callToAction,specialNotes,features];
                 localNotif.alertAction = NSLocalizedString(@"Read Message", nil);
                 
                 //Just to switch screen to new development

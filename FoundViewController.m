@@ -35,6 +35,12 @@
     
     GlobalVars *globals = [GlobalVars sharedInstance];
     NSDictionary *foundData = globals.foundData;
+    NSString *firstname = [foundData objectForKey:@"firstname"];
+    NSString *lastname = [foundData objectForKey:@"lastname"];
+    NSString *callToAction = [foundData objectForKey:@"col6"];
+    NSString *specialNotes = [foundData objectForKey:@"col5"];
+    NSString *features =[foundData objectForKey:@"col3"];
+    
     NSMutableDictionary *alertDS = globals.notificationDS;
     
     
@@ -43,7 +49,7 @@
     //scrollView.pagingEnabled = YES;
     scrollView.showsVerticalScrollIndicator = YES;
     scrollView.showsHorizontalScrollIndicator = YES;
-    //scrollView.contentSize = CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.height);
+    scrollView.contentSize = CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.height*1.4);
     //[self.view addSubview:scrollView];
     self.view = scrollView;
 
@@ -76,7 +82,7 @@
     CGRect fullNameLabelFrame = CGRectMake(20,30,280,34);
     UILabel *fullNameLabel = [[UILabel alloc] initWithFrame:fullNameLabelFrame];
     //vicinityLabel.backgroundColor = [UIColor grayColor];  //debug point
-    NSString *fullNameText = @"John Doe";
+    NSString *fullNameText =[NSString stringWithFormat:@"%@ %@",firstname,lastname ];
     fullNameLabel.textAlignment = NSTextAlignmentCenter;
     [fullNameLabel setText: fullNameText];
     fullNameLabel.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:30];
@@ -89,7 +95,7 @@
     imgURL = [imgURL stringByReplacingOccurrencesOfString:@"\"" withString:@""];
     NSString *url = [NSString stringWithFormat:@"http://smallemperor.com:8080/images/%@",imgURL];
     
-    NSLog([NSString stringWithFormat:@"Img url is %@",url]);
+    //NSLog([NSString stringWithFormat:@"Img url is %@",url]);
     
     AGMedallionView *medallionView = [[AGMedallionView alloc] init];
     medallionView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:url]]];
@@ -108,7 +114,7 @@
     //populated from registration page
     CGRect distinguishDescLabelFrame = CGRectMake(20,320,280,20);
     UILabel *distinguishDescLabel = [[UILabel alloc] initWithFrame:distinguishDescLabelFrame];
-    NSString *distinguishDescText = @"John has green hair and a purple tongue.";
+    NSString *distinguishDescText = features;
     [distinguishDescLabel setText: distinguishDescText];
     distinguishDescLabel.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:16];
     distinguishDescLabel.textColor = [self colorWithHexString:@"242424"];
@@ -127,7 +133,7 @@
     //populated from registration page
     CGRect specialDesclabelFrame = CGRectMake(20,380,280,20);
     UILabel *specialDescLabel = [[UILabel alloc] initWithFrame:specialDesclabelFrame];
-    NSString *specialDescText = @"John Doe is allergic to the medications Suprax and Sulpha. He does not respond well to physical confinement.";
+    NSString *specialDescText = specialNotes;
     [specialDescLabel setText: specialDescText];
     specialDescLabel.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:16];
     specialDescLabel.textColor = [self colorWithHexString:@"242424"];
@@ -149,7 +155,7 @@
     UILabel *directionsDescLabel = [[UILabel alloc] initWithFrame:directionsDesclabelFrame];
     //[directionsDescLabel sizeToFit];
     //directionsDescLabel.backgroundColor = [UIColor grayColor];  //debug point
-    NSString *directionsDescText = @"Please call John's wife, Jane Doe, at (999) 888-7777 to inform her of her husband's current location.";
+    NSString *directionsDescText = callToAction;
     [directionsDescLabel setText: directionsDescText];
     directionsDescLabel.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:16];
     directionsDescLabel.textColor = [self colorWithHexString:@"242424"];

@@ -20,12 +20,9 @@
 		FC1F45251940965D006C10F8 /* ReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC1F45231940965D006C10F8 /* ReportViewController.m */; };
 		FC1F4527194096BC006C10F8 /* reportAlert.png in Resources */ = {isa = PBXBuildFile; fileRef = FC1F4526194096BC006C10F8 /* reportAlert.png */; };
 		FC1F45291943BF6E006C10F8 /* backButton.png in Resources */ = {isa = PBXBuildFile; fileRef = FC1F45281943BF6E006C10F8 /* backButton.png */; };
-		FC2934B11947248800DF1087 /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC2934B01947248800DF1087 /* TPKeyboardAvoidingScrollView.m */; };
-		FC2934B41947252A00DF1087 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = FC2934B31947252A00DF1087 /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
 		FC33D889194FFECC00B346E1 /* appIcon58.png in Resources */ = {isa = PBXBuildFile; fileRef = FC33D886194FFECC00B346E1 /* appIcon58.png */; };
 		FC33D88A194FFECC00B346E1 /* appIcon80.png in Resources */ = {isa = PBXBuildFile; fileRef = FC33D887194FFECC00B346E1 /* appIcon80.png */; };
 		FC33D88B194FFECC00B346E1 /* appIcon120.png in Resources */ = {isa = PBXBuildFile; fileRef = FC33D888194FFECC00B346E1 /* appIcon120.png */; };
-		FC6CAEB9193D654200FB5850 /* loadingScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = FC6CAEB8193D654200FB5850 /* loadingScreen.png */; };
 		FC6CAEC9193EF18F00FB5850 /* OpenSans-CondBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC6CAEC6193EF18E00FB5850 /* OpenSans-CondBold.ttf */; };
 		FC6CAECA193EF18F00FB5850 /* OpenSans-CondLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC6CAEC7193EF18F00FB5850 /* OpenSans-CondLight.ttf */; };
 		FC6CAECB193EF18F00FB5850 /* OpenSans-CondLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC6CAEC8193EF18F00FB5850 /* OpenSans-CondLightItalic.ttf */; };
@@ -129,7 +126,6 @@
 		FC33D886194FFECC00B346E1 /* appIcon58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appIcon58.png; sourceTree = "<group>"; };
 		FC33D887194FFECC00B346E1 /* appIcon80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appIcon80.png; sourceTree = "<group>"; };
 		FC33D888194FFECC00B346E1 /* appIcon120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appIcon120.png; sourceTree = "<group>"; };
-		FC6CAEB8193D654200FB5850 /* loadingScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = loadingScreen.png; path = ../../../Downloads/loadingScreen.png; sourceTree = "<group>"; };
 		FC6CAEC6193EF18E00FB5850 /* OpenSans-CondBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-CondBold.ttf"; sourceTree = "<group>"; };
 		FC6CAEC7193EF18F00FB5850 /* OpenSans-CondLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-CondLight.ttf"; sourceTree = "<group>"; };
 		FC6CAEC8193EF18F00FB5850 /* OpenSans-CondLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-CondLightItalic.ttf"; sourceTree = "<group>"; };
@@ -319,7 +315,6 @@
 				FCB18F68194F2E3200A3345F /* activeSearch.png */,
 				FCB18F69194F2E3200A3345F /* register.png */,
 				FCB18F6A194F2E3300A3345F /* report.png */,
-				FC1F451F1940909D006C10F8 /* background2.png */,
 				FC1F451A19406E34006C10F8 /* navBar.png */,
 				FCA3FA99193C809000390B10 /* BloodHound */,
 				FCA3FAB6193C809000390B10 /* BloodHoundTests */,
@@ -443,9 +438,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		FCA3FA8D193C809000390B10 /* BloodHound */ = {
+		FCA3FA8D193C809000390B10 /* Bloodhound */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FCA3FAC0193C809000390B10 /* Build configuration list for PBXNativeTarget "BloodHound" */;
+			buildConfigurationList = FCA3FAC0193C809000390B10 /* Build configuration list for PBXNativeTarget "Bloodhound" */;
 			buildPhases = (
 				FCA3FA8A193C809000390B10 /* Sources */,
 				FCA3FA8B193C809000390B10 /* Frameworks */,
@@ -455,7 +450,7 @@
 			);
 			dependencies = (
 			);
-			name = BloodHound;
+			name = Bloodhound;
 			productName = BloodHound;
 			productReference = FCA3FA8E193C809000390B10 /* BloodHound.app */;
 			productType = "com.apple.product-type.application";
@@ -504,7 +499,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				FCA3FA8D193C809000390B10 /* BloodHound */,
+				FCA3FA8D193C809000390B10 /* Bloodhound */,
 				FCA3FAAD193C809000390B10 /* BloodHoundTests */,
 			);
 		};
@@ -544,7 +539,6 @@
 				FC6CAED2193F104D00FB5850 /* upload.png in Resources */,
 				FCAD8350194AFF7800D0608F /* anonIcon100.png in Resources */,
 				FC33D88B194FFECC00B346E1 /* appIcon120.png in Resources */,
-				FC1F45201940909D006C10F8 /* background2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -613,7 +607,7 @@
 /* Begin PBXTargetDependency section */
 		FCA3FAB5193C809000390B10 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = FCA3FA8D193C809000390B10 /* BloodHound */;
+			target = FCA3FA8D193C809000390B10 /* Bloodhound */;
 			targetProxy = FCA3FAB4193C809000390B10 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -802,7 +796,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FCA3FAC0193C809000390B10 /* Build configuration list for PBXNativeTarget "BloodHound" */ = {
+		FCA3FAC0193C809000390B10 /* Build configuration list for PBXNativeTarget "Bloodhound" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FCA3FAC1193C809000390B10 /* Debug */,

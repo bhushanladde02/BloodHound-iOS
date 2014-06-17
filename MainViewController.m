@@ -67,9 +67,9 @@
     [self.view addSubview:skipButton];
     
     
-    UIImageView *skipButton1 = [[UIImageView alloc] initWithFrame:CGRectMake(  offset , 420, 583/2, 159/2)];
+    /*UIImageView *skipButton1 = [[UIImageView alloc] initWithFrame:CGRectMake(  offset , 420, 583/2, 159/2)];
     skipButton1.image  = [UIImage imageNamed:@"activeSearch.png"];
-    [self.view addSubview:skipButton1];
+    [self.view addSubview:skipButton1];*/
     
     
     UITapGestureRecognizer *singleTapRegister = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapDetectedRegister)];
@@ -91,8 +91,8 @@
     
     UITapGestureRecognizer *singleTapFound = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapDetectedFound)];
     singleTapFound.numberOfTapsRequired = 1;
-    skipButton1.userInteractionEnabled = YES;
-   [skipButton1 addGestureRecognizer:singleTapFound];
+    //skipButton1.userInteractionEnabled = YES;
+   //[skipButton1 addGestureRecognizer:singleTapFound];
     
     
     
