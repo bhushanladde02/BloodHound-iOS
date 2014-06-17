@@ -22,6 +22,9 @@
 		FC1F45291943BF6E006C10F8 /* backButton.png in Resources */ = {isa = PBXBuildFile; fileRef = FC1F45281943BF6E006C10F8 /* backButton.png */; };
 		FC2934B11947248800DF1087 /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC2934B01947248800DF1087 /* TPKeyboardAvoidingScrollView.m */; };
 		FC2934B41947252A00DF1087 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = FC2934B31947252A00DF1087 /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
+		FC33D889194FFECC00B346E1 /* appIcon58.png in Resources */ = {isa = PBXBuildFile; fileRef = FC33D886194FFECC00B346E1 /* appIcon58.png */; };
+		FC33D88A194FFECC00B346E1 /* appIcon80.png in Resources */ = {isa = PBXBuildFile; fileRef = FC33D887194FFECC00B346E1 /* appIcon80.png */; };
+		FC33D88B194FFECC00B346E1 /* appIcon120.png in Resources */ = {isa = PBXBuildFile; fileRef = FC33D888194FFECC00B346E1 /* appIcon120.png */; };
 		FC6CAEB9193D654200FB5850 /* loadingScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = FC6CAEB8193D654200FB5850 /* loadingScreen.png */; };
 		FC6CAEC9193EF18F00FB5850 /* OpenSans-CondBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC6CAEC6193EF18E00FB5850 /* OpenSans-CondBold.ttf */; };
 		FC6CAECA193EF18F00FB5850 /* OpenSans-CondLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC6CAEC7193EF18F00FB5850 /* OpenSans-CondLight.ttf */; };
@@ -125,6 +128,9 @@
 		FC2934B01947248800DF1087 /* TPKeyboardAvoidingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TPKeyboardAvoidingScrollView.m; path = "../../../Downloads/TPKeyboardAvoiding-master 2/TPKeyboardAvoiding/TPKeyboardAvoidingScrollView.m"; sourceTree = "<group>"; };
 		FC2934B21947252A00DF1087 /* UIScrollView+TPKeyboardAvoidingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIScrollView+TPKeyboardAvoidingAdditions.h"; path = "../../../Downloads/TPKeyboardAvoiding-master/TPKeyboardAvoiding/UIScrollView+TPKeyboardAvoidingAdditions.h"; sourceTree = "<group>"; };
 		FC2934B31947252A00DF1087 /* UIScrollView+TPKeyboardAvoidingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIScrollView+TPKeyboardAvoidingAdditions.m"; path = "../../../Downloads/TPKeyboardAvoiding-master/TPKeyboardAvoiding/UIScrollView+TPKeyboardAvoidingAdditions.m"; sourceTree = "<group>"; };
+		FC33D886194FFECC00B346E1 /* appIcon58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appIcon58.png; sourceTree = "<group>"; };
+		FC33D887194FFECC00B346E1 /* appIcon80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appIcon80.png; sourceTree = "<group>"; };
+		FC33D888194FFECC00B346E1 /* appIcon120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appIcon120.png; sourceTree = "<group>"; };
 		FC6CAEB8193D654200FB5850 /* loadingScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = loadingScreen.png; path = ../../../Downloads/loadingScreen.png; sourceTree = "<group>"; };
 		FC6CAEC6193EF18E00FB5850 /* OpenSans-CondBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-CondBold.ttf"; sourceTree = "<group>"; };
 		FC6CAEC7193EF18F00FB5850 /* OpenSans-CondLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-CondLight.ttf"; sourceTree = "<group>"; };
@@ -262,6 +268,9 @@
 		FCA3FA85193C809000390B10 = {
 			isa = PBXGroup;
 			children = (
+				FC33D886194FFECC00B346E1 /* appIcon58.png */,
+				FC33D887194FFECC00B346E1 /* appIcon80.png */,
+				FC33D888194FFECC00B346E1 /* appIcon120.png */,
 				FCB18F63194ED39200A3345F /* GlobalVars.h */,
 				FCB18F64194ED39200A3345F /* GlobalVars.m */,
 				FCB18F50194C56CC00A3345F /* UIPlaceHolderTextView.h */,
@@ -513,6 +522,7 @@
 				FCB18F6C194F2E3300A3345F /* register.png in Resources */,
 				FC6CAECB193EF18F00FB5850 /* OpenSans-CondLightItalic.ttf in Resources */,
 				FC1F4527194096BC006C10F8 /* reportAlert.png in Resources */,
+				FC33D88A194FFECC00B346E1 /* appIcon80.png in Resources */,
 				FC1F4522194094C8006C10F8 /* minimize.png in Resources */,
 				FCAD834F194AFF7700D0608F /* anonIcon50.png in Resources */,
 				FCB18F6D194F2E3300A3345F /* report.png in Resources */,
@@ -525,6 +535,7 @@
 				FCAD82F8194AD4E100D0608F /* ajax-loader-bar.gif in Resources */,
 				FC6CAECA193EF18F00FB5850 /* OpenSans-CondLight.ttf in Resources */,
 				FCB18F67194EF94F00A3345F /* found.png in Resources */,
+				FC33D889194FFECC00B346E1 /* appIcon58.png in Resources */,
 				FCB18F6B194F2E3300A3345F /* activeSearch.png in Resources */,
 				FC1F451719406560006C10F8 /* uncheck.png in Resources */,
 				FCA3FAA9193C809000390B10 /* Images.xcassets in Resources */,
@@ -538,6 +549,7 @@
 				FC1F45291943BF6E006C10F8 /* backButton.png in Resources */,
 				FC6CAED2193F104D00FB5850 /* upload.png in Resources */,
 				FCAD8350194AFF7800D0608F /* anonIcon100.png in Resources */,
+				FC33D88B194FFECC00B346E1 /* appIcon120.png in Resources */,
 				FC1F45201940909D006C10F8 /* background2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -705,7 +717,6 @@
 		FCA3FAC1193C809000390B10 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -727,7 +738,6 @@
 		FCA3FAC2193C809000390B10 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

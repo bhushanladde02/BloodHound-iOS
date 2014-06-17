@@ -139,6 +139,13 @@ NSString *databasePath;
     NSLog([NSString stringWithFormat:@"%@", col0]);*/
  
     globals.foundData = parsedObject;
+    
+    
+    [NSTimer scheduledTimerWithTimeInterval:60.0  //seconds
+                                     target:self
+                                   selector:@selector(refreshData)
+                                   userInfo:nil
+                                    repeats:YES];
 }
 
 
@@ -176,19 +183,14 @@ NSString *databasePath;
             //object is already set
             return;
         }else{
-            
-            [NSTimer scheduledTimerWithTimeInterval:60.0  //seconds
-                                             target:self
-                                           selector:@selector(refreshData:)
-                                           userInfo:nil
-                                            repeats:YES];
-            
+        
             if([foundResultsLocal objectForKey:beaconId]){
                 //do nothing rely on old data
             }else{
                 [self fetchDetails:beaconId];
                 alertDS = globals.notificationDS;
-                [foundResultsLocal setObject:globals.foundData forKey:beaconId];
+                if(globals.foundData!=nil)
+                    [foundResultsLocal setObject:globals.foundData forKey:beaconId];
                 foundData = globals.foundData; //get updated ds
             }
             //check if device is reported
@@ -224,12 +226,13 @@ NSString *databasePath;
 
 //update database
 -(void) refreshData{
-    NSEnumerator *enumerator = [globals.foundData keyEnumerator];
-    id key;
-    while ((key = [enumerator nextObject])) {
-             [self fetchDetails:key];
-              [foundResultsLocal setObject:globals.foundData forKey:beaconId];
+    
+    for (NSString *key in [globals.foundResults allKeys]) {
+        [self fetchDetails:key];
+        if(globals.foundData!=nil)
+            [foundResultsLocal setObject:globals.foundData forKey:beaconId];
     }
+
 }
 
 
