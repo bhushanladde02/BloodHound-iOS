@@ -18,12 +18,13 @@ import com.smallemperor.db.LostDAO;
 
 public class FindPeople extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+    private LostDAO lostDAO;  
     /**
      * @see HttpServlet#HttpServlet()
      */
     public FindPeople() {
         super();
+        lostDAO = new LostDAO();
         // TODO Auto-generated constructor stub
     }
 
@@ -33,12 +34,15 @@ public class FindPeople extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
+
+		/*String beaconId = (String) request.getParameter("deviceID");
+		System.out.println(beaconId);
 		Gson gson = new Gson();
 		 LostDAO lostDAO = new LostDAO();
-		Lost lostObject = lostDAO.getLostDetails("William's Phone");
+		Lost lostObject = lostDAO.getLostDetails(beaconId);
 		System.out.println(lostObject.getAddress());
 		System.out.println(gson.toJson(lostObject));
-		response.getWriter().print(gson.toJson((lostObject)));
+		response.getWriter().print(gson.toJson((lostObject)));*/
 		
 	}
 
@@ -47,6 +51,15 @@ public class FindPeople extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
+		String beaconId = (String) request.getParameter("deviceID");
+		System.out.println(beaconId);
+		Gson gson = new Gson();	
+		Lost lostObject = lostDAO.getLostDetails(beaconId);
+		System.out.println(lostObject.getAddress());
+		System.out.println(gson.toJson(lostObject));
+		response.getWriter().print(gson.toJson((lostObject)));
+		
 	}
 
 }

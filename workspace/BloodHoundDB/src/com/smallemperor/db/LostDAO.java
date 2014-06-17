@@ -73,9 +73,31 @@ public class LostDAO {
 
 	}
 	
+	public void updateReportedBeacon(Lost lostObject) { //lost will only contain beconid and reported flag
+
+		EntityManagerFactory e = Persistence
+				.createEntityManagerFactory("BloodHoundDB");
+		EntityManager em = e.createEntityManager();
+		try {
+			EntityTransaction entr = em.getTransaction();
+			entr.begin();
+			Lost lost = this.getLostDetails("\""+lostObject.getBeaconId()+"\"");
+			lost.setCol7(lostObject.getCol7());
+			em.merge(lost); // works as save or update
+			entr.commit();
+		} catch (Exception e1) {
+			System.out.println(e1);
+		} finally {
+			em.close();
+		}
+
+	}
+	
+	
+	
 	public static void main(String[] args) {
 		 Lost lost = new Lost();
-		 lost.setBeaconId("William's Phone");
+		 lost.setBeaconId("A");
 		 lost.setAddress("Address");
 		 lost.setCol0("Col0");
 		 LostDAO lostDAO = new LostDAO();

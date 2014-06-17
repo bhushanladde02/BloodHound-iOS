@@ -44,6 +44,13 @@ NSString *databasePath;
     self.visitManager.delegate = self;
     [self.visitManager start];
     
+    
+    //testing remove line
+    //[self fetchDetails:@""];
+    
+    globals = [GlobalVars sharedInstance];
+    
+    
     return YES;
 }
 
@@ -66,7 +73,9 @@ NSString *databasePath;
         {
             char *errMsg;
             const char *sql_stmt =
-            "CREATE TABLE IF NOT EXISTS LOST (BEACONID TEXT PRIMARY KEY,FNAME TEXT,LNAME TEXT,IMGURL TEXT,STREET TEXT,CITY TEXT,STATE TEXT,ZIP TEXT,AGE TEXT,HEIGHT TEXT,WEIGHT TEXT,HCOLOR TEXT, ECOLOR TEXT, FEATURE TEXT,SPECIAL TEXT,ACTION TEXT)";
+            "CREATE TABLE IF NOT EXISTS LOST (BEACONID TEXT PRIMARY KEY,FNAME TEXT,LNAME TEXT,IMGURL TEXT,STREET TEXT,CITY TEXT,STATE TEXT,ZIP TEXT,AGE TEXT,HEIGHT TEXT,WEIGHT TEXT,HCOLOR TEXT, ECOLOR TEXT, FEATURE TEXT,SPECIAL TEXT,ACTION TEXT,REPORT TEXT)";
+            
+            //report field for isReported corresponds to col7 on server
             
             if (sqlite3_exec(database, sql_stmt, NULL, NULL, &errMsg)
                 != SQLITE_OK)
@@ -91,6 +100,55 @@ NSString *databasePath;
     return isSuccess;
 }
 
+- (void) fetchDetails:(NSString*) beaconId{
+    
+    
+    NSString *post = [NSString stringWithFormat:@"deviceID=\"%@\"",beaconId];
+    NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+    
+    NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
+    
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    [request setURL:[NSURL URLWithString:@"http://smallemperor.com:8080/BloodHoundBackend/FindPeople"]];
+    [request setHTTPMethod:@"POST"];
+    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPBody:postData];
+    
+    NSURLResponse* response;
+    NSError* error = nil;
+    
+    NSData* result = [NSURLConnection sendSynchronousRequest:request  returningResponse:&response error:&error];
+    NSString *content = [NSString stringWithUTF8String:[result bytes]];
+    NSLog(@"responseData: %@", content);
+    
+    NSError *localError = nil;
+    NSDictionary *parsedObject = [NSJSONSerialization JSONObjectWithData:result options:0 error:&localError];
+    
+    if (localError != nil) {
+      //  *error = localError;
+      //  return nil;
+    }
+    
+    /*NSString *deviceID = [parsedObject objectForKey:@"beaconId"];
+    NSString *address = [parsedObject objectForKey:@"address"];
+    NSString *col0 = [parsedObject objectForKey:@"col0"];
+    
+    NSLog([NSString stringWithFormat:@"%@", deviceID]);
+    NSLog([NSString stringWithFormat:@"%@", address]);
+    NSLog([NSString stringWithFormat:@"%@", col0]);*/
+ 
+    globals.foundData = parsedObject;
+    
+    
+    [NSTimer scheduledTimerWithTimeInterval:60.0  //seconds
+                                     target:self
+                                   selector:@selector(refreshData)
+                                   userInfo:nil
+                                    repeats:YES];
+}
+
+
 
 - (void)didArrive:(FYXVisit *)visit;
 {
@@ -105,25 +163,53 @@ NSString *databasePath;
     NSLog(@"I received a sighting!!! %@", visit.transmitter.name);
      NSLog(@"I received a identifier!!! %@", visit.transmitter.identifier);
     
-    //visit.transmitter.identifier
-    //Use this identifier to pull data from server  -- this is beaconID
     
+    
+    NSString *beaconId = visit.transmitter.identifier;
+
     
     
     NSLog(@"Gimbal Beacon Value!!! %@", visit.transmitter.ownerId);
     if([[UIApplication sharedApplication] applicationState] != UIApplicationStateActive) {
         NSLog(@"Application status is in background %@",visit.transmitter.battery);
         
-        //if(_count < 100){
-         //   ++_count;
+        foundData = globals.foundData;
+        alertDS = globals.notificationDS;
+        foundResultsLocal = globals.foundResults;
+        
+        
+        if([alertDS objectForKey:beaconId]){
+            //forget it  -alert is already there
+            //object is already set
+            return;
+        }else{
+        
+            if([foundResultsLocal objectForKey:beaconId]){
+                //do nothing rely on old data
+            }else{
+                [self fetchDetails:beaconId];
+                alertDS = globals.notificationDS;
+                if(globals.foundData!=nil)
+                    [foundResultsLocal setObject:globals.foundData forKey:beaconId];
+                foundData = globals.foundData; //get updated ds
+            }
+            //check if device is reported
+            NSString *isReported = [foundData objectForKey:@"col7"];
+            isReported  = isReported!=nil?isReported:@"false";
             
-            //Logging slows down remove
-            // NSString *string = [NSString stringWithFormat:@"%d", _count];
-            // NSLog(@"Notification count is %@",string);
+            if([isReported isEqualToString:@"false"]){
+                return; // forget it -- this will fetch every time because we are not setting alertDS
+            }//else go ahead
             
+            [alertDS setObject:@"On" forKey:beaconId]; //alert is On for same ID
+        }
+        
+        
+        NSString *uniqueID = [foundData objectForKey:@"col8"];
+        
             UILocalNotification *localNotif = [[UILocalNotification alloc] init];
             if (localNotif) {
-                localNotif.alertBody = @"SCOTTSDALE, AZ - Police are searching for a missing Scottsdale man.Scottsdale police say 65-year-old Raymond Grey was last seen around 5:30 p.m. on Sunday in the area of 94th Street and Sweetwater Avenue with his medium sized, brown and white colored dog.";
+                localNotif.alertBody = uniqueID==nil?@"Error":uniqueID;
                 localNotif.alertAction = NSLocalizedString(@"Read Message", nil);
                 
                 //Just to switch screen to new development
@@ -131,15 +217,22 @@ NSString *databasePath;
                 [(UINavigationController*)self.window.rootViewController pushViewController:foundViewController animated:nil];
                 
                 localNotif.soundName = @"alarmsound.caf";
-                localNotif.applicationIconBadgeNumber = 0;
+                localNotif.applicationIconBadgeNumber = 1;
                 [[UIApplication sharedApplication] scheduleLocalNotification:localNotif];
             }
-       // }else{
-       //     NSLog(@"I am done with Notifications !!! %@", visit.transmitter.name);
-       //     exit(0);
-        //}
     }
     
+}
+
+//update database
+-(void) refreshData{
+    
+    for (NSString *key in [globals.foundResults allKeys]) {
+        [self fetchDetails:key];
+        if(globals.foundData!=nil)
+            [foundResultsLocal setObject:globals.foundData forKey:beaconId];
+    }
+
 }
 
 
@@ -299,5 +392,30 @@ NSString *databasePath;
 {
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
+
+
+
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
+    
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
+      NSLog(@"Received data:%@",data);
+}
+
+- (NSCachedURLResponse *)connection:(NSURLConnection *)connection
+                  willCacheResponse:(NSCachedURLResponse*)cachedResponse {
+    // Return nil to indicate not necessary to store a cached response for this connection
+    return nil;
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+}
+
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
+    
+}
+
+
 
 @end

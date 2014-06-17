@@ -20,6 +20,12 @@
 		FC1F45251940965D006C10F8 /* ReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC1F45231940965D006C10F8 /* ReportViewController.m */; };
 		FC1F4527194096BC006C10F8 /* reportAlert.png in Resources */ = {isa = PBXBuildFile; fileRef = FC1F4526194096BC006C10F8 /* reportAlert.png */; };
 		FC1F45291943BF6E006C10F8 /* backButton.png in Resources */ = {isa = PBXBuildFile; fileRef = FC1F45281943BF6E006C10F8 /* backButton.png */; };
+		FC2934B11947248800DF1087 /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC2934B01947248800DF1087 /* TPKeyboardAvoidingScrollView.m */; };
+		FC2934B41947252A00DF1087 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = FC2934B31947252A00DF1087 /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
+		FC33D889194FFECC00B346E1 /* appIcon58.png in Resources */ = {isa = PBXBuildFile; fileRef = FC33D886194FFECC00B346E1 /* appIcon58.png */; };
+		FC33D88A194FFECC00B346E1 /* appIcon80.png in Resources */ = {isa = PBXBuildFile; fileRef = FC33D887194FFECC00B346E1 /* appIcon80.png */; };
+		FC33D88B194FFECC00B346E1 /* appIcon120.png in Resources */ = {isa = PBXBuildFile; fileRef = FC33D888194FFECC00B346E1 /* appIcon120.png */; };
+		FC6CAEB9193D654200FB5850 /* loadingScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = FC6CAEB8193D654200FB5850 /* loadingScreen.png */; };
 		FC6CAEC9193EF18F00FB5850 /* OpenSans-CondBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC6CAEC6193EF18E00FB5850 /* OpenSans-CondBold.ttf */; };
 		FC6CAECA193EF18F00FB5850 /* OpenSans-CondLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC6CAEC7193EF18F00FB5850 /* OpenSans-CondLight.ttf */; };
 		FC6CAECB193EF18F00FB5850 /* OpenSans-CondLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC6CAEC8193EF18F00FB5850 /* OpenSans-CondLightItalic.ttf */; };
@@ -83,6 +89,12 @@
 		FCAD837F194B836E00D0608F /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = FCAD8370194B836E00D0608F /* UIImageView+WebCache.m */; };
 		FCAF95921946417600662414 /* FoundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCAF95911946417600662414 /* FoundViewController.m */; };
 		FCB18F52194C56CC00A3345F /* UIPlaceHolderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB18F51194C56CC00A3345F /* UIPlaceHolderTextView.m */; };
+		FCB18F62194DA70000A3345F /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCB18F61194DA70000A3345F /* AdSupport.framework */; };
+		FCB18F65194ED39200A3345F /* GlobalVars.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB18F64194ED39200A3345F /* GlobalVars.m */; };
+		FCB18F67194EF94F00A3345F /* found.png in Resources */ = {isa = PBXBuildFile; fileRef = FCB18F66194EF94F00A3345F /* found.png */; };
+		FCB18F6B194F2E3300A3345F /* activeSearch.png in Resources */ = {isa = PBXBuildFile; fileRef = FCB18F68194F2E3200A3345F /* activeSearch.png */; };
+		FCB18F6C194F2E3300A3345F /* register.png in Resources */ = {isa = PBXBuildFile; fileRef = FCB18F69194F2E3200A3345F /* register.png */; };
+		FCB18F6D194F2E3300A3345F /* report.png in Resources */ = {isa = PBXBuildFile; fileRef = FCB18F6A194F2E3300A3345F /* report.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,6 +126,10 @@
 		FC1F45241940965D006C10F8 /* ReportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportViewController.h; sourceTree = "<group>"; };
 		FC1F4526194096BC006C10F8 /* reportAlert.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reportAlert.png; sourceTree = "<group>"; };
 		FC1F45281943BF6E006C10F8 /* backButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backButton.png; sourceTree = "<group>"; };
+		FC33D886194FFECC00B346E1 /* appIcon58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appIcon58.png; sourceTree = "<group>"; };
+		FC33D887194FFECC00B346E1 /* appIcon80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appIcon80.png; sourceTree = "<group>"; };
+		FC33D888194FFECC00B346E1 /* appIcon120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appIcon120.png; sourceTree = "<group>"; };
+		FC6CAEB8193D654200FB5850 /* loadingScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = loadingScreen.png; path = ../../../Downloads/loadingScreen.png; sourceTree = "<group>"; };
 		FC6CAEC6193EF18E00FB5850 /* OpenSans-CondBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-CondBold.ttf"; sourceTree = "<group>"; };
 		FC6CAEC7193EF18F00FB5850 /* OpenSans-CondLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-CondLight.ttf"; sourceTree = "<group>"; };
 		FC6CAEC8193EF18F00FB5850 /* OpenSans-CondLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-CondLightItalic.ttf"; sourceTree = "<group>"; };
@@ -200,6 +216,13 @@
 		FCAF95911946417600662414 /* FoundViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoundViewController.m; sourceTree = "<group>"; };
 		FCB18F50194C56CC00A3345F /* UIPlaceHolderTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIPlaceHolderTextView.h; sourceTree = "<group>"; };
 		FCB18F51194C56CC00A3345F /* UIPlaceHolderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIPlaceHolderTextView.m; sourceTree = "<group>"; };
+		FCB18F61194DA70000A3345F /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		FCB18F63194ED39200A3345F /* GlobalVars.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalVars.h; sourceTree = "<group>"; };
+		FCB18F64194ED39200A3345F /* GlobalVars.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalVars.m; sourceTree = "<group>"; };
+		FCB18F66194EF94F00A3345F /* found.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = found.png; sourceTree = "<group>"; };
+		FCB18F68194F2E3200A3345F /* activeSearch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = activeSearch.png; sourceTree = "<group>"; };
+		FCB18F69194F2E3200A3345F /* register.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = register.png; sourceTree = "<group>"; };
+		FCB18F6A194F2E3300A3345F /* report.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = report.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +230,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCB18F62194DA70000A3345F /* AdSupport.framework in Frameworks */,
 				FCAD8343194AE99400D0608F /* FYX.framework in Frameworks */,
 				FCAD8344194AE99400D0608F /* NetworkServices.framework in Frameworks */,
 				FCAD8345194AE99400D0608F /* ContextLocation.framework in Frameworks */,
@@ -247,6 +271,11 @@
 				BEE6FCB9194D951100693BC2 /* UIScrollView+TPKeyboardAvoidingAdditions.m */,
 				BEE6FCBA194D951100693BC2 /* TPKeyboardAvoidingScrollView.h */,
 				BEE6FCBB194D951100693BC2 /* TPKeyboardAvoidingScrollView.m */,
+				FC33D886194FFECC00B346E1 /* appIcon58.png */,
+				FC33D887194FFECC00B346E1 /* appIcon80.png */,
+				FC33D888194FFECC00B346E1 /* appIcon120.png */,
+				FCB18F63194ED39200A3345F /* GlobalVars.h */,
+				FCB18F64194ED39200A3345F /* GlobalVars.m */,
 				FCB18F50194C56CC00A3345F /* UIPlaceHolderTextView.h */,
 				FCB18F51194C56CC00A3345F /* UIPlaceHolderTextView.m */,
 				FCAD8351194B836E00D0608F /* SDWebImage */,
@@ -259,6 +288,7 @@
 				FCAD82F7194AD4E100D0608F /* ajax-loader-bar.gif */,
 				FCAF95901946417600662414 /* FoundViewController.h */,
 				FCAF95911946417600662414 /* FoundViewController.m */,
+				FCB18F66194EF94F00A3345F /* found.png */,
 				FCAA7A281944663700010866 /* selectPhoto.png */,
 				FCAA7A251944663000010866 /* SUITextField.h */,
 				FCAA7A261944663000010866 /* SUITextField.m */,
@@ -286,6 +316,10 @@
 				FC6CAED0193F104D00FB5850 /* upload.png */,
 				FCA3FACD193C8A7B00390B10 /* MainViewController.h */,
 				FCA3FACE193C8A7B00390B10 /* MainViewController.m */,
+				FCB18F68194F2E3200A3345F /* activeSearch.png */,
+				FCB18F69194F2E3200A3345F /* register.png */,
+				FCB18F6A194F2E3300A3345F /* report.png */,
+				FC1F451F1940909D006C10F8 /* background2.png */,
 				FC1F451A19406E34006C10F8 /* navBar.png */,
 				FCA3FA99193C809000390B10 /* BloodHound */,
 				FCA3FAB6193C809000390B10 /* BloodHoundTests */,
@@ -306,6 +340,7 @@
 		FCA3FA90193C809000390B10 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FCB18F61194DA70000A3345F /* AdSupport.framework */,
 				FCAD833E194AE99400D0608F /* FYX.framework */,
 				FCAD833F194AE99400D0608F /* NetworkServices.framework */,
 				FCAD8340194AE99400D0608F /* ContextLocation.framework */,
@@ -480,16 +515,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCB18F6C194F2E3300A3345F /* register.png in Resources */,
 				FC6CAECB193EF18F00FB5850 /* OpenSans-CondLightItalic.ttf in Resources */,
 				FC1F4527194096BC006C10F8 /* reportAlert.png in Resources */,
+				FC33D88A194FFECC00B346E1 /* appIcon80.png in Resources */,
 				FC1F4522194094C8006C10F8 /* minimize.png in Resources */,
 				FCAD834F194AFF7700D0608F /* anonIcon50.png in Resources */,
+				FCB18F6D194F2E3300A3345F /* report.png in Resources */,
 				FCA3FA9E193C809000390B10 /* InfoPlist.strings in Resources */,
 				FC1F451B19406E34006C10F8 /* navBar.png in Resources */,
 				FCA3FAD2193C93DE00390B10 /* BloodHoundStoryBoard.storyboard in Resources */,
 				FC1F451619406560006C10F8 /* check.png in Resources */,
 				FCAD82F8194AD4E100D0608F /* ajax-loader-bar.gif in Resources */,
 				FC6CAECA193EF18F00FB5850 /* OpenSans-CondLight.ttf in Resources */,
+				FCB18F67194EF94F00A3345F /* found.png in Resources */,
+				FC33D889194FFECC00B346E1 /* appIcon58.png in Resources */,
+				FCB18F6B194F2E3300A3345F /* activeSearch.png in Resources */,
 				FC1F451719406560006C10F8 /* uncheck.png in Resources */,
 				FCA3FAA9193C809000390B10 /* Images.xcassets in Resources */,
 				BEE6FCC3194F895800693BC2 /* background2.png in Resources */,
@@ -502,6 +543,8 @@
 				FC1F45291943BF6E006C10F8 /* backButton.png in Resources */,
 				FC6CAED2193F104D00FB5850 /* upload.png in Resources */,
 				FCAD8350194AFF7800D0608F /* anonIcon100.png in Resources */,
+				FC33D88B194FFECC00B346E1 /* appIcon120.png in Resources */,
+				FC1F45201940909D006C10F8 /* background2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -543,6 +586,7 @@
 				FCAD837A194B836E00D0608F /* UIButton+WebCache.m in Sources */,
 				FCA3FAA4193C809000390B10 /* AppDelegate.m in Sources */,
 				FCAD8379194B836E00D0608F /* SDWebImagePrefetcher.m in Sources */,
+				FCB18F65194ED39200A3345F /* GlobalVars.m in Sources */,
 				FCAD8375194B836E00D0608F /* SDWebImageDecoder.m in Sources */,
 				BEE6FCBD194D951100693BC2 /* TPKeyboardAvoidingScrollView.m in Sources */,
 				FCAD8373194B836E00D0608F /* SDImageCache.m in Sources */,
@@ -667,7 +711,6 @@
 		FCA3FAC1193C809000390B10 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -681,6 +724,7 @@
 				GCC_PREFIX_HEADER = "BloodHound/BloodHound-Prefix.pch";
 				INFOPLIST_FILE = "BloodHound/BloodHound-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -688,7 +732,6 @@
 		FCA3FAC2193C809000390B10 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -702,6 +745,7 @@
 				GCC_PREFIX_HEADER = "BloodHound/BloodHound-Prefix.pch";
 				INFOPLIST_FILE = "BloodHound/BloodHound-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

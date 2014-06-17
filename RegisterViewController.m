@@ -11,6 +11,7 @@
 #import "UIImageView+AnimatedGif.h"
 #import <QuartzCore/QuartzCore.h>
 #import "TPKeyboardAvoidingScrollView.h"
+#import <AdSupport/ASIdentifierManager.h>
 
 @interface RegisterViewController ()
 
@@ -442,6 +443,9 @@
     submitButton.userInteractionEnabled = YES;
     [submitButton addGestureRecognizer:singleTapRegister];
     
+    adID = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
+    NSLog(@"Ad ID is %@", adID); //this will be used as unique ID
+    
 }
 
 bool *isChecked = false;
@@ -525,6 +529,22 @@ bool *isChecked = false;
         return NO;
     }
     
+    if([textField.text isEqualToString:@""]){
+        [self alertUser: @"Required" : @"First Name Missing"];
+        return NO;
+    }
+    
+    if([callInputField.text isEqualToString:@""]){
+        [self alertUser: @"Required" : @"Call to Action Missing"];
+        return NO;
+    }
+    
+    if(!isChecked){
+        [self alertUser: @"Required" : @"Should Accept terms"];
+        return NO;
+    }
+    
+    
     return TRUE;
 }
 
@@ -558,7 +578,10 @@ bool *isChecked = false;
     
   
     //(BEACONID ,FNAME ,LNAME ,IMGURL ,STREET ,CITY ,STATE ,ZIP ,AGE ,HEIGHT ,WEIGHT ,HCOLOR , ECOLOR , FEATURE ,SPECIAL ,ACTION )
-    NSString *insertLostSQL = [NSString stringWithFormat:@"INSERT INTO LOST (BEACONID ,FNAME ,LNAME ,IMGURL ,STREET ,CITY ,STATE ,ZIP ,AGE ,HEIGHT ,WEIGHT ,HCOLOR , ECOLOR , FEATURE ,SPECIAL ,ACTION ) VALUES (\"%@\",\"%@\" ,\"%@\",\"%@\",\"%@\" ,\"%@\",\"%@\",\"%@\" ,\"%@\",\"%@\",\"%@\" ,\"%@\",\"%@\",\"%@\" ,\"%@\",\"%@\")", beaconID, fname, lname,imgURL,street,city,state,zip,age,height,weight,hcolor,ecolor,feature,special,action];
+    NSString *insertLostSQL = [NSString stringWithFormat:@"INSERT INTO LOST (BEACONID ,FNAME ,LNAME ,IMGURL ,STREET ,CITY ,STATE ,ZIP ,AGE ,HEIGHT ,WEIGHT ,HCOLOR , ECOLOR , FEATURE ,SPECIAL ,ACTION, REPORT ) VALUES (\"%@\",\"%@\" ,\"%@\",\"%@\",\"%@\" ,\"%@\",\"%@\",\"%@\" ,\"%@\",\"%@\",\"%@\" ,\"%@\",\"%@\",\"%@\" ,\"%@\",\"%@\",\"%@\")", beaconID, fname, lname,imgURL,street,city,state,zip,age,height,weight,hcolor,ecolor,feature,special,action,@"false"];
+    
+    //REPORT - col7 -isReported is by default false
+    
     
     char *errMsg;
     const char *insert_stmt;
@@ -602,7 +625,6 @@ bool *isChecked = false;
 
 //sends http request
 -(void) registerUser{
-    
     //validate first
     BOOL validate = [self validateInput];
     
@@ -632,8 +654,6 @@ bool *isChecked = false;
     
     
     
-    
-    
     // create request
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
     [request setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
@@ -658,6 +678,14 @@ bool *isChecked = false;
     NSString *imageNameURL = [NSString stringWithFormat:@"image%@.png", beaconID];
     
     
+    NSString *jsonString = [NSString stringWithFormat:@"{\"deviceID\":\"%@\",\"firstname\":\"%@\",\"lastname\":\"%@\",\"imgURL\":\"%@\",\"age\":\"%@\",\"height\":\"%@\",\"weight\":\"%@\",\"hcolor\":\"%@\",\"ecolor\":\"%@\",\"feature\":\"%@\",\"street\":\"%@\",\"zip\":\"%@\",\"special\":\"%@\",\"action\":\"%@\",\"uniqueID\":\"%@\"}",beaconID,fname,lname,imageNameURL,age,height,weight,hcolor,ecolor,feature,street,zip,special,action,adID];
+    [request setValue:jsonString forHTTPHeaderField: @"jsonString"];
+    
+    NSLog(jsonString);
+    
+
+    
+    
     // add image data
     NSData *imageData = UIImageJPEGRepresentation(chosenImage, 1.0);
     if (imageData) {
@@ -680,20 +708,6 @@ bool *isChecked = false;
     // set URL
     [request setURL:requestURL];
     
-    
-    /*NSData * animationData = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"ajax-loader-bar.gif" ofType:nil]];
-    AnimatedGif * animation = [AnimatedGif getAnimationForGifWithData:animationData];
-    newImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 220, 19)];
-    
-   // newImageView setani
-    [newImageView setAnimatedGif:animation startImmediately:YES];*/
-   // [self.view addSubview:newImageView];
-    
-    //[self.view setUserInteractionEnabled:NO];
-    
-    //self.view.backgroundColor =  [self colorWithHexString:@"cccccc"];
-   
-    // Create url connection and fire request
     NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
     av = [[UIAlertView alloc] initWithTitle:@"Processing..." message:@"" delegate:nil cancelButtonTitle:nil otherButtonTitles:nil];
     //pv = [[UIProgressView alloc] initWithProgressViewStyle:UIProgressViewStyleBar];

@@ -117,7 +117,100 @@ NSInteger height  = 0;
     registerLabel.textColor = [self colorWithHexString:@"3fa69a"];
     [self.view addSubview:registerLabel];
     
+    UITapGestureRecognizer *singleTapReport = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapDetectedReport)];
+    singleTapReport.numberOfTapsRequired = 1;
+    minButton.userInteractionEnabled = YES;
+    [minButton addGestureRecognizer:singleTapReport];
+    
+    
     offset = 0;
+}
+
+-(void)tapDetectedReport{
+    //show alert processing
+    
+    NSLog(@"single Tap on tap detected report button");
+    
+    NSDictionary *jsonDictionary = [NSDictionary dictionaryWithObjects:checkFlags forKeys:beaconIds];
+    NSError *error;
+    NSString *jsonString;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:jsonDictionary
+                                                       options:0 // Pass 0 if you don't care about the readability of the generated string
+                                                         error:&error];
+    if (! jsonData) {
+        NSLog(@"Got an error: %@", error);
+    } else {
+        jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    }
+    
+    av = [[UIAlertView alloc] initWithTitle:@"Processing..." message:@"" delegate:nil cancelButtonTitle:nil otherButtonTitles:nil];
+    [av show];
+    
+    
+    
+    [self updateReportingStatus:jsonString];
+    
+    //if udpate is success, update local database
+    NSUInteger count = 0;
+    for (NSString *element in checkFlags) {
+        [self updateLocalDatabase:[beaconIds objectAtIndex:count ] :element ];
+        ++count;
+    }
+    
+     [av dismissWithClickedButtonIndex:0 animated:NO];
+    
+}
+
+-(void)updateReportingStatus :(NSString*) jsonString{
+    
+ 
+    //pass two array to post request, reporting flags and corresponding beacon Id
+    NSString *post = [NSString stringWithFormat:@"jsonData=%@",jsonString];
+    NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+    
+    NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
+    
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    [request setURL:[NSURL URLWithString:@"http://smallemperor.com:8080/BloodHoundBackend/ReportPeople"]];
+    [request setHTTPMethod:@"POST"];
+    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPBody:postData];
+    
+    NSURLResponse* response;
+    NSError* error = nil;
+    
+    NSData* result = [NSURLConnection sendSynchronousRequest:request  returningResponse:&response error:&error];
+    NSString *content = [NSString stringWithUTF8String:[result bytes]];
+    NSLog(@"responseData: %@", content);
+    
+    NSError *localError = nil;
+    NSDictionary *parsedObject = [NSJSONSerialization JSONObjectWithData:result options:0 error:&localError];
+    
+    
+    
+   
+    
+    if (localError != nil) {
+        UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"Success"
+                                                              message:@"Reporting Successful"
+                                                             delegate:nil
+                                                    cancelButtonTitle:@"OK"
+                                                    otherButtonTitles: nil];
+        
+        [myAlertView show];
+
+    }else{
+        //success
+        UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                              message:@"Reporting Failed, Please try later"
+                                                             delegate:nil
+                                                    cancelButtonTitle:@"OK"
+                                                    otherButtonTitles: nil];
+        
+        [myAlertView show];
+    }
+
 }
 
 
@@ -125,21 +218,25 @@ NSMutableArray *checkFlags;
 NSMutableArray *beaconIds;
 NSInteger counter = 0;
 
--(void) addRow:(NSString*) name : (NSString*) imgURL : (NSString*)beaconId
-{
+-(void) addRow:(NSString*) name : (NSString*) imgURL : (NSString*)beaconId :(NSString*)isReported
+ {
     
     
     UIButton *checkImageView = [[UIButton alloc] initWithFrame:CGRectMake(  278, 75+offset, 40/2, 40/2)];
     checkImageView.tag = counter; //acts as index for NSMutableArray
     ++counter;
-    
-    [checkImageView setImage:uncheckImage forState:UIControlStateNormal];
+     
+     BOOL flag = [isReported isEqualToString:@"false"]? NO:YES;
+     
+     UIImage *image = flag==NO?uncheckImage:checkImage;
+     
+    [checkImageView setImage:image forState:UIControlStateNormal];
     
     [checkImageView addTarget:self action:@selector(checkHandler:) forControlEvents:UIControlEventTouchUpInside];
     
     [self.view addSubview:checkImageView];
-    
-    NSNumber* checkFlag= [NSNumber numberWithBool:NO];
+     
+    NSNumber* checkFlag= [NSNumber numberWithBool:flag];
     [checkFlags addObject:checkFlag];
     [beaconIds addObject:beaconId];
     
@@ -163,6 +260,10 @@ NSInteger counter = 0;
     UILabel *viewCellLabel = [[UILabel alloc] initWithFrame: CGRectMake(80, 60+offset, 200, 50)];
     //viewCellLabel.backgroundColor = [self colorWithHexString:@"ffff00"];
     viewCellLabel.text = name;
+     
+     if(flag)  //if person is reported make text color RED
+         viewCellLabel.textColor = [UIColor redColor];
+     
     viewCellLabel.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:16];
 
     [self.view addSubview:viewCellLabel];
@@ -175,6 +276,48 @@ NSInteger counter = 0;
 -(void)back {
     
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+
+-(void)updateLocalDatabase:(NSString*) beaconID :(NSNumber*) flagN{
+    static sqlite3 *database = nil;
+    NSString *databasePath;
+    NSString *docsDir;
+    NSArray *dirPaths;
+    // Get the documents directory
+    dirPaths = NSSearchPathForDirectoriesInDomains
+    (NSDocumentDirectory, NSUserDomainMask, YES);
+    docsDir = dirPaths[0];
+    // Build the path to the database file
+    databasePath = [[NSString alloc] initWithString:
+                    [docsDir stringByAppendingPathComponent: @"lostDatabase.db"]];
+    const char *dbpath = [databasePath UTF8String];
+    
+    static sqlite3_stmt *compiledStatement;
+    
+     NSString *flagS = ([flagN boolValue]==YES)? @"true" : @"false";
+    
+    if (sqlite3_open(dbpath, &database) == SQLITE_OK)
+    {
+    const char *sqlStatement = [[NSString stringWithFormat:@"UPDATE LOST SET REPORT = \"%@\" where BEACONID = \"%@\"",flagS,beaconID] UTF8String];
+    
+        int result = sqlite3_prepare_v2(database, sqlStatement, -1, &compiledStatement, NULL);
+    if(result == SQLITE_OK) {
+        if(SQLITE_DONE != sqlite3_step(compiledStatement))
+            NSAssert1(0, @"Error while updating. '%s'", sqlite3_errmsg(database));
+        sqlite3_reset(compiledStatement);
+    }else{
+        if(result != SQLITE_OK) {
+            NSLog(@"Prepare-error #%i: %s", result, sqlite3_errmsg(database));
+        }
+    }
+        
+    }
+
+    // Release the compiled statement from memory
+    sqlite3_finalize(compiledStatement);
+    sqlite3_close(database); //close the database
+
 }
 
 
@@ -194,6 +337,7 @@ NSInteger counter = 0;
     sqlite3_stmt *sqlstmt;
     char *sql = "select * from LOST;";
     int ret;
+    counter= 0;
     ret = sqlite3_prepare_v2(d, sql, -1, &sqlstmt, NULL);
     if (ret == SQLITE_OK) {
         NSLog(@"*** SQLITE_OK");
@@ -207,7 +351,7 @@ NSInteger counter = 0;
             }else
                 beaconId = @"error";
             
-            
+            NSLog(beaconId);
             
             //NSLog(@"%s",sqlite3_column_text(sqlstmt,1));
              const char *_name = (char *)sqlite3_column_text(sqlstmt,1);
@@ -226,8 +370,15 @@ NSInteger counter = 0;
             }else
                 lname = @"Not a valid string";
             
+            const char *_isReported = (char *)sqlite3_column_text(sqlstmt,16);
+            NSString *isReported;
+            if(_isReported){
+                isReported = _isReported == NULL?@"false":[[NSString alloc] initWithUTF8String:_isReported];
+            }else{
+                isReported = @"Not a Valid string";
+            }
             
-            [self addRow:[NSString stringWithFormat:@"%@ %@", name, lname]:[NSString stringWithFormat:@"%@%@%@", @"image", beaconId,@".png"]:beaconId];
+            [self addRow:[NSString stringWithFormat:@"%@ %@", name, lname]:[NSString stringWithFormat:@"%@%@%@", @"image", beaconId,@".png"]:beaconId:isReported];
             
             NSLog(@"%s",sqlite3_column_text(sqlstmt,3));
             NSLog(@"%s",sqlite3_column_text(sqlstmt,4));
@@ -238,6 +389,7 @@ NSInteger counter = 0;
             NSLog(@"%s",sqlite3_column_text(sqlstmt,9));
             NSLog(@"%s",sqlite3_column_text(sqlstmt,10));
             NSLog(@"%s",sqlite3_column_text(sqlstmt,11));
+            NSLog(@"%s",sqlite3_column_text(sqlstmt,16));
         }
     }
     sqlite3_finalize(sqlstmt);

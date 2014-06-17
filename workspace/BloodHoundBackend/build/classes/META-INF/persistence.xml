@@ -4,11 +4,19 @@
 		<class>com.smallemperor.db.Lost</class>
 		<properties>
 			 <property name="hibernate.connection.driver_class"  value="com.mysql.jdbc.Driver"/>
-        <property name="hibernate.connection.url" value="jdbc:mysql://localhost:8889/bloodhound"/>
+        <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/bloodhound"/>
         <property name="hibernate.connection.username" value="root"/>
         <property name="hibernate.connection.password" value="macho0ma!"/>
         <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
         <property name="show_sql" value="true"/>
+        
+        <property name="hibernate.c3p0.max_size" value="50000" />
+        <property name="hibernate.c3p0.min_size" value="10000" />
+        <property name="hibernate.c3p0.acquire_increment" value="1" />
+        <property name="hibernate.c3p0.idle_test_period" value="300" />
+        <property name="hibernate.c3p0.max_statements" value="0" />
+        <property name="hibernate.c3p0.timeout" value="100" />
+        
 		</properties>
 	</persistence-unit>
 </persistence>
