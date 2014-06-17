@@ -12,11 +12,14 @@
 {
     NSDictionary *_foundData;
     NSMutableDictionary *_notificationDS; //make sure if alert is not clicked by user, give only one alert
+    NSMutableDictionary *_foundResults;
 }
 
 + (GlobalVars *)sharedInstance;
 
 @property(strong, nonatomic, readwrite) NSDictionary *foundData;
 @property(strong, nonatomic, readwrite) NSMutableDictionary *notificationDS;
+@property(strong, nonatomic, readwrite) NSMutableDictionary *foundResults;
+
 
 @end

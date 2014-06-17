@@ -168,16 +168,23 @@ NSString *databasePath;
         
         foundData = globals.foundData;
         alertDS = globals.notificationDS;
+        foundResultsLocal = globals.foundResults;
+        
         
         if([alertDS objectForKey:beaconId]){
             //forget it  -alert is already there
             //object is already set
             return;
         }else{
-            [self fetchDetails:beaconId];
-            alertDS = globals.notificationDS;
-            foundData = globals.foundData; //get updated ds
             
+            if([foundResultsLocal objectForKey:beaconId]){
+                //do nothing rely on old data
+            }else{
+                [self fetchDetails:beaconId];
+                alertDS = globals.notificationDS;
+                [foundResultsLocal setObject:globals.foundData forKey:beaconId];
+                foundData = globals.foundData; //get updated ds
+            }
             //check if device is reported
             NSString *isReported = [foundData objectForKey:@"col7"];
             isReported  = isReported!=nil?isReported:@"false";
