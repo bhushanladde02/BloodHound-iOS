@@ -10,10 +10,7 @@
 
 @implementation GlobalVars
 
-@synthesize foundData = _foundData;
 @synthesize notificationDS = _notificationDS;
-@synthesize foundResults = _foundResults;
-
 + (GlobalVars *)sharedInstance {
     static dispatch_once_t onceToken;
     static GlobalVars *instance = nil;
@@ -26,9 +23,7 @@
 - (id)init {
     self = [super init];
     if (self) {
-        _foundData = nil;
         _notificationDS = [[NSMutableDictionary alloc] init];
-        _foundResults = [[NSMutableDictionary alloc] init];
     }
     return self;
 }

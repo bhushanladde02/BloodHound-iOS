@@ -34,8 +34,7 @@
     // Do any additional setup after loading the view.
     
     GlobalVars *globals = [GlobalVars sharedInstance];
-    //NSDictionary *foundData = map;
-    NSDictionary *foundData = globals.foundData;
+    NSDictionary *foundData = self.dataMap;
     NSString *firstname = [foundData objectForKey:@"firstname"];
     firstname = [firstname stringByReplacingOccurrencesOfString:@"\"" withString:@""];
     NSString *lastname = [foundData objectForKey:@"lastname"];

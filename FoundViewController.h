@@ -11,6 +11,7 @@
 
 @interface FoundViewController : UIViewController
 //-(void) setMap:(NSDictionary*)map;
+@property (nonatomic, retain) NSDictionary *dataMap;
 @end
 
 NSString *beaconId;

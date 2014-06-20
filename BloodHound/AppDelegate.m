@@ -62,7 +62,7 @@ NSString *databasePath;
     NSDictionary *map = notif.userInfo;
     //Just to switch screen to new development
     FoundViewController *foundViewController = [[FoundViewController alloc] init];
-    globals.foundData = map;
+    foundViewController.dataMap = map;
     [(UINavigationController*)self.window.rootViewController pushViewController:foundViewController animated:nil];
     
 }
@@ -113,7 +113,7 @@ NSString *databasePath;
     return isSuccess;
 }
 
-- (void) fetchDetails:(NSString*) beaconId{
+- (NSDictionary *) fetchDetails:(NSString*) beaconId{
     
     
     NSString *post = [NSString stringWithFormat:@"deviceID=\"%@\"",beaconId];
@@ -144,7 +144,7 @@ NSString *databasePath;
     }
     
     
-    globals.foundData = parsedObject;
+    return parsedObject;
     
     
 }
@@ -172,8 +172,6 @@ NSString *databasePath;
     NSLog(@"Gimbal Beacon Value!!! %@", visit.transmitter.ownerId);
     if([[UIApplication sharedApplication] applicationState] != UIApplicationStateActive) {
         NSLog(@"Application status is in background %@",visit.transmitter.battery);
-        
-        foundData = globals.foundData;
         alertDS = globals.notificationDS;
         
         
@@ -183,9 +181,8 @@ NSString *databasePath;
             //object is already set
             return;
         }else{
-                [self fetchDetails:beaconId];
+                foundData = [self fetchDetails:beaconId];
                 alertDS = globals.notificationDS;
-                foundData = globals.foundData; //get updated ds
             }
         
             //check if device is reported
@@ -210,8 +207,7 @@ NSString *databasePath;
             if (localNotif) {
                 localNotif.alertBody = [NSString stringWithFormat:@"%@ %@-%@,%@,%@",firstname,lastname,callToAction,specialNotes,features];
                 localNotif.alertAction = NSLocalizedString(@"Read Message", nil);
-                NSDictionary *userDict = [NSDictionary dictionaryWithObjectsAndKeys:foundData, beaconId, nil];
-                localNotif.userInfo = userDict;
+                localNotif.userInfo = foundData;
                 localNotif.soundName = @"alarmsound.caf";
                [UIApplication sharedApplication].applicationIconBadgeNumber = [UIApplication sharedApplication].applicationIconBadgeNumber + 1;
                [[UIApplication sharedApplication] scheduleLocalNotification:localNotif];
