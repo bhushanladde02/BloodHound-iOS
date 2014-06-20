@@ -36,7 +36,9 @@
     GlobalVars *globals = [GlobalVars sharedInstance];
     NSDictionary *foundData = globals.foundData;
     NSString *firstname = [foundData objectForKey:@"firstname"];
+    firstname = [firstname stringByReplacingOccurrencesOfString:@"\"" withString:@""];
     NSString *lastname = [foundData objectForKey:@"lastname"];
+    lastname = [lastname stringByReplacingOccurrencesOfString:@"\"" withString:@""];
     NSString *callToAction = [foundData objectForKey:@"col6"];
     NSString *specialNotes = [foundData objectForKey:@"col5"];
     NSString *features =[foundData objectForKey:@"col3"];

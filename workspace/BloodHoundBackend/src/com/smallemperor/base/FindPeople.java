@@ -3,7 +3,6 @@ package com.smallemperor.base;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,13 +17,12 @@ import com.smallemperor.db.LostDAO;
 
 public class FindPeople extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    private LostDAO lostDAO;  
+    
     /**
      * @see HttpServlet#HttpServlet()
      */
     public FindPeople() {
         super();
-        lostDAO = new LostDAO();
         // TODO Auto-generated constructor stub
     }
 
@@ -34,15 +32,20 @@ public class FindPeople extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-
-		/*String beaconId = (String) request.getParameter("deviceID");
+	
+		LostDAO lostDAO = new LostDAO();  
+		response.getWriter().print("Sowmya Ravi");
+		
+		String beaconID; 
+		
+		
+		String beaconId = (String) request.getParameter("deviceID");
 		System.out.println(beaconId);
 		Gson gson = new Gson();
-		 LostDAO lostDAO = new LostDAO();
 		Lost lostObject = lostDAO.getLostDetails(beaconId);
 		System.out.println(lostObject.getAddress());
 		System.out.println(gson.toJson(lostObject));
-		response.getWriter().print(gson.toJson((lostObject)));*/
+		response.getWriter().print(gson.toJson((lostObject)));
 		
 	}
 
@@ -51,7 +54,7 @@ public class FindPeople extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
+		LostDAO lostDAO = new LostDAO(); 
 		String beaconId = (String) request.getParameter("deviceID");
 		System.out.println(beaconId);
 		Gson gson = new Gson();	
@@ -60,6 +63,17 @@ public class FindPeople extends HttpServlet {
 		System.out.println(gson.toJson(lostObject));
 		response.getWriter().print(gson.toJson((lostObject)));
 		
+	}
+	public static void main(String[] args) {
+		/*String beaconId = "";
+        LostDAO lostDAO = new LostDAO();
+		System.out.println(beaconId);
+		Gson gson = new Gson();	
+		Lost lostObject = lostDAO.getLostDetails(beaconId);
+		System.out.println(lostObject.getAddress());
+		System.out.println(gson.toJson(lostObject));
+		//response.getWriter().print(gson.toJson((lostObject)));*/
+		LostDAO lostDAO = new LostDAO();
 	}
 
 }

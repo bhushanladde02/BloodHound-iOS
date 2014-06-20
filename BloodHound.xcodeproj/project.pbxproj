@@ -132,7 +132,7 @@
 		FC6CAECF193F104D00FB5850 /* camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera.png; sourceTree = "<group>"; };
 		FC6CAED0193F104D00FB5850 /* upload.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = upload.png; sourceTree = "<group>"; };
 		FC6CAED3193F1DC700FB5850 /* submit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = submit.png; sourceTree = "<group>"; };
-		FCA3FA8E193C809000390B10 /* BloodHound.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BloodHound.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FCA3FA8E193C809000390B10 /* Bloodhound.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bloodhound.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCA3FA91193C809000390B10 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FCA3FA93193C809000390B10 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		FCA3FA95193C809000390B10 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -326,7 +326,7 @@
 		FCA3FA8F193C809000390B10 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FCA3FA8E193C809000390B10 /* BloodHound.app */,
+				FCA3FA8E193C809000390B10 /* Bloodhound.app */,
 				FCA3FAAE193C809000390B10 /* BloodHoundTests.xctest */,
 			);
 			name = Products;
@@ -452,7 +452,7 @@
 			);
 			name = Bloodhound;
 			productName = BloodHound;
-			productReference = FCA3FA8E193C809000390B10 /* BloodHound.app */;
+			productReference = FCA3FA8E193C809000390B10 /* Bloodhound.app */;
 			productType = "com.apple.product-type.application";
 		};
 		FCA3FAAD193C809000390B10 /* BloodHoundTests */ = {

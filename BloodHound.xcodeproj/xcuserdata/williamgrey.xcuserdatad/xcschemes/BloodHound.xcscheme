@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "FCA3FA8D193C809000390B10"
-               BuildableName = "BloodHound.app"
+               BuildableName = "Bloodhound.app"
                BlueprintName = "Bloodhound"
                ReferencedContainer = "container:BloodHound.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FCA3FA8D193C809000390B10"
-            BuildableName = "BloodHound.app"
+            BuildableName = "Bloodhound.app"
             BlueprintName = "Bloodhound"
             ReferencedContainer = "container:BloodHound.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FCA3FA8D193C809000390B10"
-            BuildableName = "BloodHound.app"
+            BuildableName = "Bloodhound.app"
             BlueprintName = "Bloodhound"
             ReferencedContainer = "container:BloodHound.xcodeproj">
          </BuildableReference>
@@ -80,7 +80,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FCA3FA8D193C809000390B10"
-            BuildableName = "BloodHound.app"
+            BuildableName = "Bloodhound.app"
             BlueprintName = "Bloodhound"
             ReferencedContainer = "container:BloodHound.xcodeproj">
          </BuildableReference>

@@ -5,18 +5,17 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
 import com.google.gson.Gson;
+import com.smallemperor.factory.EntityManagerProvider;
 
 public class LostDAO {
 	
 
 	public List<Lost> getLostPeople(String id) {
 		List<Lost> Losts = null;
-		EntityManagerFactory e = Persistence
-				.createEntityManagerFactory("BloodHoundDB");
+		EntityManagerFactory e = EntityManagerProvider.getInstance().getEntityManagerFactory();
 		EntityManager em = e.createEntityManager();
 		try {
 			EntityTransaction entr = em.getTransaction();
@@ -34,8 +33,7 @@ public class LostDAO {
 
 	public Lost getLostDetails(String beaconId) {
 
-		EntityManagerFactory e = Persistence
-				.createEntityManagerFactory("BloodHoundDB");
+		EntityManagerFactory e = EntityManagerProvider.getInstance().getEntityManagerFactory();
 		Lost Lost = new Lost();
 		EntityManager em = e.createEntityManager();
 		try {
@@ -57,8 +55,7 @@ public class LostDAO {
 	
 	public void insertToDB(Lost lostObject) {
 
-		EntityManagerFactory e = Persistence
-				.createEntityManagerFactory("BloodHoundDB");
+		EntityManagerFactory e = EntityManagerProvider.getInstance().getEntityManagerFactory();
 		EntityManager em = e.createEntityManager();
 		try {
 			EntityTransaction entr = em.getTransaction();
@@ -75,8 +72,7 @@ public class LostDAO {
 	
 	public void updateReportedBeacon(Lost lostObject) { //lost will only contain beconid and reported flag
 
-		EntityManagerFactory e = Persistence
-				.createEntityManagerFactory("BloodHoundDB");
+		EntityManagerFactory e = EntityManagerProvider.getInstance().getEntityManagerFactory();
 		EntityManager em = e.createEntityManager();
 		try {
 			EntityTransaction entr = em.getTransaction();
@@ -102,9 +98,8 @@ public class LostDAO {
 		 lost.setCol0("Col0");
 		 LostDAO lostDAO = new LostDAO();
 		 lostDAO.insertToDB(lost);
-		 
 
-			Gson gson = new Gson();
+		Gson gson = new Gson();
 		 
 		Lost lostObject = lostDAO.getLostDetails("William's Phone");
 		System.out.println(lostObject.getAddress());

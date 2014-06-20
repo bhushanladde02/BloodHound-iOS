@@ -141,11 +141,11 @@ NSString *databasePath;
     globals.foundData = parsedObject;
     
     
-    [NSTimer scheduledTimerWithTimeInterval:60.0  //seconds
-                                     target:self
+    /*[NSTimer scheduledTimerWithTimeInterval:60.0  //seconds
+                                    target:self
                                    selector:@selector(refreshData)
                                    userInfo:nil
-                                    repeats:YES];
+                                    repeats:YES];*/
 }
 
 

@@ -24,7 +24,7 @@ import com.smallemperor.db.LostDAO;
 
 public class ReportPeople extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private LostDAO lostDAO;
+
 	
 
        
@@ -33,7 +33,6 @@ public class ReportPeople extends HttpServlet {
      */
     public ReportPeople() {
         super();
-        lostDAO = new LostDAO();
         // TODO Auto-generated constructor stub
     }
 
@@ -52,6 +51,8 @@ public class ReportPeople extends HttpServlet {
 		
 		String jsonData = (String) request.getParameter("jsonData");
 		System.out.println("Json data is : "+jsonData);
+		
+		LostDAO lostDAO = new LostDAO();
 		
 		 JsonElement jelement = new JsonParser().parse(jsonData);
 		   JsonObject  jobject = jelement.getAsJsonObject();

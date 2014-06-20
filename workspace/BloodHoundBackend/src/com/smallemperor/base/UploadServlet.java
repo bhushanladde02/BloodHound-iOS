@@ -35,13 +35,11 @@ private boolean isMultipart;
    private int maxFileSize = 500 * 1024;
    private int maxMemSize = 100 * 1024;
    private File file ;
-   private LostDAO lostDAO;
 
    @Override
 	public void init() throws ServletException {
 		// TODO Auto-generated method stub
 		super.init();
-		lostDAO = new LostDAO();
 	}
 
     public void doPost(HttpServletRequest request, 
@@ -100,7 +98,7 @@ private boolean isMultipart;
 	   lost.setCol9(imgURL);
 	   
 	 
-	   lostDAO.insertToDB(lost);	   
+	   new LostDAO().insertToDB(lost);	   
 	   
 	   
 	   
