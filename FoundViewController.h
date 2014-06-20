@@ -10,7 +10,8 @@
 #import <sqlite3.h>
 
 @interface FoundViewController : UIViewController
-
+//-(void) setMap:(NSDictionary*)map;
 @end
 
 NSString *beaconId;
+//NSDictionary *map;

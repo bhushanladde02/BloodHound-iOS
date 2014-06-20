@@ -29,6 +29,7 @@ NSString *databasePath;
     /*
      *  Need to Navigation Controller in AppDelegate
      */
+  
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"BloodHoundStoryBoard" bundle:nil];
     
@@ -52,6 +53,18 @@ NSString *databasePath;
     
     
     return YES;
+}
+
+-(void)application:(UIApplication *)app didReceiveLocalNotification:(UILocalNotification *)notif {
+    
+    //load your controller
+    NSLog(@"Received local notification ");
+    NSDictionary *map = notif.userInfo;
+    //Just to switch screen to new development
+    FoundViewController *foundViewController = [[FoundViewController alloc] init];
+    globals.foundData = map;
+    [(UINavigationController*)self.window.rootViewController pushViewController:foundViewController animated:nil];
+    
 }
 
 -(BOOL)createDB{
@@ -130,24 +143,11 @@ NSString *databasePath;
       //  return nil;
     }
     
-    /*NSString *deviceID = [parsedObject objectForKey:@"beaconId"];
-    NSString *address = [parsedObject objectForKey:@"address"];
-    NSString *col0 = [parsedObject objectForKey:@"col0"];
     
-    NSLog([NSString stringWithFormat:@"%@", deviceID]);
-    NSLog([NSString stringWithFormat:@"%@", address]);
-    NSLog([NSString stringWithFormat:@"%@", col0]);*/
- 
     globals.foundData = parsedObject;
     
     
-    /*[NSTimer scheduledTimerWithTimeInterval:60.0  //seconds
-                                    target:self
-                                   selector:@selector(refreshData)
-                                   userInfo:nil
-                                    repeats:YES];*/
 }
-
 
 
 - (void)didArrive:(FYXVisit *)visit;
@@ -175,7 +175,7 @@ NSString *databasePath;
         
         foundData = globals.foundData;
         alertDS = globals.notificationDS;
-        foundResultsLocal = globals.foundResults;
+        
         
         
         if([alertDS objectForKey:beaconId]){
@@ -183,16 +183,11 @@ NSString *databasePath;
             //object is already set
             return;
         }else{
-        
-            if([foundResultsLocal objectForKey:beaconId]){
-                //do nothing rely on old data
-            }else{
                 [self fetchDetails:beaconId];
                 alertDS = globals.notificationDS;
-                if(globals.foundData!=nil)
-                    [foundResultsLocal setObject:globals.foundData forKey:beaconId];
                 foundData = globals.foundData; //get updated ds
             }
+        
             //check if device is reported
             NSString *isReported = [foundData objectForKey:@"col7"];
             isReported  = isReported!=nil?isReported:@"false";
@@ -202,7 +197,7 @@ NSString *databasePath;
             }//else go ahead
             
             [alertDS setObject:@"On" forKey:beaconId]; //alert is On for same ID
-        }
+        
         
         NSString *firstname = [foundData objectForKey:@"firstname"];
         NSString *lastname = [foundData objectForKey:@"lastname"];
@@ -215,20 +210,17 @@ NSString *databasePath;
             if (localNotif) {
                 localNotif.alertBody = [NSString stringWithFormat:@"%@ %@-%@,%@,%@",firstname,lastname,callToAction,specialNotes,features];
                 localNotif.alertAction = NSLocalizedString(@"Read Message", nil);
-                
-                //Just to switch screen to new development
-                FoundViewController *foundViewController = [[FoundViewController alloc] init];
-                [(UINavigationController*)self.window.rootViewController pushViewController:foundViewController animated:nil];
-                
+                NSDictionary *userDict = [NSDictionary dictionaryWithObjectsAndKeys:foundData, beaconId, nil];
+                localNotif.userInfo = userDict;
                 localNotif.soundName = @"alarmsound.caf";
-                localNotif.applicationIconBadgeNumber = 1;
-                [[UIApplication sharedApplication] scheduleLocalNotification:localNotif];
+               [UIApplication sharedApplication].applicationIconBadgeNumber = [UIApplication sharedApplication].applicationIconBadgeNumber + 1;
+               [[UIApplication sharedApplication] scheduleLocalNotification:localNotif];
             }
     }
-    
 }
 
-//update database
+
+/*//update database
 -(void) refreshData{
     
     for (NSString *key in [globals.foundResults allKeys]) {
@@ -237,7 +229,7 @@ NSString *databasePath;
             [foundResultsLocal setObject:globals.foundData forKey:beaconId];
     }
 
-}
+}*/
 
 
 - (NSUInteger)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window{
@@ -294,6 +286,7 @@ NSString *databasePath;
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    NSLog(@"Application enters foreground - handle push notification click ");
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application

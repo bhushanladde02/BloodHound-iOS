@@ -48,7 +48,7 @@ private boolean isMultipart;
 	   
 	  // init(); //just to set filePath
 	   
-    	
+    	try{
     	
 	 
 	  String jsonString = request.getHeader("jsonString"); //not sure - this shouldn't be passed in header 
@@ -162,7 +162,6 @@ private boolean isMultipart;
       // maximum file size to be uploaded.
       upload.setSizeMax( maxFileSize );
 
-      try{ 
       // Parse the request to get file items.
       List fileItems = upload.parseRequest(request);
 	
@@ -201,10 +200,12 @@ private boolean isMultipart;
       out.println("Success Inserting to Database");
       out.println("</body>");
       out.println("</html>");
-   }catch(Exception ex) {
-       System.out.println(ex);
-       ex.printStackTrace();
-   }
+      
+    	}catch (Exception e) {
+    					response.getWriter().print("Something went wrong, Please come back letter");
+    					e.printStackTrace();
+		}
+   
    }
    
     
@@ -246,9 +247,7 @@ private boolean isMultipart;
     
    public void doGet(HttpServletRequest request, 
                        HttpServletResponse response)
-        throws ServletException, java.io.IOException {
-        
-        throw new ServletException("GET method used with " +
-                getClass( ).getName( )+": POST method required.");
+    {
+
    } 
 }

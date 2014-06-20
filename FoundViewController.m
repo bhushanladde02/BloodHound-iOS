@@ -34,6 +34,7 @@
     // Do any additional setup after loading the view.
     
     GlobalVars *globals = [GlobalVars sharedInstance];
+    //NSDictionary *foundData = map;
     NSDictionary *foundData = globals.foundData;
     NSString *firstname = [foundData objectForKey:@"firstname"];
     firstname = [firstname stringByReplacingOccurrencesOfString:@"\"" withString:@""];
@@ -184,9 +185,16 @@
     //remove the beacon Id
     [alertDS removeObjectForKey:beaconId];
     
-    [[UIApplication sharedApplication] setApplicationIconBadgeNumber: 0];
-    [[UIApplication sharedApplication] cancelAllLocalNotifications];
+    //reduce notification count
+    //--globals.notificationCount;
+    //[[UIApplication sharedApplication] setApplicationIconBadgeNumber:globals.notificationCount];
  
+    if([UIApplication sharedApplication].applicationIconBadgeNumber!=0)
+        [UIApplication sharedApplication].applicationIconBadgeNumber = [UIApplication sharedApplication].applicationIconBadgeNumber - 1;
+}
+
+-(void) setMap:(NSDictionary*)map{
+    self.map = map;
 }
 
 UIAlertView *av;
@@ -195,7 +203,7 @@ UIAlertView *av;
     //show alert processing
     
     NSLog(@"single Tap on tap detected found button");
-    NSLog([NSString stringWithFormat:@"beacon id is %@",beaconId ]);
+   // NSLog([NSString stringWithFormat:@"beacon id is %@",beaconId ]);
    
     
     NSMutableDictionary *jsonDictionary = [[NSMutableDictionary alloc] init];

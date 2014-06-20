@@ -21,5 +21,4 @@
 @property(strong, nonatomic, readwrite) NSMutableDictionary *notificationDS;
 @property(strong, nonatomic, readwrite) NSMutableDictionary *foundResults;
 
-
 @end

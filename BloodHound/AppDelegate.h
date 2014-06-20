@@ -34,4 +34,3 @@ NSMutableData *_responseData;
 GlobalVars *globals;
 NSMutableDictionary *alertDS;
 NSDictionary *foundData;
-NSMutableDictionary *foundResultsLocal;

@@ -32,13 +32,8 @@ public class FindPeople extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-	
-		LostDAO lostDAO = new LostDAO();  
-		response.getWriter().print("Sowmya Ravi");
-		
-		String beaconID; 
-		
-		
+	try{
+		LostDAO lostDAO = new LostDAO();  	
 		String beaconId = (String) request.getParameter("deviceID");
 		System.out.println(beaconId);
 		Gson gson = new Gson();
@@ -46,7 +41,12 @@ public class FindPeople extends HttpServlet {
 		System.out.println(lostObject.getAddress());
 		System.out.println(gson.toJson(lostObject));
 		response.getWriter().print(gson.toJson((lostObject)));
-		
+	}catch (Exception e) {
+		// TODO: handle exception
+		response.getWriter().print("Something went wrong, Please come back letter");
+		e.printStackTrace();
+	}
+	
 	}
 
 	/**
@@ -54,6 +54,8 @@ public class FindPeople extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
+		try{
 		LostDAO lostDAO = new LostDAO(); 
 		String beaconId = (String) request.getParameter("deviceID");
 		System.out.println(beaconId);
@@ -62,6 +64,11 @@ public class FindPeople extends HttpServlet {
 		System.out.println(lostObject.getAddress());
 		System.out.println(gson.toJson(lostObject));
 		response.getWriter().print(gson.toJson((lostObject)));
+		}catch (Exception e) {
+			// TODO: handle exception
+			response.getWriter().print("Something went wrong, Please come back letter");
+			e.printStackTrace();
+		}
 		
 	}
 	public static void main(String[] args) {
