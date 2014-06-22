@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <sqlite3.h>
 
-@interface FoundViewController : UIViewController
+@interface FoundViewController : UIViewController<UIAlertViewDelegate>
 //-(void) setMap:(NSDictionary*)map;
 @property (nonatomic, retain) NSDictionary *dataMap;
 @end

@@ -307,11 +307,12 @@ UIAlertView *av;
     if (localError != nil) {
         UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"Success"
                                                               message:@"Reporting Successful"
-                                                             delegate:nil
+                                                             delegate:self
                                                     cancelButtonTitle:@"OK"
                                                     otherButtonTitles: nil];
         
         [myAlertView show];
+        myAlertView.tag = 200; //200 for Success
         
     }else{
         //success
@@ -324,6 +325,35 @@ UIAlertView *av;
         [myAlertView show];
     }
     
+}
+
+//On Success of Found - Show user dialog to Keep App running or kill it
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if(alertView.tag == 200){
+    UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"Action Required"
+                                                          message:@"Do you want BloodHound still active ?"
+                                                         delegate:self
+                                                cancelButtonTitle:@"No"
+                                                otherButtonTitles:@"Yes"];
+        [myAlertView show];
+    }else{
+        if (buttonIndex == 0)
+        {
+            //Code for No button
+            [[UIApplication sharedApplication] cancelAllLocalNotifications];
+            [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+            exit(0);
+        }
+        if (buttonIndex == 1)
+        {
+            //Code for YES button
+            NSLog(@"Skip Button Pressed");
+            UIApplication *app = [UIApplication sharedApplication];
+            [app performSelector:@selector(suspend)];
+            [self back];
+        }
+    }
 }
 
 -(UIColor*)colorWithHexString:(NSString*)hex
