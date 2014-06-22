@@ -191,8 +191,8 @@
     //--globals.notificationCount;
     //[[UIApplication sharedApplication] setApplicationIconBadgeNumber:globals.notificationCount];
  
-    if([UIApplication sharedApplication].applicationIconBadgeNumber!=0)
-        [UIApplication sharedApplication].applicationIconBadgeNumber = [UIApplication sharedApplication].applicationIconBadgeNumber - 1;
+   /* if([UIApplication sharedApplication].applicationIconBadgeNumber!=0)
+        [UIApplication sharedApplication].applicationIconBadgeNumber = [UIApplication sharedApplication].applicationIconBadgeNumber - 1; */
 }
 
 -(void) setMap:(NSDictionary*)map{
