@@ -635,6 +635,11 @@ bool *isChecked = false;
     return UIInterfaceOrientationMaskPortrait;
 }
 
+//UIAlertView Delegate only for success button
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    [self back];
+}
 
 
 //sends http request
@@ -861,13 +866,12 @@ UIAlertView *av;
     
     UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"Success"
                                                           message:@"Registration Successful"
-                                                         delegate:nil
+                                                         delegate:self
                                                 cancelButtonTitle:@"OK"
     
                                                 otherButtonTitles: nil];
     
     [myAlertView show];
-    
 
 }
 

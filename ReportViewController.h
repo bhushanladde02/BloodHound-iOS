@@ -10,7 +10,7 @@
 #import <sqlite3.h>
 #import "TPKeyboardAvoidingScrollView.h"
 
-@interface ReportViewController : UIViewController
+@interface ReportViewController : UIViewController<UIAlertViewDelegate>
 @end
 
 UIImage *uncheckImage;

@@ -194,7 +194,7 @@ NSInteger height  = 0;
     if (localError != nil) {
         UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"Success"
                                                               message:@"Reporting Successful"
-                                                             delegate:nil
+                                                             delegate:self
                                                     cancelButtonTitle:@"OK"
                                                     otherButtonTitles: nil];
         
@@ -211,6 +211,12 @@ NSInteger height  = 0;
         [myAlertView show];
     }
 
+}
+
+//UIAlertView Delegate only for success button
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    [self back];
 }
 
 

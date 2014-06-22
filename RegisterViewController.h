@@ -11,7 +11,7 @@
 #import <sqlite3.h>
 #import "UIPlaceHolderTextView.h"
 
-@interface RegisterViewController : UIViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate, NSURLConnectionDelegate>
+@interface RegisterViewController : UIViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate, NSURLConnectionDelegate,UIAlertViewDelegate>
 @end
 
 UIImage *chosenImage;
