@@ -76,7 +76,7 @@ public class FindPeople extends HttpServlet {
         LostDAO lostDAO = new LostDAO();
 		System.out.println(beaconId);
 		Gson gson = new Gson();	
-		Lost lostObject = lostDAO.getLostDetails(beaconId);
+		Lost lostObject = lostDAO.getLostDetails(beaconId);	
 		System.out.println(lostObject.getAddress());
 		System.out.println(gson.toJson(lostObject));
 		//response.getWriter().print(gson.toJson((lostObject)));*/

@@ -29,6 +29,8 @@ NSString *databasePath;
     /*
      *  Need to Navigation Controller in AppDelegate
      */
+    
+    
   
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"BloodHoundStoryBoard" bundle:nil];
@@ -63,7 +65,14 @@ NSString *databasePath;
     //Just to switch screen to new development
     FoundViewController *foundViewController = [[FoundViewController alloc] init];
     foundViewController.dataMap = map;
-    [(UINavigationController*)self.window.rootViewController pushViewController:foundViewController animated:nil];
+    
+    //delete the notification - also remove it from alertDS so user will get alert next time
+    [[UIApplication sharedApplication] cancelLocalNotification:notif];
+    //and reduce the badge number
+    if([UIApplication sharedApplication].applicationIconBadgeNumber > 0 )
+        [UIApplication sharedApplication].applicationIconBadgeNumber = [UIApplication sharedApplication].applicationIconBadgeNumber - 1;
+    
+    [(UINavigationController*)self.window.rootViewController pushViewController:foundViewController animated:false];
     
 }
 
