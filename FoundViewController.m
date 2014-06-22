@@ -40,8 +40,11 @@
     NSString *lastname = [foundData objectForKey:@"lastname"];
     lastname = [lastname stringByReplacingOccurrencesOfString:@"\"" withString:@""];
     NSString *callToAction = [foundData objectForKey:@"col6"];
+    callToAction = [callToAction stringByReplacingOccurrencesOfString:@"%22" withString:@"\""];
     NSString *specialNotes = [foundData objectForKey:@"col5"];
+    specialNotes = [specialNotes stringByReplacingOccurrencesOfString:@"%22" withString:@"\""];
     NSString *features =[foundData objectForKey:@"col3"];
+    features = [features stringByReplacingOccurrencesOfString:@"%22" withString:@"\""];
     
     NSMutableDictionary *alertDS = globals.notificationDS;
     

@@ -58,7 +58,7 @@
    //scrollView.pagingEnabled = YES;
    scrollView.showsVerticalScrollIndicator = YES;
    scrollView.showsHorizontalScrollIndicator = YES;
-   scrollView.contentSize = CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.height*1.7);
+   scrollView.contentSize = CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.height*2.0);
    //[self.view addSubview:scrollView];
    self.view = scrollView;
     
@@ -132,6 +132,8 @@
     deviceTextField.layer.cornerRadius = 3;
     deviceTextField.layer.borderColor = [[self colorWithHexString:@"3fa69a"] CGColor ];
     deviceTextField.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:16];
+    //Auto Capital for beaconID
+    [deviceTextField setAutocapitalizationType:UITextAutocapitalizationTypeAllCharacters];
     [self.view addSubview:deviceTextField];
     
     //name Label
@@ -561,21 +563,33 @@ bool *isChecked = false;
 
 
 -(void) insertLostLocal{
-    
     beaconID = deviceTextField.text;
+    beaconID = [beaconID stringByReplacingOccurrencesOfString:@"\"" withString:@"%22"];
     fname = textField.text;
+    fname  = [fname stringByReplacingOccurrencesOfString:@"\"" withString:@""];
     lname = ltextField.text;
+    lname  = [lname stringByReplacingOccurrencesOfString:@"\"" withString:@""];
     age = ageTextField.text;
+    age = [age stringByReplacingOccurrencesOfString:@"\"" withString:@""];
     height= heightTextField.text;
+    //replace double quote by %22
+    height = [height stringByReplacingOccurrencesOfString:@"\"" withString:@"%22"];
     weight = weightTextField.text;
+    weight = [weight stringByReplacingOccurrencesOfString:@"\"" withString:@""];
     hcolor = hairTextField.text;
+    weight = [weight stringByReplacingOccurrencesOfString:@"\"" withString:@""];
     ecolor = eyeTextField.text;
+    ecolor = [ecolor stringByReplacingOccurrencesOfString:@"\"" withString:@""];
     feature = featuresTextField.text;
+    feature = [feature stringByReplacingOccurrencesOfString:@"\"" withString:@"%22"];
     street = streetAddressInputField.text;
+    street = [street stringByReplacingOccurrencesOfString:@"\"" withString:@"%22"];
     zip = zipInputField.text;
+    zip = [zip stringByReplacingOccurrencesOfString:@"\"" withString:@"%22"];
     special= notesTextField.text;
+    special = [special stringByReplacingOccurrencesOfString:@"\"" withString:@"%22"];
     action = callInputField.text;
-    
+    action = [action stringByReplacingOccurrencesOfString:@"\"" withString:@"%22"];
   
     //(BEACONID ,FNAME ,LNAME ,IMGURL ,STREET ,CITY ,STATE ,ZIP ,AGE ,HEIGHT ,WEIGHT ,HCOLOR , ECOLOR , FEATURE ,SPECIAL ,ACTION )
     NSString *insertLostSQL = [NSString stringWithFormat:@"INSERT INTO LOST (BEACONID ,FNAME ,LNAME ,IMGURL ,STREET ,CITY ,STATE ,ZIP ,AGE ,HEIGHT ,WEIGHT ,HCOLOR , ECOLOR , FEATURE ,SPECIAL ,ACTION, REPORT ) VALUES (\"%@\",\"%@\" ,\"%@\",\"%@\",\"%@\" ,\"%@\",\"%@\",\"%@\" ,\"%@\",\"%@\",\"%@\" ,\"%@\",\"%@\",\"%@\" ,\"%@\",\"%@\",\"%@\")", beaconID, fname, lname,imgURL,street,city,state,zip,age,height,weight,hcolor,ecolor,feature,special,action,@"false"];
@@ -625,6 +639,11 @@ bool *isChecked = false;
 
 //sends http request
 -(void) registerUser{
+    // put that processing alert here
+    
+    av = [[UIAlertView alloc] initWithTitle:@"Processing..." message:@"" delegate:nil cancelButtonTitle:nil otherButtonTitles:nil];
+    [av show];
+    
     //validate first
     BOOL validate = [self validateInput];
     
@@ -709,12 +728,6 @@ bool *isChecked = false;
     [request setURL:requestURL];
     
     NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
-    av = [[UIAlertView alloc] initWithTitle:@"Processing..." message:@"" delegate:nil cancelButtonTitle:nil otherButtonTitles:nil];
-    //pv = [[UIProgressView alloc] initWithProgressViewStyle:UIProgressViewStyleBar];
-    //pv.progress = 5.0;
-    
-    [av addSubview:newImageView];
-    [av show];
 }
 
 //lock bc rotation
