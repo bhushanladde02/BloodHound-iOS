@@ -11,8 +11,6 @@
 #import "UIImageView+AnimatedGif.h"
 #import <QuartzCore/QuartzCore.h>
 #import "TPKeyboardAvoidingScrollView.h"
-#import <AdSupport/ASIdentifierManager.h>
-
 @interface RegisterViewController ()
 
 @end
@@ -445,7 +443,7 @@
     submitButton.userInteractionEnabled = YES;
     [submitButton addGestureRecognizer:singleTapRegister];
     
-    adID = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
+    adID = @"ShouldBeUnique";//[[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
     NSLog(@"Ad ID is %@", adID); //this will be used as unique ID
     
 }

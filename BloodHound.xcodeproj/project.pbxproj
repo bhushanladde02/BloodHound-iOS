@@ -86,7 +86,6 @@
 		FCAD837F194B836E00D0608F /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = FCAD8370194B836E00D0608F /* UIImageView+WebCache.m */; };
 		FCAF95921946417600662414 /* FoundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCAF95911946417600662414 /* FoundViewController.m */; };
 		FCB18F52194C56CC00A3345F /* UIPlaceHolderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB18F51194C56CC00A3345F /* UIPlaceHolderTextView.m */; };
-		FCB18F62194DA70000A3345F /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCB18F61194DA70000A3345F /* AdSupport.framework */; };
 		FCB18F65194ED39200A3345F /* GlobalVars.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB18F64194ED39200A3345F /* GlobalVars.m */; };
 		FCB18F67194EF94F00A3345F /* found.png in Resources */ = {isa = PBXBuildFile; fileRef = FCB18F66194EF94F00A3345F /* found.png */; };
 		FCB18F6B194F2E3300A3345F /* activeSearch.png in Resources */ = {isa = PBXBuildFile; fileRef = FCB18F68194F2E3200A3345F /* activeSearch.png */; };
@@ -226,7 +225,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FCB18F62194DA70000A3345F /* AdSupport.framework in Frameworks */,
 				FCAD8343194AE99400D0608F /* FYX.framework in Frameworks */,
 				FCAD8344194AE99400D0608F /* NetworkServices.framework in Frameworks */,
 				FCAD8345194AE99400D0608F /* ContextLocation.framework in Frameworks */,
@@ -482,6 +480,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Small Emperor";
 				TargetAttributes = {
+					FCA3FA8D193C809000390B10 = {
+						DevelopmentTeam = YXSEE59V6N;
+					};
 					FCA3FAAD193C809000390B10 = {
 						TestTargetID = FCA3FA8D193C809000390B10;
 					};
@@ -648,7 +649,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: William Grey (YXSEE59V6N)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: William Grey (YXSEE59V6N)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -666,6 +668,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "16C6DDFF-16E1-4925-8C07-5EE6EB0E419C";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -686,7 +689,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: William Grey (YXSEE59V6N)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: William Grey (YXSEE59V6N)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -697,6 +701,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				PROVISIONING_PROFILE = "16C6DDFF-16E1-4925-8C07-5EE6EB0E419C";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -706,6 +711,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/FrameworkLibs",
@@ -718,6 +725,7 @@
 				GCC_PREFIX_HEADER = "BloodHound/BloodHound-Prefix.pch";
 				INFOPLIST_FILE = "BloodHound/BloodHound-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "16C6DDFF-16E1-4925-8C07-5EE6EB0E419C";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -727,6 +735,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/FrameworkLibs",
@@ -739,6 +749,7 @@
 				GCC_PREFIX_HEADER = "BloodHound/BloodHound-Prefix.pch";
 				INFOPLIST_FILE = "BloodHound/BloodHound-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "16C6DDFF-16E1-4925-8C07-5EE6EB0E419C";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
