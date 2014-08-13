@@ -18,9 +18,16 @@
 
 static sqlite3 *database = nil;
 NSString *databasePath;
+NSMutableDictionary *alertContextObject;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    //detecting first launch -- http://stackoverflow.com/questions/308832/iphone-how-do-i-detect-when-an-app-is-launched-for-the-first-time
+    
+    // -applicationDidFinishLaunching:
+    [[NSUserDefaults standardUserDefaults] registerDefaults:[NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:YES],@"firstLaunch",nil]];
+    
+    
     /*self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
@@ -53,6 +60,7 @@ NSString *databasePath;
     
     globals = [GlobalVars sharedInstance];
     
+    alertContextObject = [[NSMutableDictionary alloc] init];
     
     return YES;
 }
@@ -87,8 +95,10 @@ NSString *databasePath;
     databasePath = [[NSString alloc] initWithString:
                     [docsDir stringByAppendingPathComponent: @"lostDatabase.db"]];
     BOOL isSuccess = YES;
-    NSFileManager *filemgr = [NSFileManager defaultManager];
-    if ([filemgr fileExistsAtPath: databasePath ] == YES)
+   // NSFileManager *filemgr = [NSFileManager defaultManager];
+    
+    // to check it: to check first launch
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"firstLaunch"])
     {
         const char *dbpath = [databasePath UTF8String];
         if (sqlite3_open(dbpath, &database) == SQLITE_OK)
@@ -170,21 +180,14 @@ NSString *databasePath;
     
     // this will be invoked when an authorized transmitter is sighted during an on-going visit
     NSLog(@"I received a sighting!!! %@", visit.transmitter.name);
-     NSLog(@"I received a identifier!!! %@", visit.transmitter.identifier);
-    
-    
+    NSLog(@"I received a identifier!!! %@", visit.transmitter.identifier);
     
     NSString *beaconId = visit.transmitter.identifier;
-
-    
     
     NSLog(@"Gimbal Beacon Value!!! %@", visit.transmitter.ownerId);
-    if([[UIApplication sharedApplication] applicationState] != UIApplicationStateActive) {
-        NSLog(@"Application status is in background %@",visit.transmitter.battery);
+    
         alertDS = globals.notificationDS;
-        
-        
-        
+    
         if([alertDS objectForKey:beaconId]){
             //forget it  -alert is already there
             //object is already set
@@ -211,6 +214,10 @@ NSString *databasePath;
         NSString *specialNotes = [foundData objectForKey:@"col5"];
         NSString *features =[foundData objectForKey:@"col3"];
         //NSString *uniqueID = [foundData objectForKey:@"col8"];
+    
+    
+    if([[UIApplication sharedApplication] applicationState] != UIApplicationStateActive) {
+        NSLog(@"Application status is in background %@",visit.transmitter.battery);
         
             UILocalNotification *localNotif = [[UILocalNotification alloc] init];
             if (localNotif) {
@@ -221,7 +228,45 @@ NSString *databasePath;
                [UIApplication sharedApplication].applicationIconBadgeNumber = [UIApplication sharedApplication].applicationIconBadgeNumber + 1;
                [[UIApplication sharedApplication] scheduleLocalNotification:localNotif];
             }
+    }else{
+        NSString *personName = [NSString stringWithFormat:@"Your are in the vicinity of %@ %@",firstname,lastname];
+        UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"Found Missing Person"
+                                                              message:personName
+                                                             delegate:self
+                                                    cancelButtonTitle:@"Cancel"
+                                                    otherButtonTitles:@"Help", nil ];
+        [myAlertView show];
+        
+        
+        NSString *alertKey = [NSString stringWithFormat:@"%@", myAlertView]; //address as key
+        
+        [alertContextObject setObject:foundData forKey:alertKey];
     }
+}
+
+NSMutableDictionary *alertContextObject;
+
+//On Success of Found - Show user dialog to Keep App running or kill it
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+
+    NSString *alertKey = [NSString stringWithFormat:@"%@", alertView]; //address as key
+    NSDictionary *data = [alertContextObject objectForKey:alertKey];
+
+        if (buttonIndex == 0)
+        {
+            //Code for No button -- do nothing
+        }
+        if (buttonIndex == 1)
+        {
+            //Code for YES button
+            NSLog(@"Help Button Pressed");
+            
+            FoundViewController *foundViewController = [[FoundViewController alloc] init];
+            foundViewController.dataMap = data;
+            [(UINavigationController*)self.window.rootViewController pushViewController:foundViewController animated:false];
+    
+        }
 }
 
 
@@ -298,6 +343,10 @@ NSString *databasePath;
 {
     // Saves changes in the application's managed object context before the application terminates.
     [self saveContext];
+    
+    // -applicationWillTerminate:  --this is for firstLaunch
+    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"firstLaunch"];
+    
 }
 
 - (void)saveContext

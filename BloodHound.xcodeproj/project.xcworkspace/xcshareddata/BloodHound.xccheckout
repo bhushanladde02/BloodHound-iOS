@@ -5,36 +5,36 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>AD67D400-D3BA-427E-B28F-8B2A78CE1A8F</string>
+	<string>5FD5AE79-CF57-4A10-A863-8525CFD49A60</string>
 	<key>IDESourceControlProjectName</key>
 	<string>BloodHound</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>E30AF419-15E8-400C-8497-1A361D6C854D</key>
-		<string>https://bitbucket.org/pradeephrish/small-emperor.git</string>
+		<key>71893CB1-7D25-47CC-B497-24143C42E0C2</key>
+		<string>ssh://bitbucket.org/pradeephrish/bloodhound.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>BloodHound.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>E30AF419-15E8-400C-8497-1A361D6C854D</key>
+		<key>71893CB1-7D25-47CC-B497-24143C42E0C2</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://bitbucket.org/pradeephrish/small-emperor.git</string>
+	<string>ssh://bitbucket.org/pradeephrish/bloodhound.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>E30AF419-15E8-400C-8497-1A361D6C854D</string>
+	<string>71893CB1-7D25-47CC-B497-24143C42E0C2</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>E30AF419-15E8-400C-8497-1A361D6C854D</string>
+			<string>71893CB1-7D25-47CC-B497-24143C42E0C2</string>
 			<key>IDESourceControlWCCName</key>
-			<string>BloodHound</string>
+			<string>bloodhound</string>
 		</dict>
 	</array>
 </dict>

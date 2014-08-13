@@ -36,6 +36,8 @@
 	<string>1.0</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSMainNibFile~ipad</key>
+	<string>BloodHoundStoryBoard-iPad</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>OpenSans-CondBold.ttf</string>
