@@ -1,3 +1,22 @@
+<<<<<<< HEAD
+=======
+
+
+*****new process********
+
+There are two branches :
+
+master : which will always track development
+release : this has git commit related  release process ( commit - code siging entity ) , whenever we want to make release, just cherrypick this commit 
+
+tag -  tagged 1.0 for released version 1.0
+
+*****process ends*******
+
+
+//All following release processed is modified, since we created new repository from old branches. 
+
+>>>>>>> master
 Remember release process --
 
 Code signing entity added is the one of the commit on this branch,  which is required to release app to the app store.

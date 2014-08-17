@@ -260,6 +260,7 @@
 		FCA3FA85193C809000390B10 = {
 			isa = PBXGroup;
 			children = (
+				FCB92DC119994EB200B7315D /* iPad */,
 				BEE6FCC2194F895800693BC2 /* background2.png */,
 				BEE6FCB8194D951100693BC2 /* UIScrollView+TPKeyboardAvoidingAdditions.h */,
 				BEE6FCB9194D951100693BC2 /* UIScrollView+TPKeyboardAvoidingAdditions.m */,
@@ -431,6 +432,13 @@
 				FCAD8370194B836E00D0608F /* UIImageView+WebCache.m */,
 			);
 			path = SDWebImage;
+			sourceTree = "<group>";
+		};
+		FCB92DC119994EB200B7315D /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = iPad;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -724,6 +732,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BloodHound/BloodHound-Prefix.pch";
 				INFOPLIST_FILE = "BloodHound/BloodHound-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "16C6DDFF-16E1-4925-8C07-5EE6EB0E419C";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -748,6 +757,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BloodHound/BloodHound-Prefix.pch";
 				INFOPLIST_FILE = "BloodHound/BloodHound-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "16C6DDFF-16E1-4925-8C07-5EE6EB0E419C";
 				TARGETED_DEVICE_FAMILY = 1;
