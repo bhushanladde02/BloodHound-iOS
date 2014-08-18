@@ -35,6 +35,20 @@
     //self.imageBackground.set
     UIImage *backgroundImage = [UIImage imageNamed:@"background2.png"];
     
+    
+    
+    TPKeyboardAvoidingScrollView* scrollView = [[TPKeyboardAvoidingScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
+    scrollView.scrollEnabled = YES;
+    //scrollView.pagingEnabled = YES;
+    scrollView.showsVerticalScrollIndicator = YES;
+    scrollView.showsHorizontalScrollIndicator = YES;
+    scrollView.contentSize = CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.height);
+    //[self.view addSubview:scrollView];
+    self.view = scrollView;
+    
+    
+    
+    
     UIImageView *backgroundImageView=[[UIImageView alloc]initWithFrame:self.view.frame];
     backgroundImageView.image=backgroundImage;
    // backgroundImage.image

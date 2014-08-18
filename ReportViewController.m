@@ -31,12 +31,13 @@ NSInteger height  = 0;
 {
     [super viewDidLoad];
     
+    
     TPKeyboardAvoidingScrollView* scrollView = [[TPKeyboardAvoidingScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
     scrollView.scrollEnabled = YES;
     //scrollView.pagingEnabled = YES;
     scrollView.showsVerticalScrollIndicator = YES;
     scrollView.showsHorizontalScrollIndicator = YES;
-    //scrollView.contentSize = CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.height);
+    scrollView.contentSize = CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.height*1.2);
     //[self.view addSubview:scrollView];
     self.view = scrollView;
     

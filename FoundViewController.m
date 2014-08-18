@@ -33,6 +33,19 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    TPKeyboardAvoidingScrollView* scrollView = [[TPKeyboardAvoidingScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
+    scrollView.scrollEnabled = YES;
+    //scrollView.pagingEnabled = YES;
+    scrollView.showsVerticalScrollIndicator = YES;
+    scrollView.showsHorizontalScrollIndicator = YES;
+    scrollView.contentSize = CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.height*1.4);
+    //[self.view addSubview:scrollView];
+    self.view = scrollView;
+    
+    
+    
+    
+    
     GlobalVars *globals = [GlobalVars sharedInstance];
     NSDictionary *foundData = self.dataMap;
     NSString *firstname = [foundData objectForKey:@"firstname"];
@@ -49,14 +62,7 @@
     NSMutableDictionary *alertDS = globals.notificationDS;
     
     
-    TPKeyboardAvoidingScrollView* scrollView = [[TPKeyboardAvoidingScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
-    scrollView.scrollEnabled = YES;
-    //scrollView.pagingEnabled = YES;
-    scrollView.showsVerticalScrollIndicator = YES;
-    scrollView.showsHorizontalScrollIndicator = YES;
-    scrollView.contentSize = CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.height*1.4);
-    //[self.view addSubview:scrollView];
-    self.view = scrollView;
+
 
     //custom back button
     UIImage *buttonImage = [UIImage imageNamed:@"backButton.png"];

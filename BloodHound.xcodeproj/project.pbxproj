@@ -260,7 +260,6 @@
 		FCA3FA85193C809000390B10 = {
 			isa = PBXGroup;
 			children = (
-				FCB92DC119994EB200B7315D /* iPad */,
 				BEE6FCC2194F895800693BC2 /* background2.png */,
 				BEE6FCB8194D951100693BC2 /* UIScrollView+TPKeyboardAvoidingAdditions.h */,
 				BEE6FCB9194D951100693BC2 /* UIScrollView+TPKeyboardAvoidingAdditions.m */,
@@ -432,13 +431,6 @@
 				FCAD8370194B836E00D0608F /* UIImageView+WebCache.m */,
 			);
 			path = SDWebImage;
-			sourceTree = "<group>";
-		};
-		FCB92DC119994EB200B7315D /* iPad */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = iPad;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
