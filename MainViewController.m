@@ -11,6 +11,7 @@
 #import "ActiveViewController.h"
 #import "ReportViewController.h"
 #import "FoundViewController.h"
+#import "SettingViewController.h"
 
 @interface MainViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *imageBackground;
@@ -34,6 +35,12 @@
     [super viewDidLoad];
     //self.imageBackground.set
     UIImage *backgroundImage = [UIImage imageNamed:@"background2.png"];
+
+    
+    UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:@"Show" style:UIBarButtonItemStylePlain target:self action:@selector(settingMenuClicked:)];
+    self.navigationItem.rightBarButtonItem = anotherButton;
+    
+    
     
     UIImageView *backgroundImageView=[[UIImageView alloc]initWithFrame:self.view.frame];
     backgroundImageView.image=backgroundImage;
@@ -54,9 +61,13 @@
     NSInteger offset = (320- 583/2)/2;
     
     
-     UIImageView *registerButton = [[UIImageView alloc] initWithFrame:CGRectMake(  offset, 205, 583/2, 159/2)];
+     UIImageView *registerButton = [[UIImageView alloc] initWithFrame:CGRectMake(  offset, 205, 602/2, 159/2)];
     registerButton.image  = [UIImage imageNamed:@"register.png"];
     [self.view addSubview:registerButton];
+    
+    CGPoint centerImageView = registerButton.center;
+    centerImageView = self.view.center;
+    registerButton.center = centerImageView;
     
     UIImageView *reportButton = [[UIImageView alloc] initWithFrame:CGRectMake(  offset , 295, 583/2, 159/2)];
     reportButton.image  = [UIImage imageNamed:@"report.png"];
@@ -118,6 +129,12 @@
     return UIInterfaceOrientationMaskPortrait;
 }
 
+
+- (void)settingMenuClicked:(id)sender{
+    NSLog(@"Clicking on setting Menu");
+    SettingViewController *settingViewController = [[SettingViewController alloc] initWithNibName:nil bundle:nil];
+    [self.navigationController pushViewController:settingViewController animated:YES];
+}
 
 
 
