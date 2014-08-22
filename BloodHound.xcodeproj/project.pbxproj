@@ -524,6 +524,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Small Emperor";
 				TargetAttributes = {
+					FCA3FA8D193C809000390B10 = {
+						DevelopmentTeam = YXSEE59V6N;
+					};
 					FCA3FAAD193C809000390B10 = {
 						TestTargetID = FCA3FA8D193C809000390B10;
 					};
@@ -758,6 +761,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/FrameworkLibs",
@@ -771,6 +776,7 @@
 				INFOPLIST_FILE = "BloodHound/BloodHound-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -780,6 +786,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/FrameworkLibs",
@@ -793,6 +801,7 @@
 				INFOPLIST_FILE = "BloodHound/BloodHound-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
