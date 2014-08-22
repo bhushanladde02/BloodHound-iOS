@@ -42,12 +42,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RegisterViewController.m"
-            timestampString = "424556767.431384"
+            timestampString = "430384277.777168"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "533"
-            endingLineNumber = "533"
-            landmarkName = "-alertUser::"
+            startingLineNumber = "539"
+            endingLineNumber = "539"
+            landmarkName = "-validateInput"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

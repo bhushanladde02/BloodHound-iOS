@@ -35,6 +35,12 @@
     //self.imageBackground.set
     UIImage *backgroundImage = [UIImage imageNamed:@"background2.png"];
     
+    //Get Actual Width and Height of Device
+    CGFloat width = [[UIScreen mainScreen] bounds].size.width;
+    CGFloat height = [[UIScreen mainScreen] bounds].size.width;
+    
+    
+    
     UIImageView *backgroundImageView=[[UIImageView alloc]initWithFrame:self.view.frame];
     backgroundImageView.image=backgroundImage;
    // backgroundImage.image
@@ -54,7 +60,7 @@
     NSInteger offset = (320- 583/2)/2;
     
     
-     UIImageView *registerButton = [[UIImageView alloc] initWithFrame:CGRectMake(  offset, 205, 583/2, 159/2)];
+     UIImageView *registerButton = [[UIImageView alloc] initWithFrame:CGRectMake(  offset, height*0.45, width*0.8, 159/2)];
     registerButton.image  = [UIImage imageNamed:@"register.png"];
     [self.view addSubview:registerButton];
     
