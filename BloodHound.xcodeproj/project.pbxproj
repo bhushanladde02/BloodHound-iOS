@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B41CFB58ADBB4CA29BE52B30 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BA8D9B8B8144A1CBEAEDD36 /* libPods.a */; };
 		BEE6FCBC194D951100693BC2 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE6FCB9194D951100693BC2 /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
 		BEE6FCBD194D951100693BC2 /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE6FCBB194D951100693BC2 /* TPKeyboardAvoidingScrollView.m */; };
 		BEE6FCBF194D953900693BC2 /* AGMedallionView in Resources */ = {isa = PBXBuildFile; fileRef = BEE6FCBE194D953800693BC2 /* AGMedallionView */; };
@@ -102,6 +103,7 @@
 		FCC5168519AE65560033F88C /* ReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCC5167C19AE65560033F88C /* ReportViewController.m */; };
 		FCC5168619AE65560033F88C /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCC5167E19AE65560033F88C /* SettingViewController.m */; };
 		FCC5168719AE65560033F88C /* SplashControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCC5168019AE65560033F88C /* SplashControllerViewController.m */; };
+		FCC5168E19AE74E90033F88C /* DatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FCC5168D19AE74E90033F88C /* DatabaseManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +117,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		208CB44ADB5B41948017C2F2 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		2BA8D9B8B8144A1CBEAEDD36 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEE6FCB8194D951100693BC2 /* UIScrollView+TPKeyboardAvoidingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TPKeyboardAvoidingAdditions.h"; sourceTree = "<group>"; };
 		BEE6FCB9194D951100693BC2 /* UIScrollView+TPKeyboardAvoidingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+TPKeyboardAvoidingAdditions.m"; sourceTree = "<group>"; };
 		BEE6FCBA194D951100693BC2 /* TPKeyboardAvoidingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingScrollView.h; sourceTree = "<group>"; };
@@ -241,6 +245,8 @@
 		FCC5167E19AE65560033F88C /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 		FCC5167F19AE65560033F88C /* SplashControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplashControllerViewController.h; sourceTree = "<group>"; };
 		FCC5168019AE65560033F88C /* SplashControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplashControllerViewController.m; sourceTree = "<group>"; };
+		FCC5168C19AE74E90033F88C /* DatabaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatabaseManager.h; sourceTree = "<group>"; };
+		FCC5168D19AE74E90033F88C /* DatabaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatabaseManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -264,6 +270,7 @@
 				FCA3FA94193C809000390B10 /* CoreGraphics.framework in Frameworks */,
 				FCA3FA96193C809000390B10 /* UIKit.framework in Frameworks */,
 				FCA3FA92193C809000390B10 /* Foundation.framework in Frameworks */,
+				B41CFB58ADBB4CA29BE52B30 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,6 +291,7 @@
 		FCA3FA85193C809000390B10 = {
 			isa = PBXGroup;
 			children = (
+				FCC5168819AE66680033F88C /* Database */,
 				FCC5167219AE65560033F88C /* ViewControllers */,
 				FCC5163919AE64EC0033F88C /* images */,
 				FCB92DC119994EB200B7315D /* iPad */,
@@ -315,6 +323,7 @@
 				FCA3FAB6193C809000390B10 /* BloodHoundTests */,
 				FCA3FA90193C809000390B10 /* Frameworks */,
 				FCA3FA8F193C809000390B10 /* Products */,
+				208CB44ADB5B41948017C2F2 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -347,6 +356,7 @@
 				FCA3FA95193C809000390B10 /* UIKit.framework */,
 				FCA3FA97193C809000390B10 /* CoreData.framework */,
 				FCA3FAAF193C809000390B10 /* XCTest.framework */,
+				2BA8D9B8B8144A1CBEAEDD36 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -493,6 +503,15 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		FCC5168819AE66680033F88C /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				FCC5168C19AE74E90033F88C /* DatabaseManager.h */,
+				FCC5168D19AE74E90033F88C /* DatabaseManager.m */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -500,9 +519,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FCA3FAC0193C809000390B10 /* Build configuration list for PBXNativeTarget "Bloodhound" */;
 			buildPhases = (
+				F789954FE9A44A45B62008C8 /* Check Pods Manifest.lock */,
 				FCA3FA8A193C809000390B10 /* Sources */,
 				FCA3FA8B193C809000390B10 /* Frameworks */,
 				FCA3FA8C193C809000390B10 /* Resources */,
+				FEDC9DF5673544C293150F9A /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -624,6 +645,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		F789954FE9A44A45B62008C8 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		FEDC9DF5673544C293150F9A /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		FCA3FA8A193C809000390B10 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -661,6 +715,7 @@
 				FCAD8377194B836E00D0608F /* SDWebImageDownloaderOperation.m in Sources */,
 				FCAD837F194B836E00D0608F /* UIImageView+WebCache.m in Sources */,
 				FCAD837E194B836E00D0608F /* UIImageView+HighlightedWebCache.m in Sources */,
+				FCC5168E19AE74E90033F88C /* DatabaseManager.m in Sources */,
 				FCA3FAA0193C809000390B10 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -775,6 +830,7 @@
 		};
 		FCA3FAC1193C809000390B10 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 208CB44ADB5B41948017C2F2 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -800,6 +856,7 @@
 		};
 		FCA3FAC2193C809000390B10 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 208CB44ADB5B41948017C2F2 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
